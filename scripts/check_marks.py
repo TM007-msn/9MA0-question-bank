@@ -38,8 +38,18 @@ QP_TOTAL_RE = re.compile(r"Total\s+for\s+Question\s+(\d+)\s+is\s+(\d+)\s+marks?"
 
 # Each mark scheme table starts with the column headings, then the question
 # label in the first cell, e.g. "Question\nScheme\nMarks\nAOs\n2(i)".
-MS_HEADER_RE = re.compile(r"Question\s*\n\s*Scheme\s*\n\s*Marks\s*\n\s*AOs\s*\n\s*(\d+)")
-MS_TOTAL_RE = re.compile(r"\(\s*(\d+)\s+marks?\s*\)", re.IGNORECASE)
+# Some tables leave the "Question" heading cell blank (8MA0-01 2019-06 Q13).
+MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme\s*\n\s*Marks\s*\n\s*AOs\s*\n\s*(\d+)")
+# Some questions open with a page of notes headed just "Question 15" on its
+# own line, before the scheme table (8MA0-01 2019-06 Q15). Lines such as
+# "Notes on Question 4 continue" don't match because the line must hold
+# nothing else.
+MS_HEADING_RE = re.compile(r"^[ \t]*Question[ \t]+(\d+)[ \t]*$", re.MULTILINE)
+# The total is usually "(7 marks)"; occasionally it is printed without
+# brackets, as a line of its own ("4 marks"). The unbracketed form must be
+# alone on its line so that notes like "scores 0 marks" aren't counted.
+MS_TOTAL_RE = re.compile(r"\(\s*(\d+)\s+marks?\s*\)|^[ \t]*(\d+)[ \t]+marks?[ \t]*$",
+                         re.IGNORECASE | re.MULTILINE)
 
 
 def pdf_text(path):
@@ -92,7 +102,9 @@ def ms_marks(path):
     """
     text = pdf_text(path)
     events = [(m.start(), "header", int(m.group(1))) for m in MS_HEADER_RE.finditer(text)]
-    events += [(m.start(), "total", int(m.group(1))) for m in MS_TOTAL_RE.finditer(text)]
+    events += [(m.start(), "header", int(m.group(1))) for m in MS_HEADING_RE.finditer(text)]
+    # MS_TOTAL_RE has one group per form; whichever matched holds the number.
+    events += [(m.start(), "total", int(m.group(1) or m.group(2))) for m in MS_TOTAL_RE.finditer(text)]
     events.sort()
 
     totals = {}
