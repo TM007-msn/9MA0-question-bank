@@ -6,11 +6,14 @@ import Python. tests/test_naming.py checks that the two copies agree.
 
 import re
 
-# Qualification + paper: A level (9MA0) has three papers, AS (8MA0) has two.
-PAPER = r"(9MA0-0[1-3]|8MA0-0[12])"
+# Qualification + paper: A level (9MA0) has papers 01-03, AS (8MA0) has 01-02.
+# From 2019 onwards 9MA0 Paper 3 is sat as two papers, 31 (Statistics) and
+# 32 (Mechanics); June 2018, SAM and SPEC have a single 03.
+PAPER = r"(9MA0-(0[1-3]|3[12])|8MA0-0[12])"
 
-# Exam series: year-month (e.g. 2023-06), or SAM for sample assessment materials.
-SERIES = r"([0-9]{4}-(0[1-9]|1[0-2])|SAM)"
+# Exam series: year-month (e.g. 2023-06), SAM for sample assessment materials,
+# or SPEC for the separate specimen set.
+SERIES = r"([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)"
 
 # Question part: Q + number, then an optional letter, then an optional roman
 # numeral from i to x. So Q7, Q07, Q07b and Q07bii are all valid.

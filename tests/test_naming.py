@@ -30,6 +30,9 @@ VALID_QUESTION_IDS = [
     "8MA0-01_2023-06_Q05c",    # AS
     "8MA0-02_SAM_Q01aiv",
     "9MA0-01_2023-06_Q04aviii",
+    "9MA0-31_2022-06_Q03a",    # Paper 3 Statistics
+    "9MA0-32_2019-06_Q05",     # Paper 3 Mechanics
+    "9MA0-01_SPEC_Q02b",       # specimen set
 ]
 
 INVALID_QUESTION_IDS = [
@@ -43,6 +46,9 @@ INVALID_QUESTION_IDS = [
     "9MA0-01_2023-06_Q07B",
     "9MA0-01_2023-06_Q123",
     "9MA0-01_2023-06",
+    "9MA0-33_2022-06_Q01",     # only 31 and 32 exist
+    "8MA0-31_2022-06_Q01",     # AS has no split Paper 3
+    "9MA0-01_Spec_Q01",        # SPEC must be upper case
 ]
 
 VALID_FILENAMES = [
@@ -50,6 +56,9 @@ VALID_FILENAMES = [
     "9MA0-01_SAM_QP.pdf",
     "8MA0-02_2022-06_MS.pdf",
     "9MA0-03_2019-06_ER.pdf",
+    "9MA0-31_2022-06_QP.pdf",
+    "9MA0-32_2021-10_MS.pdf",
+    "9MA0-02_SPEC_MS.pdf",
 ]
 
 INVALID_FILENAMES = [

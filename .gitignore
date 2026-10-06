@@ -7,5 +7,8 @@ __pycache__/
 # Generated output for / from the reMarkable
 out/
 
-# Source PDFs (copyrighted; kept local only)
-source/**/*.pdf
+# Downloaded source material (copyrighted; kept local only).
+# Ignore everything under source/ but keep the folder skeleton.
+source/**
+!source/**/
+!source/**/.gitkeep
