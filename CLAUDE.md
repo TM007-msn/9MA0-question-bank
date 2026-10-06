@@ -7,7 +7,7 @@ past papers, sample assessment materials, mark schemes and examiner reports.
 - `source/papers/`, `source/mark-schemes/`, `source/examiner-reports/`: past-paper PDFs.
 - `source/reference/`: 9MA0 and 8MA0 specifications, formulae booklet, large data set.
 - `source/inbox/`: new files waiting to be renamed and filed.
-- `source/reserved/`: **off limits** (see below).
+- Mock papers: **outside the project**, in `C:\Users\taylo\9MA0-reserved\` (set once as `RESERVED_DIR` in `scripts/paths.py`). **Off limits** (see below).
 - `bank/`: `questions.json`, `errors.json`, `generated.json`, `rejected.json`, `progress.json`.
 - `schemas/`: JSON Schemas for bank entries, plus `topics.json` (canonical topics and spec refs, built by `scripts/build_topics.py`; don't edit by hand).
 - `out/to-remarkable/`, `out/from-remarkable/`: worksheets going to the reMarkable, and marked work coming back.
@@ -27,7 +27,11 @@ past papers, sample assessment materials, mark schemes and examiner reports.
   - Examples: `9MA0-01_2023-06_QP.pdf`, `9MA0-01_SAM_QP.pdf`, `9MA0-31_2022-06_MS.pdf`, `8MA0-02_2022-06_MS.pdf`.
 - **Question ids:** `QUAL-0X_SERIES_Q<number><letter><roman>`. The number may be zero-padded, and the letter and roman numeral (i–x) are optional. Examples: `9MA0-01_2023-06_Q07bii`, `9MA0-02_SAM_Q03a`, `9MA0-32_2022-06_Q04`. The id must start with the entry's own `paper` and `series`. Generated ids are the anchor id plus `-A`, `-B` or `-C`.
 - The regexes live in `scripts/naming.py` and are copied into `schemas/question.schema.json`. Change both together, then run the tests.
-- **NEVER open, read, list the contents of or extract anything in `source/reserved/`.** Those are my mock papers. Scripts must skip that folder too.
+- **NEVER open, read, list the contents of or extract anything in the mock-papers folder (`RESERVED_DIR`, `C:\Users\taylo\9MA0-reserved\`).** Those are my mock papers. Scripts may only write new files there (fetch_materials.py) and must never read from it. Guards:
+  - the folder is outside the project;
+  - `.claude/settings.json` denies Read/Edit on it;
+  - a PreToolUse hook (`.claude/hooks/guard_mock_papers.py`) blocks any Bash or PowerShell command whose text contains "reserved", in any case. So keep that word out of shell commands, including commit messages (use `git commit -F <file>`).
+  - Never weaken or bypass these guards.
 - **Schemas:** every entry in `questions.json` must follow `schemas/question.schema.json`. Error entries follow `error.schema.json`. `generated.json` follows `generated.schema.json`, and `rejected.json` follows `rejected.schema.json` (generated fields plus `rejection_reason` and `rejected_on`, with `verified: false`). Run `python scripts/validate.py` after changing anything in `bank/`.
 - **Kinematics:** use only the five SUVAT equations.
 - **Statistics:** don't assume access to statistical tables. Use values given in the question or compute them directly.
@@ -37,7 +41,7 @@ past papers, sample assessment materials, mark schemes and examiner reports.
 - **Python:** readable over clever. Add comments that explain any non-obvious step.
 
 ## Reserved mocks
-These series are in `source/reserved/` and are **never** opened, read or extracted. They are not in the question bank and must not be used to generate questions. `RESERVED_SERIES` in `scripts/fetch_materials.py` must match this table.
+These series are in the mock-papers folder (`RESERVED_DIR`) and are **never** opened, read or extracted. They are not in the question bank and must not be used to generate questions. `RESERVED_SERIES` in `scripts/fetch_materials.py` must match this table.
 
 | Qualification | Series | Papers (QP + MS + ER each) |
 |---|---|---|
@@ -50,7 +54,7 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 `python scripts/fetch_materials.py` shows the plan and coverage grid. Add `--download` to fetch. It uses Pearson for files Pearson lists as public and PMT for everything else. It never downloads anything Pearson's past-papers page shows with a padlock (files stored under `/content/dam/secure/`, centre login required), and it stops if a site refuses scripted requests. Gaps are written to `log/missing.csv`. Files from a teacher go in `source/inbox/` first, then get renamed and filed.
 
 ## Extracting a paper
-- Run `/extract-next` (the skill in `.claude/skills/extract-next/`) to extract the next queued paper. It does one paper per run and stops at the review. After you approve, run `/extract-next approved`. Helpers: `scripts/next_paper.py` (picks the paper, enforces one-in-review), `scripts/render_pages.py` (pages as images, refuses `source/reserved/`), `extraction/_template.py` (draft builder, copied to `extraction/PAPER_SERIES.py` per paper), and `scripts/paper_summary.py` (counts for the summary).
+- Run `/extract-next` (the skill in `.claude/skills/extract-next/`) to extract the next queued paper. It does one paper per run and stops at the review. After you approve, run `/extract-next approved`. Helpers: `scripts/next_paper.py` (picks the paper, enforces one-in-review), `scripts/render_pages.py` (pages as images, refuses the mock-papers folder), `extraction/_template.py` (draft builder, copied to `extraction/PAPER_SERIES.py` per paper), and `scripts/paper_summary.py` (counts for the summary).
 - Work through `bank/progress.json` in queue order. Stop after each paper whose status becomes `in_review` until I've reviewed it.
 - Run `python scripts/check_marks.py PAPER SERIES` first. Only `ok` allows extraction. If it says `MISMATCH`, stop and tell me: the mark scheme probably belongs to a different paper. If it says `UNCHECKED`, fix the parser for that layout (or check by hand with me) before going on.
 - Scanned question papers (no text layer, e.g. 9MA0-31/32 2019-06) can't be parsed. Read their "Total for Question N is X marks" lines from the page images and record them, with where they were read, in `bank/qp_totals_manual.json`. check_marks.py uses those only for scans, and still compares them against the mark scheme it parses.

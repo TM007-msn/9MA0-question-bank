@@ -7,7 +7,7 @@ argument-hint: "[approved]"
 
 # /extract-next: extract ONE paper, then stop
 
-Read CLAUDE.md first. Every rule there applies. This file is the order of work and the stop conditions. Never open, read, list or render anything in `source/reserved/`.
+Read CLAUDE.md first. Every rule there applies. This file is the order of work and the stop conditions. Never open, read, list or render anything in the mock-papers folder (`RESERVED_DIR` in `scripts/paths.py`, outside the project). A hook blocks shell commands containing the word "reserved", so keep it out of commands and commit messages (commit with `git commit -F <file>`).
 
 All commands run from the project root with `.venv/Scripts/python.exe`. Set `PYTHONIOENCODING=utf-8`.
 
@@ -53,7 +53,7 @@ Recompute every final answer in the mark scheme (sympy, `fractions`, `statistics
 - `python scripts/build_review.py PAPER SERIES`. This writes `out/review/PAPER_SERIES_review.html`.
 
 ## 7. Commit
-Commit `extraction/PAPER_SERIES.py`, `bank/questions.json`, `bank/progress.json`, and any `qp_totals_manual.json` or `check_marks.py` change. The message is "Extract PAPER SERIES (in review)" plus the counts, ending with the attribution line from the session instructions.
+Commit `extraction/PAPER_SERIES.py`, `bank/questions.json`, `bank/progress.json`, and any `qp_totals_manual.json` or `check_marks.py` change. The message is "Extract PAPER SERIES (in review)" plus the counts, ending with the attribution line from the session instructions. Write the message to a file and use `git commit -F <file>`.
 
 ## 8. Summary, then STOP
 Start with `python scripts/paper_summary.py PAPER SERIES` and report:

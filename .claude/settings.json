@@ -1,11 +1,25 @@
 {
   "permissions": {
     "deny": [
-      "Read(./source/reserved/**)",
-      "Edit(./source/reserved/**)",
-      "Bash(*source/reserved*)",
-      "PowerShell(*source/reserved*)",
-      "PowerShell(*source\\reserved*)"
+      "Read(~/9MA0-reserved/**)",
+      "Edit(~/9MA0-reserved/**)",
+      "Read(//c/Users/taylo/9MA0-reserved/**)",
+      "Edit(//c/Users/taylo/9MA0-reserved/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"$CLAUDE_PROJECT_DIR/.claude/hooks/guard_mock_papers.py\"",
+            "timeout": 10,
+            "statusMessage": "Checking command against the mock-papers guard"
+          }
+        ]
+      }
     ]
   }
 }

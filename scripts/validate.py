@@ -2,7 +2,7 @@
 
 Also checks that PDFs in source/papers, source/mark-schemes and
 source/examiner-reports follow the naming rule. It never looks inside
-source/reserved/ (or source/inbox/, which holds unfiled downloads).
+source/inbox/, which holds unfiled downloads. (Mock papers live outside the project.)
 
 Usage (from the project root, with the venv active):
     python scripts/validate.py
@@ -131,7 +131,7 @@ def spec_ref_errors(entry):
 def source_file_errors(entry):
     """source_file must be this entry's own question paper (or, for a SPEC
     section filed under 31/32 or 21/22, the combined paper), and must exist
-    in source/papers/. Never looks in source/reserved/."""
+    in source/papers/."""
     name = entry.get("source_file")
     if not name:
         return []
@@ -250,7 +250,7 @@ def check_file(filename, schema, registry, bank_dir=BANK_DIR):
 def check_source_names(source_dir=SOURCE_DIR):
     """Return naming errors for PDFs in the papers / mark-schemes / examiner-reports folders.
 
-    Only the folders named in TYPE_FOLDERS are listed. source/reserved/ is
+    Only the folders named in TYPE_FOLDERS are listed. The mock papers are
     never touched.
     """
     errors = []

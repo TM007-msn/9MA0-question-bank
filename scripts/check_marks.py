@@ -9,8 +9,8 @@ Usage (from the project root, with the venv active):
     python scripts/check_marks.py 8MA0-01 2018-06    # one paper
     python scripts/check_marks.py --all              # every pair in papers/ + mark-schemes/
 
-Only source/papers/ and source/mark-schemes/ are read; source/reserved/ is
-never touched.
+Only source/papers/ and source/mark-schemes/ are read; the mock papers
+(outside the project) are never touched.
 
 Each pair gets one of three results:
   ok         every question's total was read from both files and they agree

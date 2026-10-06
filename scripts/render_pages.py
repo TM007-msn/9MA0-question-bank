@@ -7,7 +7,7 @@ Usage (from the project root, with the venv active):
 
 Writes out/pages/<pdf name>_p<N>.png and prints the paths. Use it wherever
 the PDF text layer garbles maths, for scanned papers, and for figures.
-Refuses anything under source/reserved/.
+Refuses anything in the mock-papers folder (RESERVED_DIR in paths.py).
 """
 
 import argparse
@@ -16,12 +16,12 @@ from pathlib import Path
 
 import pymupdf
 
-from paths import ROOT, ensure_out_dir
+from paths import RESERVED_DIR, ensure_out_dir
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument("pdf", help="path to a PDF under source/ (not source/reserved/)")
+    parser.add_argument("pdf", help="path to a PDF under source/")
     parser.add_argument("pages", nargs="+", help="1-based page numbers, or 'all'")
     parser.add_argument("--dpi", type=int, default=110)
     parser.add_argument("--clip-bottom", type=float, default=1.0,
@@ -29,8 +29,8 @@ def main():
     args = parser.parse_args()
 
     path = Path(args.pdf).resolve()
-    if (ROOT / "source" / "reserved") in path.parents:
-        print("Refusing: source/reserved/ is never opened.", file=sys.stderr)
+    if RESERVED_DIR.resolve() in path.parents:
+        print("Refusing: the mock-papers folder is never opened.", file=sys.stderr)
         return 1
 
     out_dir = ensure_out_dir("pages")

@@ -10,7 +10,7 @@ KaTeX, which loads from a CDN, so viewing needs internet), topic and spec
 refs with their statements, difficulty, the mark scheme with ALT methods
 marked, and the examiner notes.
 
-Only source/papers/ is read. Entries can never point into source/reserved/
+Only source/papers/ is read. Entries can never point at the mock papers
 (validate.py checks source_file), and this script refuses one that does.
 """
 
@@ -26,7 +26,7 @@ import pymupdf
 
 from add_entries import question_number
 from check_marks import compare
-from paths import ROOT, ensure_out_dir
+from paths import RESERVED_DIR, ROOT, ensure_out_dir
 from validate import consistency_errors, load_topics
 
 PAPERS_DIR = ROOT / "source" / "papers"
@@ -84,8 +84,8 @@ def crop_png(source_file, page_number):
     down to the last "(n)" marks line. A scanned page has no text to find
     that line in, so the whole page is shown."""
     path = PAPERS_DIR / source_file
-    if "reserved" in path.parts:  # belt and braces: never read reserved papers
-        raise SystemExit("refusing to read source/reserved/")
+    if RESERVED_DIR.resolve() in path.resolve().parents:  # belt and braces: never read mock papers
+        raise SystemExit("refusing to read the mock-papers folder")
     with pymupdf.open(path) as doc:
         page = doc[page_number - 1]
         marks = [b for b in page.get_text("blocks") if re.fullmatch(r"\(\d+\)", b[4].strip())]

@@ -10,8 +10,8 @@ Sources, in order of preference for each paper/series/type:
   2. Physics & Maths Tutor (PMT), for question papers and mark schemes.
 Anything neither source can supply goes into log/missing.csv.
 
-Files for RESERVED_SERIES go into source/reserved/ (my mock papers). This
-script only writes there; it never opens, reads or lists that folder. The
+Files for RESERVED_SERIES go into RESERVED_DIR (paths.py), outside the
+project (my mock papers). This script only writes there; it never opens, reads or lists that folder. The
 only thing it checks is whether a file it is about to write already exists.
 
 If a site refuses scripted downloads (HTTP 401/403/429), the script stops
@@ -28,7 +28,7 @@ import requests
 from bs4 import BeautifulSoup
 
 from naming import FILENAME_RE, TYPE_FOLDERS
-from paths import ROOT
+from paths import RESERVED_DIR, ROOT
 
 SOURCE_DIR = ROOT / "source"
 MISSING_CSV = ROOT / "log" / "missing.csv"
@@ -287,15 +287,16 @@ def build_plan(pmt, pearson, reference):
                     key = (qual, paper, series, doc_type)
                     filename = f"{qual}-{paper}_{series}_{doc_type}.pdf"
                     assert FILENAME_RE.match(filename), filename
-                    folder = "reserved" if is_reserved(qual, series) else TYPE_FOLDERS[doc_type]
+                    # Mock papers go outside the project; everything else into source/<type folder>.
+                    folder = RESERVED_DIR if is_reserved(qual, series) else SOURCE_DIR / TYPE_FOLDERS[doc_type]
                     slot = {"paper": f"{qual}-{paper}", "series": series, "type": doc_type}
 
                     pearson_entry = pearson.get(key)
                     if pearson_entry and not pearson_entry[1]:
-                        planned.append({**slot, "dest": SOURCE_DIR / folder / filename,
+                        planned.append({**slot, "dest": folder / filename,
                                         "url": pearson_entry[0], "source": "Pearson"})
                     elif key in pmt:
-                        planned.append({**slot, "dest": SOURCE_DIR / folder / filename,
+                        planned.append({**slot, "dest": folder / filename,
                                         "url": pmt[key], "source": "PMT"})
                     else:
                         if pearson_entry:
@@ -321,7 +322,11 @@ def build_plan(pmt, pearson, reference):
 # ---------------------------------------------------------------- output
 
 def relative(path):
-    return path.relative_to(ROOT).as_posix()
+    """Path relative to the project, or the full path for files outside it (mock papers)."""
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
 
 
 def print_plan(planned, missing):
