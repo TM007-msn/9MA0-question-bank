@@ -1,0 +1,432 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://9ma0-bank.local/schemas/topics.json",
+  "title": "Topics",
+  "description": "Canonical topic list built from the 9MA0 and 8MA0 specifications by scripts/build_topics.py. Names are the A level names; AS topics use the same name. Do not edit by hand: rerun the script.",
+  "$defs": {
+    "topic_name": {
+      "enum": [
+        "Proof",
+        "Algebra and functions",
+        "Coordinate geometry in the (x,y) plane",
+        "Sequences and series",
+        "Trigonometry",
+        "Exponentials and logarithms",
+        "Differentiation",
+        "Integration",
+        "Numerical methods",
+        "Vectors",
+        "Statistical sampling",
+        "Data presentation and interpretation",
+        "Probability",
+        "Statistical distributions",
+        "Statistical hypothesis testing",
+        "Quantities and units in mechanics",
+        "Kinematics",
+        "Forces and Newton’s laws",
+        "Moments"
+      ]
+    }
+  },
+  "topics": [
+    {
+      "name": "Proof",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 1,
+        "refs": {
+          "1.1": "Understand and use the structure of mathematical proof, proceeding from given assumptions through a series of logical steps …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 1,
+        "refs": {
+          "1.1": "Understand and use the structure of mathematical proof, proceeding from given assumptions through a series of logical steps …"
+        }
+      }
+    },
+    {
+      "name": "Algebra and functions",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 2,
+        "refs": {
+          "2.1": "Understand and use the laws of indices for all rational exponents.",
+          "2.2": "Use and manipulate surds, including rationalising the denominator.",
+          "2.3": "Work with quadratic functions and their graphs. The discriminant of a quadratic function, including the conditions for real …",
+          "2.4": "Solve simultaneous equations in two variables by elimination and by substitution, including one linear and one quadratic equation.",
+          "2.5": "Solve linear and quadratic inequalities in a single variable and interpret such inequalities graphically,",
+          "2.6": "Manipulate polynomials algebraically, including expanding brackets and collecting like terms, factorisation and simple algebraic division; use of the …",
+          "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials The modulus of a …",
+          "2.8": "Understand and use composite functions; inverse functions and their graphs.",
+          "2.9": "Understand the effect of simple transformations on the graph of y = f(x), including sketching associated graphs: y …",
+          "2.10": "Decompose rational functions into partial fractions (denominators not more complicated than squared linear terms and with no more …",
+          "2.11": "Use of functions in modelling, including consideration of limitations and refinements of the models."
+        }
+      },
+      "8MA0": {
+        "topic_number": 2,
+        "refs": {
+          "2.1": "Understand and use the laws of indices for all rational exponents.",
+          "2.2": "Use and manipulate surds, including rationalising the denominator.",
+          "2.3": "Work with quadratic functions and their graphs. The discriminant of a quadratic function, including the conditions for real …",
+          "2.4": "Solve simultaneous equations in two variables by elimination and by substitution, including one linear and one quadratic equation.",
+          "2.5": "Solve linear and quadratic inequalities in a single variable and interpret such inequalities graphically,",
+          "2.6": "Manipulate polynomials algebraically, including expanding brackets and collecting like terms, factorisation and simple algebraic division; use of the …",
+          "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials a a y = …",
+          "2.8": "Understand the effect of simple transformations on the graph of y = f(x), including sketching associated graphs: y …"
+        }
+      }
+    },
+    {
+      "name": "Coordinate geometry in the (x,y) plane",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 3,
+        "refs": {
+          "3.1": "Understand and use the equation of a straight line, including the forms y – y1 = m(x – …",
+          "3.2": "Understand and use the coordinate geometry of the circle including using the equation of a circle in the …",
+          "3.3": "Understand and use the parametric equations of curves and conversion between Cartesian and parametric forms.",
+          "3.4": "Use parametric equations in modelling in a variety of contexts."
+        }
+      },
+      "8MA0": {
+        "topic_number": 3,
+        "refs": {
+          "3.1": "Understand and use the equation of a straight line, including the forms y – y1 = m(x – …",
+          "3.2": "Understand and use the coordinate geometry of the circle including using the equation of a circle in the …"
+        }
+      }
+    },
+    {
+      "name": "Sequences and series",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 4,
+        "refs": {
+          "4.1": "Understand and use the binomial expansion of (a + bx)n for positive integer n; the notations n! nC …",
+          "4.2": "Work with sequences including those given by a formula for the nth term and those generated by a …",
+          "4.3": "Understand and use sigma notation for sums of series.",
+          "4.4": "Understand and work with arithmetic sequences and series, including the formulae for nth term and the sum to …",
+          "4.5": "Understand and work with geometric sequences and series, including the formulae for the nth term and the sum …",
+          "4.6": "Use sequences and series in modelling."
+        }
+      },
+      "8MA0": {
+        "topic_number": 4,
+        "refs": {
+          "4.1": "Understand and use the binomial expansion of (a + bx)n for positive n; n! integer the notations nC …"
+        }
+      }
+    },
+    {
+      "name": "Trigonometry",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 5,
+        "refs": {
+          "5.1": "Understand and use the definitions of sine, cosine and tangent for all arguments; the sine and cosine rules; …",
+          "5.2": "Understand and use the standard small angle approximations of sine, cosine and tangent sin θ ≈ θ , …",
+          "5.3": "Understand and use the sine, cosine and tangent functions; their graphs, symmetries and periodicity. Know and use exact …",
+          "5.4": "Understand and use the definitions of secant, cosecant and cotangent and of arcsin, arccos and arctan; their relationships …",
+          "5.5": "Understand and use sin θ tan θ = cos θ Understand and use sin2θ + cos2θ = 1 …",
+          "5.6": "Understand and use double angle formulae; use of formulae for sin (A ± B), cos (A ± B), …",
+          "5.7": "Solve simple trigonometric equations in a given interval, including quadratic equations in sin, cos and tan and equations …",
+          "5.8": "Construct proofs involving trigonometric functions and identities.",
+          "5.9": "Use trigonometric functions to solve problems in context, including problems involving vectors, kinematics and forces."
+        }
+      },
+      "8MA0": {
+        "topic_number": 5,
+        "refs": {
+          "5.1": "Understand and use the definitions of sine, cosine and tangent for all arguments; the sine and cosine rules; …",
+          "5.2": "Understand and use the sine, cosine and tangent functions; their graphs, symmetries and periodicity.",
+          "5.3": "Understand and use sin θ tan θ = cos θ Understand and use sin2 θ + cos2 θ …",
+          "5.4": "Solve simple trigonometric equations in a given interval, including quadratic equations in sin, cos and tan and equations …"
+        }
+      }
+    },
+    {
+      "name": "Exponentials and logarithms",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 6,
+        "refs": {
+          "6.1": "Know and use the function ax and its graph, where a is positive. Know and use the function …",
+          "6.2": "Know that the gradient of ekx is equal to kekx and hence understand why the exponential model is …",
+          "6.3": "Know and use the definition of loga x as the inverse of a x, where a is positive …",
+          "6.4": "laws of logarithms: loga x + loga y = loga (xy)  x  loga x − loga …",
+          "6.5": "Solve equations of the form a x = b",
+          "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form y = axn and y = kbx, …",
+          "6.7": "Understand and use exponential growth and decay; use in modelling (examples may include the use of e in …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 6,
+        "refs": {
+          "6.1": "Know and use the function ax and its graph, where a is positive. Know and use the function …",
+          "6.2": "Know that the gradient of ekx is equal to kekx and hence understand why the exponential model is …",
+          "6.3": "Know and use the definition of logax as the inverse of ax, where a is positive and x …",
+          "6.4": "Understand and use the laws of logarithms: logax + logay = loga(xy)  x  logax − logay …",
+          "6.5": "Solve equations of the form ax = b",
+          "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form y = axn and y = kbx, …",
+          "6.7": "Understand and use exponential growth and decay; use in modelling (examples may include the use of e in …"
+        }
+      }
+    },
+    {
+      "name": "Differentiation",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 7,
+        "refs": {
+          "7.1": "Understand and use the second derivative as the cont. rate of change of gradient; connection to convex and …",
+          "7.2": "xn, Differentiate for n, rational values of and related constant multiples, sums and differences. Differentiate ekx and akx, …",
+          "7.3": "Apply differentiation to find gradients, tangents and normals maxima and minima and stationary points. points of inflection Identify …",
+          "7.4": "Differentiate using the product rule, the quotient rule and the chain rule, including problems involving connected rates of …",
+          "7.5": "Differentiate simple functions and relations defined implicitly or parametrically, for first derivative only.",
+          "7.6": "Construct simple differential equations in pure mathematics and in context, (contexts may include kinematics, population growth and modelling …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 7,
+        "refs": {
+          "7.1": "Understand and use the f(x) derivative of as the gradient of the tangent to the graph of y …",
+          "7.2": "Differentiate xn, for rational values of n, and related constant multiples, sums and differences.",
+          "7.3": "Apply differentiation to find gradients, tangents and normals, maxima and minima and stationary points. Identify where functions are …"
+        }
+      }
+    },
+    {
+      "name": "Integration",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 8,
+        "refs": {
+          "8.1": "Know and use the Fundamental Theorem of Calculus",
+          "8.2": "Integrate xn (excluding n = −1) and related sums, differences and constant multiples.",
+          "8.3": "Evaluate definite integrals; use a definite integral to find the area under a curve and the area between …",
+          "8.4": "Understand and use integration as the limit of a sum.",
+          "8.5": "Carry out simple cases of integration by substitution and integration by parts; understand these methods as the inverse …",
+          "8.6": "Integrate using partial fractions that are linear in the denominator.",
+          "8.7": "Evaluate the analytical solution of simple first order differential equations with separable variables, including finding particular solutions (Separation …",
+          "8.8": "Interpret the solution of a differential equation in the context of solving a problem, including identifying limitations of …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 8,
+        "refs": {
+          "8.1": "Know and use the Fundamental Theorem of Calculus.",
+          "8.2": "Integrate xn (excluding n = −1) and related sums, differences and constant multiples.",
+          "8.3": "Evaluate definite integrals; use a definite integral to find the area under a curve."
+        }
+      }
+    },
+    {
+      "name": "Numerical methods",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 9,
+        "refs": {
+          "9.1": "Locate roots of f ( x) = 0 by considering changes of sign of f ( x) in …",
+          "9.2": "Solve equations approximately using simple iterative methods; be able to draw associated cobweb and staircase diagrams.",
+          "9.3": "Solve equations using the Newton-Raphson method and other recurrence relations of the form xn+1= g(xn) Understand how such …",
+          "9.4": "Understand and use numerical integration of functions, including the use of the trapezium rule and estimating the approximate …",
+          "9.5": "Use numerical methods to solve problems in context."
+        }
+      },
+      "8MA0": null
+    },
+    {
+      "name": "Vectors",
+      "strand": "pure",
+      "9MA0": {
+        "topic_number": 10,
+        "refs": {
+          "10.1": "Use vectors in two dimensions and in three dimensions",
+          "10.2": "Calculate the magnitude and direction of a vector and convert between component form and magnitude/direction form.",
+          "10.3": "Add vectors diagrammatically and perform the algebraic operations of vector addition and multiplication by scalars, and understand their …",
+          "10.4": "Understand and use position vectors; calculate the distance between two points represented by position vectors.",
+          "10.5": "Use vectors to solve problems in pure mathematics and in context (including forces)."
+        }
+      },
+      "8MA0": {
+        "topic_number": 9,
+        "refs": {
+          "9.1": "Use vectors in two dimensions.",
+          "9.2": "Calculate the magnitude and direction of a vector and convert between component form and magnitude/direction form.",
+          "9.3": "Add vectors diagrammatically and perform the algebraic operations of vector addition and multiplication by scalars, and understand their …",
+          "9.4": "Understand and use position vectors; calculate the distance between two points represented by position vectors.",
+          "9.5": "Use vectors to solve problems in pure mathematics and in context, (including forces)."
+        }
+      }
+    },
+    {
+      "name": "Statistical sampling",
+      "strand": "statistics",
+      "9MA0": {
+        "topic_number": 1,
+        "refs": {
+          "1.1": "Understand and use the terms ‘population’ and ‘sample’. Use samples to make informal inferences about the population. Understand …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 1,
+        "refs": {
+          "1.1": "Understand and use the terms ‘population’ and ‘sample’. Use samples to make informal inferences about the population. Understand …"
+        }
+      }
+    },
+    {
+      "name": "Data presentation and interpretation",
+      "strand": "statistics",
+      "9MA0": {
+        "topic_number": 2,
+        "refs": {
+          "2.1": "Interpret diagrams for single-variable data, including understanding that area in a histogram represents frequency. Connect to probability distributions.",
+          "2.2": "Interpret scatter diagrams and regression lines for bivariate data, including recognition of scatter diagrams which include distinct sections …",
+          "2.3": "Interpret measures of central tendency and variation, extending to standard deviation.",
+          "2.4": "Recognise and interpret possible outliers in data sets and statistical diagrams. Select or critique data presentation techniques in …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 2,
+        "refs": {
+          "2.1": "Interpret diagrams for single-variable data, including understanding that area in a histogram represents frequency. Connect to probability distributions.",
+          "2.2": "Interpret scatter diagrams and regression lines for bivariate data, including recognition of scatter diagrams that include distinct sections …",
+          "2.3": "Interpret measures of central tendency and variation, extending to standard deviation.",
+          "2.4": "Recognise and interpret possible outliers in data sets and statistical diagrams. Select or critique data presentation techniques in …"
+        }
+      }
+    },
+    {
+      "name": "Probability",
+      "strand": "statistics",
+      "9MA0": {
+        "topic_number": 3,
+        "refs": {
+          "3.1": "Understand and use mutually exclusive and independent events when calculating probabilities. Link to discrete and continuous distributions.",
+          "3.2": "Understand and use conditional probability, including the use of tree diagrams, Venn diagrams, two-way tables. Understand and use …",
+          "3.3": "Modelling with probability, including critiquing assumptions made and the likely effect of more realistic assumptions. Understand and use"
+        }
+      },
+      "8MA0": {
+        "topic_number": 3,
+        "refs": {
+          "3.1": "Understand and use mutually exclusive and independent events when calculating probabilities. Link to discrete and continuous distributions."
+        }
+      }
+    },
+    {
+      "name": "Statistical distributions",
+      "strand": "statistics",
+      "9MA0": {
+        "topic_number": 4,
+        "refs": {
+          "4.1": "simple, discrete probability distributions (calculation of mean and variance of discrete random variables is excluded), including the binomial …",
+          "4.2": "Understand and use the Normal distribution as a model; find probabilities using the Normal distribution",
+          "4.3": "Select an appropriate probability distribution for a context, with appropriate reasoning, including recognising when the binomial or Normal …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 4,
+        "refs": {
+          "4.1": "Understand and use simple, discrete probability distributions (calculation of mean and variance of discrete random variables is excluded), …"
+        }
+      }
+    },
+    {
+      "name": "Statistical hypothesis testing",
+      "strand": "statistics",
+      "9MA0": {
+        "topic_number": 5,
+        "refs": {
+          "5.1": "Understand and apply the language of statistical hypothesis testing, developed through a binomial model: null hypothesis, alternative hypothesis, …",
+          "5.2": "Conduct a statistical hypothesis test for the proportion in the binomial distribution and interpret the results in context. …",
+          "5.3": "Conduct a statistical hypothesis test for the mean of a Normal distribution with known, given or assumed variance …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 5,
+        "refs": {
+          "5.1": "Understand and apply the language of statistical hypothesis testing, developed through a binomial model: null hypothesis, alternative hypothesis, …",
+          "5.2": "Conduct a statistical hypothesis test for the proportion in the binomial distribution and interpret the results in context. …"
+        }
+      }
+    },
+    {
+      "name": "Quantities and units in mechanics",
+      "strand": "mechanics",
+      "9MA0": {
+        "topic_number": 6,
+        "refs": {
+          "6.1": "Understand and use fundamental quantities and units in the S.I. system: length, time, mass. Understand and use derived …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 6,
+        "refs": {
+          "6.1": "Understand and use fundamental quantities and units in the S.I. system: length, time, mass. Understand and use derived …"
+        }
+      }
+    },
+    {
+      "name": "Kinematics",
+      "strand": "mechanics",
+      "9MA0": {
+        "topic_number": 7,
+        "refs": {
+          "7.1": "Understand and use the language of kinematics: position; displacement; distance travelled; velocity; speed; acceleration.",
+          "7.2": "Understand, use and interpret graphs in kinematics for motion in a straight line: displacement against time and interpretation …",
+          "7.3": "Understand, use and derive the formulae for constant acceleration for motion in a straight line. Extend to 2 …",
+          "7.4": "kinematics for motion in a straight line: d r d v d 2 r v = , a …",
+          "7.5": "Model motion under gravity in a vertical plane using vectors; projectiles."
+        }
+      },
+      "8MA0": {
+        "topic_number": 7,
+        "refs": {
+          "7.1": "Understand and use the language of kinematics: position; displacement; distance travelled; velocity; speed; acceleration.",
+          "7.2": "Understand, use and interpret graphs in kinematics for motion in a straight line: displacement against time and interpretation …",
+          "7.3": "Understand, use and derive the formulae for constant acceleration for motion in a straight line.",
+          "7.4": "Use calculus in kinematics for motion in a straight line: d r d v d 2 r v …"
+        }
+      }
+    },
+    {
+      "name": "Forces and Newton’s laws",
+      "strand": "mechanics",
+      "9MA0": {
+        "topic_number": 8,
+        "refs": {
+          "8.1": "Understand the concept of a force; understand and use Newton’s first law.",
+          "8.2": "Understand and use Newton’s second law for motion in a straight line (restricted to forces in two perpendicular …",
+          "8.3": "Understand and use weight and motion in a straight line under gravity; gravitational acceleration, g, and its value …",
+          "8.4": "Understand and use Newton’s third law; equilibrium of forces on a particle and motion in a straight line …",
+          "8.5": "Understand and use addition of forces; resultant forces; dynamics for motion in a plane.",
+          "8.6": "Understand and use the F ≤ µ R model for friction; coefficient of friction; motion of a body …"
+        }
+      },
+      "8MA0": {
+        "topic_number": 8,
+        "refs": {
+          "8.1": "Understand the concept of a force; understand and use Newton’s first law.",
+          "8.2": "Understand and use Newton’s second law for motion in a straight line (restricted to forces in two perpendicular …",
+          "8.3": "Understand and use weight and motion in a straight line under gravity; gravitational acceleration, g, and its value …",
+          "8.4": "Understand and use Newton’s third law; equilibrium of forces on a particle and motion in a straight line; …"
+        }
+      }
+    },
+    {
+      "name": "Moments",
+      "strand": "mechanics",
+      "9MA0": {
+        "topic_number": 9,
+        "refs": {
+          "9.1": "Understand and use moments in simple static contexts."
+        }
+      },
+      "8MA0": null
+    }
+  ]
+}

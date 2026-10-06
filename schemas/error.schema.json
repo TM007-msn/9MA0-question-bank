@@ -7,7 +7,10 @@
   "required": ["topic", "error", "mentions", "example_ids"],
   "additionalProperties": false,
   "properties": {
-    "topic": { "type": "string", "minLength": 1 },
+    "topic": {
+      "description": "Canonical topic name from schemas/topics.json.",
+      "$ref": "topics.json#/$defs/topic_name"
+    },
     "error": { "type": "string", "minLength": 1 },
     "mentions": {
       "description": "How many times this error has been seen.",

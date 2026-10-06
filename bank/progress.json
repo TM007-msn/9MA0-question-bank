@@ -4,6 +4,8 @@
     {
       "paper": "8MA0-01",
       "series": "2018-06",
+      "source_file": "8MA0-01_2018-06_QP.pdf",
+      "section": null,
       "status": "in_review",
       "marks_check": "ok",
       "note": "First paper. Stop for review after saving entries."
@@ -11,6 +13,8 @@
     {
       "paper": "9MA0-31",
       "series": "2019-06",
+      "source_file": "9MA0-31_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": "Second check, after the first paper is reviewed. Marks parser needs fixing for this layout first."
@@ -18,6 +22,8 @@
     {
       "paper": "8MA0-01",
       "series": "2019-06",
+      "source_file": "8MA0-01_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -25,6 +31,8 @@
     {
       "paper": "8MA0-01",
       "series": "2020-10",
+      "source_file": "8MA0-01_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -32,6 +40,8 @@
     {
       "paper": "8MA0-01",
       "series": "2021-10",
+      "source_file": "8MA0-01_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -39,6 +49,8 @@
     {
       "paper": "8MA0-01",
       "series": "2022-06",
+      "source_file": "8MA0-01_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -46,6 +58,8 @@
     {
       "paper": "8MA0-01",
       "series": "2023-06",
+      "source_file": "8MA0-01_2023-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -53,6 +67,8 @@
     {
       "paper": "8MA0-01",
       "series": "2024-06",
+      "source_file": "8MA0-01_2024-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -60,6 +76,8 @@
     {
       "paper": "8MA0-01",
       "series": "SAM",
+      "source_file": "8MA0-01_SAM_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -67,6 +85,8 @@
     {
       "paper": "8MA0-01",
       "series": "SPEC",
+      "source_file": "8MA0-01_SPEC_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -74,6 +94,8 @@
     {
       "paper": "9MA0-01",
       "series": "2018-06",
+      "source_file": "9MA0-01_2018-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -81,6 +103,8 @@
     {
       "paper": "9MA0-01",
       "series": "2019-06",
+      "source_file": "9MA0-01_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -88,6 +112,8 @@
     {
       "paper": "9MA0-01",
       "series": "2020-10",
+      "source_file": "9MA0-01_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -95,6 +121,8 @@
     {
       "paper": "9MA0-01",
       "series": "2021-10",
+      "source_file": "9MA0-01_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -102,6 +130,8 @@
     {
       "paper": "9MA0-01",
       "series": "2022-06",
+      "source_file": "9MA0-01_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -109,6 +139,8 @@
     {
       "paper": "9MA0-01",
       "series": "SAM",
+      "source_file": "9MA0-01_SAM_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -116,6 +148,8 @@
     {
       "paper": "9MA0-01",
       "series": "SPEC",
+      "source_file": "9MA0-01_SPEC_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -123,6 +157,8 @@
     {
       "paper": "9MA0-02",
       "series": "2018-06",
+      "source_file": "9MA0-02_2018-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -130,6 +166,8 @@
     {
       "paper": "9MA0-02",
       "series": "2019-06",
+      "source_file": "9MA0-02_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -137,6 +175,8 @@
     {
       "paper": "9MA0-02",
       "series": "2020-10",
+      "source_file": "9MA0-02_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -144,6 +184,8 @@
     {
       "paper": "9MA0-02",
       "series": "2021-10",
+      "source_file": "9MA0-02_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -151,6 +193,8 @@
     {
       "paper": "9MA0-02",
       "series": "2022-06",
+      "source_file": "9MA0-02_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -158,6 +202,8 @@
     {
       "paper": "9MA0-02",
       "series": "SAM",
+      "source_file": "9MA0-02_SAM_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -165,6 +211,8 @@
     {
       "paper": "9MA0-02",
       "series": "SPEC",
+      "source_file": "9MA0-02_SPEC_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -172,6 +220,8 @@
     {
       "paper": "8MA0-21",
       "series": "2019-06",
+      "source_file": "8MA0-21_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -179,6 +229,8 @@
     {
       "paper": "8MA0-21",
       "series": "2020-10",
+      "source_file": "8MA0-21_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -186,6 +238,8 @@
     {
       "paper": "8MA0-21",
       "series": "2021-10",
+      "source_file": "8MA0-21_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -193,6 +247,8 @@
     {
       "paper": "8MA0-21",
       "series": "2022-06",
+      "source_file": "8MA0-21_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -200,6 +256,8 @@
     {
       "paper": "8MA0-21",
       "series": "2023-06",
+      "source_file": "8MA0-21_2023-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -207,13 +265,26 @@
     {
       "paper": "8MA0-21",
       "series": "2024-06",
+      "source_file": "8MA0-21_2024-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
     },
     {
+      "paper": "8MA0-21",
+      "series": "SPEC",
+      "source_file": "8MA0-02_SPEC_QP.pdf",
+      "section": "A",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": "Section A (Statistics) of 8MA0-02_SPEC_QP.pdf, numbered from Q1. check_marks.py needs per-section support before extraction."
+    },
+    {
       "paper": "9MA0-31",
       "series": "2020-10",
+      "source_file": "9MA0-31_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -221,6 +292,8 @@
     {
       "paper": "9MA0-31",
       "series": "2021-10",
+      "source_file": "9MA0-31_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -228,13 +301,26 @@
     {
       "paper": "9MA0-31",
       "series": "2022-06",
+      "source_file": "9MA0-31_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
+    },
+    {
+      "paper": "9MA0-31",
+      "series": "SPEC",
+      "source_file": "9MA0-03_SPEC_QP.pdf",
+      "section": "A",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": "Section A (Statistics) of 9MA0-03_SPEC_QP.pdf, numbered from Q1. check_marks.py needs per-section support before extraction."
     },
     {
       "paper": "8MA0-22",
       "series": "2019-06",
+      "source_file": "8MA0-22_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -242,6 +328,8 @@
     {
       "paper": "8MA0-22",
       "series": "2020-10",
+      "source_file": "8MA0-22_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -249,6 +337,8 @@
     {
       "paper": "8MA0-22",
       "series": "2021-10",
+      "source_file": "8MA0-22_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -256,6 +346,8 @@
     {
       "paper": "8MA0-22",
       "series": "2022-06",
+      "source_file": "8MA0-22_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -263,6 +355,8 @@
     {
       "paper": "8MA0-22",
       "series": "2023-06",
+      "source_file": "8MA0-22_2023-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -270,13 +364,26 @@
     {
       "paper": "8MA0-22",
       "series": "2024-06",
+      "source_file": "8MA0-22_2024-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
     },
     {
+      "paper": "8MA0-22",
+      "series": "SPEC",
+      "source_file": "8MA0-02_SPEC_QP.pdf",
+      "section": "B",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": "Section B (Mechanics) of 8MA0-02_SPEC_QP.pdf, numbered from Q1. check_marks.py needs per-section support before extraction."
+    },
+    {
       "paper": "9MA0-32",
       "series": "2019-06",
+      "source_file": "9MA0-32_2019-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -284,6 +391,8 @@
     {
       "paper": "9MA0-32",
       "series": "2020-10",
+      "source_file": "9MA0-32_2020-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
@@ -291,6 +400,8 @@
     {
       "paper": "9MA0-32",
       "series": "2021-10",
+      "source_file": "9MA0-32_2021-10_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -298,13 +409,26 @@
     {
       "paper": "9MA0-32",
       "series": "2022-06",
+      "source_file": "9MA0-32_2022-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
     },
     {
+      "paper": "9MA0-32",
+      "series": "SPEC",
+      "source_file": "9MA0-03_SPEC_QP.pdf",
+      "section": "B",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": "Section B (Mechanics) of 9MA0-03_SPEC_QP.pdf, numbered from Q1. check_marks.py needs per-section support before extraction."
+    },
+    {
       "paper": "8MA0-02",
       "series": "2018-06",
+      "source_file": "8MA0-02_2018-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -312,20 +436,17 @@
     {
       "paper": "8MA0-02",
       "series": "SAM",
+      "source_file": "8MA0-02_SAM_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "ok",
       "note": null
     },
     {
-      "paper": "8MA0-02",
-      "series": "SPEC",
-      "status": "blocked",
-      "marks_check": "UNCHECKED",
-      "note": "Question numbering restarts at 1 in Section B (Mechanics). Needs an id decision before extraction."
-    },
-    {
       "paper": "9MA0-03",
       "series": "2018-06",
+      "source_file": "9MA0-03_2018-06_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
@@ -333,16 +454,11 @@
     {
       "paper": "9MA0-03",
       "series": "SAM",
+      "source_file": "9MA0-03_SAM_QP.pdf",
+      "section": null,
       "status": "queued",
       "marks_check": "UNCHECKED",
       "note": null
-    },
-    {
-      "paper": "9MA0-03",
-      "series": "SPEC",
-      "status": "blocked",
-      "marks_check": "UNCHECKED",
-      "note": "Question numbering restarts at 1 in Section B (Mechanics). Needs an id decision before extraction."
     }
   ]
 }

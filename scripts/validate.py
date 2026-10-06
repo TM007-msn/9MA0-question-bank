@@ -12,6 +12,7 @@ but do not count as failures, because "unknown means null" is allowed.
 """
 
 import json
+import re
 import sys
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -55,7 +56,9 @@ def build_registry():
     """
     registry = Registry()
     schemas = {}
-    for path in SCHEMA_DIR.glob("*.schema.json"):
+    # *.schema.json plus topics.json, which the question and error schemas
+    # reference for the topic enum.
+    for path in SCHEMA_DIR.glob("*.json"):
         schema = load_json(path)
         resource = Resource.from_contents(schema)
         registry = registry.with_resource(path.name, resource)
@@ -81,12 +84,85 @@ def null_fields(entry):
     return [key for key, value in entry.items() if value is None]
 
 
+def load_topics():
+    """{topic name: topic} from schemas/topics.json."""
+    return {t["name"]: t for t in load_json(SCHEMA_DIR / "topics.json")["topics"]}
+
+
+TOPICS = load_topics()
+
+# A figure description in question_latex starts "[Figure", e.g.
+# "[Figure 2: sketch of ...]". Other square-bracket text (e.g. a printed
+# "[In this question i and j are ...]") does not count.
+FIGURE_RE = re.compile(r"\[Figure\b")
+
+# SPEC combined papers whose sections are filed under the split paper codes:
+# entries for these papers may point at the combined source_file.
+SPEC_SPLITS = {"9MA0-31": "9MA0-03", "9MA0-32": "9MA0-03", "8MA0-21": "8MA0-02", "8MA0-22": "8MA0-02"}
+
+
+def spec_ref_errors(entry):
+    """spec_ref refs must exist in the entry's own qualification's spec, in
+    the same strand (pure / statistics / mechanics) as its topic, and the
+    first ref must belong to the topic itself."""
+    topic = TOPICS.get(entry.get("topic"))
+    refs_text = entry.get("spec_ref")
+    if not topic or not refs_text:
+        return []
+    qual = entry["paper"].split("-")[0]
+    if topic[qual] is None:
+        return [f"topic {topic['name']!r} is not in the {qual} specification"]
+
+    same_strand = {}
+    for t in TOPICS.values():
+        if t["strand"] == topic["strand"] and t[qual]:
+            same_strand.update({r: t["name"] for r in t[qual]["refs"]})
+
+    errors = []
+    refs = refs_text.split(", ")
+    for r in refs:
+        if r not in same_strand:
+            errors.append(f"spec_ref {r} is not a {qual} {topic['strand']} ref")
+    if refs[0] in same_strand and same_strand[refs[0]] != topic["name"]:
+        errors.append(f"first spec_ref {refs[0]} belongs to {same_strand[refs[0]]!r}, not the topic {topic['name']!r}")
+    return errors
+
+
+def source_file_errors(entry):
+    """source_file must be this entry's own question paper (or, for a SPEC
+    section filed under 31/32 or 21/22, the combined paper), and must exist
+    in source/papers/. Never looks in source/reserved/."""
+    name = entry.get("source_file")
+    if not name:
+        return []
+    match = FILENAME_RE.match(name)
+    if not match:
+        return [f"source_file {name} doesn't follow the naming rule"]
+    errors = []
+    paper, series = entry.get("paper"), entry.get("series")
+    allowed = {paper}
+    if series == "SPEC" and paper in SPEC_SPLITS:
+        allowed.add(SPEC_SPLITS[paper])
+    if match["paper"] not in allowed or match["series"] != series:
+        errors.append(f"source_file {name} doesn't match paper {paper} / series {series}")
+    if not (SOURCE_DIR / "papers" / name).exists():
+        errors.append(f"source_file {name} not found in source/papers/")
+    return errors
+
+
 def consistency_errors(filename, entry):
     """Checks a schema can't express: fields that must agree with each other."""
     errors = []
     if not isinstance(entry, dict):
         return errors
     entry_id = entry.get("id") or ""
+
+    if filename in QUESTION_FILES:
+        # A figure described in the question text means the entry has a diagram.
+        if FIGURE_RE.search(entry.get("question_latex") or "") and entry.get("has_diagram") is not True:
+            errors.append("question_latex describes a [Figure ...] but has_diagram is not true")
+        errors.extend(spec_ref_errors(entry))
+        errors.extend(source_file_errors(entry))
 
     # The id must start with the entry's own paper and series, so an id like
     # 9MA0-01_2023-06_Q03 can't sit on an entry marked paper 9MA0-02.

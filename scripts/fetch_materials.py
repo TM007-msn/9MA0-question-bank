@@ -90,6 +90,7 @@ REFERENCE_FILTER = 'category:"Pearson-UK:Specification-Code/maths-2017-as-al"'
 # Reference files: (file name in Pearson's index, name to save as).
 REFERENCE_FILES = [
     ("a-level-l3-mathematics-specification-issue4.pdf", "9MA0_specification.pdf"),
+    ("as-l3-mathematics-specification.pdf", "8MA0_specification.pdf"),
     ("pearson-edexcel-a-level-gce-in-mathematics-formulae-book.pdf",
      "mathematical-formulae-and-statistical-tables.pdf"),
     ("Pearson Edexcel GCE AS and AL Mathematics data set - Issue 1 (1).xls", "large-data-set.xls"),

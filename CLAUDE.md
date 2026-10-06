@@ -5,12 +5,13 @@ past papers, sample assessment materials, mark schemes and examiner reports.
 
 ## Layout
 - `source/papers/`, `source/mark-schemes/`, `source/examiner-reports/`: past-paper PDFs.
-- `source/reference/`: spec, formula booklet and similar.
+- `source/reference/`: 9MA0 and 8MA0 specifications, formulae booklet, large data set.
 - `source/inbox/`: new files waiting to be renamed and filed.
 - `source/reserved/`: **off limits** (see below).
 - `bank/`: `questions.json`, `errors.json`, `generated.json`, `rejected.json`, `progress.json`.
-- `schemas/`: JSON Schemas for bank entries.
+- `schemas/`: JSON Schemas for bank entries, plus `topics.json` (canonical topics and spec refs, built by `scripts/build_topics.py`; don't edit by hand).
 - `out/to-remarkable/`, `out/from-remarkable/`: worksheets going to the reMarkable, and marked work coming back.
+- `out/review/`: review sheets from `scripts/build_review.py PAPER SERIES`.
 - `log/attempts.csv`: one row per attempt: `date,question_id,topic,marks_awarded,marks_total,error_type`.
 - `scripts/`: Python tools. `naming.py` holds the naming regexes, `paths.py` the shared paths.
 - `tests/`: unit tests (`python -m unittest discover tests`). `templates/`: output templates.
@@ -50,11 +51,17 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 ## Extracting a paper
 - Work through `bank/progress.json` in queue order. Stop after each paper whose status becomes `in_review` until I've reviewed it.
 - Run `python scripts/check_marks.py PAPER SERIES` first. Only `ok` allows extraction. If it says `MISMATCH`, stop and tell me: the mark scheme probably belongs to a different paper. If it says `UNCHECKED`, fix the parser for that layout (or check by hand with me) before going on.
-- Make one entry per separately marked part, e.g. `Q06c` covers 6(c)(i) and (ii) when they share one mark allocation. `question_latex` repeats the shared stem, so each entry stands alone. Describe figures in square brackets.
-- `mark_scheme`: one string per mark, `CODE (AO x.y): scheme line. Notes: ...`, copied from the mark scheme. `examiner_notes`: sentences copied from the examiner report for that part. Never paraphrase either into new claims.
-- `difficulty` is based on what the examiner report says about how students did. `spec_ref` stays `null` until it can be checked against the right specification.
+- Make one entry per separately marked part, e.g. `Q06c` covers 6(c)(i) and (ii) when they share one mark allocation. `question_latex` repeats the shared stem, so each entry stands alone.
+- Describe figures in `question_latex` as `[Figure N: ...]`. Any entry with one must have `has_diagram: true` (validate.py enforces this).
+- `source_file` is the question paper the entry comes from, and `source_page` is the page in that file where the question starts.
+- `mark_scheme`: one string per mark of the main method, `CODE (AO x.y): scheme line. Notes: ...`, copied from the mark scheme. Then every alternative the mark scheme lists, as separate strings starting `ALT:`, one per mark. An alternative is anything the mark scheme labels as one: "Alt", "ALT", "Alternative(ly)", "Method N", a second scheme column or table, or "Either … Or …" between two methods. Keep alternatives out of the main strings.
+- `examiner_notes`: sentences copied from the examiner report for that part. Never paraphrase either field into new claims.
+- `topic`: a name from `schemas/topics.json`, which uses the A level names for both qualifications.
+- `spec_ref`: refs from the entry's own qualification's specification, comma-separated, main ref first. The first ref must belong to the topic, and the others must come from the same strand (pure, statistics or mechanics).
+- `difficulty`: only from what the examiner report says about that part. Easy = very accessible, usually well done, or most succeed. Hard = demanding, limited success, or few/rare full marks. Medium = mixed. If the report doesn't comment on the part, it's `null`; never guess.
 - Save only through `python scripts/add_entries.py draft.json`. It checks the schema, the reserved list, the marks check and per-question mark totals, and rejects duplicate ids.
-- Combined papers whose numbering restarts in Section B (9MA0-03 SPEC, 8MA0-02 SPEC) are `blocked` until their ids are decided.
+- SPEC combined papers restart their numbering in Section B. Their sections are filed under the split codes: 9MA0-03 SPEC becomes 9MA0-31 (Section A) and 9MA0-32 (Section B), and 8MA0-02 SPEC becomes 8MA0-21 and 8MA0-22. `source_file` stays the combined PDF, e.g. `9MA0-03_SPEC_QP.pdf`. The 2018 and SAM combined papers number straight through and keep 03 / 02.
+- After saving, build the review sheet (`python scripts/build_review.py PAPER SERIES`) and stop. To redo a paper that's in review, use `add_entries.py --replace`.
 
 ## Setup
 ```
