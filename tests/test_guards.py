@@ -61,6 +61,14 @@ class HookTests(unittest.TestCase):
     def test_blocks_powershell_any_case(self):
         self.assertEqual(run_hook("PowerShell", r"Get-ChildItem C:\Users\taylo\9MA0-RESERVED").returncode, 2)
 
+    def test_blocks_upper_and_title_case_in_both_shells(self):
+        for word in ("RESERVED", "Reserved"):
+            for tool in ("Bash", "PowerShell"):
+                with self.subTest(word=word, tool=tool):
+                    result = run_hook(tool, f"echo {word}-hook-test")
+                    self.assertEqual(result.returncode, 2)
+                    self.assertIn("Blocked", result.stderr)
+
     def test_allows_other_commands(self):
         self.assertEqual(run_hook("Bash", "git status").returncode, 0)
 
