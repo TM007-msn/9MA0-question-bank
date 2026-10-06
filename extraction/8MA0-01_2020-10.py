@@ -943,7 +943,7 @@ RATINGS = {
     "01": ("easy", at("01", "This question was generally answered well")),
     "02a": ("hard", at("02", "Candidates found the first part")),
     "02b": ("easy", at("02", "Part (b) was generally answered successfully")),
-    "03i": ("hard", at("03", "Where $x$ was found with an irrational denominator")),
+    "03i": ("medium", at("03", "Where $x$ was found with an irrational denominator")),
     "03ii": ("hard", at("03", "In part (b) log base 10")),
     "04a": ("easy", at("04", "In part (a) the first part of the question was generally well done")),
     "04b": ("medium", at("04", "In part (b) the common approach")),

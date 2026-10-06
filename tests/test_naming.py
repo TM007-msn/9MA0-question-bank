@@ -35,6 +35,9 @@ VALID_QUESTION_IDS = [
     "9MA0-01_SPEC_Q02b",       # specimen set
     "8MA0-21_2023-06_Q02",     # AS Paper 2 Statistics
     "8MA0-22_SPEC_Q01a",       # AS Paper 2 Mechanics
+    "8MA0-01_2021-10_Q12iia",  # roman then letter: 12(ii)(a)
+    "8MA0-01_2021-10_Q12iib",
+    "9MA0-01_2023-06_Q03iva",  # 3(iv)(a)
 ]
 
 INVALID_QUESTION_IDS = [
@@ -53,6 +56,9 @@ INVALID_QUESTION_IDS = [
     "8MA0-23_2022-06_Q01",     # only 21 and 22 exist
     "9MA0-21_2022-06_Q01",     # 21/22 are AS-only
     "9MA0-01_Spec_Q01",        # SPEC must be upper case
+    "8MA0-01_2021-10_Q12iiab", # only one letter after the roman numeral
+    "8MA0-01_2021-10_Q12xia",  # roman numerals stop at x
+    "8MA0-01_2021-10_Q12iiA",  # letters are lower case
 ]
 
 VALID_FILENAMES = [

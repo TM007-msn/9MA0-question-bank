@@ -12,12 +12,12 @@
     "question_id": {
       "description": "PAPER_SERIES_Qpart, e.g. 9MA0-01_2023-06_Q07bii, 9MA0-31_2022-06_Q03a or 8MA0-02_SAM_Q03a. Keep in sync with scripts/naming.py.",
       "type": "string",
-      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?$"
+      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?|(i{1,3}|iv|vi{0,3}|ix|x)[a-z])?$"
     },
     "generated_id": {
       "description": "Anchor question id plus -A, -B or -C. Keep in sync with scripts/naming.py.",
       "type": "string",
-      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?-[ABC]$"
+      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?|(i{1,3}|iv|vi{0,3}|ix|x)[a-z])?-[ABC]$"
     },
     "core": {
       "type": "object",

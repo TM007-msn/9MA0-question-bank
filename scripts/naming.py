@@ -16,10 +16,11 @@ PAPER = r"(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))"
 # or SPEC for the separate specimen set.
 SERIES = r"([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)"
 
-# Question part: Q + number, then an optional letter, then an optional roman
-# numeral from i to x. So Q7, Q07, Q07b and Q07bii are all valid.
-# "vi{0,3}" covers v, vi, vii and viii; "i{1,3}" covers i, ii and iii.
-PART = r"Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?"
+# Question part: Q + number, then either an optional letter followed by an
+# optional roman numeral from i to x (Q7, Q07, Q07b, Q07bii), or a roman
+# numeral followed by a letter, for papers that number a part (ii)(a)
+# (Q12iia). "vi{0,3}" covers v, vi, vii and viii; "i{1,3}" covers i, ii and iii.
+PART = r"Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?|(i{1,3}|iv|vi{0,3}|ix|x)[a-z])?"
 
 # The three document types, and which source/ folder each one lives in.
 TYPE_FOLDERS = {
