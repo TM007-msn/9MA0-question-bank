@@ -175,6 +175,10 @@ def difficulty_errors(entry):
         return ["difficulty_evidence is set but difficulty is null"]
     if evidence is None:
         return ["difficulty is set but difficulty_evidence is null"]
+    # Editorial "[sic: ...]" notes follow a report sentence in examiner_notes,
+    # but the evidence is the report's own words, so it never includes one.
+    if "[sic:" in evidence:
+        return ["difficulty_evidence includes a [sic: ...] note; use the report sentence without it"]
     if evidence not in (entry.get("examiner_notes") or ""):
         return ["difficulty_evidence is not a sentence from examiner_notes"]
     return []

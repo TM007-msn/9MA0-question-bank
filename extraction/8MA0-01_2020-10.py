@@ -600,12 +600,14 @@ REPORT = {
     "03": [
         (W, "This question really highlighted the dependence on calculators amongst candidates."),
         ({"i", "ii"}, "Part (a) required simple rationalisation of a denominator and part (b) wanted candidates to "
-                      "work with indices/bases."),
+                      "work with indices/bases.", {"note": "the paper numbers these parts (i) and (ii)"}),
         ({"i", "ii"}, "In part (a) they perhaps did not fully appreciate the wording at the top of the question "
                       "‘Solutions relying on calculator technology are not acceptable’, whilst in part (b) they did "
-                      "not have the algebra skills to solve on their own."),
+                      "not have the algebra skills to solve on their own.",
+         {"note": "the paper numbers these parts (i) and (ii)"}),
         ({"i"}, r"In part (a), when squaring both sides many candidates squared each individual term before combining "
-                r"the $x^2$; they seemed happier factorising the $x$ out when the coefficients were rational numbers."),
+                r"the $x^2$; they seemed happier factorising the $x$ out when the coefficients were rational numbers.",
+         {"note": "the paper numbers this part (i)"}),
         ({"i"}, r"In a similar vein, many instead simplified the $\sqrt{18}$ and then factored out a common $\sqrt{2}$, "
                 r"leaving multiple $x$ terms in the equation."),
         ({"i"}, "Some candidates opted to square both sides."),
@@ -617,7 +619,7 @@ REPORT = {
                 "to secure the marks."),
         ({"i"}, r"The $\sqrt{18}$ must also be simplified when writing in simplest form."),
         ({"ii"}, "In part (b) log base 10 or natural logs were commonly used, and these could only be evaluated on "
-                 "the calculator.", NO),
+                 "the calculator.", {"ref": False, "note": "the paper numbers this part (ii)"}),
         ({"ii"}, "These scored no marks.", BACK),
         ({"ii"}, r"Even where attempts were made to use logs to base 4 or 2 there was an over reliance on calculators "
                  r"to find $\log_4\frac{1}{2\sqrt{2}}$."),

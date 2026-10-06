@@ -12,6 +12,11 @@ each sentence is (parts, text) or (parts, text, options):
            it, or the opening words of the sentence it refers to. Wherever
            the sentence goes, the one it refers to goes too. {"ref": False}
            records that a sentence was checked and doesn't refer back.
+           {"note": "the mark scheme divides by 4"} marks a sentence that is
+           wrong about the paper: the sentence stays verbatim and
+           " [sic: ...]" is appended after it in examiner_notes. The
+           sentence text itself, and so any difficulty_evidence taken from
+           it, never includes the note.
 
 Every sentence containing "this", "it", "these", "those" or "such" (other
 than "this question/part/..." and similar) must carry a "ref" option, so a
@@ -39,8 +44,19 @@ def part_key(entry):
     return digits.zfill(2), tail[len(digits):] or None
 
 
+def _with_note(text, options, q):
+    """The sentence as it appears in examiner_notes: verbatim, plus any editorial note."""
+    note = options.get("note")
+    if note is None:
+        return text
+    if not isinstance(note, str) or not note.strip() or "[" in note or "]" in note:
+        raise ValueError(f"Q{q}: a note must be plain non-empty text (it is wrapped in [sic: ...]): {note!r}")
+    return f"{text} [sic: {note.strip()}]"
+
+
 def _normalise(sentences, q):
-    """[(parts, text, ref_index or None)] with refs resolved to indexes."""
+    """[(parts, text, ref_index or None)] with refs resolved to indexes.
+    text already carries any [sic: ...] note."""
     out = []
     for i, s in enumerate(sentences):
         parts, text = s[0], s[1]
@@ -59,7 +75,7 @@ def _normalise(sentences, q):
             ref_index = matches[0]
         else:
             ref_index = None
-        out.append((parts, text, ref_index))
+        out.append((parts, _with_note(text, options, q), ref_index))
     return out
 
 

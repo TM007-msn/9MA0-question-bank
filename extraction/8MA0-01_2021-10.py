@@ -558,7 +558,8 @@ REPORT = {
         ({"b"}, r"In part (b) most candidates were able to find the vector $\overrightarrow{AB}$ and proceeded to find the "
                 r"magnitude of their vector."),
         ({"b"}, "Some forgot to then find the speed by dividing by 9, whilst others omitted or gave the wrong unit, or "
-                "just gave the generic units per second as their unit for speed."),
+                "just gave the generic units per second as their unit for speed.",
+         {"note": "the stone moves for 4 seconds and the mark scheme divides by 4"}),
     ],
     "05": [
         (W, "This question was generally well attempted, although it was rare for candidates to score full marks.", NO),
@@ -810,7 +811,7 @@ RATINGS = {
     "02": ("hard", at("02", "Most were able to score one mark")),
     "03": ("medium", at("03", "This question was very accessible")),
     "04a": ("medium", at("04", "In part (a) candidates seemed unsure")),
-    "04b": ("easy", at("04", "In part (b) most candidates were able")),
+    "04b": ("medium", at("04", "Some forgot to then find the speed")),
     "05a": ("easy", at("05", "In part (a), candidates knew")),
     "05b": ("easy", at("05", "Part (b) was completed to a high degree")),
     "05c": ("hard", at("05", "In part (c) candidates still struggled")),

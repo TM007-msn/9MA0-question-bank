@@ -973,9 +973,10 @@ REPORT = {
     "16": [
         (W, "This was a poorly answered question at all levels.", NO),
         ({"i"}, "In part (a) it was expected that candidates would recognise the fact that the vectors would need to "
-                "lie in the same direction but many attempted to write out the given expression in words.", NO),
+                "lie in the same direction but many attempted to write out the given expression in words.",
+         {"ref": False, "note": "the paper numbers this part (i)"}),
         ({"ii"}, "There was slightly more success in part (b) with most attempting a diagram of sorts to get a feel "
-                 "for the problem."),
+                 "for the problem.", {"note": "the paper numbers this part (ii)"}),
         ({"ii"}, r"Unfortunately a lack of understanding of vectors meant that $|\mathbf{m}|=3$ and "
                  r"$|\mathbf{m}-\mathbf{n}|=6$ was usually followed by $|\mathbf{n}|=-3$."),
         (W, "There were however, some excellent and well thought out solutions showing a full understanding of the "

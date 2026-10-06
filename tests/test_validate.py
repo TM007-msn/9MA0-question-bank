@@ -85,6 +85,13 @@ class ConsistencyTests(unittest.TestCase):
         self.assertTrue(self.check(examiner_notes=notes, difficulty="hard", difficulty_evidence="Students found it hard."))
         self.assertTrue(self.check(examiner_notes=notes, difficulty_evidence="Some used x = 2."))
 
+    def test_evidence_is_the_sentence_without_its_sic_note(self):
+        notes = "Some forgot to divide by 9. [sic: the mark scheme divides by 4] Others omitted units."
+        self.assertEqual(self.check(examiner_notes=notes, difficulty="medium",
+                                    difficulty_evidence="Some forgot to divide by 9."), [])
+        self.assertTrue(self.check(examiner_notes=notes, difficulty="medium",
+                                   difficulty_evidence="Some forgot to divide by 9. [sic: the mark scheme divides by 4]"))
+
     def test_layout_commands_outside_maths_are_refused(self):
         for text in (r"[Figure 2: sketch] $\log_2 x=3$ \quad using the power law",
                      r"[Figure 2: sketch] Line one \\ line two",

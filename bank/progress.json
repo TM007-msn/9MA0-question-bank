@@ -61,7 +61,19 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-06."
+      "note": "Approved 2026-10-06.",
+      "history": [
+        {
+          "date": "2026-10-06",
+          "reason": "Examiner report refers to parts by the wrong labels; [sic] notes added",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2019-06_Q16i: examiner_notes",
+            "8MA0-01_2019-06_Q16ii: examiner_notes"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",
@@ -70,23 +82,35 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-06."
+      "note": "Approved 2026-10-06.",
+      "history": [
+        {
+          "date": "2026-10-06",
+          "reason": "Examiner report refers to parts by the wrong labels; [sic] notes added",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2020-10_Q03i: examiner_notes",
+            "8MA0-01_2020-10_Q03ii: examiner_notes"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",
       "series": "2021-10",
       "source_file": "8MA0-01_2021-10_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-06."
     },
     {
       "paper": "8MA0-01",
       "series": "2022-06",
       "source_file": "8MA0-01_2022-06_QP.pdf",
       "section": null,
-      "status": "queued",
+      "status": "in_review",
       "marks_check": "ok",
       "note": null
     },
