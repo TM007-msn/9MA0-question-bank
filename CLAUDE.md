@@ -13,6 +13,7 @@ past papers, sample assessment materials, mark schemes and examiner reports.
 - `out/to-remarkable/`, `out/from-remarkable/`: worksheets going to the reMarkable, and marked work coming back.
 - `out/review/`: review sheets from `scripts/build_review.py PAPER SERIES`.
 - `log/attempts.csv`: one row per attempt: `date,question_id,topic,marks_awarded,marks_total,error_type`.
+- `extraction/`: one draft-builder script per extracted paper (from `_template.py`).
 - `scripts/`: Python tools. `naming.py` holds the naming regexes, `paths.py` the shared paths.
 - `tests/`: unit tests (`python -m unittest discover tests`). `templates/`: output templates.
 
@@ -49,6 +50,7 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 `python scripts/fetch_materials.py` shows the plan and coverage grid. Add `--download` to fetch. It uses Pearson for files Pearson lists as public and PMT for everything else. It never downloads anything Pearson's past-papers page shows with a padlock (files stored under `/content/dam/secure/`, centre login required), and it stops if a site refuses scripted requests. Gaps are written to `log/missing.csv`. Files from a teacher go in `source/inbox/` first, then get renamed and filed.
 
 ## Extracting a paper
+- Run `/extract-next` (the skill in `.claude/skills/extract-next/`) to extract the next queued paper. It does one paper per run and stops at the review. After you approve, run `/extract-next approved`. Helpers: `scripts/next_paper.py` (picks the paper, enforces one-in-review), `scripts/render_pages.py` (pages as images, refuses `source/reserved/`), `extraction/_template.py` (draft builder, copied to `extraction/PAPER_SERIES.py` per paper), and `scripts/paper_summary.py` (counts for the summary).
 - Work through `bank/progress.json` in queue order. Stop after each paper whose status becomes `in_review` until I've reviewed it.
 - Run `python scripts/check_marks.py PAPER SERIES` first. Only `ok` allows extraction. If it says `MISMATCH`, stop and tell me: the mark scheme probably belongs to a different paper. If it says `UNCHECKED`, fix the parser for that layout (or check by hand with me) before going on.
 - Scanned question papers (no text layer, e.g. 9MA0-31/32 2019-06) can't be parsed. Read their "Total for Question N is X marks" lines from the page images and record them, with where they were read, in `bank/qp_totals_manual.json`. check_marks.py uses those only for scans, and still compares them against the mark scheme it parses.
