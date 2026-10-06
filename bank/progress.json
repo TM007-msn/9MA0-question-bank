@@ -1,1 +1,348 @@
-{}
+{
+  "updated": "2026-10-06",
+  "queue": [
+    {
+      "paper": "8MA0-01",
+      "series": "2018-06",
+      "status": "in_review",
+      "marks_check": "ok",
+      "note": "First paper. Stop for review after saving entries."
+    },
+    {
+      "paper": "9MA0-31",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": "Second check, after the first paper is reviewed. Marks parser needs fixing for this layout first."
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "2023-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "2024-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "SAM",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-01",
+      "series": "SPEC",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "2018-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "SAM",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-01",
+      "series": "SPEC",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "2018-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "SAM",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-02",
+      "series": "SPEC",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-21",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-21",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-21",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-21",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-21",
+      "series": "2023-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-21",
+      "series": "2024-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-31",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-31",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-31",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-22",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-22",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-22",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-22",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-22",
+      "series": "2023-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-22",
+      "series": "2024-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-32",
+      "series": "2019-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-32",
+      "series": "2020-10",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "9MA0-32",
+      "series": "2021-10",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-32",
+      "series": "2022-06",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-02",
+      "series": "2018-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "8MA0-02",
+      "series": "SAM",
+      "status": "queued",
+      "marks_check": "ok",
+      "note": null
+    },
+    {
+      "paper": "8MA0-02",
+      "series": "SPEC",
+      "status": "blocked",
+      "marks_check": "UNCHECKED",
+      "note": "Question numbering restarts at 1 in Section B (Mechanics). Needs an id decision before extraction."
+    },
+    {
+      "paper": "9MA0-03",
+      "series": "2018-06",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-03",
+      "series": "SAM",
+      "status": "queued",
+      "marks_check": "UNCHECKED",
+      "note": null
+    },
+    {
+      "paper": "9MA0-03",
+      "series": "SPEC",
+      "status": "blocked",
+      "marks_check": "UNCHECKED",
+      "note": "Question numbering restarts at 1 in Section B (Mechanics). Needs an id decision before extraction."
+    }
+  ]
+}

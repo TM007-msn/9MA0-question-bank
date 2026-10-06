@@ -47,6 +47,15 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 ## Fetching materials
 `python scripts/fetch_materials.py` shows the plan and coverage grid. Add `--download` to fetch. It uses Pearson for files Pearson lists as public and PMT for everything else. It never downloads anything Pearson's past-papers page shows with a padlock (files stored under `/content/dam/secure/`, centre login required), and it stops if a site refuses scripted requests. Gaps are written to `log/missing.csv`. Files from a teacher go in `source/inbox/` first, then get renamed and filed.
 
+## Extracting a paper
+- Work through `bank/progress.json` in queue order. Stop after each paper whose status becomes `in_review` until I've reviewed it.
+- Run `python scripts/check_marks.py PAPER SERIES` first. Only `ok` allows extraction. If it says `MISMATCH`, stop and tell me: the mark scheme probably belongs to a different paper. If it says `UNCHECKED`, fix the parser for that layout (or check by hand with me) before going on.
+- Make one entry per separately marked part, e.g. `Q06c` covers 6(c)(i) and (ii) when they share one mark allocation. `question_latex` repeats the shared stem, so each entry stands alone. Describe figures in square brackets.
+- `mark_scheme`: one string per mark, `CODE (AO x.y): scheme line. Notes: ...`, copied from the mark scheme. `examiner_notes`: sentences copied from the examiner report for that part. Never paraphrase either into new claims.
+- `difficulty` is based on what the examiner report says about how students did. `spec_ref` stays `null` until it can be checked against the right specification.
+- Save only through `python scripts/add_entries.py draft.json`. It checks the schema, the reserved list, the marks check and per-question mark totals, and rejects duplicate ids.
+- Combined papers whose numbering restarts in Section B (9MA0-03 SPEC, 8MA0-02 SPEC) are `blocked` until their ids are decided.
+
 ## Setup
 ```
 python -m venv .venv

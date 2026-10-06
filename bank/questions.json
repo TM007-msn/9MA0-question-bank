@@ -1,1 +1,598 @@
-[]
+[
+  {
+    "id": "8MA0-01_2018-06_Q01",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "1",
+    "topic": "Integration",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "Find $$\\int\\left(\\frac{2}{3}x^3-6\\sqrt{x}+1\\right)\\mathrm{d}x$$ giving your answer in its simplest form.",
+    "mark_scheme": [
+      "M1 (AO 1.1a): Attempts to integrate; awarded for any correct power. Notes: Allow for raising power by one, $x^n\\to x^{n+1}$. Award for any correct power including sight of $1x$.",
+      "A1 (AO 1.1b): $\\int\\left(\\frac{2}{3}x^3-6\\sqrt{x}+1\\right)\\mathrm{d}x=\\frac{2}{3}\\times\\frac{x^4}{4}+\\ldots+x$. Notes: Correct two ‘non fractional power’ terms (may be un-simplified at this stage).",
+      "A1 (AO 1.1b): $=\\ldots-6\\frac{x^{3/2}}{3/2}+\\ldots$. Notes: Correct ‘fractional power’ term (may be un-simplified at this stage).",
+      "A1 (AO 1.1b): $=\\frac{1}{6}x^4-4x^{3/2}+x+c$. Notes: Completely correct, simplified and including constant of integration seen on one line. Simplification is expected for full marks. Accept correct exact equivalent expressions such as $\\frac{x^4}{6}-4x\\sqrt{x}+1x^1+c$. Accept $\\frac{x^4-24x^{3/2}+6x}{6}+c$. Remember to isw after a correct answer. Condone poor notation, e.g. answer given as $\\int\\frac{1}{6}x^4-4x^{3/2}+x+c$."
+    ],
+    "examiner_notes": "A good starting question. Almost all students attempted this question with some success. Students who scored no marks often differentiated instead of integrating. A significant number of students scored full marks. For students who integrated, the majority scored at least one mark for increasing one of the powers by one. The most common error was to forget the '+c'. Other errors included: (1) Incorrect simplification of the coefficients with the first term having a coefficient of 8/3 or the second term having a coefficient of 9 (2) Incorrect index work especially on term two (3) Incorrect sign on term two.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 2
+  },
+  {
+    "id": "8MA0-01_2018-06_Q02i",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "2(i)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 3,
+    "question_latex": "Show that $x^2-8x+17>0$ for all real values of $x$",
+    "mark_scheme": [
+      "M1 (AO 3.1a): $x^2-8x+17=(x-4)^2-16+17$. Notes: For an attempt to complete the square. Accept $(x-4)^2\\ldots$",
+      "A1 (AO 1.1b): $=(x-4)^2+1$ with comment (see notes). Notes: For $(x-4)^2+1$ with either $(x-4)^2\\geqslant0$, $(x-4)^2+1\\geqslant1$ or min at $(4,1)$. Accept the inequality statements in words. Condone $(x-4)^2>0$ or a squared number is always positive for this mark.",
+      "A1 (AO 2.4): As $(x-4)^2\\geqslant0\\Rightarrow(x-4)^2+1\\geqslant1$ hence $x^2-8x+17>0$ for all $x$. Notes: A fully written out solution, with correct statements and no incorrect statements. There must be a valid reason and a conclusion."
+    ],
+    "examiner_notes": "Most students gained marks in at least one part of this question. However, the rigorous approach required to achieve full marks was generally lacking. In part (i), most attempted to complete the square but a common error was to state that a square number must be positive, with no reference to the possibility of it being zero. Those who found the discriminant rarely scored more than the first mark as they did not realise the need to consider the shape of the curve. A small number attempted differentiation and whilst they stated (4,1) was a minimum it was very unusual to have this confirmed (e.g. using the second derivative). It was rare to see a fully graphical approach but those who tried usually gained two marks for a correct sketch with the correct minimum shown. A few students tried to give an explanation in words or used a few numerical examples.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 4
+  },
+  {
+    "id": "8MA0-01_2018-06_Q02ii",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "2(ii)",
+    "topic": "Proof",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "“If I add 3 to a number and square the sum, the result is greater than the square of the original number.” State, giving a reason, if the above statement is always true, sometimes true or never true.",
+    "mark_scheme": [
+      "M1 (AO 2.3): For an explanation that it may not always be true. Tests say $x=-5$: $(-5+3)^2=4$ whereas $(-5)^2=25$. Notes (numerical approach): Attempts a value (where it is not true) and shows/implies that it is not true for that value, e.g. for $-4$: $(-4+3)^2>(-4)^2$ and indicates not true. Do not allow any marks if the student just mentions “positive” and “negative” numbers. Notes (algebraic approach): Sets the problem up algebraically, e.g. $(x+3)^2>x^2\\Rightarrow x>k$; accept $(x+3)^2>x^2\\Rightarrow6x+9>0$ oe.",
+      "A1 (AO 2.4): States sometimes true and gives reasons, e.g. when $x=5$: $(5+3)^2=64$ whereas $5^2=25$, true; when $x=-5$: $(-5+3)^2=4$ whereas $(-5)^2=25$, not true. Notes (numerical approach): Shows/implies that it can be true for a value AND states sometimes true. Notes (algebraic approach): States sometimes true and states/implies true for $x>-\\frac{3}{2}$ or not true for $x\\leqslant-\\frac{3}{2}$."
+    ],
+    "examiner_notes": "Most students gained marks in at least one part of this question. However, the rigorous approach required to achieve full marks was generally lacking. In part (ii), most students used a numerical approach and the majority concluded that the statement is ‘sometimes true’. It was common, however, to show working for a negative value only, for which the statement is not true. Some attempted a true and a false value, as required, but failed to conclude that the statement is ‘sometimes true’. Many students unsuccessfully tried to write general statements referring to positive and negative values being used, but only scored marks if they produced a counter-example. Of those who attempted an algebraic approach, many reached 6x + 9 > 0 but tended to stop there and did not gain the final mark for a correct conclusion.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 4
+  },
+  {
+    "id": "8MA0-01_2018-06_Q03a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "3(a)",
+    "topic": "Vectors",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "Given that the point $A$ has position vector $4\\mathbf{i}-5\\mathbf{j}$ and the point $B$ has position vector $-5\\mathbf{i}-2\\mathbf{j}$, find the vector $\\overrightarrow{AB}$.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): Attempts $\\overrightarrow{AB}=\\overrightarrow{OB}-\\overrightarrow{OA}$ or similar. Notes: Attempts subtraction either way around. This may be implied by one correct component $\\overrightarrow{AB}=\\pm9\\mathbf{i}\\pm3\\mathbf{j}$. There must be some attempt to write in vector form.",
+      "A1 (AO 1.1b): $\\overrightarrow{AB}=-9\\mathbf{i}+3\\mathbf{j}$. Notes: cao (allow column vector notation but not the coordinate). Correct notation should be used. Accept $-9\\mathbf{i}+3\\mathbf{j}$ or $\\begin{pmatrix}-9\\\\3\\end{pmatrix}$ but not $\\begin{pmatrix}-9\\mathbf{i}\\\\3\\mathbf{j}\\end{pmatrix}$. In cases where there is no working, the correct answer implies M1A1."
+    ],
+    "examiner_notes": "This question was very accessible to the vast majority of students with many scoring full marks. Errors seen in part (a) included finding the sum of the two vectors instead of the difference, or, finding the difference ‘the wrong way around’. Correct vector notation was seen in all but a few cases with incorrect notation such as (-9i,3j) being penalised.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 6
+  },
+  {
+    "id": "8MA0-01_2018-06_Q03b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "3(b)",
+    "topic": "Vectors",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "Given that the point $A$ has position vector $4\\mathbf{i}-5\\mathbf{j}$ and the point $B$ has position vector $-5\\mathbf{i}-2\\mathbf{j}$, find $\\left|\\overrightarrow{AB}\\right|$. Give your answer as a simplified surd.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): Finds length using ‘Pythagoras’ $\\left|AB\\right|=\\sqrt{(-9)^2+(3)^2}$. Notes: Correct use of Pythagoras theorem or modulus formula using their answer to (a). Note that $\\left|AB\\right|=\\sqrt{(9)^2+(3)^2}$ is also correct. Condone missing brackets in the expression $\\left|AB\\right|=\\sqrt{-9^2+(3)^2}$. Also allow a restart usually accompanied by a diagram.",
+      "A1ft (AO 1.1b): $\\left|AB\\right|=3\\sqrt{10}$. Notes: ft from their answer to (a) as long as it has both an $\\mathbf{i}$ and $\\mathbf{j}$ component. It must be simplified, if appropriate. Note that $\\pm3\\sqrt{10}$ would be M1 A0. In cases where there is no working, the correct answer implies M1A1."
+    ],
+    "examiner_notes": "This question was very accessible to the vast majority of students with many scoring full marks. Part (b) was more successful with the vast majority of students knowing how to calculate the length of a vector and simplify the surd. A follow through on their vector from part (a) enabled most students access to both marks.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 6
+  },
+  {
+    "id": "8MA0-01_2018-06_Q04",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "4",
+    "topic": "Coordinate geometry",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "The line $l_1$ has equation $4y-3x=10$. The line $l_2$ passes through the points $(5,-1)$ and $(-1,8)$. Determine, giving full reasons for your answer, whether lines $l_1$ and $l_2$ are parallel, perpendicular or neither.",
+    "mark_scheme": [
+      "B1 (AO 1.1b): States gradient of $4y-3x=10$ is $\\frac{3}{4}$ oe or rewrites as $y=\\frac{3}{4}x+\\ldots$",
+      "M1 (AO 1.1b): Attempts to find gradient of line joining $(5,-1)$ and $(-1,8)$. Notes: Attempts to find the gradient of line $l_2$ using $\\frac{\\Delta y}{\\Delta x}$. Condone one sign error, e.g. allow $\\frac{9}{6}$.",
+      "A1 (AO 1.1b): $=\\frac{-1-8}{5-(-1)}=-\\frac{3}{2}$. Notes: For the gradient of $l_2$ $=-\\frac{3}{2}$ or the equation of $l_2$ $y=-\\frac{3}{2}x+\\ldots$ Allow for any equivalent such as $-\\frac{9}{6}$ or $-1.5$.",
+      "A1 (AO 2.4): States neither with suitable reasons. Notes: CSO (on gradients). Explains that they are neither parallel as the gradients not equal nor perpendicular as $\\frac{3}{4}\\times-\\frac{3}{2}\\neq-1$ oe. Allow a statement in words “they are not negative reciprocals” for a reason for not perpendicular and “they are not equal” for a reason for not being parallel."
+    ],
+    "examiner_notes": "Most students attempted this question and many gained all marks. The majority of students rearranged the given equation to make y the subject and hence found the gradient. Those who did not, often stated + or – 3 as the gradient. Most correctly found the gradient of the second line using the two coordinates. There were occasional sign slips. Many students unnecessarily continued to find the equation of the line for these coordinates after working out their gradient. The comment on parallel, perpendicular or neither was attempted by most students with varying success. Explanation on why they were not perpendicular was often unclear and errors included stating that they should be reciprocals but omitting the word negative and that the sum of the gradients should be -1. For parallel, a small number of students stated that the gradients should be multiples of each other. A few students stated neither but no reasons were given.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 8
+  },
+  {
+    "id": "8MA0-01_2018-06_Q05a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "5(a)",
+    "topic": "Exponentials and logarithms",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "A student’s attempt to solve the equation $2\\log_2 x-\\log_2\\sqrt{x}=3$ is shown below.\n$2\\log_2 x-\\log_2\\sqrt{x}=3$\n$2\\log_2\\left(\\frac{x}{\\sqrt{x}}\\right)=3$ \\quad using the subtraction law for logs\n$2\\log_2\\left(\\sqrt{x}\\right)=3$ \\quad simplifying\n$\\log_2 x=3$ \\quad using the power law for logs\n$x=3^2=9$ \\quad using the definition of a log\nIdentify two errors made by this student, giving a brief explanation of each.",
+    "mark_scheme": [
+      "B1 (AO 2.3): Identifies one of the two errors: “You cannot use the subtraction law without dealing with the 2 first”; “They undo the logs incorrectly. It should be $x=2^3=8$”. Notes: Error One: either in words states ‘They cannot use the subtraction law without dealing with the 2 first’ or writes that line 2 should be $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)(=3)$. If they rewrite line two it must be correct. Allow ‘the coefficient of each log term is different so we cannot use the subtraction law’. Allow responses such as ‘it must be $\\log x^2$ before subtracting the logs’. Do not accept an incomplete response such as “the student ignored the 2”. There must be some reference to the subtraction law as well. Error Two: either in words states ‘They undo the log incorrectly’ or writes that ‘if $\\log_2x=3$ then $x=2^3=8$’. If it is rewritten it must be correct, e.g. $x=\\log_2 9$ is B0.",
+      "B1 (AO 2.3): Identifies both errors. Notes: States both of the two errors."
+    ],
+    "examiner_notes": "Students found it difficult to explain the errors in part (a) even though fully correct answers were seen in (b). The error in line 2 caused the most problems with many students failing to mention the subtraction law. The second error $\\log_2 x=3$ should be $2^3$ not $3^2$ was more successfully dealt with. It is really important in questions such as these that a full explanation is given.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 10
+  },
+  {
+    "id": "8MA0-01_2018-06_Q05b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "5(b)",
+    "topic": "Exponentials and logarithms",
+    "spec_ref": null,
+    "marks": 3,
+    "question_latex": "A student’s attempt to solve the equation $2\\log_2 x-\\log_2\\sqrt{x}=3$ is shown below.\n$2\\log_2 x-\\log_2\\sqrt{x}=3$\n$2\\log_2\\left(\\frac{x}{\\sqrt{x}}\\right)=3$ \\quad using the subtraction law for logs\n$2\\log_2\\left(\\sqrt{x}\\right)=3$ \\quad simplifying\n$\\log_2 x=3$ \\quad using the power law for logs\n$x=3^2=9$ \\quad using the definition of a log\nWrite out the correct solution.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)=3$ or $\\frac{3}{2}\\log_2(x)=3$. Notes: Uses a correct method of combining the two log terms. Either uses both the power law and the subtraction law to reach a form $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)=3$ oe, or uses both the power law and subtraction to reach $\\frac{3}{2}\\log_2(x)=3$.",
+      "M1 (AO 1.1b): $x^{3/2}=2^3$ or $\\frac{x^2}{\\sqrt{x}}=2^3$, or $x=2^2$. Notes: Uses correct work to “undo” the log, e.g. moves from $\\log_2(Ax^n)=b\\Rightarrow Ax^n=2^b$. This is independent of the previous mark so allow following earlier error.",
+      "A1 (AO 1.1b): $x=\\left(2^3\\right)^{2/3}=4$. Notes: cso $x=4$ achieved with at least one intermediate step shown. Extra solutions would be A0. SC: If the “answer” rather than the “solution” is given score 1,0,0."
+    ],
+    "examiner_notes": "Students found it difficult to explain the errors in part (a) even though fully correct answers were seen in (b). Students were much more successful in part (b). Log work, in general, remains a difficult topic for less able students.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 10
+  },
+  {
+    "id": "8MA0-01_2018-06_Q06a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "6(a)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "[Figure 1: sketch of $P$ against $x$, an inverted parabola $P=100-6.25(x-9)^2$ crossing the $x$-axis at two positive values of $x$.]\nA company makes a particular type of children’s toy. The annual profit made by the company is modelled by the equation $$P=100-6.25(x-9)^2$$ where $P$ is the profit measured in thousands of pounds and $x$ is the selling price of the toy in pounds. A sketch of $P$ against $x$ is shown in Figure 1. Using the model, explain why $\\pounds15$ is not a sensible selling price for the toy.",
+    "mark_scheme": [
+      "M1 (AO 3.4): Attempts $P=100-6.25(15-9)^2$. Notes: Substitutes $x=15$ into $P=100-6.25(x-9)^2$ and attempts to calculate. This is implied by an answer of $-125$. Some candidates may have attempted to multiply out the brackets before they substitute in the $x=15$; this is acceptable as long as the function obtained is quadratic. There must be a calculation seen or implied by the value of $-125$.",
+      "A1 (AO 2.4): $=-125$ $\\therefore$ not sensible as the company would make a loss. Notes: Finds $P=-125$ or states that $P<0$ and explains that (this is not sensible as) the company would make a loss. Condone $P=-125$ followed by an explanation that it is not sensible as the company would make a loss of £125 rather than £125 000. An explanation that it is not sensible as “the profit cannot be negative”, “the profit is negative” or “the company will not make any money”, “they might make a loss” is incomplete/incorrect. Alt: M1: Sets $P=0$ and finds $x=5, 13$; A1: States $15>13$ and states makes a loss."
+    ],
+    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. Additionally, students should be aware that units are necessary in modelling questions and in particular the answer to (c)(i) is £100 000 and not 100, £100 or 100 000 as commonly seen. (a) Most students gained at least one mark on this part. The easiest method is to substitute x =15 into the given equation and explain that it isn’t a sensible selling price as the company would be making a loss of £125 000. The most common errors in this part were: (1) substituting in P = 0 and finding x, (2) stating that the company would not make any money or “may/could” make a loss.",
+    "difficulty": "medium",
+    "has_diagram": true,
+    "source_page": 12
+  },
+  {
+    "id": "8MA0-01_2018-06_Q06b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "6(b)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 3,
+    "question_latex": "[Figure 1: sketch of $P$ against $x$, an inverted parabola $P=100-6.25(x-9)^2$ crossing the $x$-axis at two positive values of $x$.]\nA company makes a particular type of children’s toy. The annual profit made by the company is modelled by the equation $$P=100-6.25(x-9)^2$$ where $P$ is the profit measured in thousands of pounds and $x$ is the selling price of the toy in pounds. A sketch of $P$ against $x$ is shown in Figure 1. Given that the company made an annual profit of more than $\\pounds80\\,000$, find, according to the model, the least possible selling price for the toy.",
+    "mark_scheme": [
+      "M1 (AO 3.1b): Uses $P>80\\Rightarrow(x-9)^2<3.2$ or $P=80\\Rightarrow(x-9)^2=3.2$. Notes: Uses $P\\ldots80$ where $\\ldots$ is any inequality or “=” in $P=100-6.25(x-9)^2$ and proceeds to $(x-9)^2\\ldots k$ where $k>0$ and $\\ldots$ is any inequality or “=”. If the candidate attempts to multiply out then allow when they achieve a form $ax^2+bx+c=0$.",
+      "dM1 (AO 1.1b): $\\Rightarrow9-\\sqrt{3.2}<x<9+\\sqrt{3.2}$. Notes: Award for solving to find the two positive values for $x$. Allow decimal answers. Alternatively award if the candidate selects the lower of their two positive values $9-\\sqrt{3.2}$.",
+      "A1 (AO 3.2a): Minimum Price $=\\pounds7.22$. Notes: Deduces that the minimum Price $=\\pounds7.22$ ($\\pounds7.21$ is not acceptable)."
+    ],
+    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. Additionally, students should be aware that units are necessary in modelling questions and in particular the answer to (c)(i) is £100 000 and not 100, £100 or 100 000 as commonly seen. (b) Many students attempted this part. The most common error was to use 80,000 rather than 80. This error resulted in a score of 000. Students who did use 80 usually attempted to solve the quadratic, but many by expanding and factorising rather than by using the form given. Some students only found one solution, rather than the two required. Very few students gained the final accuracy mark, with most students incorrectly stating £7.21 as the final value, not taking into account the need to round up. A small number of students used a trial and improvement method, which was often more successful in achieving the correct answer. Others used their graphical calculators to gain the correct answer with limited working.",
+    "difficulty": "hard",
+    "has_diagram": true,
+    "source_page": 12
+  },
+  {
+    "id": "8MA0-01_2018-06_Q06c",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "6(c)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "[Figure 1: sketch of $P$ against $x$, an inverted parabola $P=100-6.25(x-9)^2$ crossing the $x$-axis at two positive values of $x$.]\nA company makes a particular type of children’s toy. The annual profit made by the company is modelled by the equation $$P=100-6.25(x-9)^2$$ where $P$ is the profit measured in thousands of pounds and $x$ is the selling price of the toy in pounds. A sketch of $P$ against $x$ is shown in Figure 1. The company wishes to maximise its annual profit. State, according to the model, (i) the maximum possible annual profit, (ii) the selling price of the toy that maximises the annual profit.",
+    "mark_scheme": [
+      "B1 (AO 3.2a): (i) maximum profit $=\\pounds100\\,000$. Notes: Maximum Profit $=\\pounds100\\,000$ with units. Accept 100 thousand pound(s).",
+      "B1 (AO 2.2a): (ii) selling price $\\pounds9$. Notes: Selling price $=\\pounds9$ with units. SC 1: Missing units in (b) and (c) only penalise once in these parts, withhold the final mark. SC 2: If the answers to (c) are both correct, but in the wrong order score SC B1 B0. If (i) and (ii) are not written out score in the order given."
+    ],
+    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. Additionally, students should be aware that units are necessary in modelling questions and in particular the answer to (c)(i) is £100 000 and not 100, £100 or 100 000 as commonly seen. (c) Most students attempted this part but were unable to use the given equation to just state the answers. Some students used differentiation to find the maximum. Common errors were omitting units, giving the answers in the wrong order (with no labelling) and giving the answer for the maximum profit as £100 instead of £100,000.",
+    "difficulty": "medium",
+    "has_diagram": true,
+    "source_page": 12
+  },
+  {
+    "id": "8MA0-01_2018-06_Q07a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "7(a)",
+    "topic": "Trigonometry",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "In a triangle $ABC$, side $AB$ has length $10\\text{ cm}$, side $AC$ has length $5\\text{ cm}$, and angle $BAC=\\theta$ where $\\theta$ is measured in degrees. The area of triangle $ABC$ is $15\\text{ cm}^2$. Find the two possible values of $\\cos\\theta$",
+    "mark_scheme": [
+      "M1 (AO 1.1b): Uses $15=\\frac{1}{2}\\times5\\times10\\times\\sin\\theta$. Notes: Uses the formula Area $=\\frac{1}{2}ab\\sin C$ in an attempt to find the value of $\\sin\\theta$ or $\\theta$.",
+      "A1 (AO 1.1b): $\\sin\\theta=\\frac{3}{5}$ oe. Notes: This may be implied by $\\theta=$ awrt $36.9^\\circ$ or awrt $0.644$ (radians).",
+      "M1 (AO 2.1): Uses $\\cos^2\\theta=1-\\sin^2\\theta$. Notes: Uses their value of $\\sin\\theta$ to find two values of $\\cos\\theta$. This may be scored via the formula $\\cos^2\\theta=1-\\sin^2\\theta$ or by a triangle method. Also allow the use of a graphical calculator or candidates may just write down the two values. The values must be symmetrical $\\pm k$.",
+      "A1 (AO 1.1b): $\\cos\\theta=\\pm\\frac{4}{5}$. Notes: $\\cos\\theta=\\pm\\frac{4}{5}$ or $\\pm0.8$. Condone these values appearing from $\\pm0.79\\ldots$"
+    ],
+    "examiner_notes": "This proved to be a very demanding question. The idea of there being two values for $\\theta$ or $\\cos\\theta$ was lost on many students. Most students ignored the need for two values in (a) and hence in part (b), which involved choosing the obtuse angle, no marks could be awarded. In (a) almost all students were able to apply the area formula to achieve an acceptable answer for sin θ or θ. However, few then had a strategy for obtaining cos θ. Even those who produced the two correct angles often failed to find the values of cos θ. The use of $\\cos^2\\theta+\\sin^2\\theta=1$ was quite rare. Another acceptable method was to sketch a right angled triangle and use trigonometric ratios. Perhaps because of the request for values for cos θ some students incorrectly quoted $\\frac{1}{2}ab\\cos C$ for the area.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 16
+  },
+  {
+    "id": "8MA0-01_2018-06_Q07b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "7(b)",
+    "topic": "Trigonometry",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "In a triangle $ABC$, side $AB$ has length $10\\text{ cm}$, side $AC$ has length $5\\text{ cm}$, and angle $BAC=\\theta$ where $\\theta$ is measured in degrees. The area of triangle $ABC$ is $15\\text{ cm}^2$. Given that $BC$ is the longest side of the triangle, find the exact length of $BC$.",
+    "mark_scheme": [
+      "M1 (AO 3.1a): Uses $BC^2=10^2+5^2-2\\times10\\times5\\times\\text{“}-\\frac{4}{5}\\text{”}$. Notes: Uses a suitable method of finding the longest side. For example chooses the negative value (or the obtuse angle) and proceeds to find $BC$ using the cosine rule. Alternatively works out $BC$ using both values and chooses the larger value. If stated the cosine rule should be correct (with a minus sign). Note if the sign is +ve and the acute angle is chosen the correct value will be seen. It is however M0 A0.",
+      "A1 (AO 1.1b): $BC=\\sqrt{205}$."
+    ],
+    "examiner_notes": "This proved to be a very demanding question. The idea of there being two values for $\\theta$ or $\\cos\\theta$ was lost on many students. Most students ignored the need for two values in (a) and hence in part (b), which involved choosing the obtuse angle, no marks could be awarded. In (b), few responses demonstrated the need to select the obtuse angle (or negative cosine) to ensure BC was the longest side. Some substituted both angles (acute and obtuse) but needed to compare their lengths to gain credit. The most common response seen was simply to use θ = 36.9 in the cosine rule which scored zero for this part. A surprising number of otherwise correct solutions lost the final mark by giving a decimal answer rather than √205.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 16
+  },
+  {
+    "id": "8MA0-01_2018-06_Q08a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "8(a)",
+    "topic": "Differentiation",
+    "spec_ref": null,
+    "marks": 6,
+    "question_latex": "A lorry is driven between London and Newcastle. In a simple model, the cost of the journey $\\pounds C$ when the lorry is driven at a steady speed of $v$ kilometres per hour is $$C=\\frac{1500}{v}+\\frac{2v}{11}+60$$ Find, according to this model, (i) the value of $v$ that minimises the cost of the journey, (ii) the minimum cost of the journey. (Solutions based entirely on graphical or numerical methods are not acceptable.)",
+    "mark_scheme": [
+      "M1 (AO 3.1b): (a)(i) $C=\\frac{1500}{v}+\\frac{2v}{11}+60\\Rightarrow\\frac{\\mathrm{d}C}{\\mathrm{d}v}=-\\frac{1500}{v^2}+\\frac{2}{11}$. Notes: Attempts to differentiate (deals with the powers of $v$ correctly). Look for an expression for $\\frac{\\mathrm{d}C}{\\mathrm{d}v}$ in the form $\\frac{A}{v^2}+B$.",
+      "A1 (AO 1.1b): $\\frac{\\mathrm{d}C}{\\mathrm{d}v}=-\\frac{1500}{v^2}+\\frac{2}{11}$. Notes: A number of students are solving part (a) numerically or graphically. Allow these students to pick up the M1 A1 here from part (b) when they attempt the second derivative.",
+      "M1 (AO 1.1b): Sets $\\frac{\\mathrm{d}C}{\\mathrm{d}v}=0\\Rightarrow v^2=8250$. Notes: Sets $\\frac{\\mathrm{d}C}{\\mathrm{d}v}=0$ (which may be implied) and proceeds to an equation of the type $v^n=k, k>0$. Allow here equations of the type $\\frac{1}{v^n}=k, k>0$.",
+      "A1 (AO 1.1b): $\\Rightarrow v=\\sqrt{8250}\\Rightarrow v=90.8\\ (\\mathrm{km\\,h^{-1}})$. Notes: $v=\\sqrt{8250}$ or $5\\sqrt{330}$ awrt $90.8$. As this is a speed withhold this mark for answers such as $v=\\pm\\sqrt{8250}$.",
+      "M1 (AO 3.4): (a)(ii) For substituting their $v=90.8$ in $C=\\frac{1500}{v}+\\frac{2v}{11}+60$. Notes: For a correct method of finding $C=$ from their solution to $\\frac{\\mathrm{d}C}{\\mathrm{d}v}=0$. Do not accept attempts using negative values of $v$. Award if you see $v=\\ldots, C=\\ldots$ where the $v$ used is their solution to (a)(i).",
+      "A1ft (AO 1.1b): Minimum cost $=$ awrt $(\\pounds)\\,93$. Notes: Condone the omission of units. Follow through on sensible values of $v$, $60<v<110$."
+    ],
+    "examiner_notes": "This proved to be a challenge and a large number of students did not recognise that it was a differentiation problem until asked to find the second derivative in (b). In (a), the common error was to set C = 0 and solve the resulting quadratic equation. A few tried to start with 1500/v + 2v/11 =0. Some used trial and improvement to find the minimum cost, even arriving at v = 91 and C=93; this achieved no marks as the question did state that ‘Solutions based entirely on graphical or numerical methods are not acceptable’. Many of those who did differentiate struggled with the negative index. In (a)(ii), students usually recognised the need to substitute their value of v into the original equation. Some obtained unrealistic values from (i) and did not consider their answer in the context of the question. (e.g. v = 0.06 km/h). It was not uncommon to find this part omitted even by good students; perhaps they had not read the question carefully enough.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 18
+  },
+  {
+    "id": "8MA0-01_2018-06_Q08b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "8(b)",
+    "topic": "Differentiation",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "A lorry is driven between London and Newcastle. In a simple model, the cost of the journey $\\pounds C$ when the lorry is driven at a steady speed of $v$ kilometres per hour is $$C=\\frac{1500}{v}+\\frac{2v}{11}+60$$ Prove by using $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}$ that the cost is minimised at the speed found in (a)(i).",
+    "mark_scheme": [
+      "M1 (AO 1.1b): Finds $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}=+\\frac{3000}{v^3}$ at $v=90.8$. Notes: Finds $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}$ (following through on their $\\frac{\\mathrm{d}C}{\\mathrm{d}v}$ which must be of equivalent difficulty) and attempts to find its value / sign at their $v$. Allow a substitution of their answer to (a)(i) in their $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}$. Allow an explanation into the sign of $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}$ from its terms (as $v>0$).",
+      "A1ft (AO 2.4): $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}=(+0.004)>0$ hence minimum (cost). Notes: Alternatively $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}=+\\frac{3000}{v^3}>0$ as $v>0$. Requires a correct calculation or expression, a correct statement and a correct conclusion. Follow through on their $v$ ($v>0$) and their $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}$. Condone $\\frac{\\mathrm{d}^2C}{\\mathrm{d}v^2}$ appearing as $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ or not appearing at all for the M1 but for the A1 the correct notation must be used (accept notation $C''$)."
+    ],
+    "examiner_notes": "This proved to be a challenge and a large number of students did not recognise that it was a differentiation problem until asked to find the second derivative in (b). In (b), it was disappointing to see so many students successfully find the second derivative but gain no marks as they failed to find a value for it at their v or establish that it would be positive.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 18
+  },
+  {
+    "id": "8MA0-01_2018-06_Q08c",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "8(c)",
+    "topic": "Differentiation",
+    "spec_ref": null,
+    "marks": 1,
+    "question_latex": "A lorry is driven between London and Newcastle. In a simple model, the cost of the journey $\\pounds C$ when the lorry is driven at a steady speed of $v$ kilometres per hour is $$C=\\frac{1500}{v}+\\frac{2v}{11}+60$$ State one limitation of this model.",
+    "mark_scheme": [
+      "B1 (AO 3.5b): It would be impossible to drive at this speed over the whole journey. Notes: Gives a limitation of the given model, for example: it would be impossible to drive at this speed over the whole journey; the traffic would mean that you cannot drive at a constant speed. Any statement that implies that the speed could not be constant is acceptable."
+    ],
+    "examiner_notes": "This proved to be a challenge and a large number of students did not recognise that it was a differentiation problem until asked to find the second derivative in (b). Part (c) was sometimes the only mark collected in this question by less able students. Some simply re-stated the model’s assumption of a constant speed without reference to this not being possible. Others gave vague or irrelevant statements such as “there might be different routes”.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 18
+  },
+  {
+    "id": "8MA0-01_2018-06_Q09a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "9(a)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "$$\\mathrm{g}(x)=4x^3-12x^2-15x+50$$ Use the factor theorem to show that $(x+2)$ is a factor of $\\mathrm{g}(x)$.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): $(\\mathrm{g}(-2))=4\\times-8-12\\times4-15\\times-2+50$. Notes: Attempts $\\mathrm{g}(-2)$. Some sight of $(-2)$ embedded or calculation is required. So expect to see $4\\times(-2)^3-12\\times(-2)^2-15\\times(-2)+50$ embedded or $-32-48+30+50$, condoning slips for the M1. Any attempt to divide or factorise is M0 (see demand in question).",
+      "A1 (AO 2.4): $\\mathrm{g}(-2)=0\\Rightarrow(x+2)$ is a factor. Notes: Requires a correct statement and conclusion. Both “$\\mathrm{g}(-2)=0$” and “$(x+2)$ is a factor” must be seen in the solution. This may be seen in a preamble before finding $\\mathrm{g}(-2)=0$ but in these cases there must be a minimal statement ie QED, “proved”, tick etc. Also accept, in one coherent line/sentence, explanations such as ‘as $\\mathrm{g}(x)=0$ when $x=-2$, $(x+2)$ is a factor.’"
+    ],
+    "examiner_notes": "This question on the factor theorem proved to be a good source of marks for many students. Clearly they had been well prepared for this kind of question. In part (a), most students correctly substituted $x=-2$ into the function and obtained the answer 0. A few students incorrectly used $x=2$. The accuracy mark was often not awarded as explanations were insufficient or indeed absent. Many failed to use the correct terminology g (-2) = …, just substituting $x=-2$ into the “expression” rather than the function. Additionally, a significant minority of students did not state any conclusion. A small number of students incorrectly used long division rather than the factor theorem but these students were allowed to score the marks in (b) following this approach.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 22
+  },
+  {
+    "id": "8MA0-01_2018-06_Q09b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "9(b)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "$$\\mathrm{g}(x)=4x^3-12x^2-15x+50$$ Hence show that $\\mathrm{g}(x)$ can be written in the form $\\mathrm{g}(x)=(x+2)(ax+b)^2$, where $a$ and $b$ are integers to be found.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): $4x^3-12x^2-15x+50=(x+2)(4x^2-20x+25)$. Notes: Attempts to divide $\\mathrm{g}(x)$ by $(x+2)$. May be seen and awarded from part (a). If inspection is used expect to see $4x^3-12x^2-15x+50=(x+2)(4x^2\\ldots\\pm25)$. If algebraic / long division is used expect to see $4x^2\\pm20x$ as the first stage of dividing $4x^3-12x^2-15x+50$ by $x+2$.",
+      "A1 (AO 1.1b): Notes: Correct quadratic factor is $(4x^2-20x+25)$; may be seen and awarded from part (a).",
+      "M1 (AO 1.1b): Notes: Attempts to factorise their $(4x^2-20x+25)$, usual rule $(ax+b)(cx+d)$, $ac=\\pm4$, $bd=\\pm25$.",
+      "A1 (AO 1.1b): $=(x+2)(2x-5)^2$. Notes: $(x+2)(2x-5)^2$ oe seen on a single line. $(x+2)(-2x+5)^2$ is also correct. Allow recovery for all marks for $\\mathrm{g}(x)=(x+2)(x-2.5)^2=(x+2)(2x-5)^2$."
+    ],
+    "examiner_notes": "This question on the factor theorem proved to be a good source of marks for many students. Clearly they had been well prepared for this kind of question. The majority attempted part (b) using long division or inspection with most obtaining the correct quadratic expression $4x^2-20x+25$. Most then correctly factorised this quadratic. A small number did not state a final, fully factorised solution. Common errors of (x – 2.5)² and (4x – 10)² probably came from students using their calculators to find the solutions then attempting to work backwards.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 22
+  },
+  {
+    "id": "8MA0-01_2018-06_Q09c",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "9(c)",
+    "topic": "Algebra and functions",
+    "spec_ref": null,
+    "marks": 3,
+    "question_latex": "$$\\mathrm{g}(x)=4x^3-12x^2-15x+50$$\n[Figure 2: sketch of part of the curve $y=\\mathrm{g}(x)$: a positive cubic crossing the negative $x$-axis once, with a maximum to the left of the $y$-axis and touching the positive $x$-axis at a minimum.]\nFigure 2 shows a sketch of part of the curve with equation $y=\\mathrm{g}(x)$. Use your answer to part (b), and the sketch, to deduce the values of $x$ for which (i) $\\mathrm{g}(x)\\leqslant0$ (ii) $\\mathrm{g}(2x)=0$",
+    "mark_scheme": [
+      "M1 (AO 1.1b): (i) $x\\leqslant-2$, $x=2.5$. Notes: For identifying that the solution will be where the curve is on or below the axis. Award for either $x\\leqslant-2$ or $x=2.5$. Follow through on their $\\mathrm{g}(x)=(x+2)(ax+b)^2$ only where $ab<0$ (that is a positive root). Condone $x<-2$.",
+      "A1ft (AO 1.1b): Notes: BOTH $x\\leqslant-2$, $x=2.5$. Follow through on their $-\\frac{b}{a}$ of their $\\mathrm{g}(x)=(x+2)(ax+b)^2$. May see $\\{x\\leqslant-2\\cup x=2.5\\}$ which is fine.",
+      "B1ft (AO 2.2a): (ii) $x=-1$, $x=1.25$. Notes: For deducing that the solutions of $\\mathrm{g}(2x)=0$ will be where $x=-1$ and $x=1.25$. Condone the coordinates appearing $(-1,0)$ and $(1.25,0)$. Follow through on their 1.25 of their $\\mathrm{g}(x)=(x+2)(ax+b)^2$. SC: If a candidate reaches $\\mathrm{g}(x)=(x+2)(2x+5)^2$, clearly incorrect because of Figure 2, award in (i) M1 A0 for $x\\leqslant-2$ or $x<-2$, and in (ii) B1 for $x=-1$ and $x=-1.25$."
+    ],
+    "examiner_notes": "This question on the factor theorem proved to be a good source of marks for many students. Clearly they had been well prepared for this kind of question. Part (c) was usually attempted, but with limited success. In part (i) many achieved one mark, usually for $x\\leqslant-2$ (or $x<-2$ which was condoned for the M mark). Errors from part (b) were often followed through correctly. Only more able (and careful) students gained full marks. In part (ii) many correctly use transformations to state x = -1 and x = 1.25. Some students multiplied the critical values by 2 (instead of dividing by 2) or in other cases they wrote down just one of the two solutions.",
+    "difficulty": "hard",
+    "has_diagram": true,
+    "source_page": 22
+  },
+  {
+    "id": "8MA0-01_2018-06_Q10",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "10",
+    "topic": "Differentiation",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "Prove, from first principles, that the derivative of $x^3$ is $3x^2$",
+    "mark_scheme": [
+      "B1 (AO 2.1): Considers $\\frac{(x+h)^3-x^3}{h}$. Notes: Gives the correct fraction for the gradient of the chord either $\\frac{(x+h)^3-x^3}{h}$ or $\\frac{(x+\\delta x)^3-x^3}{\\delta x}$. It may also be awarded for $\\frac{(x+h)^3-x^3}{x+h-x}$ oe. It may be seen in an expanded form. It does not have to be linked to the gradient of the chord.",
+      "M1 (AO 1.1b): Expands $(x+h)^3=x^3+3x^2h+3xh^2+h^3$. Notes: Attempts to expand $(x+h)^3$ or $(x+\\delta x)^3$. Look for two correct terms, most likely $x^3+\\ldots+h^3$. This is independent of the B1.",
+      "A1 (AO 1.1b): so gradient (of chord) $=\\frac{3x^2h+3xh^2+h^3}{h}=3x^2+3xh+h^2$. Notes: Achieves gradient (of chord) is $3x^2+3xh+h^2$ or exact un simplified equivalent such as $3x^2+2xh+xh+h^2$. Again, there is no requirement to state that this expression is the gradient of the chord.",
+      "A1* (AO 2.5): States as $h\\to0$, $3x^2+3xh+h^2\\to3x^2$ so derivative $=3x^2$. Notes: CSO. Requires correct algebra and making a link between the gradient of the chord and the gradient of the curve. The words “gradient of the chord” do not need to be mentioned but derivative, $\\mathrm{f}'(x)$, $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$, $y'$ should be. Condone invisible brackets for the expansion of $(x+h)^3$ as long as it is only seen at the side as intermediate working. Do not allow $h=0$ alone without limit being considered somewhere."
+    ],
+    "examiner_notes": "This is a new topic on the specification. There were some very good solutions, showing full understanding of limits with all necessary steps shown. However, several students did not understand what was meant by ‘prove from first principles’ and simply stated and applied the general rule: if y=xⁿ, dy/dx= nxⁿ⁻¹ or wrote comments such as ‘multiply by the power and subtract one from it’. Those who knew what was required usually gained the first two marks but poor algebra often cost the third (and hence the fourth) mark. The final mark was frequently lost by failing to link the gradient of the chord and the gradient of the curve in some way.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 26
+  },
+  {
+    "id": "8MA0-01_2018-06_Q11a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "11(a)",
+    "topic": "Sequences and series",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "Find the first 3 terms, in ascending powers of $x$, of the binomial expansion of $$\\left(2-\\frac{x}{16}\\right)^9$$ giving each term in its simplest form.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): $\\left(2-\\frac{x}{16}\\right)^9=2^9+\\binom{9}{1}2^8\\cdot\\left(-\\frac{x}{16}\\right)+\\binom{9}{2}2^7\\cdot\\left(-\\frac{x}{16}\\right)^2+\\ldots$ Notes: Attempts the binomial expansion. May be awarded on either term two and/or term three. Scored for a correct binomial coefficient combined with a correct power of 2 and a correct power of $\\left(\\pm\\frac{x}{16}\\right)$. Condone $\\binom{9}{2}2^7\\cdot\\left(-\\frac{x^2}{16}\\right)$ for term three. Allow any form of the binomial coefficient, e.g. $\\binom{9}{2}={}^9C_2=\\frac{9!}{7!2!}=36$.",
+      "B1 (AO 1.1b): $=512+\\ldots$ Notes: For 512.",
+      "A1 (AO 1.1b): $=\\ldots-144x+\\ldots$ Notes: For $-144x$.",
+      "A1 (AO 1.1b): $=\\ldots+\\ldots+18x^2\\ (+\\ldots)$ Notes: For $+18x^2$. Allow even following $\\left(+\\frac{x}{16}\\right)^2$. Listing is acceptable for all 4 marks."
+    ],
+    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). The majority of students attempted part (a) of this question. Most were able to apply the binomial expansion and gain the correct unsimplified quadratic form. Common errors included missing out the negative in the expansion, so 512+144x+18x² was a common incorrect answer. Some students failed to simplify correctly leaving their coefficients as fractions.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 28
+  },
+  {
+    "id": "8MA0-01_2018-06_Q11b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "11(b)",
+    "topic": "Sequences and series",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "$$\\mathrm{f}(x)=(a+bx)\\left(2-\\frac{x}{16}\\right)^9,$$ where $a$ and $b$ are constants. Given that the first two terms, in ascending powers of $x$, in the series expansion of $\\mathrm{f}(x)$ are $128$ and $36x$, find the value of $a$.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): Sets $\\text{‘}512\\text{’}a=128\\Rightarrow a=\\ldots$ Notes: For setting their $512a=128$ and proceeding to find a value for $a$. Alternatively they could substitute $x=0$ into both sides of the identity and proceed to find a value for $a$.",
+      "A1ft (AO 1.1b): $(a=)\\frac{1}{4}$ oe. Notes: Follow through on $\\frac{128}{\\text{their }512}$."
+    ],
+    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). A common error in parts (b) and (c) was to set up a pair of (incorrect) simultaneous equations in a and b. Solutions of this type, that is via attempting to solve 512(a + bx) = 128 does show a lack of understanding between constants and variables. Students who did successfully find a = 0.25 rarely could handle the more complex process required to find b. Students scoring full marks in this question were rare.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 28
+  },
+  {
+    "id": "8MA0-01_2018-06_Q11c",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "11(c)",
+    "topic": "Sequences and series",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "$$\\mathrm{f}(x)=(a+bx)\\left(2-\\frac{x}{16}\\right)^9,$$ where $a$ and $b$ are constants. Given that the first two terms, in ascending powers of $x$, in the series expansion of $\\mathrm{f}(x)$ are $128$ and $36x$, find the value of $b$.",
+    "mark_scheme": [
+      "M1 (AO 2.2a): Sets $\\text{‘}512\\text{’}b+\\text{‘}-144\\text{’}a=36\\Rightarrow b=\\ldots$ Notes: Condone $512b\\pm144\\times a=36$ following through on their 512, their $-144$ and using their value of “$a$” to find a value for “$b$”.",
+      "A1 (AO 1.1b): $(b=)\\frac{9}{64}$ oe."
+    ],
+    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). A common error in parts (b) and (c) was to set up a pair of (incorrect) simultaneous equations in a and b. Solutions of this type, that is via attempting to solve 512(a + bx) = 128 does show a lack of understanding between constants and variables. Students who did successfully find a = 0.25 rarely could handle the more complex process required to find b. Students scoring full marks in this question were rare.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 28
+  },
+  {
+    "id": "8MA0-01_2018-06_Q12a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "12(a)",
+    "topic": "Trigonometry",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "Show that the equation $$4\\cos\\theta-1=2\\sin\\theta\\tan\\theta$$ can be written in the form $$6\\cos^2\\theta-\\cos\\theta-2=0$$",
+    "mark_scheme": [
+      "M1 (AO 1.2): $4\\cos\\theta-1=2\\sin\\theta\\tan\\theta\\Rightarrow4\\cos\\theta-1=2\\sin\\theta\\times\\frac{\\sin\\theta}{\\cos\\theta}$. Notes: Recall and use the identity $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}$. Note that it cannot just be stated.",
+      "A1 (AO 1.1b): $\\Rightarrow4\\cos^2\\theta-\\cos\\theta=2\\sin^2\\theta$ oe. Notes: This is scored for a correct line that does not contain any fractional terms. It may be awarded later in the solution after the identity $1-\\cos^2\\theta=\\sin^2\\theta$ has been used, e.g. for $\\cos\\theta(4\\cos\\theta-1)=2(1-\\cos^2\\theta)$ or equivalent.",
+      "M1 (AO 1.1b): $\\Rightarrow4\\cos^2\\theta-\\cos\\theta=2(1-\\cos^2\\theta)$. Notes: Attempts to use the correct identity $1-\\cos^2\\theta=\\sin^2\\theta$ to form an equation in just $\\cos\\theta$.",
+      "A1* (AO 2.1): $6\\cos^2\\theta-\\cos\\theta-2=0$ *. Notes: Proceeds to correct answer through rigorous and clear reasoning. No errors in notation or bracketing. For example $\\sin^2\\theta=\\sin\\theta^2$ is an error in notation."
+    ],
+    "examiner_notes": "Overall this question was well done, with many students taking advantage of being able to attempt (b) without completing (a). The few who restarted unnecessarily in (b) lost valuable time in the examination. In (a) almost all students substituted for tan θ correctly, with just a few using the identity upside down or attempting some version of sinθ = tanθ cosθ. It was common for the first accuracy mark to be lost for 4cos²θ – 1 instead of 4cos²θ – cosθ after multiplication by cosθ. Whilst many correctly used sin²θ+cos²θ=1 it was disappointing to see sinθ+cosθ =1 being quoted. The final mark was sometimes lost through bracketing errors or poor notation e.g. sinθ² for sin²θ.",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 32
+  },
+  {
+    "id": "8MA0-01_2018-06_Q12b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "12(b)",
+    "topic": "Trigonometry",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "Given that the equation $4\\cos\\theta-1=2\\sin\\theta\\tan\\theta$ can be written in the form $6\\cos^2\\theta-\\cos\\theta-2=0$, hence solve, for $0\\leqslant x<90^\\circ$ $$4\\cos3x-1=2\\sin3x\\tan3x$$ giving your answers, where appropriate, to one decimal place. (Solutions based entirely on graphical or numerical methods are not acceptable.)",
+    "mark_scheme": [
+      "M1 (AO 1.1b): For attempting to solve given quadratic. Notes: For attempting to solve the given quadratic “$6y^2-y-2=0$” where $y$ could be $\\cos3x$, $\\cos x$, or even just $y$. When factorising look for $(ay+b)(cy+d)$ where $ac=\\pm6$ and $bd=\\pm2$. This may be implied by the correct roots (even award for $\\left(y\\pm\\frac{2}{3}\\right)\\left(y\\pm\\frac{1}{2}\\right)$), an attempt at factorising, an attempt at the quadratic formula, an attempt at completing the square and even $\\pm$ the correct roots.",
+      "B1 (AO 1.1b): $(\\cos3x)=\\frac{2}{3},-\\frac{1}{2}$. Notes: For the roots $\\frac{2}{3},-\\frac{1}{2}$ oe.",
+      "M1 (AO 1.1b): $x=\\frac{1}{3}\\arccos\\left(\\frac{2}{3}\\right)$ or $\\frac{1}{3}\\arccos\\left(-\\frac{1}{2}\\right)$. Notes: Finds at least one solution for $x$ from $\\cos3x$ within the given range for their $\\frac{2}{3},-\\frac{1}{2}$.",
+      "A1 (AO 2.2a): $x=40^\\circ, 80^\\circ$, awrt $16.1^\\circ$. Notes: $x=40^\\circ,80^\\circ$, awrt $16.1^\\circ$ only. Withhold this mark if there are any other values even if they are outside the range. Condone 40 and 80 appearing as 40.0 and 80.0."
+    ],
+    "examiner_notes": "Overall this question was well done, with many students taking advantage of being able to attempt (b) without completing (a). The few who restarted unnecessarily in (b) lost valuable time in the examination. In (b) students generally managed to solve the quadratic, often using a calculator to find the two roots. The most common error was to give the signs of the roots the wrong way around, even after correct factorisation in some cases. Almost all found solutions for 3x but many failed to divide by 3. A substantial number of students who went on to find values for x missed a solution (often the 80°) or gave extra solutions outside the range e.g. 103.9°",
+    "difficulty": "medium",
+    "has_diagram": false,
+    "source_page": 32
+  },
+  {
+    "id": "8MA0-01_2018-06_Q13a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "13(a)",
+    "topic": "Exponentials and logarithms",
+    "spec_ref": null,
+    "marks": 4,
+    "question_latex": "[Figure 3: straight line $l$ on axes $t$ (horizontal) and $\\log_{10}V$ (vertical), with positive intercept on the $\\log_{10}V$ axis and positive gradient.]\nThe value of a rare painting, $\\pounds V$, is modelled by the equation $V=pq^t$, where $p$ and $q$ are constants and $t$ is the number of years since the value of the painting was first recorded on 1st January 1980. The line $l$ shown in Figure 3 illustrates the linear relationship between $t$ and $\\log_{10}V$ since 1st January 1980. The equation of line $l$ is $\\log_{10}V=0.05t+4.8$ Find, to 4 significant figures, the value of $p$ and the value of $q$.",
+    "mark_scheme": [
+      "M1 (AO 1.1b): For a correct equation in $p$ or $q$: $p=10^{4.8}$ or $q=10^{0.05}$. Notes: This is usually $p=10^{4.8}$ or $q=10^{0.05}$ but may be $\\log q=0.05$ or $\\log p=4.8$.",
+      "A1 (AO 1.1b): For $p=$ awrt $63100$ or $q=$ awrt $1.122$.",
+      "dM1 (AO 3.1a): For correct equations in $p$ and $q$: $p=10^{4.8}$ and $q=10^{0.05}$. Notes: For linking the two equations and forming correct equations in $p$ and $q$. This is usually $p=10^{4.8}$ and $q=10^{0.05}$ but may be $\\log q=0.05$ and $\\log p=4.8$.",
+      "A1 (AO 1.1b): For $p=$ awrt $63100$ and $q=$ awrt $1.122$. Notes: Both these values implies M1 M1."
+    ],
+    "examiner_notes": "Although this was another new question, it was less well attempted than others with more students leaving this question blank, or starting the question but not gaining any marks. (a) where students correctly identified the link with p, q and the formula, they were able to correctly work out the values of p and q. The most common method was to convert to powers of 10. A common error was incorrectly rounding p = 63095. to 6310, instead of 63100. Although this was not penalised in part (a), it did often lead to a wrong answer in part (c). A small number of students converted the question into logs and a few also substituted values in for t and used logs to solve.",
+    "difficulty": "hard",
+    "has_diagram": true,
+    "source_page": 36
+  },
+  {
+    "id": "8MA0-01_2018-06_Q13b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "13(b)",
+    "topic": "Exponentials and logarithms",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "[Figure 3: straight line $l$ on axes $t$ (horizontal) and $\\log_{10}V$ (vertical), with positive intercept on the $\\log_{10}V$ axis and positive gradient.]\nThe value of a rare painting, $\\pounds V$, is modelled by the equation $V=pq^t$, where $p$ and $q$ are constants and $t$ is the number of years since the value of the painting was first recorded on 1st January 1980. The line $l$ shown in Figure 3 illustrates the linear relationship between $t$ and $\\log_{10}V$ since 1st January 1980. The equation of line $l$ is $\\log_{10}V=0.05t+4.8$ With reference to the model interpret (i) the value of the constant $p$, (ii) the value of the constant $q$.",
+    "mark_scheme": [
+      "B1 (AO 3.4): (i) The value of the painting on 1st January 1980. Notes: (is £63 100). Accept the original value/cost of the painting or the initial value/cost of the painting.",
+      "B1 (AO 3.4): (ii) The proportional increase in value each year. Notes: E.g. accept an explanation that explains that the value of the painting will rise 12.2% a year (follow through on their value of $q$). Accept “the rate” by which the value is rising/price is changing. “1.122 is the decimal multiplier representing the year on year increase in value”. Do not accept “the amount” by which it is rising or “how much” it is rising by. If they are not labelled (b)(i) and (b)(ii) mark in the order given but accept any way around as long as clearly labelled “p is…” and “q is…”."
+    ],
+    "examiner_notes": "Although this was another new question, it was less well attempted than others with more students leaving this question blank, or starting the question but not gaining any marks. Part (b) was attempted by the majority of students, even for those who failed to attempt part (a). Part (i) was well answered with the majority of students identifying p as the initial value of the painting. A few students did not put their statement in the context of the model. In part (ii) common mistakes were to state it was the increase in value, rather than to link it to the rate or proportional increase, or to state it was the gradient of the line. Very few students explained that the value of the painting would rise by 12.2% a year or that 1.122 was the decimal multiplier representing the year on year increase in value.",
+    "difficulty": "medium",
+    "has_diagram": true,
+    "source_page": 36
+  },
+  {
+    "id": "8MA0-01_2018-06_Q13c",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "13(c)",
+    "topic": "Exponentials and logarithms",
+    "spec_ref": null,
+    "marks": 2,
+    "question_latex": "[Figure 3: straight line $l$ on axes $t$ (horizontal) and $\\log_{10}V$ (vertical), with positive intercept on the $\\log_{10}V$ axis and positive gradient.]\nThe value of a rare painting, $\\pounds V$, is modelled by the equation $V=pq^t$, where $p$ and $q$ are constants and $t$ is the number of years since the value of the painting was first recorded on 1st January 1980. The line $l$ shown in Figure 3 illustrates the linear relationship between $t$ and $\\log_{10}V$ since 1st January 1980. The equation of line $l$ is $\\log_{10}V=0.05t+4.8$ Find the value of the painting, as predicted by the model, on 1st January 2010, giving your answer to the nearest hundred thousand pounds.",
+    "mark_scheme": [
+      "M1 (AO 3.4): Uses $V=63100\\times1.122^{30}$ or $\\log V=0.05\\times30+4.8$ leading to $V=\\ldots$ Notes: For substituting $t=30$ into $V=pq^t$ using their values for $p$ and $q$ or substituting $t=30$ into $\\log_{10}V=0.05t+4.8$ and proceeds to $V$.",
+      "A1 (AO 1.1b): $=$ awrt $(\\pounds)\\,2000000$. Notes: For awrt either £1.99 million or £2.00 million. Condone the omission of the £ sign. Remember to isw after a correct answer."
+    ],
+    "examiner_notes": "Although this was another new question, it was less well attempted than others with more students leaving this question blank, or starting the question but not gaining any marks. Part (c) could be answered without values for p and q and some students scored just marks in this part of the question. When attempted it was generally done well. The follow through error mentioned in part (a) often led to the loss of the accuracy mark here.",
+    "difficulty": "medium",
+    "has_diagram": true,
+    "source_page": 36
+  },
+  {
+    "id": "8MA0-01_2018-06_Q14a",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "14(a)",
+    "topic": "Coordinate geometry",
+    "spec_ref": null,
+    "marks": 3,
+    "question_latex": "The circle $C$ has equation $$x^2+y^2-6x+10y+9=0$$ Find (i) the coordinates of the centre of $C$ (ii) the radius of $C$",
+    "mark_scheme": [
+      "M1 (AO 1.1b): Attempts to complete the square $(x\\pm3)^2+(y\\pm5)^2=\\ldots$ Notes: This mark may be implied by candidates writing down a centre of $(\\pm3,\\pm5)$ or $r^2=25$.",
+      "A1 (AO 1.1b): (i) Centre $(3,-5)$.",
+      "A1 (AO 1.1b): (ii) Radius $5$. Notes: Do not accept $\\sqrt{25}$. Answers only (no working) scores all three marks."
+    ],
+    "examiner_notes": "Part (a) was very accessible, part (b) less so. Hence in part (a) there were a large number of students who scored full marks. There were however occasional sign errors witnessed when the students completed the square.",
+    "difficulty": "easy",
+    "has_diagram": false,
+    "source_page": 40
+  },
+  {
+    "id": "8MA0-01_2018-06_Q14b",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "14(b)",
+    "topic": "Coordinate geometry",
+    "spec_ref": null,
+    "marks": 6,
+    "question_latex": "The circle $C$ has equation $$x^2+y^2-6x+10y+9=0$$ The line with equation $y=kx$, where $k$ is a constant, cuts $C$ at two distinct points. Find the range of values for $k$.",
+    "mark_scheme": [
+      "B1 (AO 2.2a): Uses a sketch or otherwise to deduce $k=0$ is a critical value. Notes: Uses a sketch or their subsequent quadratic to deduce that $k=0$ is a critical value. You may award for the correct $k<0$ but award if $k\\leqslant0$ or even with greater than symbols.",
+      "M1 (AO 3.1a): Substitute $y=kx$ in $x^2+y^2-6x+10y+9=0$. Notes: Substitutes $y=kx$ in $x^2+y^2-6x+10y+9=0$ or their $(x\\pm3)^2+(y\\pm5)^2=\\ldots$ to form an equation in just $x$ and $k$. It is possible to substitute $x=\\frac{y}{k}$ into their circle equation to form an equation in just $y$ and $k$.",
+      "A1 (AO 1.1b): Collects terms to form correct 3TQ $(1+k^2)x^2+(10k-6)x+9=0$. Notes: The “= 0” can be implied by subsequent work. This may be awarded from an equation such as $x^2+k^2x^2+(10k-6)x+9=0$ so long as the correct values of $a$, $b$ and $c$ are used in $b^2-4ac\\ldots0$.",
+      "M1 (AO 1.1b): Attempts $b^2-4ac\\ldots0$ for their $a$, $b$ and $c$ leading to values for $k$: “$(10k-6)^2-36(1+k^2)\\ldots0$” $\\to k=\\ldots,\\ldots$ ($0$ and $\\frac{15}{8}$). Notes: Attempts to find two critical values for $k$ using $b^2-4ac\\ldots0$ or $b^2\\ldots4ac$ where $\\ldots$ could be “=” or any inequality.",
+      "dM1 (AO 3.1a): Uses $b^2-4ac>0$ and chooses the outside region (see note) for their critical values (both $a$ and $b$ must have been expressions in $k$). Notes: Finds the outside region using their critical values. Allow the boundary to be included. It is dependent upon all previous M marks and both $a$ and $b$ must have been expressions in $k$. Note that it is possible that the correct region could be the inside region if the coefficient of $k^2$ in $4ac$ is larger than the coefficient of $k^2$ in $b^2$.",
+      "A1 (AO 2.2a): Deduces $k<0, k>\\frac{15}{8}$ oe. Notes: This must be in terms of $k$. Allow exact equivalents such as $k<0\\cup k>1.875$ but not allow $0>k>\\frac{15}{8}$ or the above with AND, & or $\\cap$ between the two inequalities."
+    ],
+    "examiner_notes": "Part (a) was very accessible, part (b) less so. In (b), the first method mark was scored by the majority of students who showed their substitution of y = k x . Those who substituted into the equation given in the question rather than their (a) answer often coped better with the less challenging algebra. Collecting terms to reach a correct three term quadratic was a significant hurdle for many, although the most common error was to write kx² for (kx)². Most students correctly quoted b² – 4ac before using it. Having done this they were usually able to factorise their expression to obtain k = 0 and another critical value. Having done the bulk of the work, many spoiled an otherwise perfect solution by stating the inside region.",
+    "difficulty": "hard",
+    "has_diagram": false,
+    "source_page": 40
+  },
+  {
+    "id": "8MA0-01_2018-06_Q15",
+    "paper": "8MA0-01",
+    "series": "2018-06",
+    "question": "15",
+    "topic": "Integration",
+    "spec_ref": null,
+    "marks": 10,
+    "question_latex": "[Figure 4 (not to scale): curve $C$ for $x>0$ with a minimum near $x=2$, the normal $l$ to $C$ at $P$ sloping down to meet the positive $x$-axis, and the shaded region $R$ between $x=2$, the curve, the line $l$ and the $x$-axis.]\nFigure 4 shows a sketch of part of the curve $C$ with equation $$y=\\frac{32}{x^2}+3x-8,\\qquad x>0$$ The point $P(4,6)$ lies on $C$. The line $l$ is the normal to $C$ at the point $P$. The region $R$, shown shaded in Figure 4, is bounded by the line $l$, the curve $C$, the line with equation $x=2$ and the $x$-axis. Show that the area of $R$ is $46$. (Solutions based entirely on graphical or numerical methods are not acceptable.)",
+    "mark_scheme": [
+      "M1 (AO 3.1a): For the complete strategy of finding where the normal cuts the $x$-axis. Key points that must be seen are: attempt at differentiation; attempt at using a changed gradient to find equation of normal; correct attempt to find where normal cuts the $x$-axis.",
+      "M1 (AO 1.1b): $y=\\frac{32}{x^2}+3x-8\\Rightarrow\\frac{\\mathrm{d}y}{\\mathrm{d}x}=-\\frac{64}{x^3}+3$. Notes: Differentiates with at least one index reduced by one.",
+      "A1 (AO 1.1b): $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=-\\frac{64}{x^3}+3$.",
+      "dM1 (AO 2.1): For a correct method of attempting to find either the equation of the normal (substituting $x=4$ in their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=-\\frac{64}{x^3}+3=(2)$, then using the perpendicular gradient rule to find the equation of normal $y-6=\\text{“}-\\frac{1}{2}\\text{”}(x-4)$) or where the equation of the normal at $(4,6)$ cuts the $x$-axis, e.g. $0-6=\\text{“}-\\frac{1}{2}\\text{”}(x-4)\\Rightarrow x=\\ldots$ or an attempt using just gradients $\\text{“}-\\frac{1}{2}\\text{”}=\\frac{6}{a-4}\\Rightarrow a=\\ldots$ Notes: It is dependent upon having gained the M mark for differentiation.",
+      "A1 (AO 1.1b): Normal cuts the $x$-axis at $x=16$.",
+      "M1 (AO 3.1a): For the complete strategy of finding the values of the two key areas. Points that must be seen are: an attempt to find the area under the curve by integrating between 2 and 4; an attempt to find the area of a triangle using $\\frac{1}{2}\\times(\\text{‘}16\\text{’}-4)\\times6$ or $\\int_4^{\\text{“}16\\text{”}}\\text{“}\\left(-\\frac{1}{2}x+8\\right)\\text{”}\\,\\mathrm{d}x$.",
+      "M1 (AO 1.1b): $\\int\\frac{32}{x^2}+3x-8\\,\\mathrm{d}x=-\\frac{32}{x}+\\frac{3}{2}x^2-8x$. Notes: Integrates raising the power of at least one index.",
+      "A1 (AO 1.1b): $\\int\\frac{32}{x^2}+3x-8\\,\\mathrm{d}x=-\\frac{32}{x}+\\frac{3}{2}x^2-8x$, which may be unsimplified.",
+      "dM1 (AO 1.1b): Area under curve $=\\left[-\\frac{32}{x}+\\frac{3}{2}x^2-8x\\right]_2^4=(-16)-(-26)=(10)$. Notes: It is dependent upon having scored the M mark for integration, for substituting in both 4 and 2 and subtracting either way around. The above line shows the minimum allowed working for a correct answer.",
+      "A1* (AO 2.1): Total area $=10+36=46$ *. Notes: Shows that the area under curve $=46$. No errors or omissions are allowed. NB: Watch for candidates who calculate the area under the curve between 2 and 4 = 10 and subtract this from the large triangle = 56. They will lose both the strategy mark and the answer mark."
+    ],
+    "examiner_notes": "Some students were clearly running out of time when they reached this question, as there were many unfinished answers and some blanks. However, there were a great many accurate, concise and well written solutions. Few attempts at the line minus the curve approach were seen. This was an unstructured question in which the students were required to find their own route through the problem. There were two discrete elements to the solution, one via differentiation and one via integration that were required to be tied together to show the given answer. A good number completed the differentiation part correctly. There were slips in the differentiation of $x^{-2}$, but generally the method of finding the equation of a normal was well known. An equal number completed the integration part finding the area under the curve between 2 and 4. Similar slips were made on the integration of $x^{-2}$. Tying up these two techniques into finding the area of R was less well done. Standard errors seen here involved: (1) attempting the area of a triangle between 2 and 16 (2) integrating under the curve from 2 to 16 (3) finding the equation of the tangent to the curve at P.",
+    "difficulty": "hard",
+    "has_diagram": true,
+    "source_page": 44
+  }
+]

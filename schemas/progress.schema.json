@@ -2,6 +2,38 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://9ma0-bank.local/schemas/progress.schema.json",
   "title": "Progress",
-  "description": "Placeholder: a free-form object until the progress format is decided.",
-  "type": "object"
+  "description": "Extraction queue: which papers go into the question bank, in what order, and where each one is.",
+  "type": "object",
+  "required": ["updated", "queue"],
+  "additionalProperties": false,
+  "properties": {
+    "updated": { "type": "string", "format": "date" },
+    "queue": {
+      "description": "Papers in the order they are to be extracted. Reserved series never appear here.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["paper", "series", "status", "marks_check", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "paper": {
+            "enum": ["9MA0-01", "9MA0-02", "9MA0-03", "9MA0-31", "9MA0-32", "8MA0-01", "8MA0-02", "8MA0-21", "8MA0-22"]
+          },
+          "series": {
+            "type": "string",
+            "pattern": "^([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)$"
+          },
+          "status": {
+            "description": "queued: not started. in_review: entries saved, waiting for my review. done: reviewed. blocked: waiting on a decision (see note).",
+            "enum": ["queued", "in_review", "done", "blocked"]
+          },
+          "marks_check": {
+            "description": "Last result of scripts/check_marks.py for this paper. Entries are only saved after an ok.",
+            "enum": ["ok", "MISMATCH", "UNCHECKED", null]
+          },
+          "note": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
 }
