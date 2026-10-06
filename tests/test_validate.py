@@ -23,7 +23,7 @@ def entry(**changes):
         "id": "8MA0-01_2018-06_Q09c", "paper": "8MA0-01", "series": "2018-06",
         "question": "9(c)", "topic": "Algebra and functions", "spec_ref": "2.7, 2.5",
         "marks": 3, "question_latex": "[Figure 2: sketch] Deduce ...",
-        "mark_scheme": None, "examiner_notes": None, "difficulty": None,
+        "mark_scheme": None, "examiner_notes": None, "difficulty": None, "difficulty_evidence": None,
         "has_diagram": True, "source_page": 22, "source_file": "8MA0-01_2018-06_QP.pdf",
     }
     base.update(changes)
@@ -75,6 +75,15 @@ class ConsistencyTests(unittest.TestCase):
             id="9MA0-32_SPEC_Q01", paper="9MA0-32", series="SPEC", topic="Kinematics",
             spec_ref="7.3", source_file="9MA0-03_SPEC_QP.pdf"))
         self.assertEqual(errors, [])
+
+    def test_difficulty_needs_evidence_from_notes(self):
+        notes = "Part (c) was usually attempted, but with limited success. Some used x = 2."
+        ok = self.check(examiner_notes=notes, difficulty="hard",
+                        difficulty_evidence="Part (c) was usually attempted, but with limited success.")
+        self.assertEqual(ok, [])
+        self.assertTrue(self.check(examiner_notes=notes, difficulty="hard"))
+        self.assertTrue(self.check(examiner_notes=notes, difficulty="hard", difficulty_evidence="Students found it hard."))
+        self.assertTrue(self.check(examiner_notes=notes, difficulty_evidence="Some used x = 2."))
 
     def test_split_mapping_is_only_for_spec(self):
         errors = consistency_errors("questions.json", entry(

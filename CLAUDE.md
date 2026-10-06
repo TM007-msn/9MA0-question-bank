@@ -56,27 +56,24 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 - Describe figures in `question_latex` as `[Figure N: ...]`. Any entry with one must have `has_diagram: true` (validate.py enforces this).
 - `source_file` is the question paper the entry comes from, and `source_page` is the page in that file where the question starts.
 - `mark_scheme`: one string per mark of the main method, `CODE (AO x.y): scheme line. Notes: ...`, copied from the mark scheme. Then every alternative the mark scheme lists, as separate strings starting `ALT:`, one per mark. An alternative is anything the mark scheme labels as one: "Alt", "ALT", "Alternative(ly)", "Method N", a second scheme column or table, or "Either … Or …" between two methods. Keep alternatives out of the main strings.
-- `examiner_notes`: sentences copied from the examiner report, in report order. A sentence about the whole question goes on every part. A sentence that names one or more parts goes only on those parts. Never paraphrase either field into new claims. Tag each report sentence with its part(s) and apply it with `scripts/er_notes.py`, which also sets difficulty.
+- `examiner_notes`: sentences copied from the examiner report, in report order. A sentence about the whole question goes on every part. A sentence that names one or more parts goes only on those parts. Never paraphrase either field into new claims. Tag each report sentence with its part(s) and apply it with `scripts/er_notes.py`. If a sentence refers back to another ("this", "it", "these"), mark it with `ref` so the sentence it refers to goes with it. er_notes.py refuses to run until every sentence containing those words has been checked.
 - `topic`: a name from `schemas/topics.json`, which uses the A level names for both qualifications.
 - `spec_ref`: refs from the entry's own qualification's specification, comma-separated, main ref first. The first ref must belong to the topic, and the others must come from the same strand (pure, statistics or mechanics).
 - Spec statement labels in `topics.json` come from the PDF text, except that statements with maths (or garbled text) use the hand-written LaTeX in `schemas/spec_labels.json`. When a spec statement's label looks garbled, add it there and rerun `scripts/build_topics.py`.
-- `difficulty`: set by `scripts/difficulty.py` from the examiner report's wording, using the mapping below. Never set it by judgement.
+- `difficulty`: a judgement, made after reading everything the examiner report says about the question (its whole-question sentences and the sentences on every part). Use the rubric below.
+- `difficulty_evidence`: the one sentence the rating rests on, copied exactly from the entry's `examiner_notes`. It's `null` only when `difficulty` is `null`, i.e. when the report says nothing usable about the part. Never guess a rating without evidence.
 
-### Difficulty mapping
-Phrases (case-insensitive, whole words):
-- **easy:** “well done”, “done well”, “well answered”, “accessible”, “well prepared”, “good source of marks”, “good starting question”, “good solutions”, “was more successful”, “much more successful”, “many scoring full marks”, “many gained all marks”, “scored full marks”, “scored well”, “most successful”, “answered very well”, “almost universally”, “most candidates scored”, “most earned the mark”, “scored the mark”
-- **medium:** “mixed”, “varying success”, “some success”, “some candidates”, “some students”, “at least one mark”
-- **hard:** “demanding”, “challenge”, “difficult”, “very few”, “few candidates”, “few students”, “few responses”, “few then”, “rare”, “rarely”, “limited success”, “less well”, “less so”, “struggled”, “disappointing”, “lacking”, “unable to”, “only more able”, “significant hurdle”, “frequently lost”, “challenging”, “poorly”, “less successfully”, “least successfully”, “struggle”
+### Difficulty rubric
+Wording is a guide, not a lookup:
+- **easy:** most candidates scored all or most of the marks ("well done", "accessible", "well answered", "most candidates scored both marks", "almost universally correct").
+- **medium:** most candidates got some of the marks but commonly lost others, or results were mixed ("mixed", "some candidates", "usually gained the first mark but …", "often lost the final mark").
+- **hard:** most candidates scored few or none of the marks, or the report calls it demanding ("demanding", "challenging", "few candidates", "limited success", "poorly done", "many left it blank").
 
-Exceptions: "a few …" / "the few …" (a minority error) doesn't count as "few", and "less well done" isn't "well done".
+Weighting:
+- Sentences about how most candidates did outweigh comments about a minority's errors. "A few students used x = 2" doesn't make a part hard.
+- Sentences about the part itself outweigh the whole-question summary. Use the summary when the report says little about the part.
+- Prefer a sentence about the part as evidence. Use a whole-question sentence only if it's the best basis.
 
-For each part:
-1. Use the report sentences about that part, including sentences that name it alongside other parts. When one sentence judges parts differently ("Part (a) was very accessible, part (b) less so"), each part uses only its own clause.
-2. Easy and hard phrases both present → medium. Otherwise: any hard phrase → hard, then any easy phrase → easy, then any medium phrase → medium.
-3. No phrases found → apply step 2 to the sentences about the whole question.
-4. Still nothing (or no report) → `null`.
-
-The phrase lists in this section and in `scripts/difficulty.py` must match.
 - Save only through `python scripts/add_entries.py draft.json`. It checks the schema, the reserved list, the marks check and per-question mark totals, and rejects duplicate ids.
 - SPEC combined papers restart their numbering in Section B. Their sections are filed under the split codes: 9MA0-03 SPEC becomes 9MA0-31 (Section A) and 9MA0-32 (Section B), and 8MA0-02 SPEC becomes 8MA0-21 and 8MA0-22. `source_file` stays the combined PDF, e.g. `9MA0-03_SPEC_QP.pdf`. The 2018 and SAM combined papers number straight through and keep 03 / 02.
 - After saving, build the review sheet (`python scripts/build_review.py PAPER SERIES`) and stop. To redo a paper that's in review, use `add_entries.py --replace`.

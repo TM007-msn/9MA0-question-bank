@@ -150,6 +150,22 @@ def source_file_errors(entry):
     return errors
 
 
+def difficulty_errors(entry):
+    """A rating needs evidence, and the evidence must be a sentence from
+    the entry's own examiner_notes (so it's copied from the report, not
+    written by us). No rating means no evidence."""
+    rating, evidence = entry.get("difficulty"), entry.get("difficulty_evidence")
+    if rating is None and evidence is None:
+        return []
+    if rating is None:
+        return ["difficulty_evidence is set but difficulty is null"]
+    if evidence is None:
+        return ["difficulty is set but difficulty_evidence is null"]
+    if evidence not in (entry.get("examiner_notes") or ""):
+        return ["difficulty_evidence is not a sentence from examiner_notes"]
+    return []
+
+
 def consistency_errors(filename, entry):
     """Checks a schema can't express: fields that must agree with each other."""
     errors = []
@@ -163,6 +179,7 @@ def consistency_errors(filename, entry):
             errors.append("question_latex describes a [Figure ...] but has_diagram is not true")
         errors.extend(spec_ref_errors(entry))
         errors.extend(source_file_errors(entry))
+        errors.extend(difficulty_errors(entry))
 
     # The id must start with the entry's own paper and series, so an id like
     # 9MA0-01_2023-06_Q03 can't sit on an entry marked paper 9MA0-02.

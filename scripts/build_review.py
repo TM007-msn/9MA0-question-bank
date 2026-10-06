@@ -70,6 +70,7 @@ ul.ms li.alt { background:var(--alt); color:var(--alt-ink); border-radius:6px; p
 .refs { font-size:13px; color:var(--muted); margin:2px 0 0; padding-left:18px; }
 .problems { color:var(--warn); font-weight:600; }
 .notes { margin:4px 0 0; }
+.evidence { font-size:13px; margin:0 0 6px; border-left:3px solid var(--line); padding-left:8px; }
 """
 
 
@@ -123,6 +124,8 @@ def render_entry(entry, topics):
              chip("spec_ref", entry["spec_ref"]), chip("difficulty", entry["difficulty"]),
              chip("has_diagram", entry["has_diagram"]), chip("page", entry["source_page"]),
              '</div>']
+    if entry.get("difficulty_evidence"):
+        parts.append(f'<p class="evidence"><b>Difficulty evidence:</b> {esc(entry["difficulty_evidence"])}</p>')
     refs = ref_lines(entry, topics)
     if refs:
         parts.append('<ul class="refs">' + "".join(
