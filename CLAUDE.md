@@ -51,11 +51,12 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 ## Extracting a paper
 - Work through `bank/progress.json` in queue order. Stop after each paper whose status becomes `in_review` until I've reviewed it.
 - Run `python scripts/check_marks.py PAPER SERIES` first. Only `ok` allows extraction. If it says `MISMATCH`, stop and tell me: the mark scheme probably belongs to a different paper. If it says `UNCHECKED`, fix the parser for that layout (or check by hand with me) before going on.
+- Scanned question papers (no text layer, e.g. 9MA0-31/32 2019-06) can't be parsed. Read their "Total for Question N is X marks" lines from the page images and record them, with where they were read, in `bank/qp_totals_manual.json`. check_marks.py uses those only for scans, and still compares them against the mark scheme it parses.
 - Make one entry per separately marked part, e.g. `Q06c` covers 6(c)(i) and (ii) when they share one mark allocation. `question_latex` repeats the shared stem, so each entry stands alone.
 - Describe figures in `question_latex` as `[Figure N: ...]`. Any entry with one must have `has_diagram: true` (validate.py enforces this).
 - `source_file` is the question paper the entry comes from, and `source_page` is the page in that file where the question starts.
 - `mark_scheme`: one string per mark of the main method, `CODE (AO x.y): scheme line. Notes: ...`, copied from the mark scheme. Then every alternative the mark scheme lists, as separate strings starting `ALT:`, one per mark. An alternative is anything the mark scheme labels as one: "Alt", "ALT", "Alternative(ly)", "Method N", a second scheme column or table, or "Either … Or …" between two methods. Keep alternatives out of the main strings.
-- `examiner_notes`: sentences copied from the examiner report, in report order. A sentence about the whole question goes on every part. A sentence that names one or more parts goes only on those parts. Never paraphrase either field into new claims.
+- `examiner_notes`: sentences copied from the examiner report, in report order. A sentence about the whole question goes on every part. A sentence that names one or more parts goes only on those parts. Never paraphrase either field into new claims. Tag each report sentence with its part(s) and apply it with `scripts/er_notes.py`, which also sets difficulty.
 - `topic`: a name from `schemas/topics.json`, which uses the A level names for both qualifications.
 - `spec_ref`: refs from the entry's own qualification's specification, comma-separated, main ref first. The first ref must belong to the topic, and the others must come from the same strand (pure, statistics or mechanics).
 - Spec statement labels in `topics.json` come from the PDF text, except that statements with maths (or garbled text) use the hand-written LaTeX in `schemas/spec_labels.json`. When a spec statement's label looks garbled, add it there and rerun `scripts/build_topics.py`.
@@ -63,11 +64,11 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 
 ### Difficulty mapping
 Phrases (case-insensitive, whole words):
-- **easy:** “well done”, “done well”, “well answered”, “accessible”, “well prepared”, “good source of marks”, “good starting question”, “good solutions”, “was more successful”, “much more successful”, “many scoring full marks”, “many gained all marks”, “scored full marks”
+- **easy:** “well done”, “done well”, “well answered”, “accessible”, “well prepared”, “good source of marks”, “good starting question”, “good solutions”, “was more successful”, “much more successful”, “many scoring full marks”, “many gained all marks”, “scored full marks”, “scored well”, “most successful”, “answered very well”, “almost universally”, “most candidates scored”, “most earned the mark”, “scored the mark”
 - **medium:** “mixed”, “varying success”, “some success”, “some candidates”, “some students”, “at least one mark”
-- **hard:** “demanding”, “challenge”, “difficult”, “very few”, “few candidates”, “few students”, “few responses”, “few then”, “rare”, “rarely”, “limited success”, “less well”, “less so”, “struggled”, “disappointing”, “lacking”, “unable to”, “only more able”, “significant hurdle”, “frequently lost”
+- **hard:** “demanding”, “challenge”, “difficult”, “very few”, “few candidates”, “few students”, “few responses”, “few then”, “rare”, “rarely”, “limited success”, “less well”, “less so”, “struggled”, “disappointing”, “lacking”, “unable to”, “only more able”, “significant hurdle”, “frequently lost”, “challenging”, “poorly”, “less successfully”, “least successfully”, “struggle”
 
-Exceptions: "a few students/candidates/responses" (a minority error) doesn't count as "few", and "less well done" isn't "well done".
+Exceptions: "a few …" / "the few …" (a minority error) doesn't count as "few", and "less well done" isn't "well done".
 
 For each part:
 1. Use the report sentences about that part, including sentences that name it alongside other parts. When one sentence judges parts differently ("Part (a) was very accessible, part (b) less so"), each part uses only its own clause.

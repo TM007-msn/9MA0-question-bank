@@ -23,6 +23,8 @@ EASY = [
     "good source of marks", "good starting question", "good solutions",
     "was more successful", "much more successful",
     "many scoring full marks", "many gained all marks", "scored full marks",
+    "scored well", "most successful", "answered very well", "almost universally",
+    "most candidates scored", "most earned the mark", "scored the mark",
 ]
 MEDIUM = [
     "mixed", "varying success", "some success", "some candidates", "some students",
@@ -32,7 +34,8 @@ HARD = [
     "demanding", "challenge", "difficult", "very few", "few candidates", "few students",
     "few responses", "few then", "rare", "rarely", "limited success", "less well",
     "less so", "struggled", "disappointing", "lacking", "unable to", "only more able",
-    "significant hurdle", "frequently lost",
+    "significant hurdle", "frequently lost", "challenging", "poorly",
+    "less successfully", "least successfully", "struggle",
 ]
 
 # Phrases that contain an easy phrase but mean the opposite.
@@ -42,10 +45,10 @@ def _matches(phrases, text):
     found = []
     for p in phrases:
         for m in re.finditer(rf"\b{re.escape(p)}\b", text):
-            # "A few students made error X" describes a minority error, not
-            # a hard part, so "few ..." right after "a " doesn't count.
-            before = text[max(0, m.start() - 2):m.start()]
-            if p.startswith("few") and before == "a ":
+            # "A few students made error X" (or "the few candidates who ...")
+            # describes a minority error, not a hard part, so "few ..." right
+            # after "a " or "the " doesn't count.
+            if p.startswith("few") and (text[:m.start()].endswith("a ") or text[:m.start()].endswith("the ")):
                 continue
             # "less well done" is not "well done".
             if any(text[max(0, m.start() - len(n) + len(p)):m.end()] == n for n in NOT_EASY.get(p, [])):

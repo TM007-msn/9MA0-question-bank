@@ -22,6 +22,7 @@ Exit code is 0 only if every pair is ok.
 """
 
 import argparse
+import json
 import re
 import sys
 
@@ -46,9 +47,40 @@ def pdf_text(path):
         return "\n".join(page.get_text() for page in doc)
 
 
+MANUAL_TOTALS = ROOT / "bank" / "qp_totals_manual.json"
+
+
+def has_text_layer(path, min_chars_per_page=100):
+    """False for scanned PDFs, whose pages are images with no extractable text.
+    ('PMT' watermarks don't count as text.)"""
+    with pymupdf.open(path) as doc:
+        chars = sum(len(page.get_text().replace("PMT", "").strip()) for page in doc)
+        return chars >= min_chars_per_page * doc.page_count / 10
+
+
+def manual_totals(path):
+    """Hand-read totals for a scanned question paper, or None.
+
+    Only used when the PDF has no text layer, so a hand-read number can
+    never override totals read from the PDF itself.
+    """
+    if has_text_layer(path) or not MANUAL_TOTALS.exists():
+        return None
+    with open(MANUAL_TOTALS, encoding="utf-8") as f:
+        entry = json.load(f)["papers"].get(path.name)
+    return {int(q): m for q, m in entry["totals"].items()} if entry else None
+
+
 def qp_marks(path):
-    """{question number: total marks} from the question paper."""
-    return {int(q): int(m) for q, m in QP_TOTAL_RE.findall(pdf_text(path))}
+    """{question number: total marks} from the question paper.
+
+    For a scanned paper (no text layer) this falls back to the totals read
+    by hand in bank/qp_totals_manual.json, if they've been recorded.
+    """
+    found = {int(q): int(m) for q, m in QP_TOTAL_RE.findall(pdf_text(path))}
+    if not found:
+        found = manual_totals(path) or {}
+    return found
 
 
 def ms_marks(path):
@@ -90,7 +122,11 @@ def compare(paper, series):
     # Anything else (missing or several totals) means the parser lost track.
     mismatch = False
     if not qp:
-        problems.append("no 'Total for Question N is X marks' lines found in the QP")
+        if has_text_layer(qp_path):
+            problems.append("no 'Total for Question N is X marks' lines found in the QP")
+        else:
+            problems.append("QP is a scan with no text layer; read its totals from the page "
+                            "images and record them in bank/qp_totals_manual.json")
     if not ms:
         problems.append("no question totals found in the MS")
 
@@ -144,8 +180,10 @@ def main():
             for p in problems:
                 print(f"    {p}")
         else:
-            total = sum(qp_marks(PAPERS_DIR / f"{paper}_{series}_QP.pdf").values())
-            print(f"{'ok':9} {paper} {series}  ({total} marks)")
+            qp_path = PAPERS_DIR / f"{paper}_{series}_QP.pdf"
+            total = sum(qp_marks(qp_path).values())
+            how = "  [QP totals read by hand from a scan]" if manual_totals(qp_path) else ""
+            print(f"{'ok':9} {paper} {series}  ({total} marks){how}")
     return 1 if failed else 0
 
 

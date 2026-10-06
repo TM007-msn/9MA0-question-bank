@@ -80,14 +80,15 @@ def esc(text):
 
 def crop_png(source_file, page_number):
     """PNG (base64) of the question region on a page: from the top margin
-    down to the last "(n)" marks line, or the top 60% if none is found."""
+    down to the last "(n)" marks line. A scanned page has no text to find
+    that line in, so the whole page is shown."""
     path = PAPERS_DIR / source_file
     if "reserved" in path.parts:  # belt and braces: never read reserved papers
         raise SystemExit("refusing to read source/reserved/")
     with pymupdf.open(path) as doc:
         page = doc[page_number - 1]
         marks = [b for b in page.get_text("blocks") if re.fullmatch(r"\(\d+\)", b[4].strip())]
-        bottom = max(b[3] for b in marks) + 6 if marks else page.rect.height * 0.6
+        bottom = max(b[3] for b in marks) + 6 if marks else page.rect.height - 40
         clip = pymupdf.Rect(30, 30, page.rect.width - 45, bottom)
         png = page.get_pixmap(dpi=110, clip=clip).tobytes("png")
     return base64.b64encode(png).decode("ascii")

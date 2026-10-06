@@ -15,8 +15,8 @@
       "series": "2019-06",
       "source_file": "9MA0-31_2019-06_QP.pdf",
       "section": null,
-      "status": "queued",
-      "marks_check": "UNCHECKED",
+      "status": "in_review",
+      "marks_check": "ok",
       "note": "Second check, after the first paper is reviewed. Marks parser needs fixing for this layout first."
     },
     {

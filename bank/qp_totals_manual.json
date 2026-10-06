@@ -1,0 +1,11 @@
+{
+  "description": "Per-question totals read by hand from the page images of question papers that have no text layer (scans), so check_marks.py can still compare them with the mark scheme. Used only when the PDF has no text. Each entry records where the numbers were read.",
+  "papers": {
+    "9MA0-31_2019-06_QP.pdf": {
+      "totals": { "1": 8, "2": 11, "3": 9, "4": 9, "5": 13 },
+      "reason": "Scanned PDF with no text layer; the Pearson copy (9MA0_31_que_20190615.pdf) is also a scan.",
+      "read_from": "'(Total for Question N is X marks)' lines on pages 5, 9, 13, 17 and 20; they add to 50, matching the cover ('The total mark for this part of the examination is 50') and 'TOTAL FOR STATISTICS IS 50 MARKS'.",
+      "date": "2026-10-06"
+    }
+  }
+}
