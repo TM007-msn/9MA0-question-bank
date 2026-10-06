@@ -209,7 +209,7 @@ DRAFT = [
     # ---------------- Q7 ----------------
     e("07a", "7(a)", TRIG, "5.1", 3, Q7 + r"the size of angle $SPQ$, in degrees, to 2 decimal places,",
       [r"B1 (AO 1.2): Sets $50=7\times14\sin(SPQ)$ oe. Notes: Sets $50=7\times14\sin(SPQ)$ oe",
-       r"M1 (AO 1.1b): Finds $180^\circ-\arcsin\left(\text{\"}\frac{50}{98}\text{\"}\right)$. Notes: Attempts the correct "
+       r"M1 (AO 1.1b): Finds $180^\circ-\arcsin\left(\text{“}\frac{50}{98}\text{”}\right)$. Notes: Attempts the correct "
        r"method of finding obtuse $\angle SPQ$. See scheme.",
        r"A1 (AO 1.1b): $=149.32^\circ$. Notes: awrt $149.32^\circ$",
        r"ALT: Alt(a) (with a diagram of the parallelogram $PQRS$, $PS=7$, $PQ=14$, and heights $h$ from $S$ to $PQ$ and "
@@ -219,9 +219,9 @@ DRAFT = [
        r"ALT: Alt(a) — A1 (AO 1.1b): awrt $149.32^\circ$"],
       False, 14),
     e("07b", "7(b)", TRIG, "5.1", 2, Q7 + r"the length of the diagonal $SQ$, in cm, to one decimal place.",
-      [r"M1 (AO 1.1b): Method of finding $SQ$: $SQ^2=14^2+7^2-2\times14\times7\cos\text{\"}149.32\text{\"}$. Notes: A "
-       r"correct method of finding $SQ$ using their $\angle SPQ$. $SQ^2=14^2+7^2-2\times14\times7\cos\text{\"}149.32"
-       r"\text{\"}$ scores this mark.",
+      [r"M1 (AO 1.1b): Method of finding $SQ$: $SQ^2=14^2+7^2-2\times14\times7\cos\text{“}149.32\text{”}$. Notes: A "
+       r"correct method of finding $SQ$ using their $\angle SPQ$. $SQ^2=14^2+7^2-2\times14\times7\cos\text{“}149.32"
+       r"\text{”}$ scores this mark.",
        r"A1 (AO 1.1b): $=20.3$ cm. Notes: awrt 20.3 cm (condone lack of units)"],
       False, 14),
 
@@ -230,7 +230,7 @@ DRAFT = [
       [r"M1 (AO 1.1a): $(2+ax)^8$ Attempts the term in $x^5={}^8C_5\,2^3(ax)^5=448a^5x^5$. Notes: An attempt at selecting "
        r"the correct term of the binomial expansion. If all terms are given then the correct term must be used. Allow "
        r"with a missing bracket ${}^8C_5\,2^3ax^5$ and left without the binomial coefficient expanded",
-       r"A1 (AO 1.1b): $448a^5x^5$. Notes: $448a^5x^5$ Allow unsimplified but ${}^8C_5$ must be \"numerical\"",
+       r"A1 (AO 1.1b): $448a^5x^5$. Notes: $448a^5x^5$ Allow unsimplified but ${}^8C_5$ must be “numerical”",
        r"M1 (AO 1.1b): Sets $448a^5=3402\Rightarrow a^5=\frac{243}{32}$. Notes: Sets their $448a^5=3402$ and proceeds to "
        r"$\Rightarrow a^k=\ldots$ where $k\in\mathbb{N}$ $k\neq1$",
        r"A1 (AO 1.1b): $\Rightarrow a=\frac{3}{2}$. Notes: Correct work leading to $a=\frac{3}{2}$"],
@@ -299,8 +299,8 @@ DRAFT = [
     e("11c", "11(c)", EXP, "6.7", 1,
       Q11 + Q11B + r"On 1st January 2020, the owners of the nature reserve announced a long-term plan to have 100 km$^2$ "
       r"of the nature reserve covered by trees. State a reason why the model is not appropriate for this plan.",
-      [r"B1 (AO 3.5b): Gives a suitable answer: The maximum area covered by trees is only 80 km$^2$; The \"80\" would need "
-       r"to be \"100\"; Substitutes 100 into the equation of the model and shows that the formula fails with a reason eg. "
+      [r"B1 (AO 3.5b): Gives a suitable answer: The maximum area covered by trees is only 80 km$^2$; The “80” would need "
+       r"to be “100”; Substitutes 100 into the equation of the model and shows that the formula fails with a reason eg. "
        r"you cannot take a log of a negative number. Notes: Gives a suitable interpretation (See scheme)"],
       False, 24),
 
@@ -340,7 +340,7 @@ DRAFT = [
 
     # ---------------- Q13 ----------------
     e("13a", "13(a)", EXP, "6.6, 6.4", 3, Q13 + r"Find, to 3 significant figures, the value of $p$ and the value of $q$.",
-      [r"M1 (AO 1.1b): $\log_{10}h=2.25-0.235\log_{10}m\Rightarrow h=10^{2.25-0.235\log_{10}m}\Rightarrow"
+      [r"M1 (AO 1.1b): $\log_{10}h=2.25-0.235\log_{10}m\Rightarrow h=10^{2.25-0.235\log_{10}m}\Rightarrow "
        r"h=10^{2.25}\times m^{-0.235}$. Notes: Establishes a link between $h=pm^q$ and $\log_{10}h=2.25-0.235\log_{10}m$. "
        r"May be implied by a correct equation in $p$ or $q$",
        r"A1 (AO 1.1b): Either one of $p=10^{2.25}$, $q=-0.235$. Notes: For a correct equation in $p$ or $q$",
@@ -353,18 +353,18 @@ DRAFT = [
       Q13 + r"(a) Find, to 3 significant figures, the value of $p$ and the value of $q$. A particular mammal has a mass "
       r"of 5 kg and a resting heart rate of 119 beats per minute. (b) Comment on the suitability of the model for this "
       r"mammal.",
-      [r"M1 (AO 3.1b): $h=\text{\"}178\text{\"}\times5^{\text{\"}-0.235\text{\"}}$. Notes: Uses either model to set up an "
+      [r"M1 (AO 3.1b): $h=\text{“}178\text{”}\times5^{\text{“}-0.235\text{”}}$. Notes: Uses either model to set up an "
        r"equation in $h$ (or $m$)",
        r"A1 (AO 1.1b): $h=122$. Notes: $h=$ awrt 122. Condone $h=$ awrt 122 bpm",
        r"A1ft (AO 3.2b): Reasonably accurate (to 2 sf) so suitable. Notes: Comments on the suitability of the model. "
        r"Follow through on their answer. Requires a comment consistent with their answer from using the model. E.g. It "
        r"is a suitable model as it is only “3” bpm away from the real value ✓ Do not allow an argument stating that it "
        r"should be the same. It is an unsuitable model as “122” bpm is not equal to 119 bpm ✗",
-       r"ALT: Second scheme column — M1 (AO 3.1b): $\log_{10}h=\text{\"}2.25\text{\"}-\text{\"}0.235\text{\"}\log_{10}5$",
+       r"ALT: Second scheme column — M1 (AO 3.1b): $\log_{10}h=\text{“}2.25\text{”}-\text{“}0.235\text{”}\log_{10}5$",
        r"ALT: Second scheme column — A1 (AO 1.1b): $h=122$"],
       True, 30),
     e("13c", "13(c)", EXP, "6.7", 1, Q13 + r"With reference to the model, interpret the value of the constant $p$.",
-      [r"B1 (AO 3.4): \"$p$\" would be the (resting) heart rate (in bpm) of a mammal with a mass of 1 kg. Notes: \"$p$\" "
+      [r"B1 (AO 3.4): “$p$” would be the (resting) heart rate (in bpm) of a mammal with a mass of 1 kg. Notes: “$p$” "
        r"would be the (resting) heart rate of a mammal with a mass of 1 kg"],
       True, 30),
 
@@ -395,7 +395,7 @@ DRAFT = [
        r"A1 (AO 1.1b): $\int-3x^2+12x+8\,\mathrm{d}x=-x^3+6x^2+8x$. Notes: $\int-3x^2+12x+8\,\mathrm{d}x=-x^3+6x^2+8x"
        r"\,(+c)$ (which may be unsimplified)",
        r"M1 (AO 3.1a): Method to find $R=$ their $2\times20-\int_0^2(-3x^2+12x+8)\,\mathrm{d}x$. Notes: Method to find "
-       r"area of $R$. Look for their $2\times\text{\"}20\text{\"}-\int_0^{\text{\"}2\text{\"}}\mathrm{f}(x)\,\mathrm{d}x$",
+       r"area of $R$. Look for their $2\times\text{“}20\text{”}-\int_0^{\text{“}2\text{”}}\mathrm{f}(x)\,\mathrm{d}x$",
        r"dM1 (AO 1.1b): $R=40-\left[-2^3+24+16\right]$. Notes: Correct application of limits on their integrated "
        r"function. Their 2 must be used",
        r"A1 (AO 1.1b): $=8$. Notes: Shows that area of $R=8$",
@@ -408,7 +408,7 @@ DRAFT = [
 
     # ---------------- Q15 ----------------
     e("15a", "15(a)", COORD, "3.1", 2, Q15 + r"the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,",
-      [r"M1 (AO 2.2a): Deduces the line has gradient \"$-3$\" and point $(7,4)$ Eg $y-4=-3(x-7)$. Notes: Uses the idea "
+      [r"M1 (AO 2.2a): Deduces the line has gradient “$-3$” and point $(7,4)$ Eg $y-4=-3(x-7)$. Notes: Uses the idea "
        r"of perpendicular gradients to deduce that gradient of $PN$ is $-3$ with point $(7,4)$ to find the equation of "
        r"line $PN$. So sight of $y-4=-3(x-7)$ would score this mark. If the form $y=mx+c$ is used expect the candidates "
        r"to proceed as far as $c=\ldots$ to score this mark.",
@@ -444,7 +444,7 @@ DRAFT = [
        r"\right)x+k^2-8k+\frac{125}{2}=0$. Notes: For solving $y=\frac{1}{3}x+k$ with their $(x-7)^2+(y-4)^2=\frac{5}{2}$ "
        r"and creating a quadratic eqn of the form $ax^2+bx+c=0$ where both b and c are dependent upon k. The terms in "
        r"$x^2$ and $x$ must be collected together or implied to have been collected by their correct use in "
-       r"\"$b^2-4ac$\"",
+       r"“$b^2-4ac$”",
        r"ALT: Alternative I — M1 (AO 2.1): Uses $b^2-4ac=0$ oe and proceeds to $k=\ldots$ Notes: For using the "
        r"discriminant condition $b^2-4ac=0$ to find $k$. It is not dependent upon the previous M and may be awarded from "
        r"only one term in $k$. Award if you see use of correct formula but it would be implied by $\pm$ correct roots",
@@ -472,7 +472,7 @@ DRAFT = [
       [r"B1 (AO 1.1b): $\mathrm{f}(x)=-2x^3+15x^2-39x+44\Rightarrow\mathrm{f}'(x)=-6x^2+30x-39$. Notes: "
        r"$\mathrm{f}'(x)=-6x^2+30x-39$ oe",
        r"M1 (AO 3.1a): Attempts to show that $-6x^2+30x-39$ has no roots Eg. calculates "
-       r"$b^2-4ac=30^2-4\times-6\times-39=-36$. Notes: Correct attempt to show that \"$-6x^2+30x-39$\" has no roots. This "
+       r"$b^2-4ac=30^2-4\times-6\times-39=-36$. Notes: Correct attempt to show that “$-6x^2+30x-39$” has no roots. This "
        r"could involve an attempt at: finding the numerical value of $b^2-4ac$; finding the roots of $-6x^2+30x-39$ using "
        r"the quadratic formula (or their calculator); completing the square for $-6x^2+30x-39$",
        r"A1* (AO 2.4): States that as $\mathrm{f}'(x)\neq0\Rightarrow$ hence $\mathrm{f}(x)$ has no turning points *. "

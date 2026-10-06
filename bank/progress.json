@@ -51,6 +51,21 @@
           "changed": [
             "9MA0-31_2019-06_Q04bii: difficulty"
           ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "LaTeX render fix: curly quotes, degree signs, no LaTeX commands in plain text",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-31_2019-06_Q02a: question_latex",
+            "9MA0-31_2019-06_Q02b: question_latex",
+            "9MA0-31_2019-06_Q02c: question_latex",
+            "9MA0-31_2019-06_Q02d: question_latex",
+            "9MA0-31_2019-06_Q02e: question_latex",
+            "9MA0-31_2019-06_Q04d: question_latex",
+            "9MA0-31_2019-06_Q04e: question_latex"
+          ]
         }
       ]
     },
@@ -71,6 +86,29 @@
           "changed": [
             "8MA0-01_2019-06_Q16i: examiner_notes",
             "8MA0-01_2019-06_Q16ii: examiner_notes"
+          ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "LaTeX render fix: curly quotes, degree signs, no LaTeX commands in plain text",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2019-06_Q01a: mark_scheme",
+            "8MA0-01_2019-06_Q01b: mark_scheme",
+            "8MA0-01_2019-06_Q03a: mark_scheme",
+            "8MA0-01_2019-06_Q04a: mark_scheme",
+            "8MA0-01_2019-06_Q04b: mark_scheme",
+            "8MA0-01_2019-06_Q07a: mark_scheme",
+            "8MA0-01_2019-06_Q07c: mark_scheme",
+            "8MA0-01_2019-06_Q09d: mark_scheme",
+            "8MA0-01_2019-06_Q11a: mark_scheme",
+            "8MA0-01_2019-06_Q11b: mark_scheme",
+            "8MA0-01_2019-06_Q12a: mark_scheme",
+            "8MA0-01_2019-06_Q12b: examiner_notes",
+            "8MA0-01_2019-06_Q14d: mark_scheme",
+            "8MA0-01_2019-06_Q15: mark_scheme",
+            "8MA0-01_2019-06_Q16i: mark_scheme"
           ]
         }
       ]
@@ -93,6 +131,31 @@
             "8MA0-01_2020-10_Q03i: examiner_notes",
             "8MA0-01_2020-10_Q03ii: examiner_notes"
           ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "LaTeX render fix: curly quotes, degree signs, no LaTeX commands in plain text",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2020-10_Q01: mark_scheme",
+            "8MA0-01_2020-10_Q02a: mark_scheme",
+            "8MA0-01_2020-10_Q02b: mark_scheme",
+            "8MA0-01_2020-10_Q04b: mark_scheme",
+            "8MA0-01_2020-10_Q05b: mark_scheme",
+            "8MA0-01_2020-10_Q08a: question_latex",
+            "8MA0-01_2020-10_Q08b: question_latex",
+            "8MA0-01_2020-10_Q08c: examiner_notes",
+            "8MA0-01_2020-10_Q08c: question_latex",
+            "8MA0-01_2020-10_Q08d: mark_scheme",
+            "8MA0-01_2020-10_Q08d: question_latex",
+            "8MA0-01_2020-10_Q09c: mark_scheme",
+            "8MA0-01_2020-10_Q10a: mark_scheme",
+            "8MA0-01_2020-10_Q10b: mark_scheme",
+            "8MA0-01_2020-10_Q11i: mark_scheme",
+            "8MA0-01_2020-10_Q11ii: mark_scheme",
+            "8MA0-01_2020-10_Q13a: mark_scheme"
+          ]
         }
       ]
     },
@@ -103,7 +166,28 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-06."
+      "note": "Approved 2026-10-06.",
+      "history": [
+        {
+          "date": "2026-10-06",
+          "reason": "LaTeX render fix: curly quotes, degree signs, no LaTeX commands in plain text",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2021-10_Q07a: mark_scheme",
+            "8MA0-01_2021-10_Q07b: mark_scheme",
+            "8MA0-01_2021-10_Q08a: mark_scheme",
+            "8MA0-01_2021-10_Q11c: mark_scheme",
+            "8MA0-01_2021-10_Q13a: mark_scheme",
+            "8MA0-01_2021-10_Q13b: mark_scheme",
+            "8MA0-01_2021-10_Q13c: mark_scheme",
+            "8MA0-01_2021-10_Q14c: mark_scheme",
+            "8MA0-01_2021-10_Q15a: mark_scheme",
+            "8MA0-01_2021-10_Q15c: mark_scheme",
+            "8MA0-01_2021-10_Q16b: mark_scheme"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",

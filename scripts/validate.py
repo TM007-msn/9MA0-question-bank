@@ -1,6 +1,7 @@
 """Validate every bank file against its JSON Schema and list entries with null fields.
 
-Also checks that PDFs in source/papers, source/mark-schemes and
+Also render-checks every LaTeX string with KaTeX (scripts/katex_check.mjs, needs
+`npm install`), and checks that PDFs in source/papers, source/mark-schemes and
 source/examiner-reports follow the naming rule. It never looks inside
 source/inbox/, which holds unfiled downloads. (Mock papers live outside the project.)
 
@@ -13,6 +14,8 @@ but do not count as failures, because "unknown means null" is allowed.
 
 import json
 import re
+import shutil
+import subprocess
 import sys
 
 from jsonschema import Draft202012Validator, FormatChecker
@@ -103,6 +106,10 @@ MATH_RE = re.compile(r"\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\)", re.DOTALL)
 # \quad, \qquad and \\ (line break). Multi-line working belongs in one
 # $$\begin{aligned}...\end{aligned}$$ block with explanations in \text{...}.
 TEXT_LAYOUT_RE = re.compile(r"\\q?quad\b|\\\\")
+
+
+# A backslash command or escaped character in plain text, e.g. \textbf, \" or \\.
+PLAIN_COMMAND_RE = re.compile(r"\\(?:[A-Za-z]+|.)")
 
 
 def layout_outside_maths(text):
@@ -199,6 +206,16 @@ def consistency_errors(filename, entry):
         if stray:
             errors.append(f"question_latex has {', '.join(sorted(set(stray)))} outside maths: put multi-line "
                           "working in one $$\\begin{aligned}...\\end{aligned}$$ block with \\text{...} explanations")
+        # Any other LaTeX command outside maths (e.g. \" or \textbf) prints literally on the review sheet.
+        for field in ("question_latex", "mark_scheme", "examiner_notes"):
+            value = entry.get(field)
+            for i, text in enumerate(value if isinstance(value, list) else [value]):
+                found = sorted(set(PLAIN_COMMAND_RE.findall(MATH_RE.sub(" ", text or "")))
+                    - {"\\quad", "\\qquad", "\\\\"})
+                if found:
+                    where = f"{field}[{i}]" if isinstance(value, list) else field
+                    errors.append(f"{where} has {', '.join(found)} outside maths (it prints literally); "
+                                  "use plain text, curly quotes “…”, or put it inside $...$")
         errors.extend(spec_ref_errors(entry))
         errors.extend(source_file_errors(entry))
         errors.extend(difficulty_errors(entry))
@@ -289,12 +306,76 @@ def check_source_names(source_dir=SOURCE_DIR):
     return errors
 
 
+KATEX_CHECK = ROOT / "scripts" / "katex_check.mjs"
+
+
+def latex_strings(value, label):
+    """{label: text} for every string inside value that contains maths ($)."""
+    found = {}
+    if isinstance(value, str):
+        if "$" in value:
+            found[label] = value
+    elif isinstance(value, list):
+        for i, item in enumerate(value):
+            found.update(latex_strings(item, f"{label}[{i}]"))
+    elif isinstance(value, dict):
+        for key, item in value.items():
+            found.update(latex_strings(item, f"{label}.{key}"))
+    return found
+
+
+def render_errors(strings):
+    """Render every string with KaTeX the way the review sheet does
+    (scripts/katex_check.mjs, same KaTeX version and delimiters).
+    Returns a list of "label: message" strings."""
+    if not strings:
+        return []
+    if shutil.which("node") is None:
+        return ["Node.js is not installed, so LaTeX can't be render-checked"]
+    if not (ROOT / "node_modules" / "katex").is_dir():
+        return ["KaTeX is not installed; run `npm install` in the project root"]
+    result = subprocess.run(["node", str(KATEX_CHECK)], input=json.dumps(strings), cwd=ROOT,
+                            capture_output=True, text=True, encoding="utf-8")
+    if result.returncode != 0:
+        return [f"katex_check.mjs failed: {result.stderr.strip()[:300]}"]
+    return [f"{label}: {message}" for label, message in json.loads(result.stdout)]
+
+
+def check_rendering(bank_dir=BANK_DIR):
+    """{filename: [errors]} for LaTeX that KaTeX can't render, in every bank file."""
+    strings, owner = {}, {}
+    for filename in BANK_FILES:
+        path = bank_dir / filename
+        if not path.exists():
+            continue
+        try:
+            data = load_json(path)
+        except json.JSONDecodeError:
+            continue  # reported by check_file
+        items = data if isinstance(data, list) else [data]
+        for index, entry in enumerate(items):
+            found = latex_strings(entry, entry_label(entry, index) if isinstance(entry, dict) else f"[{index}]")
+            for label, text in found.items():
+                key = f"{filename}::{label}"
+                strings[key] = text
+                owner[key] = filename
+    errors = {}
+    for message in render_errors(strings):
+        key, _, rest = message.partition(": ")
+        filename = owner.get(key, "render check")
+        errors.setdefault(filename, []).append(f"{key.split('::', 1)[-1]}: {rest}" if key in owner else message)
+    return errors
+
+
 def main(bank_dir=BANK_DIR, source_dir=SOURCE_DIR):
     registry, schemas = build_registry()
     any_errors = False
+    # LaTeX must render with KaTeX exactly as on the review sheet.
+    rendering = check_rendering(bank_dir)
 
     for filename, schema_name in BANK_FILES.items():
         errors, nulls = check_file(filename, schemas[schema_name], registry, bank_dir)
+        errors += [f"does not render: {m}" for m in rendering.pop(filename, [])]
         status = "FAIL" if errors else "ok"
         print(f"{filename:<16} {status}")
         for message in errors:
@@ -304,6 +385,12 @@ def main(bank_dir=BANK_DIR, source_dir=SOURCE_DIR):
             for message in nulls:
                 print(f"      {message}")
         any_errors = any_errors or bool(errors)
+
+    # Anything left is a problem with the check itself (e.g. KaTeX not installed).
+    for message in sum(rendering.values(), []):
+        print(f"{'render check':<16} FAIL")
+        print(f"    error: {message}")
+        any_errors = True
 
     name_errors = check_source_names(source_dir)
     print(f"{'source names':<16} {'FAIL' if name_errors else 'ok'}")

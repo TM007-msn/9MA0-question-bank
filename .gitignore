@@ -12,3 +12,6 @@ out/
 source/**
 !source/**/
 !source/**/.gitkeep
+
+# Node packages for the KaTeX render check (npm install recreates them)
+node_modules/

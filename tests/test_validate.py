@@ -92,6 +92,15 @@ class ConsistencyTests(unittest.TestCase):
         self.assertTrue(self.check(examiner_notes=notes, difficulty="medium",
                                    difficulty_evidence="Some forgot to divide by 9. [sic: the mark scheme divides by 4]"))
 
+    def test_latex_commands_in_plain_text_are_refused(self):
+        for field, value in (("question_latex", "[Figure 2: sketch] the \\textbf{not} case"),
+                             ("mark_scheme", ['M1 (AO 1.1b): states \\"proved\\"']),
+                             ("examiner_notes", 'the word \\"Hence\\" was missed')):
+            with self.subTest(field=field):
+                self.assertTrue(any("prints literally" in e for e in self.check(**{field: value})))
+        self.assertEqual(self.check(mark_scheme=["M1 (AO 1.1b): states “proved” and $\\text{“}10\\text{”}$"],
+                                    marks=1), [])
+
     def test_layout_commands_outside_maths_are_refused(self):
         for text in (r"[Figure 2: sketch] $\log_2 x=3$ \quad using the power law",
                      r"[Figure 2: sketch] Line one \\ line two",

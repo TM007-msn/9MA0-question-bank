@@ -1,0 +1,8 @@
+{
+  "name": "9ma0-question-bank-tools",
+  "private": true,
+  "description": "KaTeX for validate.py's render check. Pinned to the version the review sheet loads.",
+  "dependencies": {
+    "katex": "0.16.11"
+  }
+}

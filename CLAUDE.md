@@ -85,6 +85,7 @@ Weighting:
 - Save only through `python scripts/add_entries.py draft.json`. It checks the schema, the reserved list, the marks check and per-question mark totals, and rejects duplicate ids.
 - SPEC combined papers restart their numbering in Section B. Their sections are filed under the split codes: 9MA0-03 SPEC becomes 9MA0-31 (Section A) and 9MA0-32 (Section B), and 8MA0-02 SPEC becomes 8MA0-21 and 8MA0-22. `source_file` stays the combined PDF, e.g. `9MA0-03_SPEC_QP.pdf`. The 2018 and SAM combined papers number straight through and keep 03 / 02.
 - After saving, build the review sheet (`python scripts/build_review.py PAPER SERIES`) and stop. To redo a paper that's in review, use `add_entries.py --replace`. To change a paper that's already done (e.g. after a rule change), use `add_entries.py --replace-approved "reason"`: every save check still runs, the paper stays done, and the reason and changed fields are recorded in its `history` in `progress.json`.
+- **Quote marks and LaTeX that renders:** in every field, quotes are curly: “…” in plain text and `\text{“}…\text{”}` in maths (e.g. a mark scheme's "their" value `\text{“}10\text{”}`). Never write `\"`, which is an umlaut command, or any other LaTeX command outside `$…$`, since it prints literally. Degrees are `$35^\circ$C`, never `\,^\circ` with nothing before it. validate.py render-checks every LaTeX string in every bank file with KaTeX 0.16.11, the same version and delimiters as the review sheet, and fails if any string doesn't render.
 - **question_latex layout:** multi-line working goes in one `$$\begin{aligned}...\end{aligned}$$` block, with explanations in `\text{...}`. `\quad`, `\qquad` and `\\` are only allowed inside maths; outside it they print literally. validate.py enforces this.
 
 ## Setup
@@ -92,6 +93,7 @@ Weighting:
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
+npm install                 # KaTeX for validate.py's render check (needs Node.js)
 python scripts/validate.py
 python -m unittest discover tests
 ```

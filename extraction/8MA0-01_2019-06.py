@@ -82,12 +82,12 @@ DRAFT = [
     e("01a", "1(a)", COORD, "3.1", 2, Q1 + r"find the value of $m$.",
       [r"M1 (AO 1.1b): $2x+4y-3=0\Rightarrow y=\mp\frac{2}{4}x+\ldots$; gradient of perpendicular $=\pm\frac{4}{2}$. "
        r"Notes: Attempts to set given equation in the form $y=ax+b$ with $a=\mp\frac{2}{4}$ oe such as $\mp\frac{1}{2}$ "
-       r"AND deduces that $m=-\frac{1}{a}$. Condone errors on the \"$+b$\".",
+       r"AND deduces that $m=-\frac{1}{a}$. Condone errors on the “$+b$”.",
        r"A1 (AO 1.1b): Either $m=2$ or $y=2x+7$. Notes: Correct answer. Accept either $m=2$ or $y=2x+7$. "
        r"This must be simplified and not left as $m=\frac{4}{2}$ or $m=2x$ unless you see $y=2x+7$. "
        r"Watch: There may be candidates who look at $2x+4y-3=0$ and incorrectly state that the gradient is 2 and use "
        r"the perpendicular rule to get $m=-\frac{1}{2}$. They will score M0 A0 in (a) and also no marks in (b) as the "
-       r"lines would be parallel. In a case like this don't allow an equation to be \"altered\". Candidates who state "
+       r"lines would be parallel. In a case like this don't allow an equation to be “altered”. Candidates who state "
        r"$m=2$ or $y=2x+7$ with no incorrect working can score both marks.",
        r"ALT: Alternative method (a) — M1 (AO 1.1b): An alternative method is to find both intercepts to get gradient "
        r"$l_1=\pm\frac{0.75}{1.5}$ and use the perpendicular gradient rule."],
@@ -98,7 +98,7 @@ DRAFT = [
        r"Notes: Substitutes their $y=mx+7$ into $2x+4y-3=0$, condoning slips, in an attempt to form and solve an "
        r"equation in $x$. Don't be too concerned by the mechanics of the candidates attempt to solve. (E.g. allow "
        r"solutions from their calculators.) You may see $2x+4y-3=2x-y+7$ with $y$ being found before the value of $x$ "
-       r"appears. It cannot be awarded from \"unsolvable\" equations (e.g. lines that are parallel).",
+       r"appears. It cannot be awarded from “unsolvable” equations (e.g. lines that are parallel).",
        r"A1 (AO 1.1b): $x=-2.5$ oe. Notes: $x=-2.5$. The answer alone can score both marks as long as both equations "
        r"are correct and no incorrect working is seen. Remember to isw after the correct answer and ignore any $y$ "
        r"coordinate.",
@@ -144,7 +144,7 @@ DRAFT = [
     e("03a", "3(a)", INT, "8.2", 3,
       r"Given that $k$ is a constant, find $$\int\left(\frac{4}{x^3}+kx\right)\mathrm{d}x$$ simplifying your answer.",
       [r"M1 (AO 1.1b): $x^n\to x^{n+1}$. Notes: Mark parts (a) and (b) as one. For $x^n\to x^{n+1}$ for either "
-       r"$x^{-3}$ or $x^1$. This can be implied by the sight of either $x^{-2}$ or $x^2$. Condone \"unprocessed\" "
+       r"$x^{-3}$ or $x^1$. This can be implied by the sight of either $x^{-2}$ or $x^2$. Condone “unprocessed” "
        r"values here. Eg. $x^{-3+1}$ and $x^{1+1}$",
        r"A1 (AO 1.1b): $\int\left(\frac{4}{x^3}+kx\right)\mathrm{d}x=-\frac{2}{x^2}+\frac{1}{2}kx^2+c$. Notes: Either "
        r"term correct (un simplified). Accept $4\times\frac{x^{-2}}{-2}$ or $k\frac{x^2}{2}$ with the indices processed.",
@@ -173,12 +173,12 @@ DRAFT = [
     e("04a", "4(a)", COORD, "3.1", 3, Q4 + r"find an equation linking $H$ with $t$.",
       [r"M1 (AO 3.3): Attempts $H=mt+c$ with both $(3, 2.35)$ and $(6, 3.28)$. Notes: Mark parts (a) and (b) as one. "
        r"For creating a linear model with both pieces of information given. Eg. Accept sight of $2.35=3m+c$ and "
-       r"$3.28=6m+c$. Condone slips on the 2.35 and 3.28. Allow for an attempt at the \"gradient\" "
+       r"$3.28=6m+c$. Condone slips on the 2.35 and 3.28. Allow for an attempt at the “gradient” "
        r"$m=\frac{3.28-2.35}{6-3}(=0.31)$ or the intercept. Allow for a pair of simultaneous in any variable even $x$ "
        r"and $y$",
        r"dM1 (AO 3.1a): Method to find both $m$ and $c$. Notes: A full method to find both constants. For simultaneous "
        r"equations award if they arrive at values for $m$ and $c$. If they attempted the gradient it would be for "
-       r"attempting to find \"$c$\" using $y=mx+c$ with their $m$ and one of the points $(3, 2.35)$ or $(6, 3.28)$",
+       r"attempting to find “$c$” using $y=mx+c$ with their $m$ and one of the points $(3, 2.35)$ or $(6, 3.28)$",
        r"A1 (AO 1.1b): $H=0.31t+1.42$ oe. Notes: A correct model using allowable/correct variables. $H=0.31t+1.42$. "
        r"Condone $h\leftrightarrow H, t\leftrightarrow T$. Allow equivalents such as $H=\frac{31}{100}t+\frac{142}{100}$, "
        r"$t=\frac{H-1.42}{0.31}$ but not $H=\frac{0.93}{3}t+1.42$. Do not allow $H=0.31t+1.42$ m (with the units)"],
@@ -199,7 +199,7 @@ DRAFT = [
        r"$1.42\text{ m}\approx1.4\text{ m}$ or similar. In the case of $H=0.25t+1.60$ it would be for stating that the "
        r"fact that it does not support the use of the model as the values are too different. If they state "
        r"$1.60>1.40$ this is insufficient. They cannot just state that they are not the same. It must be implied that "
-       r"there is a significant difference. As a rule of thumb use \"good model\" for between 135cm and 145 cm. This "
+       r"there is a significant difference. As a rule of thumb use “good model” for between 135cm and 145 cm. This "
        r"requires a correct calculation for their $H$, a correct statement with an appreciation shown for the units and "
        r"a correct conclusion. SC B1 B0: Award SC for incomplete answers which suggest the candidate knows what to do. "
        r"Eg. In (b) $H=0.31t+1.42$ followed by in (c) It supports the model as when $t=0$ it is approximately 140 cm"],
@@ -262,7 +262,7 @@ DRAFT = [
     e("07a", "7(a)", ALG, "2.7", 3, Q7 + r"Sketch $C$ stating the equation of the horizontal asymptote.",
       [r"M1 (AO 1.1b): $\frac{1}{x}$ shape in 1st quadrant (shown on a sketch in the mark scheme). Notes: For the shape "
        r"of a $\frac{1}{x}$ type curve in Quadrant 1. It must not cross either axis and have acceptable curvature. Look "
-       r"for a negative gradient changing from $-\infty$ to 0 condoning \"slips of the pencil\". (See Practice and "
+       r"for a negative gradient changing from $-\infty$ to 0 condoning “slips of the pencil”. (See Practice and "
        r"Qualification for clarification)",
        r"A1 (AO 1.1b): Correct. Notes: Correct shape and position for both branches. It must lie in Quadrants 1, 2 and "
        r"3 and have the correct curvature including asymptotic behaviour",
@@ -288,7 +288,7 @@ DRAFT = [
        r"are stated they must be correct. Note that $b^2$ appearing as $4^2$ is correct",
        r"A1 (AO 1.1b): $k=\pm\sqrt{2}$. Notes: $k=\pm\sqrt{2}$ and following correct $a$, $b$ and $c$ if stated",
        r"ALT: Alternatively (c), completing the square — M1: Alternatively completes the square "
-       r"$x^2-2x+\frac{1}{2}k^2=0\Rightarrow(x-1)^2=1-\frac{1}{2}k^2\Rightarrow$ \"$1-\frac{1}{2}k^2$\" $=0$",
+       r"$x^2-2x+\frac{1}{2}k^2=0\Rightarrow(x-1)^2=1-\frac{1}{2}k^2\Rightarrow$ “$1-\frac{1}{2}k^2$” $=0$",
        r"ALT: A solution via differentiation (c) — M1: Sets the gradient of the curve "
        r"$=-2\Rightarrow-\frac{k^2}{x^2}=-2\Rightarrow x=(\pm)\frac{k}{\sqrt{2}}$ oe and attempts to substitute into "
        r"$2x^2-4x+k^2=0$",
@@ -347,8 +347,8 @@ DRAFT = [
     e("09d", "9(d)", ALG, "2.3", 2, Q9 + r"State, giving reasons, the limitation on the values of $n$.",
       [r"B1 (AO 3.5b): States the model is only valid for values of $n$ such that $n\leqslant20$. Notes: For one mark: "
        r"shows an appreciation of the model: states $n\leqslant20$ or $n<20$; condone for one mark $n\leqslant40$ or "
-       r"$n<40$ with \"the mass of tin mined cannot be negative\" oe; condone for one mark $n=40$ with a statement that "
-       r"\"the mass of tin mined becomes 0\" oe; after 20 years the (total) amount of tin mined starts to go down ($n$ "
+       r"$n<40$ with “the mass of tin mined cannot be negative” oe; condone for one mark $n=40$ with a statement that "
+       r"“the mass of tin mined becomes 0” oe; after 20 years the (total) amount of tin mined starts to go down ($n$ "
        r"may not be mentioned and total may be missing); after 20 years the (total) mass reaches a maximum value. "
        r"(Similar to above); states $T_{max}$ is reached when $n=20$",
        r"B1 (AO 2.3): States that the total amount mined cannot decrease. Notes: For two marks: states the limitation "
@@ -393,7 +393,7 @@ DRAFT = [
        r"are not embedded look for two correct terms from $\mathrm{f}(4)=128-208+32+48$",
        r"A1 (AO 1.1b): $\mathrm{f}(4)=0\Rightarrow(x-4)$ is a factor. Notes: Correct reason with conclusion. Accept "
        r"$\mathrm{f}(4)=0$, hence factor as long as M1 has been scored. This should really be stated on one line after "
-       r"having performed a correct calculation. It could appear as a preamble if the candidate states \"If "
+       r"having performed a correct calculation. It could appear as a preamble if the candidate states “If "
        r"$\mathrm{f}(4)=0$, then $(x-4)$ is a factor before doing the calculation and then writing hence proven or ✓ "
        r"oe. If division/inspection is attempted it must be correct and there must be some attempt to explain why they "
        r"have shown that $(x-4)$ is a factor. Eg Via division they must state that there is no remainder, hence factor",
@@ -408,7 +408,7 @@ DRAFT = [
        r"for $2x^3-13x^2+8x+48=(x-4)(2x^2\ldots x\pm12)$. For division look for $2x^2-5x$ in the quotient, with "
        r"$2x^3-8x^2$ and $-5x^2$ in the working",
        r"A1 (AO 1.1b): $=(x-4)(2x^2-5x-12)$. Notes: Correct quadratic factor $(2x^2-5x-12)$ For division award for "
-       r"sight of this \"in the correct place\" You don't have to see it paired with the $(x-4)$ for this mark. If a "
+       r"sight of this “in the correct place” You don't have to see it paired with the $(x-4)$ for this mark. If a "
        r"student has used division in part (a) they can score the M1 A1 in (b) as soon as they start attempting to "
        r"factorise their $(2x^2-5x-12)$.",
        r"dM1 (AO 1.1b): Attempts to factorise quadratic factor or solve quadratic eqn. Notes: Correct attempt to solve "
@@ -473,7 +473,7 @@ DRAFT = [
        r"makes a statement about $\sin^2\theta+\cos^2\theta=1$ oe",
        r"ALT: Alternative proof in part (a) — A1*: Shows that "
        r"$(4-5\cos\theta)(3+2\cos\theta)\equiv10\sin^2\theta-7\cos\theta+2$ oe AND makes a minimal statement "
-       r"\"hence true\""],
+       r"“hence true”"],
       False, 28),
     e("12b", "12(b)", TRIG, "5.4, 5.3", 3,
       "(a) " + Q12A + r"(b) Hence, or otherwise, solve, for $0\leqslant x<360^\circ$, the equation "
@@ -565,9 +565,9 @@ DRAFT = [
       [r"B1 (AO 3.5b): Any suitable reason such as: other factors affect price such as condition/mileage; if the car "
        r"has had an accident it will be worth less than the model predicts; the price may go up in the long term as it "
        r"becomes rare; £2300 is too large a value for a car's scrap price. Most cars scrap for around £400. Notes: Any "
-       r"suitable reason. See scheme. Accept \"Scrappage\" schemes may pay more (or less) than £2 300. Do not accept "
-       r"\"does not take into account inflation\". It asks for a limitation of the model so candidates cannot score "
-       r"marks by suggesting other suitable models \"the value may fall by the same amount each year\""],
+       r"suitable reason. See scheme. Accept “Scrappage” schemes may pay more (or less) than £2 300. Do not accept "
+       r"“does not take into account inflation”. It asks for a limitation of the model so candidates cannot score "
+       r"marks by suggesting other suitable models “the value may fall by the same amount each year”"],
       False, 36),
 
     # ---------------- Q15 ----------------
@@ -576,12 +576,12 @@ DRAFT = [
        r"M1 A0 M1 A1 are not possible. M1: Suitable approach to answer the question for $n$ being even OR odd. There is "
        r"no merit in a student taking values, or multiple values, of $n$ and then drawing conclusions. So "
        r"$n=5\Rightarrow n^3+2=127$ which is not a multiple of 8 scores no marks; student using divided when they mean "
-       r"divisible. Eg. \"Odd numbers cannot be divided by 8\" is incorrect. We need to see either \"odd numbers are "
-       r"not divisible by 8\" or \"odd numbers cannot be divided by 8 exactly\"; stating "
+       r"divisible. Eg. “Odd numbers cannot be divided by 8” is incorrect. We need to see either “odd numbers are "
+       r"not divisible by 8” or “odd numbers cannot be divided by 8 exactly”; stating "
        r"$\frac{n^3+2}{8}=\frac{1}{8}n^3+\frac{1}{4}$ which is not a whole number; stating "
        r"$\frac{(n+1)^3+2}{8}=\frac{1}{8}n^3+\frac{3}{8}n^2+\frac{3}{8}n+\frac{3}{8}$ which is not a whole number. There "
        r"must be an attempt to generalise either logic or algebra. Correct expressions are required for the M's. There "
-       r"is no need to state \"If $n$ is even,\" $n=2k$ and \"If $n$ is odd,\" $n=2k+1$ for the two M's as the "
+       r"is no need to state “If $n$ is even,” $n=2k$ and “If $n$ is odd,” $n=2k+1$ for the two M's as the "
        r"expressions encompass all numbers. However the concluding statement must attempt to show that it has been "
        r"proven for all $n\in\mathbb{N}$. Some students will use $2k-1$ for odd numbers. There is no requirement to "
        r"change the variable. They may use $2n$ and $2n\pm1$",
@@ -600,16 +600,16 @@ DRAFT = [
        r"ALT: Alt algebraic approach — M1 (AO 2.1): (If $n$ is odd,) $n=2k+1$ and $\frac{n^3+2}{8}=\frac{(2k+1)^3+2}{8}$",
        r"ALT: Alt algebraic approach — A1 (AO 2.2a): $=\frac{8k^3+12k^2+6k+3}{8}$ ** The numerator is odd as "
        r"$8k^3+12k^2+6k+3$ is an even number +3 hence not divisible by 8. So (Given $n\in\mathbb{N}$,) $n^3+2$ is not "
-       r"divisible by 8. Notes: Also ** \"$=k^3+\frac{3}{2}k^2+\frac{3}{4}k+\frac{3}{8}$ which is not whole number\" "
+       r"divisible by 8. Notes: Also ** “$=k^3+\frac{3}{2}k^2+\frac{3}{4}k+\frac{3}{8}$ which is not whole number” "
        r"is too vague so A0",
        r"ALT: Logical approach (example in the mark scheme) — M1 (AO 2.1): States that if $n$ is odd, $n^3$ is odd. "
        r"Notes: First M1: States the result of cubing an odd or an even number",
        r"ALT: Logical approach — A1 (AO 2.2a): so $n^3+2$ is odd and therefore cannot be divisible by 8. Notes: First "
        r"A1: Followed by the result of adding two and gives a valid reason why it is not divisible by 8. So for odd "
-       r"numbers accept for example \"odd number + 2 is still odd and odd numbers are not divisible by 8\", \"$n^3+2$ "
-       r"is odd and cannot be divided by 8 exactly\" and for even numbers accept \"a multiple of 8 add 2 is not a "
-       r"multiple of 8, so $n^3+2$ is not divisible by 8\", \"if $n^3$ is a multiple of 8 then $n^3+2$ cannot be "
-       r"divisible by 8\"",
+       r"numbers accept for example “odd number + 2 is still odd and odd numbers are not divisible by 8”, “$n^3+2$ "
+       r"is odd and cannot be divided by 8 exactly” and for even numbers accept “a multiple of 8 add 2 is not a "
+       r"multiple of 8, so $n^3+2$ is not divisible by 8”, “if $n^3$ is a multiple of 8 then $n^3+2$ cannot be "
+       r"divisible by 8”",
        r"ALT: Logical approach — M1 (AO 2.1): States that if $n$ is even, $n^3$ is a multiple of 8. Notes: Second M1: "
        r"States the result of cubing an odd and an even number",
        r"ALT: Logical approach — A1 (AO 2.2a): so $n^3+2$ cannot be a multiple of 8. So (Given $n\in\mathbb{N}$), "
@@ -622,8 +622,8 @@ DRAFT = [
       r"Two non-zero vectors, $\mathbf{a}$ and $\mathbf{b}$, are such that "
       r"$$|\mathbf{a}+\mathbf{b}|=|\mathbf{a}|+|\mathbf{b}|$$ Explain, geometrically, the significance of this statement.",
       [r"B1 (AO 2.4): Explains that $\mathbf{a}$ and $\mathbf{b}$ lie in the same direction oe. Notes: Accept any valid "
-       r"response E.g The lines are collinear. Condone \"They are parallel\" Mark positively. ISW after a correct "
-       r"answer. Do not accept \"the length of line a +b is the same as the length of line a + the length of line b\". "
+       r"response E.g The lines are collinear. Condone “They are parallel” Mark positively. ISW after a correct "
+       r"answer. Do not accept “the length of line a +b is the same as the length of line a + the length of line b”. "
        r"Do not accept $|\mathbf{a}|$ and $|\mathbf{b}|$ are parallel."],
       False, 42),
     e("16ii", "16(ii)", "Vectors", "9.5, 9.2, 5.1", 4,
@@ -884,7 +884,7 @@ REPORT = {
         ({"a"}, r"There were many well written out proof however with few candidates being penalised marks for "
                 r"incorrect notation eg cos for $\cos\theta$ or $\sin\theta^2$ for $\sin^2\theta$."),
         ({"b"}, "Part (b) was, on the other hand, very badly done."),
-        ({"b"}, "Many candidates failed to heed the use of the word \"Hence\" and started again wasting valuable "
+        ({"b"}, "Many candidates failed to heed the use of the word “Hence” and started again wasting valuable "
                 "time."),
         ({"b"}, r"Of those who did use part (a) failed to have a reliable method of solving $4-5\cos x=4+3\sin x$ with "
                 r"may failing to eliminate the 4's.", NO),

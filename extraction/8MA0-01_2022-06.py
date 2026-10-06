@@ -116,7 +116,7 @@ DRAFT = [
        r"A1 (AO 2.4): $\mathrm{f}(-3)=0\Rightarrow(x+3)$ is a factor. Notes: Achieves and states $\mathrm{f}(-3)=0$, and makes "
        r"a suitable conclusion. Sight of $\mathrm{f}(x)=0$ when $x=-3$ is also acceptable. It must follow M1. Accept, for "
        r"example, $\mathrm{f}(-3)=0\Rightarrow(x+3)$ is a factor. This may be seen in a preamble before finding "
-       r"$\mathrm{f}(-3)=0$ but in these cases there must be a minimal statement ie QED, \"proved\", tick etc."],
+       r"$\mathrm{f}(-3)=0$ but in these cases there must be a minimal statement ie QED, “proved”, tick etc."],
       False, 4),
     e("02b", "2(b)", ALG, "2.6", 2, Q2 + Q2A + Q2B,
       [r"M1 (AO 1.1b): At least 2 of: $a=2$, $b=-1$, $c=5$. Notes: Correct method implied by values for at least 2 correct "
@@ -161,7 +161,7 @@ DRAFT = [
     e("03b", "3(b)", VEC, "9.2, 2.2", 2,
       Q3 + r"(a) Find $\overrightarrow{QR}$ (b) Hence find $\left|\overrightarrow{QR}\right|$ giving your answer as a "
       r"simplified surd.",
-      [r"M1 (AO 2.5): $\left|\overrightarrow{QR}\right|=\sqrt{\text{\"}10\text{\"}^2+\text{\"}(-20)\text{\"}^2}$. Notes: "
+      [r"M1 (AO 2.5): $\left|\overrightarrow{QR}\right|=\sqrt{\text{“}10\text{”}^2+\text{“}(-20)\text{”}^2}$. Notes: "
        r"Correct use of Pythagoras. Attempts to “square and add” before square rooting. The embedded values are sufficient. "
        r"Follow through on their $\overrightarrow{QR}$",
        r"A1ft (AO 1.1b): $=10\sqrt{5}$. Notes: $10\sqrt{5}$ following (a) of the form $\pm10\mathbf{i}\pm20\mathbf{j}$"],
@@ -170,9 +170,9 @@ DRAFT = [
       Q3 + r"(a) Find $\overrightarrow{QR}$ The point $S$ lies on the line segment $QR$ so that $QS:SR=3:2$ (c) Find "
       r"$\overrightarrow{PS}$",
       [r"M1 (AO 3.1a): $\overrightarrow{PS}=\overrightarrow{PQ}+\frac{3}{5}\overrightarrow{QR}=3\mathbf{i}+5\mathbf{j}"
-       r"+\frac{3}{5}(\text{\"}10\mathbf{i}-20\mathbf{j}\text{\"})=\ldots$ or $\overrightarrow{PS}=\overrightarrow{PR}"
-       r"+\frac{2}{5}\overrightarrow{RQ}=13\mathbf{i}-15\mathbf{j}+\frac{2}{5}(\text{\"}-10\mathbf{i}+20\mathbf{j}"
-       r"\text{\"})=\ldots$ Notes: Full attempt at finding a $\overrightarrow{PS}$. They must be attempting "
+       r"+\frac{3}{5}(\text{“}10\mathbf{i}-20\mathbf{j}\text{”})=\ldots$ or $\overrightarrow{PS}=\overrightarrow{PR}"
+       r"+\frac{2}{5}\overrightarrow{RQ}=13\mathbf{i}-15\mathbf{j}+\frac{2}{5}(\text{“}-10\mathbf{i}+20\mathbf{j}"
+       r"\text{”})=\ldots$ Notes: Full attempt at finding a $\overrightarrow{PS}$. They must be attempting "
        r"$\overrightarrow{PQ}\pm\frac{3}{5}\overrightarrow{QR}$ or $\overrightarrow{PS}=\overrightarrow{PR}\pm\frac{2}{5}"
        r"\overrightarrow{RQ}$ but condone arithmetical slips after that. Cannot be scored for just stating eg "
        r"$\overrightarrow{PQ}\pm\frac{3}{5}\overrightarrow{QR}$. Follow through on their $\overrightarrow{QR}$. Terms do not "
@@ -262,7 +262,7 @@ DRAFT = [
       Q5 + Q5A + r"(c) Find, according to the model, (i) the mass of algae in the pond when $t=8$, giving your answer to the "
       r"nearest 0.5 kg, (ii) the number of weeks it takes for the mass of algae in the pond to reach 4 kg.",
       [r"B1 (AO 2.2a): (i) 5.5 kg. Notes: cao (including units)",
-       r"M1 (AO 3.4): (ii) $4=\text{\"}3.162\text{\"}\times\text{\"}1.072\text{\"}^t$ or $\log_{10}4=0.03t+0.5$. Notes: Setting "
+       r"M1 (AO 3.4): (ii) $4=\text{“}3.162\text{”}\times\text{“}1.072\text{”}^t$ or $\log_{10}4=0.03t+0.5$. Notes: Setting "
        r"up a correct equation to find $t$ using the given equation or their part (a). Substitution of $A=4$ into their "
        r"equation for $A$ or the given equation is sufficient for this mark.",
        r"A1 (AO 1.1b): awrt 3.4 (weeks). Notes: awrt 3.4 (weeks). Accept any acceptable method (including trial and "
@@ -309,8 +309,8 @@ DRAFT = [
     e("06b", "6(b)", SEQ, "4.1, 2.1", 2,
       Q6A + r"$$\mathrm{f}(x)=\left(\frac{x-1}{2x}\right)\left(3-\frac{2x}{9}\right)^8$$ (b) Find the coefficient of $x^2$ in "
       r"the series expansion of $\mathrm{f}(x)$, giving your answer as a simplified fraction.",
-      [r"M1 (AO 3.1a): Coefficient of $x^2$ is $\frac{1}{2}\times\text{\"}1008\text{\"}-\frac{1}{2}\times\text{\"}-\frac{448}"
-       r"{3}\text{\"}$. Notes: Adopts a correct strategy for the required coefficient. This requires an attempt to calculate "
+      [r"M1 (AO 3.1a): Coefficient of $x^2$ is $\frac{1}{2}\times\text{“}1008\text{”}-\frac{1}{2}\times\text{“}-\frac{448}"
+       r"{3}\text{”}$. Notes: Adopts a correct strategy for the required coefficient. This requires an attempt to calculate "
        r"$\pm\frac{1}{2}$ their coefficient of $x^2$ from part (a) $\pm\frac{1}{2}$ their coefficient of $x^3$ from part (a). "
        r"There must be an attempt to bring these terms together to a single value. ie they cannot just circle the relevant "
        r"terms in the expansion for this mark. The strategy may be implied by their answer. Condone any appearance of $x^2$ "
@@ -352,9 +352,9 @@ DRAFT = [
        r"A1 (AO 1.1b): $y=(\pm)6\sqrt{3}$. Notes: Either or both of the values $(\pm)6\sqrt{3}$. Cannot be scored for an "
        r"answer without any working seen.",
        r"A1ft (AO 2.5): $\left\{k\in\mathbb{R}:-6\sqrt{3}<k<6\sqrt{3}\right\}$ oe. Notes: Correct answer in any acceptable set "
-       r"notation following through their $6\sqrt{3}$. Condone $\left\{\text{\"}-6\sqrt{3}\text{\"}<k<\text{\"}6\sqrt{3}"
-       r"\text{\"}\right\}$ or $\left\{\text{\"}-6\sqrt{3}\text{\"}<k\right\}\cap\left\{k<\text{\"}6\sqrt{3}\text{\"}\right\}$ "
-       r"but not $\left\{\text{\"}-6\sqrt{3}\text{\"}<k\right\}\cup\left\{k<\text{\"}6\sqrt{3}\text{\"}\right\}$. Note: If "
+       r"notation following through their $6\sqrt{3}$. Condone $\left\{\text{“}-6\sqrt{3}\text{”}<k<\text{“}6\sqrt{3}"
+       r"\text{”}\right\}$ or $\left\{\text{“}-6\sqrt{3}\text{”}<k\right\}\cap\left\{k<\text{“}6\sqrt{3}\text{”}\right\}$ "
+       r"but not $\left\{\text{“}-6\sqrt{3}\text{”}<k\right\}\cup\left\{k<\text{“}6\sqrt{3}\text{”}\right\}$. Note: If "
        r"there is a contradiction of their solution on different lines of working do not penalise intermediate working and "
        r"mark what appears to be their final answer. Must be in terms of $k$"],
       False, 22),
@@ -436,7 +436,7 @@ DRAFT = [
        r"attempt of the equation of $l$",
        r"M1 (AO 2.1): $\left(\frac{\mathrm{d}y}{\mathrm{d}x}\right)_{x=4}=\frac{2}{3}\times4-4^{-\frac{1}{2}}\left(=\frac{13}"
        r"{6}\right)$ $\therefore y-\frac{13}{3}=\frac{13}{6}(x-4)$. Notes: Fully correct strategy for an equation for $l$. "
-       r"Look for $y-\text{\"}\frac{13}{3}\text{\"}=\text{\"}\frac{13}{6}\text{\"}(x-4)$ where their $\frac{13}{6}$ is from "
+       r"Look for $y-\text{“}\frac{13}{3}\text{”}=\text{“}\frac{13}{6}\text{”}(x-4)$ where their $\frac{13}{6}$ is from "
        r"differentiating the equation of the curve and substituting in $x=4$ into their $\frac{\mathrm{d}y}{\mathrm{d}x}$ "
        r"and the $y$ coordinate is from substituting $x=4$ into the given equation. If they use $y=mx+c$ they must proceed "
        r"as far as $c=\ldots$ to score this mark. Do not allow this mark if they use a perpendicular gradient.",
@@ -455,7 +455,7 @@ DRAFT = [
        r"B1 (AO 2.2a): $y=0\Rightarrow x=2$. Notes: Deduces the correct value for $x$ for the intersection of $l$ with the "
        r"$x$-axis. May be seen indicated on Figure 2.",
        r"M1 (AO 3.1a): Area of $R$ is $\left[\frac{x^3}{9}-\frac{4}{3}x^{\frac{3}{2}}+3x\right]_0^4-\frac{1}{2}\times(4-"
-       r"\text{\"}2\text{\"})\times\text{\"}\frac{13}{3}\text{\"}=\frac{76}{9}-\frac{13}{3}$. Notes: Fully correct strategy "
+       r"\text{“}2\text{”})\times\text{“}\frac{13}{3}\text{”}=\frac{76}{9}-\frac{13}{3}$. Notes: Fully correct strategy "
        r"for the area. This needs to include: a correct attempt at the area of the triangle using their values (could use "
        r"integration); a correct attempt at the area under the curve using 0 and 4 in their integrated expression; the two "
        r"values subtracted. Be aware of those who mix up using the $y$-coordinate of $P$ and the gradient at $P$ which is "
@@ -495,7 +495,7 @@ DRAFT = [
        r"the perpendicular to $l$ is 2. May be seen in the equation for the perpendicular line to $l$",
        r"M1 (AO 3.1a): $m_N=2\Rightarrow y-4=2(x-5)$; $y-4=2(x-5)$, $2y+x+6=0\Rightarrow x=\ldots, y=\ldots$ Notes: A fully "
        r"correct strategy for finding the intersection. This requires use of their gradient of the perpendicular which "
-       r"cannot be the gradient of $l$. Look for $y-\text{\"}4\text{\"}=\text{\"}2\text{\"}(x-\text{\"}5\text{\"})$ where "
+       r"cannot be the gradient of $l$. Look for $y-\text{“}4\text{”}=\text{“}2\text{”}(x-\text{“}5\text{”})$ where "
        r"$(5,4)$ is their centre being solved simultaneously with the equation of $l$. Do not be concerned with the mechanics "
        r"of their rearrangement when solving simultaneously. Many are finding the $y$-intercept of $l$ $(0,-3)$ which is M0",
        r"A1 (AO 1.1b): Intersection is at $\left(\frac{6}{5},-\frac{18}{5}\right)$ oe. Notes: "
@@ -503,8 +503,8 @@ DRAFT = [
        r"coordinates and may be seen within their working rather than explicitly stated. They may also be written on the "
        r"diagram.",
        r"dM1 (AO 3.1a): Distance from centre to intersection is $\sqrt{\left(5-\frac{6}{5}\right)^2+\left(4+\frac{18}{5}"
-       r"\right)^2}$ So distance required is $\sqrt{\left(\text{\"}5\text{\"}-\text{\"}\frac{6}{5}\text{\"}\right)^2+\left("
-       r"\text{\"}4\text{\"}+\text{\"}\frac{18}{5}\text{\"}\right)^2}-\text{\"}3\text{\"}$. Notes: Fully correct strategy for "
+       r"\right)^2}$ So distance required is $\sqrt{\left(\text{“}5\text{”}-\text{“}\frac{6}{5}\text{”}\right)^2+\left("
+       r"\text{“}4\text{”}+\text{“}\frac{18}{5}\text{”}\right)^2}-\text{“}3\text{”}$. Notes: Fully correct strategy for "
        r"finding the required distance e.g. correct use of Pythagoras to find the distance between their centre and their "
        r"intersection and then completes the problem by subtracting their radius. Condone a sign slip subtracting their "
        r"$-\frac{18}{5}$. It is dependent on the previous method mark.",
@@ -514,15 +514,15 @@ DRAFT = [
        r"$y=2x-6$ with the equation of the circle and then find the distance between this intersection point and the point "
        r"of intersection between $l$ and the normal. They must choose the smaller positive root of the solution to their "
        r"quadratic. Eg $(x-5)^2+(2x-6-4)^2=9\Rightarrow5x^2-50x+125=9$; $x=\frac{25-3\sqrt{5}}{5}$, "
-       r"$y=\frac{20-6\sqrt{5}}{5}$; Distance between two points: $\sqrt{\left(\text{\"}\frac{25-3\sqrt{5}}{5}\text{\"}-"
-       r"\text{\"}\frac{6}{5}\text{\"}\right)^2+\left(\text{\"}\frac{20-6\sqrt{5}}{5}\text{\"}+\text{\"}\frac{18}{5}\text{\"}"
+       r"$y=\frac{20-6\sqrt{5}}{5}$; Distance between two points: $\sqrt{\left(\text{“}\frac{25-3\sqrt{5}}{5}\text{”}-"
+       r"\text{“}\frac{6}{5}\text{”}\right)^2+\left(\text{“}\frac{20-6\sqrt{5}}{5}\text{”}+\text{“}\frac{18}{5}\text{”}"
        r"\right)^2}$",
        r"ALT: Alt (b), vector methods — B1M1: Attempts to find the perpendicular distance between their $(5,4)$ and "
        r"$x+2y+6=0$ by substituting the values into the formula to find the distance between a point $(x, y)$ and a line "
-       r"$ax+by+c=0$ $\Rightarrow\frac{|ax+by+c|}{\sqrt{a^2+b^2}}=\frac{|\text{\"}5\text{\"}\times\text{\"}1\text{\"}+"
-       r"\text{\"}4\text{\"}\times\text{\"}2\text{\"}+\text{\"}6\text{\"}|}{\sqrt{\text{\"}1\text{\"}^2+\text{\"}2\text{\"}^2}}$",
+       r"$ax+by+c=0$ $\Rightarrow\frac{|ax+by+c|}{\sqrt{a^2+b^2}}=\frac{|\text{“}5\text{”}\times\text{“}1\text{”}+"
+       r"\text{“}4\text{”}\times\text{“}2\text{”}+\text{“}6\text{”}|}{\sqrt{\text{“}1\text{”}^2+\text{“}2\text{”}^2}}$",
        r"ALT: Alt (b), vector methods — A1: $\frac{|5\times1+4\times2+6|}{\sqrt{1^2+2^2}}\left(=\frac{19}{\sqrt{5}}\right)$",
-       r"ALT: Alt (b), vector methods — dM1: Distance $=\text{\"}\frac{19\sqrt{5}}{5}\text{\"}-3$",
+       r"ALT: Alt (b), vector methods — dM1: Distance $=\text{“}\frac{19\sqrt{5}}{5}\text{”}-3$",
        r"ALT: Alt (b), vector methods — A1: $\frac{19\sqrt{5}-15}{5}$"],
       True, 34),
 
@@ -558,7 +558,7 @@ DRAFT = [
       Q12 + Q12A + Q12B + r"(c) Using $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$ prove that the cost is minimised for the value "
       r"of $r$ found in part (b).",
       [r"M1 (AO 1.1b): $\left(\frac{\mathrm{d}^2C}{\mathrm{d}r^2}=\right)0.26\pi+\frac{56.8}{r^3}=0.26\pi+\frac{56.8}"
-       r"{\text{\"}3.26\text{\"}^3}$. Notes: Finds $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$ at their (positive) $r$ or considers "
+       r"{\text{“}3.26\text{”}^3}$. Notes: Finds $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$ at their (positive) $r$ or considers "
        r"the sign of $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$. This mark can be scored as long as their second derivative is of "
        r"the form $A+\frac{B}{r^3}$ where $A$ and $B$ are non zero",
        r"A1 (AO 2.4): $\left(\frac{\mathrm{d}^2C}{\mathrm{d}r^2}=\right)(2.45..)>0$ Hence minimum (cost). Notes: Requires: A "
@@ -570,7 +570,7 @@ DRAFT = [
       False, 38),
     e("12d", "12(d)", DIFF, "7.3", 2,
       Q12 + Q12A + Q12B + r"(d) Hence find the minimum value of $C$, giving your answer to the nearest integer.",
-      [r"M1 (AO 3.4): $C=0.13\pi(\text{\"}3.26\text{\"})^2+\frac{28.4}{\text{\"}3.26\text{\"}}$. Notes: Uses the model and "
+      [r"M1 (AO 3.4): $C=0.13\pi(\text{“}3.26\text{”})^2+\frac{28.4}{\text{“}3.26\text{”}}$. Notes: Uses the model and "
        r"their positive $r$ found in (b) to find the minimum cost. Their $r$ embedded in the expression is sufficient. May be "
        r"seen in (b) but must be used in (d).",
        r"A1 (AO 1.1b): $(C=)\,13$. Notes: $(C=)\,13$ ignore units"],
@@ -735,7 +735,7 @@ REPORT = {
         ({"ai"}, r"The common errors seen were the failure to change signs when removing brackets after a minus sign and "
                  r"candidates multiplying the entire RHS of the equation by $\frac{1}{2}$ when applying $\cos60$ rather "
                  r"than just the $-2x(x-7)$."),
-        ({"ai"}, r"The absence of \"$=0$\" was rare but still occurred."),
+        ({"ai"}, r"The absence of “$=0$” was rare but still occurred."),
         ({"aii"}, r"In (a)(ii), the $x=-\frac{16}{17}$ was not always rejected, although almost all of these candidates used "
                   r"$x=3$ in part (b) and were able to gain credit.", NO),
         ({"aii"}, "Very few candidates used both values in part (b)."),
@@ -983,7 +983,7 @@ REPORT = {
         ({"a"}, "In part (a), most of the attempts started with the LHS."),
         ({"a"}, r"Many scored no marks at all but quite a few combined terms with a common denominator to achieve the first "
                 r"mark, usually $\frac{1+\sin\theta}{\cos\theta}$."),
-        ({"a"}, r"However, very few progressed from this with many using \"identities\" such as $1+\sin\theta\equiv"
+        ({"a"}, r"However, very few progressed from this with many using “identities” such as $1+\sin\theta\equiv"
                 r"\cos\theta$ and $\cos\theta\equiv1-\sin\theta$ to get to the RHS.", BACK),
         ({"a"}, "Candidates should avoid approaches to this type of problem involving an identity where it is treated as "
                 "an equation where possible.", NO),
@@ -1013,8 +1013,8 @@ REPORT = {
          NO),
         ({"i"}, r"Several candidates only considered $x>3$ and it was surprising how many candidates concluded the "
                 r"statement was true as a result.", NO),
-        ({"i"}, "Finally, some candidates misinterpreted the syntax of the question, resulting in answers like \"sometimes "
-                "true\", which gained no credit, even though they had recognised the values required to find a counter "
+        ({"i"}, "Finally, some candidates misinterpreted the syntax of the question, resulting in answers like “sometimes "
+                "true”, which gained no credit, even though they had recognised the values required to find a counter "
                 "example."),
         ({"ii"}, "In part (b), the few candidates gaining any credit managed to factorise and then occasionally state that "
                  "these were consecutive values, thus gaining 1 or occasionally 2 marks.",

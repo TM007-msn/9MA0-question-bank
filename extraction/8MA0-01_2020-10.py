@@ -59,7 +59,7 @@ Q5 = (FIG1 + r"Figure 1 shows the design for a structure used to support a roof.
 Q6A = (r"Find the first 4 terms, in ascending powers of $x$, in the binomial expansion of $$(1+kx)^{10}$$ where $k$ "
        r"is a non-zero constant. Write each coefficient as simply as possible.")
 Q7 = r"Given that $k$ is a positive constant and $\int_1^k\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=4$ "
-Q8 = (r"The temperature, $\theta\,^\circ$C, of a cup of tea $t$ minutes after it was placed on a table in a room, is "
+Q8 = (r"The temperature, $\theta^\circ$C, of a cup of tea $t$ minutes after it was placed on a table in a room, is "
       r"modelled by the equation $$\theta=18+65\mathrm{e}^{-\frac{t}{8}}\qquad t\geqslant0$$ Find, according to the "
       r"model, ")
 FIG2 = (r"[Figure 2: sketch of $\mu$ against $t$: a decreasing curve starting at the point $(0, 94)$ on the $\mu$-axis, "
@@ -93,10 +93,10 @@ DRAFT = [
        r"$\left(\frac{\mathrm{d}y}{\mathrm{d}x}=\right)6x^2-4$ which may be unsimplified. $6x^2-4+C$ is A0",
        r"dM1 (AO 1.1b): For substituting $x=2$ into their $\frac{\mathrm{d}y}{\mathrm{d}x}=6x^2-4$. Notes: Substitutes "
        r"$x=2$ into their $\frac{\mathrm{d}y}{\mathrm{d}x}$. The first M must have been awarded. Score for sight of "
-       r"embedded values, or sight of \"$\frac{\mathrm{d}y}{\mathrm{d}x}$ at $x=2$ is\" or a correct follow through. "
+       r"embedded values, or sight of “$\frac{\mathrm{d}y}{\mathrm{d}x}$ at $x=2$ is” or a correct follow through. "
        r"Note that 20 on its own is not enough as this can be done on a calculator.",
-       r"ddM1 (AO 1.1b): For a correct method of finding a tangent at $P(2,13)$. Score for $y-13=\text{\"}20\text{\"}(x-2)$. "
-       r"Notes: For a correct method of finding a tangent at $P(2,13)$. Score for $y-13=\text{\"}20\text{\"}(x-2)$. It is "
+       r"ddM1 (AO 1.1b): For a correct method of finding a tangent at $P(2,13)$. Score for $y-13=\text{“}20\text{”}(x-2)$. "
+       r"Notes: For a correct method of finding a tangent at $P(2,13)$. Score for $y-13=\text{“}20\text{”}(x-2)$. It is "
        r"dependent upon both previous M's. If the form $y=mx+c$ is used they must proceed as far as $c=\ldots$",
        r"A1 (AO 1.1b): $y=20x-27$. Notes: Completely correct $y=20x-27$ (and in this form)"],
       False, 2),
@@ -104,27 +104,27 @@ DRAFT = [
     # ---------------- Q2 ----------------
     e("02a", "2(a)", VEC, "9.2, 9.5", 3,
       Q2 + r"Calculate the bearing on which the boat is moving, giving your answer in degrees to one decimal place.",
-      [r"M1 (AO 1.1b): Attempts to find an \"allowable\" angle Eg $\tan\theta=\frac{7}{3}$ (beside a sketch on a grid of "
+      [r"M1 (AO 1.1b): Attempts to find an “allowable” angle Eg $\tan\theta=\frac{7}{3}$ (beside a sketch on a grid of "
        r"the two positions and the displacement, with lengths $\sqrt{20}$, $\sqrt{34}$, $\sqrt{58}$, 7 and 3 and angles "
        r"$63.4^\circ$, $49.8^\circ$, $66.8^\circ$ and $23.2^\circ$). Notes: " + TOGETHER + r"Attempts an allowable "
-       r"angle. (Either the \"66.8\", \"23.2\" or (\"49.8\" and \"63.4\")) $\tan\theta=\pm\frac{7}{3}$, "
+       r"angle. (Either the “66.8”, “23.2” or (“49.8” and “63.4”)) $\tan\theta=\pm\frac{7}{3}$, "
        r"$\tan\theta=\pm\frac{3}{7}$, $\tan\theta=\pm\frac{-2--5}{4--3}$ etc. There must be an attempt to subtract the "
        r"coordinates (seen or applied at least once). If part (b) is attempted first, look for example for "
-       r"$\sin\theta=\pm\frac{7}{\text{\"}\sqrt{58}\text{\"}}$, $\cos\theta=\pm\frac{7}{\text{\"}\sqrt{58}\text{\"}}$, "
+       r"$\sin\theta=\pm\frac{7}{\text{“}\sqrt{58}\text{”}}$, $\cos\theta=\pm\frac{7}{\text{“}\sqrt{58}\text{”}}$, "
        r"etc. They may use the cosine rule and trigonometry to find the two angles in the scheme. See above. Eg award "
-       r"for $\cos\theta=\frac{\text{\"}58\text{\"}+\text{\"}20\text{\"}-\text{\"}34\text{\"}}"
-       r"{2\times\text{\"}\sqrt{58}\text{\"}\times\text{\"}\sqrt{20}\text{\"}}$ and $\tan\theta=\pm\frac{4}{2}$ or "
+       r"for $\cos\theta=\frac{\text{“}58\text{”}+\text{“}20\text{”}-\text{“}34\text{”}}"
+       r"{2\times\text{“}\sqrt{58}\text{”}\times\text{“}\sqrt{20}\text{”}}$ and $\tan\theta=\pm\frac{4}{2}$ or "
        r"equivalent.",
-       r"dM1 (AO 3.1b): A full attempt to find the bearing Eg $180^\circ+$\"$67^\circ$\". Notes: A full attempt to find "
+       r"dM1 (AO 3.1b): A full attempt to find the bearing Eg $180^\circ+$“$67^\circ$”. Notes: A full attempt to find "
        r"the bearing. $180^\circ+\arctan\frac{7}{3}$, $270^\circ-\arctan\frac{3}{7}$, "
-       r"$360^\circ-$\"$49.8^\circ$\"$-$\"$63.4^\circ$\". It is dependent on the previous method mark.",
+       r"$360^\circ-$“$49.8^\circ$”$-$“$63.4^\circ$”. It is dependent on the previous method mark.",
        r"A1 (AO 1.1b): Bearing = awrt $246.8^\circ$. Notes: Bearing = awrt $246.8^\circ$ oe. Allow S $66.8^\circ$ W"],
       False, 4),
     e("02b", "2(b)", VEC, "9.4, 9.5", 3,
       Q2 + r"Calculate the speed of the boat, giving your answer in km h$^{-1}$",
       [r"M1 (AO 1.1b): Attempts to find the distance travelled $=\sqrt{(4--3)^2+(-2+5)^2}=(\sqrt{58})$. Notes: "
        + TOGETHER + r"Attempts to find the distance travelled. Allow for $d^2=(4--3)^2+(-2+5)^2$. You may see this on "
-       r"a diagram and allow if they attempt to find the magnitude from their \"resultant vector\" found in part (a).",
+       r"a diagram and allow if they attempt to find the magnitude from their “resultant vector” found in part (a).",
        r"dM1 (AO 3.1b): Attempts to find the speed $=\frac{\sqrt{58}}{2.75}$. Notes: Attempts to find the speed. There "
        r"must have been an attempt to find the distance using the coordinates and then divide it by 2.75.",
        r"A1 (AO 1.1b): = awrt 2.77 km h$^{-1}$. Notes: awrt 2.77 km h$^{-1}$",
@@ -189,7 +189,7 @@ DRAFT = [
     e("04b", "4(b)", COORD, "3.1", 3,
       Q4 + r"(a) form an equation linking $A$ with $n$. In 2016 the average CO$_2$ emissions of new cars in the UK was "
       r"120 g/km. (b) Comment on the suitability of your model in light of this information.",
-      [r"M1 (AO 3.4): Attempts $A=-2.625\times19+190=\ldots$ Notes: Attempts to substitute \"$n$\" $=19$ into their "
+      [r"M1 (AO 3.4): Attempts $A=-2.625\times19+190=\ldots$ Notes: Attempts to substitute “$n$” $=19$ into their "
        r"linear model to find $A$. They may call it $x=19$",
        r"A1 (AO 1.1b): $A=140.125$ g km$^{-1}$. Notes: $A=140.125$ from $n=19$. Allow $A=140$",
        r"B1ft (AO 3.5a): It is predicting a much higher value and so is not suitable. Notes: Requires a correct "
@@ -215,20 +215,20 @@ DRAFT = [
       Q5 + r"(a) find, to one decimal place, the size of angle $ACB$. The steel beams can only be bought in whole metre "
       r"lengths. (b) Find the minimum length of steel that needs to be bought to make the complete structure.",
       [r"M1 (AO 1.1b): Attempts to find part or all of $AD$ Eg $AD^2=7^2+12^2-2\times12\times7\cos101.9=(AD=15.09)$ Eg "
-       r"$(AC)^2=7^2+12^2-2\times12\times7\cos(180-\text{\"}128.9\text{\"}-27)$ Eg $12\cos27$ or "
-       r"$7\cos\text{\"}51\text{\"}$. Notes: Attempts a \"correct\" method of finding either $AD$ or a part of $AD$ eg "
+       r"$(AC)^2=7^2+12^2-2\times12\times7\cos(180-\text{“}128.9\text{”}-27)$ Eg $12\cos27$ or "
+       r"$7\cos\text{“}51\text{”}$. Notes: Attempts a “correct” method of finding either $AD$ or a part of $AD$ eg "
        r"($AC$ or $CD$ or forming a perpendicular to split the triangle into two right angled triangles to find $AX$ or "
        r"$XD$) which may be seen in (a). You should condone incorrect labelling of the side. Look for attempted "
-       r"application of the cosine rule $(AD)^2=7^2+12^2-2\times12\times7\cos(\text{\"}128.9\text{\"}-27)$ or "
-       r"$(AC)^2=7^2+12^2-2\times12\times7\cos(180-\text{\"}128.9\text{\"}-27)$ Or an attempted application of the sine "
-       r"rule $\frac{(AD)}{\sin(\text{\"}128.9\text{\"}-27)}=\frac{7}{\sin27}$ Or "
-       r"$\frac{(AC)}{\sin(180-\text{\"}128.9\text{\"}-27)}=\frac{7}{\sin27}$ Or an attempt using trigonometry on a "
-       r"right-angled triangle to find part of $AD$: $12\cos27$ or $7\cos\text{\"}51\text{\"}$. This method can be "
+       r"application of the cosine rule $(AD)^2=7^2+12^2-2\times12\times7\cos(\text{“}128.9\text{”}-27)$ or "
+       r"$(AC)^2=7^2+12^2-2\times12\times7\cos(180-\text{“}128.9\text{”}-27)$ Or an attempted application of the sine "
+       r"rule $\frac{(AD)}{\sin(\text{“}128.9\text{”}-27)}=\frac{7}{\sin27}$ Or "
+       r"$\frac{(AC)}{\sin(180-\text{“}128.9\text{”}-27)}=\frac{7}{\sin27}$ Or an attempt using trigonometry on a "
+       r"right-angled triangle to find part of $AD$: $12\cos27$ or $7\cos\text{“}51\text{”}$. This method can be "
        r"implied by sight of awrt 15.1 or awrt 6.3 or awrt 8.8 or awrt 10.7 or awrt 4.4",
-       r"dM1 (AO 3.1a): Full method for the total length $=12+7+7+\text{\"}15.09\text{\"}=$. Notes: A complete method of "
+       r"dM1 (AO 3.1a): Full method for the total length $=12+7+7+\text{“}15.09\text{”}=$. Notes: A complete method of "
        r"finding the TOTAL length. There must have been an attempt to use the correct combination of angles and sides. "
-       r"Expect to see $7+7+12+\text{\"}AD\text{\"}$ found using a correct method. This is scored by either "
-       r"$7+7+12+\text{\"}AD\text{\"}$ if $\angle ACB=128.9^\circ$ in a) or $7+7+12+$ awrt 15.1 by candidates who may "
+       r"Expect to see $7+7+12+\text{“}AD\text{”}$ found using a correct method. This is scored by either "
+       r"$7+7+12+\text{“}AD\text{”}$ if $\angle ACB=128.9^\circ$ in a) or $7+7+12+$ awrt 15.1 by candidates who may "
        r"have assumed $\angle ACB=51.1^\circ$ in a)",
        r"A1 (AO 3.2a): = 42 m. Notes: Rounds correct 41.09 m (or correct expression) up to 42 m to find steel bought. "
        r"Candidates who assumed $\angle ACB=51.1^\circ$ (acute) in (a): Full marks can still be achieved as candidates "
@@ -301,7 +301,7 @@ DRAFT = [
        r"Requires units as well"],
       False, 16),
     e("08b", "8(b)", EXP, "6.7, 6.3", 3,
-      Q8 + r"the value of $t$, to one decimal place, when the temperature of the cup of tea was $35\,^\circ$C.",
+      Q8 + r"the value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\circ$C.",
       [r"M1 (AO 1.1b): $18+65\mathrm{e}^{-\frac{t}{8}}=35\Rightarrow65\mathrm{e}^{-\frac{t}{8}}=17$. Notes: Uses the "
        r"information and proceeds to $P\mathrm{e}^{\pm\frac{t}{8}}=Q$ condoning slips",
        r"dM1 (AO 1.1b): $t=-8\ln\left(\frac{17}{65}\right)$. Notes: A full method using correct log laws and a "
@@ -311,7 +311,7 @@ DRAFT = [
        r"ALT: Second scheme column — dM1 (AO 1.1b): $\ln65-\frac{t}{8}=\ln17\Rightarrow t=\ldots$"],
       False, 16),
     e("08c", "8(c)", EXP, "6.7, 6.1", 1,
-      Q8 + r"Explain why, according to this model, the temperature of the cup of tea could not fall to $15\,^\circ$C.",
+      Q8 + r"Explain why, according to this model, the temperature of the cup of tea could not fall to $15^\circ$C.",
       [r"B1 (AO 2.4): States a suitable reason: As $t\to\infty, \theta\to18$ from above; the minimum temperature is "
        r"$18^\circ$C. Notes: States a suitable reason with minimal conclusion: As $t\to\infty, \theta\to18$ from above; "
        r"The minimum temperature is $18^\circ$C (so it cannot drop to $15^\circ$C); Substitutes $\theta=15$ (or a value "
@@ -321,7 +321,7 @@ DRAFT = [
        r"$18^\circ$C (so cannot fall below this)"],
       False, 16),
     e("08d", "8(d)", EXP, "6.7, 6.1", 4,
-      FIG2 + r"The temperature, $\mu\,^\circ$C, of a second cup of tea $t$ minutes after it was placed on a table in a "
+      FIG2 + r"The temperature, $\mu^\circ$C, of a second cup of tea $t$ minutes after it was placed on a table in a "
       r"different room, is modelled by the equation $$\mu=A+B\mathrm{e}^{-\frac{t}{8}}\qquad t\geqslant0$$ where $A$ "
       r"and $B$ are constants. Figure 2 shows a sketch of $\mu$ against $t$ with two data points that lie on the curve. "
       r"The line $l$, also shown on Figure 2, is the asymptote to the curve. Using the equation of this model and the "
@@ -333,7 +333,7 @@ DRAFT = [
        r"$A+0.37B=50$ where $\mathrm{e}^{-1}=$ awrt 0.37",
        r"dM1 (AO 2.1): Full method to find at least a value for $A$. Notes: Dependent upon having two equations in $A$ "
        r"and $B$ formed from the information given. It is a full and correct method leading to a value of $A$. Allow "
-       r"this to be solved from a calculator. Note $B=69.6..$ or $\frac{44}{1-\mathrm{e}^{-1}}\Rightarrow A=94-$\"$B$\"",
+       r"this to be solved from a calculator. Note $B=69.6..$ or $\frac{44}{1-\mathrm{e}^{-1}}\Rightarrow A=94-$“$B$”",
        r"A1 (AO 2.2a): Deduces $\mu=\frac{50\mathrm{e}-94}{\mathrm{e}-1}$ or accept $\mu=$ awrt 24.4. Notes: Deduces "
        r"that $\mu=\frac{50\mathrm{e}-94}{\mathrm{e}-1}$ or accept $\mu=$ awrt 24.4. Condone $y=\ldots$"],
       True, 16),
@@ -366,7 +366,7 @@ DRAFT = [
        r"identity $\sin^2\theta+\cos^2\theta=1$ to form a 3TQ in $\sin\theta$ which they attempt to solve using an "
        r"appropriate method. It is OK to use a calculator to solve this",
        r"A1 (AO 2.2a): $\sin\theta=\frac{1}{3}$. Notes: $\sin\theta=\frac{1}{3}$ Accept sight of $\frac{1}{3}$. Ignore "
-       r"any reference to the other root even if it is \"used\"",
+       r"any reference to the other root even if it is “used”",
        r"A1 (AO 2.1): awrt $520.5^\circ$ only. Notes: Full method with all identities correct leading to the answer of "
        r"awrt $520.5^\circ$ and no other values."],
       True, 20),
@@ -382,7 +382,7 @@ DRAFT = [
        r"is a factor ✓. Do not allow if candidate states $\mathrm{f}(5)=0\Rightarrow(x-5)$ is a factor, hence divisible "
        r"by $(x-5)$ (It is not f); $\mathrm{g}(x)=0\Rightarrow(x-5)$ is a factor (It is not g(x) and there is no "
        r"conclusion). This may be seen in a preamble before finding $\mathrm{g}(5)=0$ but in these cases there must be "
-       r"a minimal statement ie QED, \"proved\", tick etc."],
+       r"a minimal statement ie QED, “proved”, tick etc."],
       False, 24),
     e("10b", "10(b)", ALG, "2.6", 4,
       Q10 + r"(a) Use the factor theorem to show that $\mathrm{g}(x)$ is divisible by $(x-5)$. (b) Hence, showing all "
@@ -395,7 +395,7 @@ DRAFT = [
        r"$(2x^2+11x+14)$",
        r"A1 (AO 1.1b): $(\mathrm{g}(x))=(x-5)(2x+7)(x+2)$. Notes: $(\mathrm{g}(x)=)\,(x-5)(2x+7)(x+2)$ or "
        r"$(\mathrm{g}(x)=)\,(x-5)(x+3.5)(2x+4)$. It is for the product of factors and not just a statement of the three "
-       r"factors. Attempts with calculators via the three roots are likely to score 0 marks. The question was \"Hence\" "
+       r"factors. Attempts with calculators via the three roots are likely to score 0 marks. The question was “Hence” "
        r"so the two M's must be awarded."],
       False, 24),
     e("10c", "10(c)", INT, "8.3, 8.2", 4,
@@ -428,9 +428,9 @@ DRAFT = [
       [r"M1 (AO 1.1b): $x^2+y^2+18x-2y+30=0\Rightarrow(x+9)^2+(y-1)^2=\ldots$ Notes: Attempts $(x\pm9)^2\ldots(y\pm1)^2"
        r"=\ldots$ It is implied by a centre of $(\pm9,\pm1)$",
        r"A1 (AO 1.1b): Centre $(-9,1)$. Notes: States or uses the centre of $C$ is $(-9,1)$",
-       r"M1 (AO 1.1b): Gradient of line from $P(-5,7)$ to \"$(-9,1)$\" $=\frac{7-1}{-5+9}=\left(\frac{3}{2}\right)$. "
+       r"M1 (AO 1.1b): Gradient of line from $P(-5,7)$ to “$(-9,1)$” $=\frac{7-1}{-5+9}=\left(\frac{3}{2}\right)$. "
        r"Notes: A correct attempt to find the gradient of the radius using their $(-9,1)$ and $P$. E.g. "
-       r"$\frac{7-\text{\"}1\text{\"}}{-5-\text{\"}-9\text{\"}}$",
+       r"$\frac{7-\text{“}1\text{”}}{-5-\text{“}-9\text{”}}$",
        r"dM1 (AO 3.1a): Equation of tangent is $y-7=-\frac{2}{3}(x+5)$. Notes: For the complete strategy of using "
        r"perpendicular gradients and finding the equation of the tangent to the circle. It is dependent upon both "
        r"previous M's. $y-7=-\frac{1}{\text{gradient }CP}(x+5)$ Condone a sign slip on one of the $-7$ or the 5.",
@@ -450,8 +450,8 @@ DRAFT = [
       [r"M1 (AO 1.1b): $x^2+y^2-8x+12y+k=0\Rightarrow(x-4)^2+(y+6)^2=52-k$. Notes: For reaching "
        r"$(x\pm4)^2+(y\pm6)^2=P-k$ where $P$ is a positive constant. Seen or implied by centre coordinates "
        r"$(\mp4,\mp6)$ and a radius of $\sqrt{P-k}$",
-       r"M1 (AO 3.1a): Lies in Quadrant 4 if radius $<4\Rightarrow$ \"$52-k$\" $<4^2$. Notes: Applying the strategy that "
-       r"it lies entirely within quadrant if \"their radius\" $<4$ and proceeding to obtain an inequality in k only (See "
+       r"M1 (AO 3.1a): Lies in Quadrant 4 if radius $<4\Rightarrow$ “$52-k$” $<4^2$. Notes: Applying the strategy that "
+       r"it lies entirely within quadrant if “their radius” $<4$ and proceeding to obtain an inequality in k only (See "
        r"scheme). Condone $\ldots\leqslant4$ for this mark.",
        r"A1 (AO 1.1b): $\Rightarrow k>36$. Notes: Deduces that $k>36$",
        r"A1 (AO 3.2a): Deduces $52-k>0\Rightarrow$ Full solution $36<k<52$. Notes: A rigorous argument leading to a full "
@@ -519,9 +519,9 @@ DRAFT = [
        r"ALT: Attempt using given result (for 3 out of 4) — M1: $\frac{4a}{b}+\frac{b}{a}\geqslant4\Rightarrow"
        r"4a^2+b^2\geqslant4ab\Rightarrow4a^2+b^2-4ab\geqslant0$",
        r"ALT: Attempt using given result — A1: $\Rightarrow(2a-b)^2\geqslant0$ oe",
-       r"ALT: Attempt using given result — M1: gives both reasons why this is true: \"square numbers are greater than or "
-       r"equal to 0\"; \"multiplying by $ab$ does not change the sign of the inequality because $a$ and $b$ are "
-       r"positive\""],
+       r"ALT: Attempt using given result — M1: gives both reasons why this is true: “square numbers are greater than or "
+       r"equal to 0”; “multiplying by $ab$ does not change the sign of the inequality because $a$ and $b$ are "
+       r"positive”"],
       False, 36),
     e("13b", "13(b)", PROOF, "1.1", 1,
       Q13A + r"(b) Prove, by counter example, that this is not true for all values of $a$ and $b$.",
@@ -747,8 +747,8 @@ REPORT = {
                 "scored."),
         ({"c"}, "Most candidates were successful in part (c), which may have been due to the graph having been "
                 "provided."),
-        ({"c"}, r"Many stated $18\,^\circ$C as being the minimum temperature of the model which was condoned for the "
-                r"mark, although a significant number stated that “$15\,^\circ$C is the room temperature” which did "
+        ({"c"}, r"Many stated $18^\circ$C as being the minimum temperature of the model which was condoned for the "
+                r"mark, although a significant number stated that “$15^\circ$C is the room temperature” which did "
                 r"not show an understanding of the model."),
         ({"c"}, "The other most popular way to answer the question was to substitute 15 into the equation and "
                 "concluded that you cannot log a negative."),
