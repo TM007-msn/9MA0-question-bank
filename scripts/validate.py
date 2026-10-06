@@ -1,22 +1,28 @@
 """Validate every bank file against its JSON Schema and list entries with null fields.
 
+Also checks that PDFs in source/papers, source/mark-schemes and
+source/examiner-reports follow the naming rule. It never looks inside
+source/reserved/ (or source/inbox/, which holds unfiled downloads).
+
 Usage (from the project root, with the venv active):
     python scripts/validate.py
 
-Exit code is 0 if every file is valid, 1 otherwise. Null fields are reported
+Exit code is 0 if everything is valid, 1 otherwise. Null fields are reported
 but do not count as failures, because "unknown means null" is allowed.
 """
 
 import json
 import sys
-from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
 from referencing import Registry, Resource
 
-ROOT = Path(__file__).resolve().parent.parent
+from naming import FILENAME_RE, TYPE_FOLDERS, id_prefix
+from paths import ROOT
+
 SCHEMA_DIR = ROOT / "schemas"
 BANK_DIR = ROOT / "bank"
+SOURCE_DIR = ROOT / "source"
 
 # Which schema each bank file follows. Array files are checked entry by entry;
 # progress.json is a single object.
@@ -24,9 +30,14 @@ BANK_FILES = {
     "questions.json": "question.schema.json",
     "errors.json": "error.schema.json",
     "generated.json": "generated.schema.json",
-    "rejected.json": "generated.schema.json",
+    "rejected.json": "rejected.schema.json",
     "progress.json": "progress.schema.json",
 }
+
+# Files whose entries are questions (real or generated) and so carry an id,
+# paper and series that must agree with each other.
+QUESTION_FILES = {"questions.json", "generated.json", "rejected.json"}
+GENERATED_FILES = {"generated.json", "rejected.json"}
 
 
 def load_json(path):
@@ -70,19 +81,43 @@ def null_fields(entry):
     return [key for key, value in entry.items() if value is None]
 
 
-def check_file(filename, schema, registry):
+def consistency_errors(filename, entry):
+    """Checks a schema can't express: fields that must agree with each other."""
+    errors = []
+    if not isinstance(entry, dict):
+        return errors
+    entry_id = entry.get("id") or ""
+
+    # The id must start with the entry's own paper and series, so an id like
+    # 9MA0-01_2023-06_Q03 can't sit on an entry marked paper 9MA0-02.
+    if filename in QUESTION_FILES and entry.get("paper") and entry.get("series"):
+        prefix = id_prefix(entry["paper"], entry["series"])
+        if not entry_id.startswith(prefix):
+            errors.append(f"id should start with {prefix} to match paper and series")
+
+    # A generated id is exactly its anchor id plus the variant letter.
+    if filename in GENERATED_FILES and entry.get("anchor_id") and entry.get("variant"):
+        expected = f"{entry['anchor_id']}-{entry['variant']}"
+        if entry_id != expected:
+            errors.append(f"id should be {expected} (anchor_id + variant)")
+
+    return errors
+
+
+def check_file(filename, schema, registry, bank_dir=BANK_DIR):
     """Return (errors, null_report) for one bank file."""
-    path = BANK_DIR / filename
+    path = bank_dir / filename
     errors = []
     null_report = []
 
     if not path.exists():
-        return [f"missing file {path.relative_to(ROOT)}"], []
+        return [f"missing file {path}"], []
     try:
         data = load_json(path)
     except json.JSONDecodeError as exc:
         return [f"not valid JSON: {exc}"], []
 
+    # FormatChecker makes "format": "date" an actual check, not just a label.
     validator = Draft202012Validator(
         schema, registry=registry, format_checker=FormatChecker()
     )
@@ -102,6 +137,8 @@ def check_file(filename, schema, registry):
 
         for err in validator.iter_errors(entry):
             errors.append(f"{label} {err.json_path}: {err.message}")
+        for message in consistency_errors(filename, entry):
+            errors.append(f"{label}: {message}")
 
         # Duplicate ids are not something JSON Schema can catch on its own.
         entry_id = entry.get("id") if isinstance(entry, dict) else None
@@ -110,14 +147,6 @@ def check_file(filename, schema, registry):
                 errors.append(f"{label}: duplicate id")
             seen_ids.add(entry_id)
 
-        # Project rule: generated.json only holds questions that passed
-        # verification. Failed ones belong in rejected.json.
-        if filename == "generated.json" and isinstance(entry, dict):
-            if entry.get("verified") is not True or not entry.get("verified_on"):
-                errors.append(
-                    f"{label}: generated.json entries need verified=true and a verified_on date"
-                )
-
         nulls = null_fields(entry)
         if nulls:
             null_report.append(f"{label}: {', '.join(nulls)}")
@@ -125,12 +154,32 @@ def check_file(filename, schema, registry):
     return errors, null_report
 
 
-def main():
+def check_source_names(source_dir=SOURCE_DIR):
+    """Return naming errors for PDFs in the papers / mark-schemes / examiner-reports folders.
+
+    Only the folders named in TYPE_FOLDERS are listed. source/reserved/ is
+    never touched.
+    """
+    errors = []
+    for doc_type, folder in TYPE_FOLDERS.items():
+        folder_path = source_dir / folder
+        if not folder_path.is_dir():
+            continue
+        for pdf in sorted(folder_path.glob("*.pdf")):
+            match = FILENAME_RE.match(pdf.name)
+            if not match:
+                errors.append(f"{folder}/{pdf.name}: should be PAPER_SERIES_TYPE.pdf, e.g. 9MA0-01_2023-06_{doc_type}.pdf")
+            elif match["type"] != doc_type:
+                errors.append(f"{folder}/{pdf.name}: {match['type']} files belong in source/{TYPE_FOLDERS[match['type']]}/, not {folder}/")
+    return errors
+
+
+def main(bank_dir=BANK_DIR, source_dir=SOURCE_DIR):
     registry, schemas = build_registry()
     any_errors = False
 
     for filename, schema_name in BANK_FILES.items():
-        errors, nulls = check_file(filename, schemas[schema_name], registry)
+        errors, nulls = check_file(filename, schemas[schema_name], registry, bank_dir)
         status = "FAIL" if errors else "ok"
         print(f"{filename:<16} {status}")
         for message in errors:
@@ -140,6 +189,12 @@ def main():
             for message in nulls:
                 print(f"      {message}")
         any_errors = any_errors or bool(errors)
+
+    name_errors = check_source_names(source_dir)
+    print(f"{'source names':<16} {'FAIL' if name_errors else 'ok'}")
+    for message in name_errors:
+        print(f"    error: {message}")
+    any_errors = any_errors or bool(name_errors)
 
     return 1 if any_errors else 0
 

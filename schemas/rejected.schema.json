@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://9ma0-bank.local/schemas/rejected.schema.json",
+  "title": "Rejected generated question",
+  "description": "A generated variant that failed verification. Every generated-question field plus why and when it was rejected.",
+  "allOf": [
+    { "$ref": "question.schema.json#/$defs/core" },
+    { "$ref": "generated.schema.json#/$defs/generation" }
+  ],
+  "required": ["rejection_reason", "rejected_on"],
+  "properties": {
+    "id": { "$ref": "question.schema.json#/$defs/generated_id" },
+    "verified": { "const": false },
+    "rejection_reason": { "type": "string", "minLength": 1 },
+    "rejected_on": { "type": "string", "format": "date" }
+  },
+  "unevaluatedProperties": false
+}
