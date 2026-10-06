@@ -41,52 +41,125 @@ INT = "Integration"
 VEC = "Vectors"
 PROOF = "Proof"
 
-# Shared stems go in variables so each part's question_latex stands alone.
-Q2 = (r"[In this question the unit vectors $\mathbf{i}$ and $\mathbf{j}$ are due east and due north respectively.] "
-      r"A coastguard station $O$ monitors the movements of a small boat. At 10:00 the boat is at the point "
-      r"$(4\mathbf{i}-2\mathbf{j})$ km relative to $O$. At 12:45 the boat is at the point $(-3\mathbf{i}-5\mathbf{j})$ "
-      r"km relative to $O$. The motion of the boat is modelled as that of a particle moving in a straight line at "
-      r"constant speed. ")
-Q3 = (r"In this question you must show all stages of your working. Solutions relying on calculator technology are "
-      r"not acceptable. ")
-Q4 = (r"In 1997 the average CO$_2$ emissions of new cars in the UK was 190 g/km. In 2005 the average CO$_2$ "
-      r"emissions of new cars in the UK had fallen to 169 g/km. Given $A$ g/km is the average CO$_2$ emissions of new "
-      r"cars in the UK $n$ years after 1997 and using a linear model, ")
-FIG1 = (r"[Figure 1 (not to scale): triangle $ABD$ with $AB$ as the horizontal base and $C$ on $AD$ between $A$ and "
-        r"$D$; the angle of $27^\circ$ at $A$ is marked, and beams $BC$ and $BD$ join $B$ to $C$ and $D$.]" "\n")
-Q5 = (FIG1 + r"Figure 1 shows the design for a structure used to support a roof. The structure consists of four steel "
-      r"beams, $AB$, $BD$, $BC$ and $AD$. Given $AB=12$ m, $BC=BD=7$ m and angle $BAC=27^\circ$ ")
-Q6A = (r"Find the first 4 terms, in ascending powers of $x$, in the binomial expansion of $$(1+kx)^{10}$$ where $k$ "
-       r"is a non-zero constant. Write each coefficient as simply as possible.")
-Q7 = r"Given that $k$ is a positive constant and $\int_1^k\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=4$ "
-Q8 = (r"The temperature, $\theta^\circ$C, of a cup of tea $t$ minutes after it was placed on a table in a room, is "
-      r"modelled by the equation $$\theta=18+65\mathrm{e}^{-\frac{t}{8}}\qquad t\geqslant0$$ Find, according to the "
-      r"model, ")
-FIG2 = (r"[Figure 2: sketch of $\mu$ against $t$: a decreasing curve starting at the point $(0, 94)$ on the $\mu$-axis, "
-        r"passing through $(8, 50)$, and approaching the dashed horizontal line $l$ above the $t$-axis.]" "\n")
-FIG3 = (r"[Figure 3: part of the curve $y=3\cos x^\circ$, with a maximum on the $y$-axis and minimum points either "
-        r"side of it; the minimum point $P(c, d)$ to the left of the $y$-axis is marked.]" "\n")
-Q9 = (FIG3 + r"Figure 3 shows part of the curve with equation $y=3\cos x^\circ$. The point $P(c, d)$ is a minimum point "
-      r"on the curve with $c$ being the smallest negative value of $x$ at which a minimum occurs. ")
-Q10 = r"$$\mathrm{g}(x)=2x^3+x^2-41x-70$$ "
-Q12 = (r"An advertising agency is monitoring the number of views of an online advert. The equation "
-       r"$$\log_{10}V=0.072t+2.379\qquad1\leqslant t\leqslant30,\ t\in\mathbb{N}$$ is used to model the total number "
-       r"of views of the advert, $V$, in the first $t$ days after the advert went live. ")
-Q12A = (r"(a) Show that $V=ab^t$ where $a$ and $b$ are constants to be found. Give the value of $a$ to the nearest "
-        r"whole number and give the value of $b$ to 3 significant figures. ")
-Q13A = r"(a) Prove that for all positive values of $a$ and $b$ $$\frac{4a}{b}+\frac{b}{a}\geqslant4$$ "
-Q14 = (r"A curve has equation $y=\mathrm{g}(x)$. Given that: $\mathrm{g}(x)$ is a cubic expression in which the "
-       r"coefficient of $x^3$ is equal to the coefficient of $x$; the curve with equation $y=\mathrm{g}(x)$ passes "
-       r"through the origin; the curve with equation $y=\mathrm{g}(x)$ has a stationary point at $(2, 9)$, ")
 
 TOGETHER = "Score these two parts together. "
+
+def L(*lines):
+    """question_latex from printed lines (CLAUDE.md: question_latex content and order)."""
+    return "\n".join(lines)
+
+
+# question_latex per entry: shared stem, then earlier parts this part depends on, then the part.
+Q2 = [r"[In this question the unit vectors $\mathbf{i}$ and $\mathbf{j}$ are due east and due north respectively.]",
+      "A coastguard station $O$ monitors the movements of a small boat.",
+      r"At 10:00 the boat is at the point $(4\mathbf{i}-2\mathbf{j})$ km relative to $O$.",
+      r"At 12:45 the boat is at the point $(-3\mathbf{i}-5\mathbf{j})$ km relative to $O$.",
+      "The motion of the boat is modelled as that of a particle moving in a straight line at constant speed."]
+SHOW = ["In this question you must show all stages of your working.",
+        "Solutions relying on calculator technology are not acceptable."]
+Q4 = ["In 1997 the average CO$_2$ emissions of new cars in the UK was 190 g/km.",
+      "In 2005 the average CO$_2$ emissions of new cars in the UK had fallen to 169 g/km.",
+      "Given $A$ g/km is the average CO$_2$ emissions of new cars in the UK $n$ years after 1997 and using a linear "
+      "model,"]
+Q5 = [r"[Figure 1 (not to scale): triangle $ABD$ with $AB$ as the horizontal base and $C$ on $AD$ between $A$ and $D$; "
+      r"the angle of $27^\circ$ at $A$ is marked, and beams $BC$ and $BD$ join $B$ to $C$ and $D$.]",
+      "Figure 1 shows the design for a structure used to support a roof.",
+      "The structure consists of four steel beams, $AB$, $BD$, $BC$ and $AD$.",
+      r"Given $AB=12$ m, $BC=BD=7$m and angle $BAC=27^\circ$"]
+Q7 = r"Given that $k$ is a positive constant and $\int_1^k\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=4$"
+Q7A = r"show that $3k+5\sqrt{k}-12=0$"
+Q8 = [r"The temperature, $\theta^\circ$C, of a cup of tea $t$ minutes after it was placed on a table in a room, is "
+      r"modelled by the equation",
+      r"$$\theta=18+65\mathrm{e}^{-\frac{t}{8}}\qquad t\geqslant0$$",
+      "Find, according to the model,"]
+Q9 = [r"[Figure 3: part of the curve $y=3\cos x^\circ$, with a maximum on the $y$-axis and minimum points either side "
+      r"of it; the minimum point $P(c, d)$ to the left of the $y$-axis is marked.]",
+      r"Figure 3 shows part of the curve with equation $y=3\cos x^\circ$.",
+      "The point $P(c, d)$ is a minimum point on the curve with $c$ being the smallest negative value of $x$ at which a "
+      "minimum occurs."]
+Q10 = [r"$$\mathrm{g}(x)=2x^3+x^2-41x-70$$"]
+Q10A = r"Use the factor theorem to show that $\mathrm{g}(x)$ is divisible by $(x-5)$."
+Q12 = ["An advertising agency is monitoring the number of views of an online advert.", "The equation",
+       r"$$\log_{10}V=0.072t+2.379\qquad1\leqslant t\leqslant30,\ t\in\mathbb{N}$$",
+       "is used to model the total number of views of the advert, $V$, in the first $t$ days after the advert went "
+       "live."]
+Q12A = ["Show that $V=ab^t$ where $a$ and $b$ are constants to be found.",
+        "Give the value of $a$ to the nearest whole number and give the value of $b$ to 3 significant figures."]
+Q13A = ["Prove that for all positive values of $a$ and $b$", r"$$\frac{4a}{b}+\frac{b}{a}\geqslant4$$"]
+Q14 = [r"A curve has equation $y=\mathrm{g}(x)$.", "Given that",
+       r"• $\mathrm{g}(x)$ is a cubic expression in which the coefficient of $x^3$ is equal to the coefficient of $x$",
+       r"• the curve with equation $y=\mathrm{g}(x)$ passes through the origin",
+       r"• the curve with equation $y=\mathrm{g}(x)$ has a stationary point at $(2, 9)$"]
+
+LATEX = {
+    "01": L("A curve has equation", "$$y=2x^3-4x+5$$", "Find the equation of the tangent to the curve at the point $P(2, 13)$.",
+            "Write your answer in the form $y=mx+c$, where $m$ and $c$ are integers to be found.",
+            "Solutions relying on calculator technology are not acceptable."),
+    "02a": L(*Q2, "Calculate the bearing on which the boat is moving, giving your answer in degrees to one decimal place."),
+    "02b": L(*Q2, "Calculate the speed of the boat, giving your answer in km h$^{-1}$"),
+    "03i": L(*SHOW, "Solve the equation", r"$$x\sqrt{2}-\sqrt{18}=x$$", "writing the answer as a surd in simplest form."),
+    "03ii": L(*SHOW, "Solve the equation", r"$$4^{3x-2}=\frac{1}{2\sqrt{2}}$$"),
+    "04a": L(*Q4, "form an equation linking $A$ with $n$."),
+    "04b": L(*Q4, "(a) form an equation linking $A$ with $n$.",
+             "In 2016 the average CO$_2$ emissions of new cars in the UK was 120 g/km.",
+             "(b) Comment on the suitability of your model in light of this information."),
+    "05a": L(*Q5, "find, to one decimal place, the size of angle $ACB$."),
+    "05b": L(*Q5, "The steel beams can only be bought in whole metre lengths.",
+             "Find the minimum length of steel that needs to be bought to make the complete structure."),
+    "06a": L("Find the first 4 terms, in ascending powers of $x$, in the binomial expansion of", "$$(1+kx)^{10}$$",
+             "where $k$ is a non-zero constant. Write each coefficient as simply as possible."),
+    "06b": L("Given that in the expansion of $(1+kx)^{10}$ the coefficient $x^3$ is 3 times the coefficient of $x$,",
+             "find the possible values of $k$."),
+    "07a": L(Q7, Q7A),
+    "07b": L(Q7, "(a) " + Q7A, "(b) Hence, using algebra, find any values of $k$ such that",
+             r"$$\int_1^k\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=4$$"),
+    "08a": L(*Q8, "the temperature of the cup of tea when it was placed on the table,"),
+    "08b": L(*Q8[:-1], r"the value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\circ$C."),
+    "08c": L(*Q8[:-1], r"Explain why, according to this model, the temperature of the cup of tea could not fall to $15^\circ$C."),
+    "08d": L(*Q8[:-1],
+             r"[Figure 2: sketch of $\mu$ against $t$: a decreasing curve starting at the point $(0, 94)$ on the "
+             r"$\mu$-axis, passing through $(8, 50)$, and approaching the dashed horizontal line $l$ above the $t$-axis.]",
+             r"The temperature, $\mu^\circ$C, of a second cup of tea $t$ minutes after it was placed on a table in a "
+             r"different room, is modelled by the equation",
+             r"$$\mu=A+B\mathrm{e}^{-\frac{t}{8}}\qquad t\geqslant0$$",
+             "where $A$ and $B$ are constants.",
+             r"Figure 2 shows a sketch of $\mu$ against $t$ with two data points that lie on the curve.",
+             "The line $l$, also shown on Figure 2, is the asymptote to the curve.",
+             "Using the equation of this model and the information given in Figure 2",
+             "find an equation for the asymptote $l$."),
+    "09a": L(*Q9, "State the value of $c$ and the value of $d$."),
+    "09b": L(*Q9, "State the coordinates of the point to which $P$ is mapped by the transformation which transforms the "
+             r"curve with equation $y=3\cos x^\circ$ to the curve with equation",
+             r"(i) $y=3\cos\left(\frac{x^\circ}{4}\right)$", r"(ii) $y=3\cos(x-36)^\circ$"),
+    "09c": L(*Q9, r"Solve, for $450^\circ\leqslant\theta<720^\circ$,", r"$$3\cos\theta=8\tan\theta$$",
+             "giving your solution to one decimal place.", "In part (c) you must show all stages of your working.",
+             "Solutions relying entirely on calculator technology are not acceptable."),
+    "10a": L(*Q10, Q10A),
+    "10b": L(*Q10, "(a) " + Q10A,
+             r"(b) Hence, showing all your working, write $\mathrm{g}(x)$ as a product of three linear factors."),
+    "10c": L(*Q10, r"The finite region $R$ is bounded by the curve with equation $y=\mathrm{g}(x)$ and the $x$-axis, and "
+             r"lies below the $x$-axis.",
+             "Find, using algebraic integration, the exact value of the area of $R$."),
+    "11i": L("A circle $C_1$ has equation", "$$x^2+y^2+18x-2y+30=0$$",
+             "The line $l$ is the tangent to $C_1$ at the point $P(-5, 7)$.",
+             "Find an equation of $l$ in the form $ax+by+c=0$, where $a$, $b$ and $c$ are integers to be found."),
+    "11ii": L("A different circle $C_2$ has equation", "$$x^2+y^2-8x+12y+k=0$$", "where $k$ is a constant.",
+              "Given that $C_2$ lies entirely in the 4th quadrant, find the range of possible values for $k$."),
+    "12a": L(*Q12, *Q12A),
+    "12b": L(*Q12, "(a) " + Q12A[0], Q12A[1], "(b) Interpret, with reference to the model, the value of $ab$."),
+    "12c": L(*Q12, "Using this model, calculate",
+             "the total number of views of the advert in the first 20 days after the advert went live.",
+             "Give your answer to 2 significant figures."),
+    "13a": L(*Q13A),
+    "13b": L("(a) " + Q13A[0], Q13A[1], "(b) Prove, by counter example, that this is not true for all values of $a$ and $b$."),
+    "14a": L(*Q14, r"find $\mathrm{g}(x)$,"),
+    "14b": L(*Q14, r"(a) find $\mathrm{g}(x)$,", "(b) prove that the stationary point at $(2, 9)$ is a maximum."),
+}
 
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", DIFF, "7.3, 7.2, 3.1", 5,
-      r"A curve has equation $$y=2x^3-4x+5$$ Find the equation of the tangent to the curve at the point $P(2, 13)$. "
-      r"Write your answer in the form $y=mx+c$, where $m$ and $c$ are integers to be found. Solutions relying on "
-      r"calculator technology are not acceptable.",
+      LATEX["01"],
       [r"M1 (AO 1.1b): Attempts to differentiate $x^n\to x^{n-1}$ seen once. Notes: Attempts to differentiate "
        r"$x^n\to x^{n-1}$ seen once. Score for $x^3\to x^2$ or $\pm4x\to4$ or $+5\to0$",
        r"A1 (AO 1.1b): $y=2x^3-4x+5\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}x}=6x^2-4$. Notes: "
@@ -103,7 +176,7 @@ DRAFT = [
 
     # ---------------- Q2 ----------------
     e("02a", "2(a)", VEC, "9.2, 9.5", 3,
-      Q2 + r"Calculate the bearing on which the boat is moving, giving your answer in degrees to one decimal place.",
+      LATEX["02a"],
       [r"M1 (AO 1.1b): Attempts to find an “allowable” angle Eg $\tan\theta=\frac{7}{3}$ (beside a sketch on a grid of "
        r"the two positions and the displacement, with lengths $\sqrt{20}$, $\sqrt{34}$, $\sqrt{58}$, 7 and 3 and angles "
        r"$63.4^\circ$, $49.8^\circ$, $66.8^\circ$ and $23.2^\circ$). Notes: " + TOGETHER + r"Attempts an allowable "
@@ -121,7 +194,7 @@ DRAFT = [
        r"A1 (AO 1.1b): Bearing = awrt $246.8^\circ$. Notes: Bearing = awrt $246.8^\circ$ oe. Allow S $66.8^\circ$ W"],
       False, 4),
     e("02b", "2(b)", VEC, "9.4, 9.5", 3,
-      Q2 + r"Calculate the speed of the boat, giving your answer in km h$^{-1}$",
+      LATEX["02b"],
       [r"M1 (AO 1.1b): Attempts to find the distance travelled $=\sqrt{(4--3)^2+(-2+5)^2}=(\sqrt{58})$. Notes: "
        + TOGETHER + r"Attempts to find the distance travelled. Allow for $d^2=(4--3)^2+(-2+5)^2$. You may see this on "
        r"a diagram and allow if they attempt to find the magnitude from their “resultant vector” found in part (a).",
@@ -134,7 +207,7 @@ DRAFT = [
 
     # ---------------- Q3 ----------------
     e("03i", "3(i)", ALG, "2.2", 3,
-      Q3 + r"Solve the equation $$x\sqrt{2}-\sqrt{18}=x$$ writing the answer as a surd in simplest form.",
+      LATEX["03i"],
       [r"M1 (AO 1.1b): $x\sqrt{2}-\sqrt{18}=x\Rightarrow x(\sqrt{2}-1)=\sqrt{18}\Rightarrow x=\frac{\sqrt{18}}{\sqrt{2}-1}$. "
        r"Notes: Combines the terms in $x$, factorises and divides to find $x$. Condone sign slips and ignore any attempts "
        r"to simplify $\sqrt{18}$",
@@ -152,7 +225,7 @@ DRAFT = [
        r"discarded."],
       False, 6),
     e("03ii", "3(ii)", ALG, "2.1, 2.2", 3,
-      Q3 + r"Solve the equation $$4^{3x-2}=\frac{1}{2\sqrt{2}}$$",
+      LATEX["03ii"],
       [r"M1 (AO 2.5): $4^{3x-2}=\frac{1}{2\sqrt{2}}\Rightarrow2^{6x-4}=2^{-\frac{3}{2}}$. Notes: Uses correct "
        r"mathematical notation and attempts to set both sides as powers of 2 or 4. Eg $2^{ax+b}=2^c$ or "
        r"$4^{dx+e}=4^f$ is sufficient for this mark.",
@@ -173,7 +246,7 @@ DRAFT = [
       False, 6),
 
     # ---------------- Q4 ----------------
-    e("04a", "4(a)", COORD, "3.1", 3, Q4 + r"form an equation linking $A$ with $n$.",
+    e("04a", "4(a)", COORD, "3.1", 3, LATEX["04a"],
       [r"M1 (AO 3.3): Attempts $A=mn+c$ with either $(0,190)$ or $(8,169)$ Or attempts gradient eg "
        r"$m=\pm\frac{190-169}{8}(=-2.625)$. Notes: Attempts $A=mn+c$ with either $(0,190)$ or $(8,169)$ considered. "
        r"Eg Accept sight of $190=0n+c$ or $169=8m+c$ or $A-169=m(n-8)$ or $A=190+mn$ where $m$ could be a value. "
@@ -187,8 +260,7 @@ DRAFT = [
        r"$c=190$"],
       False, 8),
     e("04b", "4(b)", COORD, "3.1", 3,
-      Q4 + r"(a) form an equation linking $A$ with $n$. In 2016 the average CO$_2$ emissions of new cars in the UK was "
-      r"120 g/km. (b) Comment on the suitability of your model in light of this information.",
+      LATEX["04b"],
       [r"M1 (AO 3.4): Attempts $A=-2.625\times19+190=\ldots$ Notes: Attempts to substitute “$n$” $=19$ into their "
        r"linear model to find $A$. They may call it $x=19$",
        r"A1 (AO 1.1b): $A=140.125$ g km$^{-1}$. Notes: $A=140.125$ from $n=19$. Allow $A=140$",
@@ -203,7 +275,7 @@ DRAFT = [
       False, 8),
 
     # ---------------- Q5 ----------------
-    e("05a", "5(a)", TRIG, "5.1", 3, Q5 + r"find, to one decimal place, the size of angle $ACB$.",
+    e("05a", "5(a)", TRIG, "5.1", 3, LATEX["05a"],
       [r"M1 (AO 1.1b): States $\frac{\sin\theta}{12}=\frac{\sin27}{7}$. Notes: States "
        r"$\frac{\sin\theta}{12}=\frac{\sin27}{7}$ oe with the sides and angles in the correct positions",
        r"A1 (AO 1.1b): Finds $\theta=$ awrt $51^\circ$ or awrt $129^\circ$. Notes: awrt $51^\circ$ or awrt $129^\circ$",
@@ -212,8 +284,7 @@ DRAFT = [
        r"solve the subsequent quadratic to find $AC$ and then use the cosine rule again"],
       True, 10),
     e("05b", "5(b)", TRIG, "5.1", 3,
-      Q5 + r"(a) find, to one decimal place, the size of angle $ACB$. The steel beams can only be bought in whole metre "
-      r"lengths. (b) Find the minimum length of steel that needs to be bought to make the complete structure.",
+      LATEX["05b"],
       [r"M1 (AO 1.1b): Attempts to find part or all of $AD$ Eg $AD^2=7^2+12^2-2\times12\times7\cos101.9=(AD=15.09)$ Eg "
        r"$(AC)^2=7^2+12^2-2\times12\times7\cos(180-\text{“}128.9\text{”}-27)$ Eg $12\cos27$ or "
        r"$7\cos\text{“}51\text{”}$. Notes: Attempts a “correct” method of finding either $AD$ or a part of $AD$ eg "
@@ -241,7 +312,7 @@ DRAFT = [
       True, 10),
 
     # ---------------- Q6 ----------------
-    e("06a", "6(a)", SEQ, "4.1", 3, Q6A,
+    e("06a", "6(a)", SEQ, "4.1", 3, LATEX["06a"],
       [r"M1 (AO 1.1b): $(1+kx)^{10}=1+\binom{10}{1}(kx)^1+\binom{10}{2}(kx)^2+\binom{10}{3}(kx)^3\ldots$ Notes: An "
        r"attempt at the binomial expansion. This may be awarded for either the second or third term or fourth term. The "
        r"coefficients may be of the form ${}^{10}C_1$, $\binom{10}{2}$ etc or eg $\frac{10\times9\times8}{3!}$",
@@ -253,8 +324,7 @@ DRAFT = [
        r"$1+10(kx)+45(kx)^2+120(kx)^3\ldots$ Allow if written as a list."],
       False, 12),
     e("06b", "6(b)", SEQ, "4.1, 2.6", 3,
-      "(a) " + Q6A + r" Given that in the expansion of $(1+kx)^{10}$ the coefficient $x^3$ is 3 times the coefficient "
-      r"of $x$, (b) find the possible values of $k$.",
+      LATEX["06b"],
       [r"B1 (AO 1.2): Sets $120k^3=3\times10k$. Notes: Sets their $120k^3=3\times$ their $10k$ (Seen or implied). For "
        r"candidates who haven't cubed allow $120k=3\times$ their $10k$. If they write $120k^3x^3=3\times$ their $10kx$ "
        r"only allow recovery of this mark if $x$ disappears afterwards.",
@@ -264,7 +334,7 @@ DRAFT = [
       False, 12),
 
     # ---------------- Q7 ----------------
-    e("07a", "7(a)", INT, "8.3, 8.2, 2.1", 4, Q7 + r"show that $3k+5\sqrt{k}-12=0$",
+    e("07a", "7(a)", INT, "8.3, 8.2, 2.1", 4, LATEX["07a"],
       [r"M1 (AO 1.1b): $x^n\to x^{n+1}$. Notes: For $x^n\to x^{n+1}$ on correct indices. This can be implied by the "
        r"sight of either $x^{\frac{1}{2}}$ or $x$",
        r"A1 (AO 1.1b): $\int\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=5\sqrt{x}+3x$. Notes: $5\sqrt{x}+3x$ or "
@@ -275,8 +345,7 @@ DRAFT = [
        r"leading to given answer."],
       False, 14),
     e("07b", "7(b)", ALG, "2.3, 2.1", 4,
-      Q7 + r"(a) show that $3k+5\sqrt{k}-12=0$ (b) Hence, using algebra, find any values of $k$ such that "
-      r"$$\int_1^k\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=4$$",
+      LATEX["07b"],
       [r"M1 (AO 3.1a): $3k+5\sqrt{k}-12=0\Rightarrow(3\sqrt{k}-4)(\sqrt{k}+3)=0$. Notes: For a correct method of "
        r"solving. This could be as the scheme, treating as a quadratic in $\sqrt{k}$ and using allowable method to solve "
        r"including factorisation, formula etc. Allow values for $\sqrt{k}$ to be just written down, e.g. allow "
@@ -296,12 +365,12 @@ DRAFT = [
       False, 14),
 
     # ---------------- Q8 ----------------
-    e("08a", "8(a)", EXP, "6.7", 1, Q8 + r"the temperature of the cup of tea when it was placed on the table,",
+    e("08a", "8(a)", EXP, "6.7", 1, LATEX["08a"],
       [r"B1 (AO 3.4): Temperature $=83^\circ$C. Notes: Uses the model to state that the temperature $=83^\circ$C "
        r"Requires units as well"],
       False, 16),
     e("08b", "8(b)", EXP, "6.7, 6.3", 3,
-      Q8 + r"the value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\circ$C.",
+      LATEX["08b"],
       [r"M1 (AO 1.1b): $18+65\mathrm{e}^{-\frac{t}{8}}=35\Rightarrow65\mathrm{e}^{-\frac{t}{8}}=17$. Notes: Uses the "
        r"information and proceeds to $P\mathrm{e}^{\pm\frac{t}{8}}=Q$ condoning slips",
        r"dM1 (AO 1.1b): $t=-8\ln\left(\frac{17}{65}\right)$. Notes: A full method using correct log laws and a "
@@ -311,7 +380,7 @@ DRAFT = [
        r"ALT: Second scheme column — dM1 (AO 1.1b): $\ln65-\frac{t}{8}=\ln17\Rightarrow t=\ldots$"],
       False, 16),
     e("08c", "8(c)", EXP, "6.7, 6.1", 1,
-      Q8 + r"Explain why, according to this model, the temperature of the cup of tea could not fall to $15^\circ$C.",
+      LATEX["08c"],
       [r"B1 (AO 2.4): States a suitable reason: As $t\to\infty, \theta\to18$ from above; the minimum temperature is "
        r"$18^\circ$C. Notes: States a suitable reason with minimal conclusion: As $t\to\infty, \theta\to18$ from above; "
        r"The minimum temperature is $18^\circ$C (so it cannot drop to $15^\circ$C); Substitutes $\theta=15$ (or a value "
@@ -321,11 +390,7 @@ DRAFT = [
        r"$18^\circ$C (so cannot fall below this)"],
       False, 16),
     e("08d", "8(d)", EXP, "6.7, 6.1", 4,
-      FIG2 + r"The temperature, $\mu^\circ$C, of a second cup of tea $t$ minutes after it was placed on a table in a "
-      r"different room, is modelled by the equation $$\mu=A+B\mathrm{e}^{-\frac{t}{8}}\qquad t\geqslant0$$ where $A$ "
-      r"and $B$ are constants. Figure 2 shows a sketch of $\mu$ against $t$ with two data points that lie on the curve. "
-      r"The line $l$, also shown on Figure 2, is the asymptote to the curve. Using the equation of this model and the "
-      r"information given in Figure 2, find an equation for the asymptote $l$.",
+      LATEX["08d"],
       [r"M1 (AO 3.4): $A+B=94$ or $A+B\mathrm{e}^{-1}=50$. Notes: Attempts to use $(0,94)$ or $(8,50)$ in order to "
        r"form at least one equation in $A$ and $B$. Allow this to be scored with an equation containing $\mathrm{e}^0$",
        r"A1 (AO 1.1b): $A+B=94$ and $A+B\mathrm{e}^{-1}=50$. Notes: Correct equations $A+B=94$ and "
@@ -339,22 +404,18 @@ DRAFT = [
       True, 16),
 
     # ---------------- Q9 ----------------
-    e("09a", "9(a)", TRIG, "5.2", 1, Q9 + r"State the value of $c$ and the value of $d$.",
+    e("09a", "9(a)", TRIG, "5.2", 1, LATEX["09a"],
       [r"B1 (AO 1.1b): $(-180^\circ, -3)$. Notes: Deduces that $P(-180^\circ,-3)$ or $c=-180^{(\circ)}, d=-3$"],
       True, 20),
     e("09b", "9(b)", ALG, "2.8, 5.2", 2,
-      Q9 + r"State the coordinates of the point to which $P$ is mapped by the transformation which transforms the curve "
-      r"with equation $y=3\cos x^\circ$ to the curve with equation (i) $y=3\cos\left(\frac{x^\circ}{4}\right)$ "
-      r"(ii) $y=3\cos(x-36)^\circ$",
+      LATEX["09b"],
       [r"B1ft (AO 2.2a): (i) $(-720^\circ, -3)$. Notes: Deduces that $P'(-720^\circ,-3)$ Follow through on their "
        r"$(c,d)\to(4c,d)$ where $d$ is negative",
        r"B1ft (AO 2.2a): (ii) $(-144^\circ, -3)$. Notes: Deduces that $P'(-144^\circ,-3)$ Follow through on their "
        r"$(c,d)\to(c+36^\circ,d)$ where $d$ is negative"],
       True, 20),
     e("09c", "9(c)", TRIG, "5.4, 5.3", 5,
-      Q9 + r"Solve, for $450^\circ\leqslant\theta<720^\circ$, $$3\cos\theta=8\tan\theta$$ giving your solution to one "
-      r"decimal place. In part (c) you must show all stages of your working. Solutions relying entirely on calculator "
-      r"technology are not acceptable.",
+      LATEX["09c"],
       [r"M1 (AO 3.1a): Attempts to use both $\tan\theta=\frac{\sin\theta}{\cos\theta}$, $\sin^2\theta+\cos^2\theta=1$ "
        r"and solves a quadratic equation in $\sin\theta$ to find at least one value of $\theta$. Notes: An overall "
        r"problem solving mark, condoning slips, for an attempt to: use $\tan\theta=\frac{\sin\theta}{\cos\theta}$; use "
@@ -372,7 +433,7 @@ DRAFT = [
       True, 20),
 
     # ---------------- Q10 ----------------
-    e("10a", "10(a)", ALG, "2.6", 2, Q10 + r"Use the factor theorem to show that $\mathrm{g}(x)$ is divisible by $(x-5)$.",
+    e("10a", "10(a)", ALG, "2.6", 2, LATEX["10a"],
       [r"M1 (AO 1.1a): $\mathrm{g}(5)=2\times5^3+5^2-41\times5-70=\ldots$ Notes: Attempts to calculate $\mathrm{g}(5)$. "
        r"Attempted division by $(x-5)$ is M0. Look for evidence of embedded values or two correct terms of "
        r"$\mathrm{g}(5)=250+25-205-70=\ldots$",
@@ -385,8 +446,7 @@ DRAFT = [
        r"a minimal statement ie QED, “proved”, tick etc."],
       False, 24),
     e("10b", "10(b)", ALG, "2.6", 4,
-      Q10 + r"(a) Use the factor theorem to show that $\mathrm{g}(x)$ is divisible by $(x-5)$. (b) Hence, showing all "
-      r"your working, write $\mathrm{g}(x)$ as a product of three linear factors.",
+      LATEX["10b"],
       [r"M1 (AO 1.1b): $2x^3+x^2-41x-70=(x-5)(2x^2\ldots x\pm14)$. Notes: Attempts to find the quadratic factor by "
        r"inspection (correct coefficients of first term and $\pm$ last term) or by division (correct coefficients of "
        r"first term and $\pm$ second term). Allow this to be scored from division in part (a)",
@@ -399,8 +459,7 @@ DRAFT = [
        r"so the two M's must be awarded."],
       False, 24),
     e("10c", "10(c)", INT, "8.3, 8.2", 4,
-      Q10 + r"The finite region $R$ is bounded by the curve with equation $y=\mathrm{g}(x)$ and the $x$-axis, and lies "
-      r"below the $x$-axis. Find, using algebraic integration, the exact value of the area of $R$.",
+      LATEX["10c"],
       [r"M1 (AO 1.1b): $\int2x^3+x^2-41x-70\,\mathrm{d}x=\frac{1}{2}x^4+\frac{1}{3}x^3-\frac{41}{2}x^2-70x$. Notes: For "
        r"$x^n\to x^{n+1}$ for any of the terms in $x$ for $\mathrm{g}(x)$ so $2x^3\to\ldots x^4$, $x^2\to\ldots x^3$, "
        r"$-41x\to\ldots x^2$, $-70\to\ldots x$",
@@ -423,8 +482,7 @@ DRAFT = [
 
     # ---------------- Q11 ----------------
     e("11i", "11(i)", COORD, "3.2, 3.1", 5,
-      r"A circle $C_1$ has equation $$x^2+y^2+18x-2y+30=0$$ The line $l$ is the tangent to $C_1$ at the point "
-      r"$P(-5, 7)$. Find an equation of $l$ in the form $ax+by+c=0$, where $a$, $b$ and $c$ are integers to be found.",
+      LATEX["11i"],
       [r"M1 (AO 1.1b): $x^2+y^2+18x-2y+30=0\Rightarrow(x+9)^2+(y-1)^2=\ldots$ Notes: Attempts $(x\pm9)^2\ldots(y\pm1)^2"
        r"=\ldots$ It is implied by a centre of $(\pm9,\pm1)$",
        r"A1 (AO 1.1b): Centre $(-9,1)$. Notes: States or uses the centre of $C$ is $(-9,1)$",
@@ -445,8 +503,7 @@ DRAFT = [
        r"$\frac{\mathrm{d}y}{\mathrm{d}x}$"],
       False, 28),
     e("11ii", "11(ii)", COORD, "3.2, 2.5", 4,
-      r"A different circle $C_2$ has equation $$x^2+y^2-8x+12y+k=0$$ where $k$ is a constant. Given that $C_2$ lies "
-      r"entirely in the 4th quadrant, find the range of possible values for $k$.",
+      LATEX["11ii"],
       [r"M1 (AO 1.1b): $x^2+y^2-8x+12y+k=0\Rightarrow(x-4)^2+(y+6)^2=52-k$. Notes: For reaching "
        r"$(x\pm4)^2+(y\pm6)^2=P-k$ where $P$ is a positive constant. Seen or implied by centre coordinates "
        r"$(\mp4,\mp6)$ and a radius of $\sqrt{P-k}$",
@@ -460,7 +517,7 @@ DRAFT = [
       False, 28),
 
     # ---------------- Q12 ----------------
-    e("12a", "12(a)", EXP, "6.6, 6.4", 4, Q12 + Q12A,
+    e("12a", "12(a)", EXP, "6.6, 6.4", 4, LATEX["12a"],
       [r"B1 (AO 2.1): $\log_{10}V=0.072t+2.379\Rightarrow V=10^{0.072t+2.379}\Rightarrow V=10^{0.072t}\times10^{2.379}$. "
        r"Notes: (a) Condone $\log_{10}$ written log or lg written throughout the question. Scored for showing that "
        r"$\log_{10}V=0.072t+2.379$ can be written in the form $V=ab^t$ or vice versa. Either starts with "
@@ -479,13 +536,12 @@ DRAFT = [
        r"ALT: Second scheme column — A1 (AO 1.1b): $a=239$ or $b=1.18$"],
       False, 32),
     e("12b", "12(b)", EXP, "6.7", 1,
-      Q12 + Q12A + r"(b) Interpret, with reference to the model, the value of $ab$.",
+      LATEX["12b"],
       [r"B1 (AO 3.4): The value of $ab$ is the (total) number of views of the advert 1 day after it went live. Notes: "
        r"See scheme. Condone not seeing total. Do not allow number of views at the start or similar."],
       False, 32),
     e("12c", "12(c)", EXP, "6.7", 2,
-      Q12 + r"Using this model, calculate the total number of views of the advert in the first 20 days after the "
-      r"advert went live. Give your answer to 2 significant figures.",
+      LATEX["12c"],
       [r"M1 (AO 3.4): Substitutes $t=20$ in either equation and finds $V$ Eg $V=239\times1.18^{20}$. Notes: "
        r"Substitutes $t=20$ in either their $V=239\times1.18^t$ or $\log_{10}V=0.072t+2.379$ and uses a correct method "
        r"to find $V$",
@@ -493,7 +549,7 @@ DRAFT = [
       False, 32),
 
     # ---------------- Q13 ----------------
-    e("13a", "13(a)", PROOF, "1.1", 4, Q13A,
+    e("13a", "13(a)", PROOF, "1.1", 4, LATEX["13a"],
       [r"M1 (AO 2.1): States $(2a-b)^2\geqslant0$. Notes: (a) (condone the use of $>$ for the first three marks) For the "
        r"key step in stating that $(2a-b)^2\geqslant0$",
        r"A1 (AO 1.1b): $4a^2+b^2\geqslant4ab$. Notes: Reaches $4a^2+b^2\geqslant4ab$",
@@ -524,7 +580,7 @@ DRAFT = [
        r"positive”"],
       False, 36),
     e("13b", "13(b)", PROOF, "1.1", 1,
-      Q13A + r"(b) Prove, by counter example, that this is not true for all values of $a$ and $b$.",
+      LATEX["13b"],
       [r"B1 (AO 2.4): $a=5, b=-1\Rightarrow\frac{4a}{b}+\frac{b}{a}=-20-\frac{1}{5}$ which is less than 4. Notes: "
        r"Provides a counter example and shows it is not true. This requires values, a calculation or embedded values "
        r"(see scheme) and a conclusion. The conclusion must be in words eg the result does not hold or not true. Allow 0 "
@@ -532,7 +588,7 @@ DRAFT = [
       False, 36),
 
     # ---------------- Q14 ----------------
-    e("14a", "14(a)", DIFF, "7.3, 2.4", 7, Q14 + r"find $\mathrm{g}(x)$,",
+    e("14a", "14(a)", DIFF, "7.3, 2.4", 7, LATEX["14a"],
       [r"B1 (AO 2.2a): Deduces $\mathrm{g}(x)=ax^3+bx^2+ax$. Notes: Uses the information given to deduce that "
        r"$\mathrm{g}(x)=ax^3+bx^2+ax$. (Seen or implied)",
        r"M1 (AO 2.1): Uses $(2,9)\Rightarrow9=8a+4b+2a$. Notes: Uses the fact that $(2,9)$ lies on the curve so uses "
@@ -546,8 +602,7 @@ DRAFT = [
        r"b=\ldots$ It is dependent upon the B and both M's",
        r"A1 (AO 1.1b): $\mathrm{g}(x)=-3x^3+\frac{39}{4}x^2-3x$. Notes: $\mathrm{g}(x)=-3x^3+\frac{39}{4}x^2-3x$"],
       False, 38),
-    e("14b", "14(b)", DIFF, "7.3", 2, Q14 + r"(a) find $\mathrm{g}(x)$, (b) prove that the stationary point at "
-      r"$(2, 9)$ is a maximum.",
+    e("14b", "14(b)", DIFF, "7.3", 2, LATEX["14b"],
       [r"M1 (AO 1.1b): Attempts $\mathrm{g}''(x)=-18x+\frac{39}{2}$ and substitutes $x=2$. Notes: Attempts "
        r"$\mathrm{g}''(x)=-18x+\frac{39}{2}$ and substitutes $x=2$. Award for second derivatives of the form "
        r"$\mathrm{g}''(x)=Ax+B$ with $x=2$ substituted in.",

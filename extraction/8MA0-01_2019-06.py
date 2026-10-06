@@ -38,48 +38,124 @@ EXP = "Exponentials and logarithms"
 DIFF = "Differentiation"
 INT = "Integration"
 
-# Shared stems go in variables so each part's question_latex stands alone.
-Q1 = (r"The line $l_1$ has equation $2x+4y-3=0$ The line $l_2$ has equation $y=mx+7$, "
-      r"where $m$ is a constant. Given that $l_1$ and $l_2$ are perpendicular, ")
-Q2 = r"Find, using algebra, all real solutions to the equation "
-Q4 = (r"A tree was planted in the ground. Its height, $H$ metres, was measured $t$ years after planting. "
-      r"Exactly 3 years after planting, the height of the tree was 2.35 metres. "
-      r"Exactly 6 years after planting, the height of the tree was 3.28 metres. Using a linear model, ")
-Q5 = r"A curve has equation $$y=3x^2+\frac{24}{x}+2\qquad x>0$$ "
-FIG1 = (r"[Figure 1: triangle $ABC$ with $AB=3x$ cm as the base, $AC=2x$ cm, and the angle of "
-        r"$60^\circ$ at $A$ marked.]" "\n")
-Q6 = (FIG1 + r"Figure 1 shows a sketch of a triangle $ABC$ with $AB=3x$ cm, $AC=2x$ cm and angle "
-      r"$CAB=60^\circ$ Given that the area of triangle $ABC$ is $18\sqrt{3}$ cm$^2$ ")
-Q7 = (r"The curve $C$ has equation $$y=\frac{k^2}{x}+1\qquad x\in\mathbb{R},\ x\neq0$$ "
-      r"where $k$ is a constant. ")
-Q7L = r"The line $l$ has equation $y=-2x+5$ "
-Q8 = (r"Find the first 3 terms, in ascending powers of $x$, of the binomial expansion of "
-      r"$$\left(2+\frac{3x}{4}\right)^6$$ giving each term in its simplest form.")
-Q9 = (r"A company started mining tin in Riverdale on 1st January 2019. A model to find the total "
-      r"mass of tin that will be mined by the company in Riverdale is given by the equation "
-      r"$$T=1200-3(n-20)^2$$ where $T$ tonnes is the total mass of tin mined in the $n$ years "
-      r"after the start of mining. Using this model, ")
-Q10 = r"A circle $C$ has equation $$x^2+y^2-4x+8y-8=0$$ "
-Q11 = r"$$\mathrm{f}(x)=2x^3-13x^2+8x+48$$ "
-FIG2 = (r"[Figure 2: sketch of part of the curve $y=\mathrm{f}(x)$: a positive cubic crossing the "
-        r"negative $x$-axis once, with a maximum just to the right of the $y$-axis and touching the "
-        r"positive $x$-axis at a minimum.]" "\n")
-Q11F = FIG2 + r"Figure 2 shows a sketch of part of the curve with equation $y=\mathrm{f}(x)$. "
-Q12A = (r"Show that $$\frac{10\sin^2\theta-7\cos\theta+2}{3+2\cos\theta}\equiv4-5\cos\theta$$ ")
-FIG3 = (r"[Figure 3: sketch of part of the curve $y=2x^3-17x^2+40x$, passing through $O$, rising to "
-        r"a maximum and falling to a minimum above the $x$-axis at $x=k$, then rising; the region $R$ "
-        r"between the curve, the $x$-axis and the vertical line $x=k$ is shaded.]" "\n")
-Q14 = (r"The value of a car, $\pounds V$, can be modelled by the equation "
-       r"$$V=15700\mathrm{e}^{-0.25t}+2300\qquad t\in\mathbb{R},\ t\geqslant0$$ "
-       r"where the age of the car is $t$ years. Using the model, ")
-Q14A = r"The model predicts that the value of the car approaches, but does not fall below, $\pounds A$. "
 
 # Notes shared by several marks.
 TONNES = "Only withhold the mark for a lack of tonnes, once, the first time that it occurs. "
 
+def L(*lines):
+    """question_latex from printed lines (CLAUDE.md: question_latex content and order)."""
+    return "\n".join(lines)
+
+
+# question_latex per entry: shared stem, then earlier parts this part depends on, then the part.
+Q1 = ["The line $l_1$ has equation $2x+4y-3=0$", "The line $l_2$ has equation $y=mx+7$, where $m$ is a constant.",
+      "Given that $l_1$ and $l_2$ are perpendicular,"]
+Q3A = ["Given that $k$ is a constant, find", r"$$\int\left(\frac{4}{x^3}+kx\right)\mathrm{d}x$$", "simplifying your answer."]
+Q4 = ["A tree was planted in the ground.", "Its height, $H$ metres, was measured $t$ years after planting.",
+      "Exactly 3 years after planting, the height of the tree was 2.35 metres.",
+      "Exactly 6 years after planting, the height of the tree was 3.28 metres.",
+      "Using a linear model,"]
+Q5 = ["A curve has equation", r"$$y=3x^2+\frac{24}{x}+2\qquad x>0$$"]
+Q5A = r"Find, in simplest form, $\frac{\mathrm{d}y}{\mathrm{d}x}$"
+Q6 = [r"[Figure 1: triangle $ABC$ with $AB=3x$ cm as the base, $AC=2x$ cm, and the angle of $60^\circ$ at $A$ marked.]",
+      r"Figure 1 shows a sketch of a triangle $ABC$ with $AB=3x$ cm, $AC=2x$ cm and angle $CAB=60^\circ$",
+      r"Given that the area of triangle $ABC$ is $18\sqrt{3}$ cm$^2$"]
+Q7 = ["The curve $C$ has equation", r"$$y=\frac{k^2}{x}+1\qquad x\in\mathbb{R},\ x\neq0$$", "where $k$ is a constant."]
+Q7L = "The line $l$ has equation $y=-2x+5$"
+Q7B = ["Show that the $x$ coordinate of any point of intersection of $l$ with $C$ is given by a solution of the equation",
+       "$$2x^2-4x+k^2=0$$"]
+Q8A = ["Find the first 3 terms, in ascending powers of $x$, of the binomial expansion of",
+       r"$$\left(2+\frac{3x}{4}\right)^6$$", "giving each term in its simplest form."]
+Q9 = ["A company started mining tin in Riverdale on 1st January 2019.",
+      "A model to find the total mass of tin that will be mined by the company in Riverdale is given by the equation",
+      "$$T=1200-3(n-20)^2$$",
+      "where $T$ tonnes is the total mass of tin mined in the $n$ years after the start of mining.",
+      "Using this model,"]
+Q10 = ["A circle $C$ has equation", "$$x^2+y^2-4x+8y-8=0$$"]
+Q11 = [r"$$\mathrm{f}(x)=2x^3-13x^2+8x+48$$"]
+Q11A = r"Prove that $(x-4)$ is a factor of $\mathrm{f}(x)$."
+Q11F = [r"[Figure 2: sketch of part of the curve $y=\mathrm{f}(x)$: a positive cubic crossing the negative $x$-axis once, "
+        r"with a maximum just to the right of the $y$-axis and touching the positive $x$-axis at a minimum.]",
+        r"Figure 2 shows a sketch of part of the curve with equation $y=\mathrm{f}(x)$."]
+Q12A = ["Show that", r"$$\frac{10\sin^2\theta-7\cos\theta+2}{3+2\cos\theta}\equiv4-5\cos\theta$$"]
+Q14 = [r"The value of a car, £$V$, can be modelled by the equation",
+       r"$$V=15\,700\mathrm{e}^{-0.25t}+2300\qquad t\in\mathbb{R},\ t\geqslant0$$",
+       "where the age of the car is $t$ years.", "Using the model,"]
+Q14B = "Given the model predicts that the value of the car is decreasing at a rate of £500 per year at the instant when $t=T$,"
+Q14A = "The model predicts that the value of the car approaches, but does not fall below, £$A$."
+
+LATEX = {
+    "01a": L(*Q1, "find the value of $m$."),
+    "01b": L(*Q1, "The lines $l_1$ and $l_2$ meet at the point $P$.", "Find the $x$ coordinate of $P$."),
+    "02i": L("Find, using algebra, all real solutions to the equation", r"$16a^2=2\sqrt{a}$"),
+    "02ii": L("Find, using algebra, all real solutions to the equation", "$b^4+7b^2-18=0$"),
+    "03a": L(*Q3A),
+    "03b": L("(a) " + Q3A[0], *Q3A[1:], "(b) Hence find the value of $k$ such that",
+             r"$$\int_{0.5}^{2}\left(\frac{4}{x^3}+kx\right)\mathrm{d}x=8$$"),
+    "04a": L(*Q4, "find an equation linking $H$ with $t$."),
+    "04b": L(*Q4, "(a) find an equation linking $H$ with $t$.",
+             "The height of the tree was approximately 140 cm when it was planted.",
+             "(b) Explain whether or not this fact supports the use of the linear model in part (a)."),
+    "05a": L(*Q5, Q5A),
+    "05b": L(*Q5, "(a) " + Q5A, "(b) Hence find the exact range of values of $x$ for which the curve is increasing."),
+    "06a": L(*Q6, r"show that $x=2\sqrt{3}$"),
+    "06b": L(*Q6, r"(a) show that $x=2\sqrt{3}$",
+             "(b) Hence find the exact length of $BC$, giving your answer as a simplified surd."),
+    "07a": L(*Q7, "Sketch $C$ stating the equation of the horizontal asymptote."),
+    "07b": L(*Q7, Q7L, *Q7B),
+    "07c": L(*Q7, Q7L, "(b) " + Q7B[0], Q7B[1], "(c) Hence find the exact values of $k$ for which $l$ is a tangent to $C$."),
+    "08a": L(*Q8A),
+    "08b": L("(a) " + Q8A[0], *Q8A[1:],
+             "(b) Explain how you could use your expansion to estimate the value of $1.925^6$",
+             "You do not need to perform the calculation."),
+    "09a": L(*Q9, "calculate the mass of tin that will be mined up to 1st January 2020,"),
+    "09b": L(*Q9[:-1], "deduce the maximum total mass of tin that could be mined,"),
+    "09c": L(*Q9[:-1], "calculate the mass of tin that will be mined in 2023."),
+    "09d": L(*Q9[:-1], "State, giving reasons, the limitation on the values of $n$."),
+    "10a": L(*Q10, "Find", "(i) the coordinates of the centre of $C$,", "(ii) the exact radius of $C$."),
+    "10b": L(*Q10, "The straight line with equation $x=k$, where $k$ is a constant, is a tangent to $C$.",
+             "Find the possible values for $k$."),
+    "11a": L(*Q11, Q11A),
+    "11b": L(*Q11, "(a) " + Q11A,
+             r"(b) Hence, using algebra, show that the equation $\mathrm{f}(x)=0$ has only two distinct roots."),
+    "11c": L(*Q11, *Q11F, "Deduce, giving reasons for your answer, the number of real roots of the equation",
+             "$$2x^3-13x^2+8x+46=0$$"),
+    "11d": L(*Q11, *Q11F,
+             r"Given that $k$ is a constant and the curve with equation $y=\mathrm{f}(x+k)$ passes through the origin,",
+             "find the two possible values of $k$."),
+    "12a": L(*Q12A),
+    "12b": L("(a) " + Q12A[0], Q12A[1], r"(b) Hence, or otherwise, solve, for $0\leqslant x<360^\circ$, the equation",
+             r"$$\frac{10\sin^2x-7\cos x+2}{3+2\cos x}=4+3\sin x$$"),
+    "13": L(r"[Figure 3: sketch of part of the curve $y=2x^3-17x^2+40x$, passing through $O$, rising to a maximum and "
+            r"falling to a minimum above the $x$-axis at $x=k$, then rising; the region $R$ between the curve, the "
+            r"$x$-axis and the vertical line $x=k$ is shaded.]",
+            "Figure 3 shows a sketch of part of the curve with equation", "$$y=2x^3-17x^2+40x$$",
+            "The curve has a minimum turning point at $x=k$.",
+            "The region $R$, shown shaded in Figure 3, is bounded by the curve, the $x$-axis and the line with equation "
+            "$x=k$.",
+            r"Show that the area of $R$ is $\frac{256}{3}$",
+            "(Solutions based entirely on graphical or numerical methods are not acceptable.)"),
+    "14a": L(*Q14, "find the initial value of the car."),
+    "14b": L(*Q14[:-1], Q14B, "(i) show that", r"$$3925\mathrm{e}^{-0.25T}=500$$",
+             "(ii) Hence find the age of the car at this instant, giving your answer in years and months to the nearest "
+             "month.",
+             "(Solutions based entirely on graphical or numerical methods are not acceptable.)"),
+    "14c": L(*Q14[:-1], Q14A, "State the value of $A$."),
+    "14d": L(*Q14[:-1], "State a limitation of this model."),
+    "15": L(r"Given $n\in\mathbb{N}$, prove that $n^3+2$ is not divisible by 8"),
+    "16i": L(r"Two non-zero vectors, $\mathbf{a}$ and $\mathbf{b}$, are such that",
+             r"$$|\mathbf{a}+\mathbf{b}|=|\mathbf{a}|+|\mathbf{b}|$$",
+             "Explain, geometrically, the significance of this statement."),
+    "16ii": L(r"Two different vectors, $\mathbf{m}$ and $\mathbf{n}$, are such that $|\mathbf{m}|=3$ and "
+              r"$|\mathbf{m}-\mathbf{n}|=6$",
+              r"The angle between vector $\mathbf{m}$ and vector $\mathbf{n}$ is $30^\circ$",
+              r"Find the angle between vector $\mathbf{m}$ and vector $\mathbf{m}-\mathbf{n}$, giving your answer, in "
+              r"degrees, to one decimal place."),
+}
+
 DRAFT = [
     # ---------------- Q1 ----------------
-    e("01a", "1(a)", COORD, "3.1", 2, Q1 + r"find the value of $m$.",
+    e("01a", "1(a)", COORD, "3.1", 2, LATEX["01a"],
       [r"M1 (AO 1.1b): $2x+4y-3=0\Rightarrow y=\mp\frac{2}{4}x+\ldots$; gradient of perpendicular $=\pm\frac{4}{2}$. "
        r"Notes: Attempts to set given equation in the form $y=ax+b$ with $a=\mp\frac{2}{4}$ oe such as $\mp\frac{1}{2}$ "
        r"AND deduces that $m=-\frac{1}{a}$. Condone errors on the “$+b$”.",
@@ -93,7 +169,7 @@ DRAFT = [
        r"$l_1=\pm\frac{0.75}{1.5}$ and use the perpendicular gradient rule."],
       False, 2),
     e("01b", "1(b)", COORD, "3.1, 2.4", 2,
-      Q1 + r"The lines $l_1$ and $l_2$ meet at the point $P$. Find the $x$ coordinate of $P$.",
+      LATEX["01b"],
       [r"M1 (AO 1.1b): Combines 'their' $y=2x+7$ with $2x+4y-3=0\Rightarrow2x+4(2x+7)-3=0\Rightarrow x=\ldots$ "
        r"Notes: Substitutes their $y=mx+7$ into $2x+4y-3=0$, condoning slips, in an attempt to form and solve an "
        r"equation in $x$. Don't be too concerned by the mechanics of the candidates attempt to solve. (E.g. allow "
@@ -107,7 +183,7 @@ DRAFT = [
       False, 2),
 
     # ---------------- Q2 ----------------
-    e("02i", "2(i)", ALG, "2.1", 4, Q2 + r"$$16a^2=2\sqrt{a}$$",
+    e("02i", "2(i)", ALG, "2.1", 4, LATEX["02i"],
       [r"M1 (AO 1.1b): $16a^2=2\sqrt{a}\Rightarrow a^{\frac{3}{2}}=\frac{1}{8}$. Notes: Combines the two algebraic "
        r"terms to reach $a^{\pm\frac{3}{2}}=C$ or equivalent such as $(\sqrt{a})^3=C$ $(C\neq0)$. Allow for slips on "
        r"coefficients.",
@@ -127,7 +203,7 @@ DRAFT = [
        r"algebraic terms to reach $a^{\pm3}=k, k>0$. Eg. $\ldots a^4=\ldots a\Rightarrow a^{\pm3}=k$ or "
        r"$\ldots a^4=\ldots a\Rightarrow\ldots a^4-\ldots a=0\Rightarrow\ldots a\left(a^3-\ldots\right)=0\Rightarrow a^3=\ldots$"],
       False, 4),
-    e("02ii", "2(ii)", ALG, "2.3", 4, Q2 + r"$$b^4+7b^2-18=0$$",
+    e("02ii", "2(ii)", ALG, "2.3", 4, LATEX["02ii"],
       [r"M1 (AO 1.1b): $b^4+7b^2-18=0\Rightarrow(b^2+9)(b^2-2)=0$. Notes: Attempts to solve as a quadratic equation "
        r"in $b^2$. Accept $(b^2+m)(b^2+n)=0$ with $mn=\pm18$ or solutions via the use of the quadratic formula. Also "
        r"allow candidates to substitute in another variable, say $u=b^2$ and solve for $u$",
@@ -142,7 +218,7 @@ DRAFT = [
 
     # ---------------- Q3 ----------------
     e("03a", "3(a)", INT, "8.2", 3,
-      r"Given that $k$ is a constant, find $$\int\left(\frac{4}{x^3}+kx\right)\mathrm{d}x$$ simplifying your answer.",
+      LATEX["03a"],
       [r"M1 (AO 1.1b): $x^n\to x^{n+1}$. Notes: Mark parts (a) and (b) as one. For $x^n\to x^{n+1}$ for either "
        r"$x^{-3}$ or $x^1$. This can be implied by the sight of either $x^{-2}$ or $x^2$. Condone “unprocessed” "
        r"values here. Eg. $x^{-3+1}$ and $x^{1+1}$",
@@ -153,8 +229,7 @@ DRAFT = [
        r"$-\frac{2}{x^2}+\frac{1}{2}kx^2+c$ or exact simplified equivalent such as $-2x^{-2}+k\frac{x^2}{2}+c$"],
       False, 6),
     e("03b", "3(b)", INT, "8.3, 8.2", 3,
-      r"(a) Given that $k$ is a constant, find $$\int\left(\frac{4}{x^3}+kx\right)\mathrm{d}x$$ simplifying your "
-      r"answer. (b) Hence find the value of $k$ such that $$\int_{0.5}^{2}\left(\frac{4}{x^3}+kx\right)\mathrm{d}x=8$$",
+      LATEX["03b"],
       [r"M1 (AO 1.1b): $\left[-\frac{2}{x^2}+\frac{1}{2}kx^2\right]_{0.5}^{2}=\left(-\frac{2}{2^2}+\frac{1}{2}k\times4\right)"
        r"-\left(-\frac{2}{(0.5)^2}+\frac{1}{2}k\times(0.5)^2\right)=8$. Notes: Mark parts (a) and (b) as one. For "
        r"substituting both limits into their $-\frac{2}{x^2}+\frac{1}{2}kx^2$, subtracting either way around and setting "
@@ -170,7 +245,7 @@ DRAFT = [
       False, 6),
 
     # ---------------- Q4 ----------------
-    e("04a", "4(a)", COORD, "3.1", 3, Q4 + r"find an equation linking $H$ with $t$.",
+    e("04a", "4(a)", COORD, "3.1", 3, LATEX["04a"],
       [r"M1 (AO 3.3): Attempts $H=mt+c$ with both $(3, 2.35)$ and $(6, 3.28)$. Notes: Mark parts (a) and (b) as one. "
        r"For creating a linear model with both pieces of information given. Eg. Accept sight of $2.35=3m+c$ and "
        r"$3.28=6m+c$. Condone slips on the 2.35 and 3.28. Allow for an attempt at the “gradient” "
@@ -184,8 +259,7 @@ DRAFT = [
        r"$t=\frac{H-1.42}{0.31}$ but not $H=\frac{0.93}{3}t+1.42$. Do not allow $H=0.31t+1.42$ m (with the units)"],
       False, 8),
     e("04b", "4(b)", COORD, "3.1", 2,
-      Q4 + r"(a) find an equation linking $H$ with $t$. The height of the tree was approximately 140 cm when it "
-      r"was planted. (b) Explain whether or not this fact supports the use of the linear model in part (a).",
+      LATEX["04b"],
       [r"B1ft (AO 3.4): Uses the model and states that the initial height is their '$b$'. Notes: Mark parts (a) and "
        r"(b) as one. To score any marks in (b) the model must be of the form $H=mt+b$ where $m>0, b>0$. States or "
        r"implies that 1.42 (with or without units) or 142 cm (including the units) is the original height or the height "
@@ -206,7 +280,7 @@ DRAFT = [
       False, 8),
 
     # ---------------- Q5 ----------------
-    e("05a", "5(a)", DIFF, "7.2", 3, Q5 + r"Find, in simplest form, $\frac{\mathrm{d}y}{\mathrm{d}x}$",
+    e("05a", "5(a)", DIFF, "7.2", 3, LATEX["05a"],
       [r"M1 (AO 1.1b): $x^n\to x^{n-1}$. Notes: $x^n\to x^{n-1}$ for any correct index of $x$. Score for $x^2\to x$ or "
        r"$x^{-1}\to x^{-2}$. Allow for unprocessed indices. $x^2\to x^{2-1}$ oe",
        r"A1 (AO 1.1b): $\left(\frac{\mathrm{d}y}{\mathrm{d}x}=\right)6x-\frac{24}{x^2}$. Notes: Sight of either $6x$ or "
@@ -218,7 +292,7 @@ DRAFT = [
        r"and you should isw after a correct simplified answer."],
       False, 10),
     e("05b", "5(b)", DIFF, "7.3, 2.5", 2,
-      Q5 + r"Hence find the exact range of values of $x$ for which the curve is increasing.",
+      LATEX["05b"],
       [r"M1 (AO 1.1b): Attempts $6x-\frac{24}{x^2}>0\Rightarrow x>$ Notes: Sets an allowable "
        r"$\frac{\mathrm{d}y}{\mathrm{d}x}\ldots0$ and proceeds to $x\ldots$ via an allowable intermediate equation. "
        r"$\frac{\mathrm{d}y}{\mathrm{d}x}$ must be in the form $Ax+Bx^{-2}$ where $A,B\neq0$ and the intermediate "
@@ -229,7 +303,7 @@ DRAFT = [
       False, 10),
 
     # ---------------- Q6 ----------------
-    e("06a", "6(a)", TRIG, "5.1, 2.2", 3, Q6 + r"show that $x=2\sqrt{3}$",
+    e("06a", "6(a)", TRIG, "5.1, 2.2", 3, LATEX["06a"],
       [r"M1 (AO 1.1a): Uses $18\sqrt{3}=\frac{1}{2}\times2x\times3x\times\sin60^\circ$. Notes: Attempts to use the "
        r"formula $A=\frac{1}{2}ab\sin C$. If the candidate writes $18\sqrt{3}=\frac{1}{2}\times5x\times\sin60^\circ$ "
        r"without sight of a previous correct line then this would be M0",
@@ -247,7 +321,7 @@ DRAFT = [
        r"ALT: Alternative using the given answer of $x=2\sqrt{3}$ — A1*: Concludes that $x=2\sqrt{3}$"],
       True, 12),
     e("06b", "6(b)", TRIG, "5.1, 2.2", 3,
-      Q6 + r"(a) show that $x=2\sqrt{3}$ (b) Hence find the exact length of $BC$, giving your answer as a simplified surd.",
+      LATEX["06b"],
       [r"M1 (AO 1.1b): Uses $BC^2=(6\sqrt{3})^2+(4\sqrt{3})^2-2\times6\sqrt{3}\times4\sqrt{3}\times\cos60^\circ$. Notes: "
        r"Attempts the cosine rule with the sides in the correct position. This can be scored from "
        r"$BC^2=(3x)^2+(2x)^2-2\times3x\times2x\times\cos60^\circ$ as long as there is some attempt to substitute $x$ in "
@@ -259,7 +333,7 @@ DRAFT = [
       True, 12),
 
     # ---------------- Q7 ----------------
-    e("07a", "7(a)", ALG, "2.7", 3, Q7 + r"Sketch $C$ stating the equation of the horizontal asymptote.",
+    e("07a", "7(a)", ALG, "2.7", 3, LATEX["07a"],
       [r"M1 (AO 1.1b): $\frac{1}{x}$ shape in 1st quadrant (shown on a sketch in the mark scheme). Notes: For the shape "
        r"of a $\frac{1}{x}$ type curve in Quadrant 1. It must not cross either axis and have acceptable curvature. Look "
        r"for a negative gradient changing from $-\infty$ to 0 condoning “slips of the pencil”. (See Practice and "
@@ -271,8 +345,7 @@ DRAFT = [
        r"asymptote offered by the candidate."],
       False, 14),
     e("07b", "7(b)", ALG, "2.4", 2,
-      Q7 + Q7L + r"Show that the $x$ coordinate of any point of intersection of $l$ with $C$ is given by a solution "
-      r"of the equation $$2x^2-4x+k^2=0$$",
+      LATEX["07b"],
       [r"M1 (AO 1.1b): Combines equations $\Rightarrow\frac{k^2}{x}+1=-2x+5$. Notes: Attempts to combine "
        r"$y=\frac{k^2}{x}+1$ with $y=-2x+5$ to form an equation in just $x$",
        r"A1* (AO 2.1): $(\times x)\Rightarrow k^2+1x=-2x^2+5x\Rightarrow2x^2-4x+k^2=0$ *. Notes: Multiplies by $x$ "
@@ -280,8 +353,7 @@ DRAFT = [
        r"are different $2x^2+k^2-4x=0$"],
       False, 14),
     e("07c", "7(c)", ALG, "2.3, 2.4", 3,
-      Q7 + Q7L + r"(b) Show that the $x$ coordinate of any point of intersection of $l$ with $C$ is given by a "
-      r"solution of the equation $$2x^2-4x+k^2=0$$ (c) Hence find the exact values of $k$ for which $l$ is a tangent to $C$.",
+      LATEX["07c"],
       [r"M1 (AO 3.1a): Attempts to set $b^2-4ac=0$. Notes: Deduces that $b^2-4ac=0$ or equivalent for the given "
        r"equation. If $a$, $b$ and $c$ are stated only accept $a=2, b=\pm4, c=k^2$ so $4^2-4\times2\times k^2=0$",
        r"A1 (AO 1.1b): $8k^2=16$. Notes: $8k^2=16$ or exact simplified equivalent. Eg $8k^2-16=0$. If $a$, $b$ and $c$ "
@@ -297,7 +369,7 @@ DRAFT = [
       False, 14),
 
     # ---------------- Q8 ----------------
-    e("08a", "8(a)", "Sequences and series", "4.1", 4, Q8,
+    e("08a", "8(a)", "Sequences and series", "4.1", 4, LATEX["08a"],
       [r"B1 (AO 1.1b): $2^6$ or 64 as the constant term. Notes: Sight of either $2^6$ or 64 as the constant term",
        r"M1 (AO 1.1b): $\left(2+\frac{3x}{4}\right)^6=\ldots+{}^6C_1\,2^5\left(\frac{3x}{4}\right)^1"
        r"+{}^6C_2\,2^4\left(\frac{3x}{4}\right)^2+\ldots$ Notes: An attempt at the binomial expansion. This may be "
@@ -320,8 +392,7 @@ DRAFT = [
        r"ALT: Alternative to part (a) — A1: $64+144x+135x^2+\ldots$ Ignore any terms after this."],
       False, 16),
     e("08b", "8(b)", "Sequences and series", "4.1", 1,
-      "(a) " + Q8 + r" (b) Explain how you could use your expansion to estimate the value of $1.925^6$ You do not need to "
-      r"perform the calculation.",
+      LATEX["08b"],
       [r"B1ft (AO 2.4): $\frac{3x}{4}=-0.075\Rightarrow x=-0.1$ So find the value of $64+144x+135x^2$ with $x=-0.1$. "
        r"Notes: $x=-0.1$ or $-\frac{1}{10}$ with a comment about substituting this into their $64+144x+135x^2$. If "
        r"they have written (a) as $64, 144x, 135x^2$ candidate would need to say substitute $x=-0.1$ into the sum of "
@@ -331,20 +402,20 @@ DRAFT = [
       False, 16),
 
     # ---------------- Q9 ----------------
-    e("09a", "9(a)", ALG, "2.3", 1, Q9 + r"calculate the mass of tin that will be mined up to 1st January 2020,",
+    e("09a", "9(a)", ALG, "2.3", 1, LATEX["09a"],
       [r"B1 (AO 3.4): 117 tonnes. Notes: " + TONNES + r"117 tonnes or 117 t."],
       False, 18),
-    e("09b", "9(b)", ALG, "2.3", 1, Q9 + r"deduce the maximum total mass of tin that could be mined,",
+    e("09b", "9(b)", ALG, "2.3", 1, LATEX["09b"],
       [r"B1 (AO 2.2a): 1200 tonnes. Notes: " + TONNES + r"1200 tonnes or 1200 t."],
       False, 18),
-    e("09c", "9(c)", ALG, "2.3", 2, Q9 + r"calculate the mass of tin that will be mined in 2023.",
+    e("09c", "9(c)", ALG, "2.3", 2, LATEX["09c"],
       [r"M1 (AO 3.1a): Attempts $\left\{1200-3\times(5-20)^2\right\}-\left\{1200-3\times(4-20)^2\right\}$. Notes: "
        r"Attempts $T_5-T_4=\left\{1200-3\times(5-20)^2\right\}-\left\{1200-3\times(4-20)^2\right\}$ May be implied by "
        r"$525-432$. Condone for this mark an attempt at "
        r"$T_4-T_3=\left\{1200-3\times(4-20)^2\right\}-\left\{1200-3\times(3-20)^2\right\}$",
        r"A1 (AO 1.1b): 93 tonnes. Notes: " + TONNES + r"93 tonnes or 93 t"],
       False, 18),
-    e("09d", "9(d)", ALG, "2.3", 2, Q9 + r"State, giving reasons, the limitation on the values of $n$.",
+    e("09d", "9(d)", ALG, "2.3", 2, LATEX["09d"],
       [r"B1 (AO 3.5b): States the model is only valid for values of $n$ such that $n\leqslant20$. Notes: For one mark: "
        r"shows an appreciation of the model: states $n\leqslant20$ or $n<20$; condone for one mark $n\leqslant40$ or "
        r"$n<40$ with “the mass of tin mined cannot be negative” oe; condone for one mark $n=40$ with a statement that "
@@ -361,7 +432,7 @@ DRAFT = [
 
     # ---------------- Q10 ----------------
     e("10a", "10(a)", COORD, "3.2, 2.3", 3,
-      Q10 + r"Find (i) the coordinates of the centre of $C$, (ii) the exact radius of $C$.",
+      LATEX["10a"],
       [r"M1 (AO 1.1b): Attempts $(x-2)^2+(y+4)^2-4-16-8=0$. Notes: Attempts to complete the square. Look for "
        r"$(x\pm2)^2+(y\pm4)^2\ldots$ If a candidate attempts to use $x^2+y^2+2gx+2fy+c=0$ then it may be awarded for "
        r"a centre of $(\pm2,\pm4)$ Condone $a=\pm2, b=\pm4$",
@@ -371,8 +442,7 @@ DRAFT = [
        r"correct answer"],
       False, 22),
     e("10b", "10(b)", COORD, "3.2", 2,
-      Q10 + r"The straight line with equation $x=k$, where $k$ is a constant, is a tangent to $C$. Find the "
-      r"possible values for $k$.",
+      LATEX["10b"],
       [r"M1 (AO 3.1a): Attempts to add/subtract '$r$' from '2' (beside a sketch of the circle, centre $(2,-4)$, with "
        r"vertical tangents). Notes: Attempts to add or subtract their radius from their 2.",
        r"A1ft (AO 1.1b): $k=2\pm\sqrt{28}$. Notes: $k=2+\sqrt{28}$ and $k=2-\sqrt{28}$ Follow through on their 2 and "
@@ -387,7 +457,7 @@ DRAFT = [
       False, 22),
 
     # ---------------- Q11 ----------------
-    e("11a", "11(a)", ALG, "2.6", 2, Q11 + r"Prove that $(x-4)$ is a factor of $\mathrm{f}(x)$.",
+    e("11a", "11(a)", ALG, "2.6", 2, LATEX["11a"],
       [r"M1 (AO 1.1b): Attempts $\mathrm{f}(4)=2\times4^3-13\times4^2+8\times4+48$. Notes: Attempts to calculate "
        r"$\mathrm{f}(4)$. Do not accept $\mathrm{f}(4)=0$ without sight of embedded values or calculations. If values "
        r"are not embedded look for two correct terms from $\mathrm{f}(4)=128-208+32+48$",
@@ -401,8 +471,7 @@ DRAFT = [
        r"or inspection. See below for awarding these marks."],
       False, 24),
     e("11b", "11(b)", ALG, "2.6", 4,
-      Q11 + r"(a) Prove that $(x-4)$ is a factor of $\mathrm{f}(x)$. (b) Hence, using algebra, show that the equation "
-      r"$\mathrm{f}(x)=0$ has only two distinct roots.",
+      LATEX["11b"],
       [r"M1 (AO 2.1): $2x^3-13x^2+8x+48=(x-4)(2x^2\ldots x-12)$. Notes: Attempts to find the quadratic factor by "
        r"inspection (correct first and last terms) or by division (correct first two terms). So for inspection award "
        r"for $2x^3-13x^2+8x+48=(x-4)(2x^2\ldots x\pm12)$. For division look for $2x^2-5x$ in the quotient, with "
@@ -427,8 +496,7 @@ DRAFT = [
        r"the candidate to use algebra so you cannot accept any attempt to use their calculators to produce the answers."],
       False, 24),
     e("11c", "11(c)", ALG, "2.8, 2.7", 2,
-      Q11 + Q11F + r"Deduce, giving reasons for your answer, the number of real roots of the equation "
-      r"$$2x^3-13x^2+8x+46=0$$",
+      LATEX["11c"],
       [r"M1 (AO 2.2a): Deduces either three roots or deduces that $\mathrm{f}(x)$ is moved down two units. Notes: For a "
        r"valid deduction. Accept either there are 3 roots or states that it is a solution of $\mathrm{f}(x)=2$ or "
        r"$\mathrm{f}(x)-2=0$",
@@ -438,8 +506,7 @@ DRAFT = [
        r"where $\mathrm{f}(x)=2$ (You may see $y=2$ drawn on the diagram)"],
       True, 24),
     e("11d", "11(d)", ALG, "2.8", 2,
-      Q11 + Q11F + r"Given that $k$ is a constant and the curve with equation $y=\mathrm{f}(x+k)$ passes through the "
-      r"origin, find the two possible values of $k$.",
+      LATEX["11d"],
       [r"M1 (AO 1.1b): For sight of $k=\pm4,\pm\frac{3}{2}$. Notes: For sight of $\pm4$ and $\pm\frac{3}{2}$ Follow "
        r"through on $\pm$ their roots.",
        r"A1ft (AO 1.1b): $k=4,-\frac{3}{2}$. Notes: $k=4,-\frac{3}{2}$ Follow through on their roots. Accept "
@@ -447,7 +514,7 @@ DRAFT = [
       True, 24),
 
     # ---------------- Q12 ----------------
-    e("12a", "12(a)", TRIG, "5.3", 4, Q12A,
+    e("12a", "12(a)", TRIG, "5.3", 4, LATEX["12a"],
       [r"M1 (AO 1.1b): $\frac{10\sin^2\theta-7\cos\theta+2}{3+2\cos\theta}\equiv"
        r"\frac{10(1-\cos^2\theta)-7\cos\theta+2}{3+2\cos\theta}$. Notes: Uses the identity $\sin^2\theta=1-\cos^2\theta$ "
        r"within the fraction",
@@ -476,8 +543,7 @@ DRAFT = [
        r"“hence true”"],
       False, 28),
     e("12b", "12(b)", TRIG, "5.4, 5.3", 3,
-      "(a) " + Q12A + r"(b) Hence, or otherwise, solve, for $0\leqslant x<360^\circ$, the equation "
-      r"$$\frac{10\sin^2x-7\cos x+2}{3+2\cos x}=4+3\sin x$$",
+      LATEX["12b"],
       [r"M1 (AO 2.1): $4+3\sin x=4-5\cos x\Rightarrow\tan x=-\frac{5}{3}$. Notes: Attempts to use part (a) and "
        r"proceeds to an equation of the form $\tan x=k$, $k\neq0$. Condone $\theta\leftrightarrow x$. Do not condone "
        r"$a\tan x=0\Rightarrow\tan x=b\Rightarrow x=\ldots$",
@@ -493,10 +559,7 @@ DRAFT = [
 
     # ---------------- Q13 ----------------
     e("13", "13", INT, "8.3, 7.3, 8.2", 7,
-      FIG3 + r"Figure 3 shows a sketch of part of the curve with equation $$y=2x^3-17x^2+40x$$ The curve has a minimum "
-      r"turning point at $x=k$. The region $R$, shown shaded in Figure 3, is bounded by the curve, the $x$-axis and the "
-      r"line with equation $x=k$. Show that the area of $R$ is $\frac{256}{3}$ (Solutions based entirely on graphical "
-      r"or numerical methods are not acceptable.)",
+      LATEX["13"],
       [r"M1 (AO 3.1a): The overall method of finding the $x$ coordinate of $A$. Notes: An overall problem-solving "
        r"method mark to find the minimum point. To score this you need to see: an attempt to differentiate with at least "
        r"two correct terms; an attempt to set their $\frac{\mathrm{d}y}{\mathrm{d}x}=0$ and then solve to find $x$. "
@@ -526,14 +589,11 @@ DRAFT = [
       True, 32),
 
     # ---------------- Q14 ----------------
-    e("14a", "14(a)", EXP, "6.7", 1, Q14 + r"find the initial value of the car.",
+    e("14a", "14(a)", EXP, "6.7", 1, LATEX["14a"],
       [r"B1 (AO 3.4): (£)18 000. Notes: £18 000 There is no requirement to have the units"],
       False, 36),
     e("14b", "14(b)", EXP, "6.2, 6.3, 6.7", 6,
-      Q14 + r"Given the model predicts that the value of the car is decreasing at a rate of £500 per year at the "
-      r"instant when $t=T$, (i) show that $$3925\mathrm{e}^{-0.25T}=500$$ (ii) Hence find the age of the car at this "
-      r"instant, giving your answer in years and months to the nearest month. (Solutions based entirely on graphical "
-      r"or numerical methods are not acceptable.)",
+      LATEX["14b"],
       [r"M1 (AO 3.1b): (i) $\frac{\mathrm{d}V}{\mathrm{d}t}=-3925\mathrm{e}^{-0.25t}$. Notes: Award for making the "
        r"link between gradient and rate of change. Score for attempting to differentiate $V$ to "
        r"$\frac{\mathrm{d}V}{\mathrm{d}t}=k\mathrm{e}^{-0.25t}$ An attempt at both sides are required. For the left "
@@ -558,10 +618,10 @@ DRAFT = [
        r"ALT: Alternatively (b)(ii) — M1: Alternatively takes lns first "
        r"$3925\mathrm{e}^{-0.25T}=500\Rightarrow\ln3925-0.25T=\ln500\Rightarrow\pm0.25T=\ldots$"],
       False, 36),
-    e("14c", "14(c)", EXP, "6.7, 6.1", 1, Q14 + Q14A + r"State the value of $A$.",
+    e("14c", "14(c)", EXP, "6.7, 6.1", 1, LATEX["14c"],
       [r"B1 (AO 1.1b): 2 300. Notes: 2 300 but condone £2 300"],
       False, 36),
-    e("14d", "14(d)", EXP, "6.7", 1, Q14 + Q14A + r"State a limitation of this model.",
+    e("14d", "14(d)", EXP, "6.7", 1, LATEX["14d"],
       [r"B1 (AO 3.5b): Any suitable reason such as: other factors affect price such as condition/mileage; if the car "
        r"has had an accident it will be worth less than the model predicts; the price may go up in the long term as it "
        r"becomes rare; £2300 is too large a value for a car's scrap price. Most cars scrap for around £400. Notes: Any "
@@ -571,7 +631,7 @@ DRAFT = [
       False, 36),
 
     # ---------------- Q15 ----------------
-    e("15", "15", "Proof", "1.1", 4, r"Given $n\in\mathbb{N}$, prove that $n^3+2$ is not divisible by 8",
+    e("15", "15", "Proof", "1.1", 4, LATEX["15"],
       [r"M1 (AO 2.1): (If $n$ is even,) $n=2k$ and $n^3+2=(2k)^3+2=8k^3+2$. Notes: Score as below so M0 A0 M1 A1 or "
        r"M1 A0 M1 A1 are not possible. M1: Suitable approach to answer the question for $n$ being even OR odd. There is "
        r"no merit in a student taking values, or multiple values, of $n$ and then drawing conclusions. So "
@@ -619,18 +679,14 @@ DRAFT = [
 
     # ---------------- Q16 ----------------
     e("16i", "16(i)", "Vectors", "9.3", 1,
-      r"Two non-zero vectors, $\mathbf{a}$ and $\mathbf{b}$, are such that "
-      r"$$|\mathbf{a}+\mathbf{b}|=|\mathbf{a}|+|\mathbf{b}|$$ Explain, geometrically, the significance of this statement.",
+      LATEX["16i"],
       [r"B1 (AO 2.4): Explains that $\mathbf{a}$ and $\mathbf{b}$ lie in the same direction oe. Notes: Accept any valid "
        r"response E.g The lines are collinear. Condone “They are parallel” Mark positively. ISW after a correct "
        r"answer. Do not accept “the length of line a +b is the same as the length of line a + the length of line b”. "
        r"Do not accept $|\mathbf{a}|$ and $|\mathbf{b}|$ are parallel."],
       False, 42),
     e("16ii", "16(ii)", "Vectors", "9.5, 9.2, 5.1", 4,
-      r"Two different vectors, $\mathbf{m}$ and $\mathbf{n}$, are such that $|\mathbf{m}|=3$ and "
-      r"$|\mathbf{m}-\mathbf{n}|=6$ The angle between vector $\mathbf{m}$ and vector $\mathbf{n}$ is $30^\circ$ Find the "
-      r"angle between vector $\mathbf{m}$ and vector $\mathbf{m}-\mathbf{n}$, giving your answer, in degrees, to one "
-      r"decimal place.",
+      LATEX["16ii"],
       [r"M1 (AO 1.1b): [Mark scheme diagrams: $\mathbf{m}$ and $\mathbf{n}$ drawn from one point with $30^\circ$ "
        r"between them; a triangle with sides $|\mathbf{m}|=3$, $-\mathbf{n}$ and $|\mathbf{m}-\mathbf{n}|=6$, with "
        r"$30^\circ$ marked between $\mathbf{m}$ and $-\mathbf{n}$.] Notes: A triangle showing 3, 6 and $30^\circ$ in the "

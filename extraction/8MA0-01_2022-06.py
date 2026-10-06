@@ -41,57 +41,133 @@ INT = "Integration"
 VEC = "Vectors"
 PROOF = "Proof"
 
-MUST = (r"In this question you must show all stages of your working. Solutions relying entirely on calculator "
-        r"technology are not acceptable. ")
 
-# Shared stems go in variables so each part's question_latex stands alone.
-Q2 = r"$$\mathrm{f}(x)=2x^3+5x^2+2x+15$$ "
-Q2A = r"(a) Use the factor theorem to show that $(x+3)$ is a factor of $\mathrm{f}(x)$. "
-Q2B = r"(b) Find the constants $a$, $b$ and $c$ such that $$\mathrm{f}(x)=(x+3)(ax^2+bx+c)$$ "
-Q3 = r"The triangle $PQR$ is such that $\overrightarrow{PQ}=3\mathbf{i}+5\mathbf{j}$ and $\overrightarrow{PR}=13\mathbf{i}-15\mathbf{j}$ "
-FIG1 = (r"[Figure 1: triangle $ABC$ with base $AC=7x$ cm, $AB=(x+2)$ cm, $BC=(3x+10)$ cm, angle $60^\circ$ at $A$ and "
-        r"angle $\theta^\circ$ at $C$.]" "\n")
-Q4 = (FIG1 + r"Figure 1 shows a sketch of triangle $ABC$ with $AB=(x+2)$ cm, $BC=(3x+10)$ cm, $AC=7x$ cm, angle "
-      r"$BAC=60^\circ$ and angle $ACB=\theta^\circ$ ")
-Q4AI = r"(a) (i) Show that $17x^2-35x-48=0$ "
-Q5 = (r"The mass, $A$ kg, of algae in a small pond, is modelled by the equation $$A=pq^t$$ where $p$ and $q$ are "
-      r"constants and $t$ is the number of weeks after the mass of algae was first recorded. Data recorded indicates "
-      r"that there is a linear relationship between $t$ and $\log_{10}A$ given by the equation "
-      r"$$\log_{10}A=0.03t+0.5$$ ")
-Q5A = (r"(a) Use this relationship to find a complete equation for the model in the form $A=pq^t$ giving the value of "
-       r"$p$ and the value of $q$ each to 4 significant figures. ")
-Q6A = (r"(a) Find the first 4 terms, in ascending powers of $x$, of the binomial expansion of "
-       r"$$\left(3-\frac{2x}{9}\right)^8$$ giving each term in simplest form. ")
-Q7C = r"The curve $C$ has equation $$y=9x-x^3$$ "
-Q8 = (MUST + r"The air pressure, $P$ kg/cm$^2$, inside a car tyre, $t$ minutes from the instant when the tyre developed a "
-      r"puncture is given by the equation $$P=k+1.4\mathrm{e}^{-0.5t}\qquad t\in\mathbb{R}\quad t\geqslant0$$ where $k$ is a "
-      r"constant. Given that the initial air pressure inside the tyre was 2.2 kg/cm$^2$ ")
-Q9A = (r"(a) Given that $p=\log_3x$, where $x>0$, find in simplest form in terms of $p$, (i) $\log_3\left(\frac{x}{9}\right)$ "
-       r"(ii) $\log_3\left(\sqrt{x}\right)$ ")
-FIG2 = (r"[Figure 2: part of the curve $C$ for $x\geqslant0$, starting on the positive $y$-axis, dipping to a minimum and "
-        r"rising; the tangent $l$ touches $C$ at $P$ and crosses the positive $x$-axis; the region $R$ between the "
-        r"$y$-axis, $C$, $l$ and the $x$-axis is shaded.]" "\n")
-Q10 = (FIG2 + MUST + r"Figure 2 shows a sketch of part of the curve $C$ with equation "
-       r"$$y=\frac{1}{3}x^2-2\sqrt{x}+3\qquad x\geqslant0$$ The point $P$ lies on $C$ and has $x$ coordinate 4 The line $l$ "
-       r"is the tangent to $C$ at $P$. ")
-FIG3 = (r"[Figure 3: the circle $C$ in the first quadrant, clear of both axes, and the line $l$ sloping down from the "
-        r"second quadrant, crossing the negative $y$-axis, into the fourth quadrant.]" "\n")
-Q11 = (FIG3 + r"Figure 3 shows the circle $C$ with equation $$x^2+y^2-10x-8y+32=0$$ and the line $l$ with equation "
-       r"$$2y+x+6=0$$ ")
-Q11A = r"(a) Find (i) the coordinates of the centre of $C$, (ii) the radius of $C$. "
-Q12 = (r"A company makes drinks containers out of metal. The containers are modelled as closed cylinders with base "
-       r"radius $r$ cm and height $h$ cm and the capacity of each container is 355 cm$^3$ The metal used: for the circular "
-       r"base and the curved side costs 0.04 pence/cm$^2$; for the circular top costs 0.09 pence/cm$^2$. Both metals used "
-       r"are of negligible thickness. ")
-Q12A = r"(a) Show that the total cost, $C$ pence, of the metal for one container is given by $$C=0.13\pi r^2+\frac{28.4}{r}$$ "
-Q12B = r"(b) Use calculus to find the value of $r$ for which $C$ is a minimum, giving your answer to 3 significant figures. "
-Q13A = (MUST + r"(a) Show that $$\frac{1}{\cos\theta}+\tan\theta\equiv\frac{\cos\theta}{1-\sin\theta}\qquad"
-        r"\theta\neq(2n+1)90^\circ\quad n\in\mathbb{Z}$$ ")
+def L(*lines):
+    """question_latex from printed lines (CLAUDE.md: question_latex content and order)."""
+    return "\n".join(lines)
+
+
+# question_latex per entry: shared stem, then earlier parts this part depends on, then the part.
+SHOW = ["In this question you must show all stages of your working.",
+        "Solutions relying entirely on calculator technology are not acceptable."]
+Q2 = [r"$$\mathrm{f}(x)=2x^3+5x^2+2x+15$$"]
+Q2B = ["Find the constants $a$, $b$ and $c$ such that", r"$$\mathrm{f}(x)=(x+3)(ax^2+bx+c)$$"]
+Q3 = [r"The triangle $PQR$ is such that $\overrightarrow{PQ}=3\mathbf{i}+5\mathbf{j}$ and "
+      r"$\overrightarrow{PR}=13\mathbf{i}-15\mathbf{j}$"]
+Q4 = [r"[Figure 1: triangle $ABC$ with base $AC=7x$ cm, $AB=(x+2)$ cm, $BC=(3x+10)$ cm, angle $60^\circ$ at $A$ and "
+      r"angle $\theta^\circ$ at $C$.]",
+      r"Figure 1 shows a sketch of triangle $ABC$ with $AB=(x+2)$ cm, $BC=(3x+10)$ cm, $AC=7x$ cm, angle "
+      r"$BAC=60^\circ$ and angle $ACB=\theta^\circ$"]
+Q4AI = "Show that $17x^2-35x-48=0$"
+Q5 = ["The mass, $A$ kg, of algae in a small pond, is modelled by the equation", "$$A=pq^t$$",
+      "where $p$ and $q$ are constants and $t$ is the number of weeks after the mass of algae was first recorded.",
+      r"Data recorded indicates that there is a linear relationship between $t$ and $\log_{10}A$ given by the equation",
+      r"$$\log_{10}A=0.03t+0.5$$"]
+Q7C = ["The curve $C$ has equation", "$$y=9x-x^3$$"]
+Q8 = SHOW + [r"The air pressure, $P$ kg/cm$^2$, inside a car tyre, $t$ minutes from the instant when the tyre developed "
+             r"a puncture is given by the equation",
+             r"$$P=k+1.4\mathrm{e}^{-0.5t}\qquad t\in\mathbb{R}\qquad t\geqslant0$$",
+             "where $k$ is a constant.",
+             "Given that the initial air pressure inside the tyre was 2.2 kg/cm$^2$"]
+Q8B = "From the instant when the tyre developed the puncture,"
+Q9A = [r"Given that $p=\log_3x$, where $x>0$, find in simplest form in terms of $p$,",
+       r"(i) $\log_3\left(\frac{x}{9}\right)$", r"(ii) $\log_3\left(\sqrt{x}\right)$"]
+Q10 = [r"[Figure 2: part of the curve $C$ for $x\geqslant0$, starting on the positive $y$-axis, dipping to a minimum and "
+       r"rising; the tangent $l$ touches $C$ at $P$ and crosses the positive $x$-axis; the region $R$ between the "
+       r"$y$-axis, $C$, $l$ and the $x$-axis is shaded.]"] + SHOW + [
+       "Figure 2 shows a sketch of part of the curve $C$ with equation",
+       r"$$y=\frac{1}{3}x^2-2\sqrt{x}+3\qquad x\geqslant0$$",
+       "The point $P$ lies on $C$ and has $x$ coordinate 4",
+       "The line $l$ is the tangent to $C$ at $P$."]
+Q10A = ["Show that $l$ has equation", "$$13x-6y-26=0$$"]
+Q11 = [r"[Figure 3: the circle $C$ in the first quadrant, clear of both axes, and the line $l$ sloping down from the "
+       r"second quadrant, crossing the negative $y$-axis, into the fourth quadrant.]",
+       "Figure 3 shows the circle $C$ with equation", "$$x^2+y^2-10x-8y+32=0$$",
+       "and the line $l$ with equation", "$$2y+x+6=0$$"]
+Q12 = ["A company makes drinks containers out of metal.",
+       "The containers are modelled as closed cylinders with base radius $r$ cm and height $h$ cm and the capacity of "
+       "each container is 355 cm$^3$",
+       "The metal used",
+       "• for the circular base and the curved side costs 0.04 pence/cm$^2$",
+       "• for the circular top costs 0.09 pence/cm$^2$",
+       "Both metals used are of negligible thickness."]
+Q12A = ["Show that the total cost, $C$ pence, of the metal for one container is given by",
+        r"$$C=0.13\pi r^2+\frac{28.4}{r}$$"]
+Q12B = "Use calculus to find the value of $r$ for which $C$ is a minimum, giving your answer to 3 significant figures."
+Q12C = (r"Using $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$ prove that the cost is minimised for the value of $r$ found in "
+        r"part (b).")
+Q13A = ["Show that",
+        r"$$\frac{1}{\cos\theta}+\tan\theta\equiv\frac{\cos\theta}{1-\sin\theta}\qquad\theta\neq(2n+1)90^\circ\quad "
+        r"n\in\mathbb{Z}$$"]
+
+LATEX = {
+    "01": L("Find", r"$$\int\left(8x^3-\frac{3}{2\sqrt{x}}+5\right)\mathrm{d}x$$", "giving your answer in simplest form."),
+    "02a": L(*Q2, r"Use the factor theorem to show that $(x+3)$ is a factor of $\mathrm{f}(x)$."),
+    "02b": L(*Q2, *Q2B),
+    "02c": L(*Q2, "(b) " + Q2B[0], Q2B[1], r"(c) Hence show that $\mathrm{f}(x)=0$ has only one real root."),
+    "02d": L(*Q2, r"Write down the real root of the equation $\mathrm{f}(x-5)=0$"),
+    "03a": L(*Q3, r"Find $\overrightarrow{QR}$"),
+    "03b": L(*Q3, r"(a) Find $\overrightarrow{QR}$",
+             r"(b) Hence find $\left|\overrightarrow{QR}\right|$ giving your answer as a simplified surd."),
+    "03c": L(*Q3, "The point $S$ lies on the line segment $QR$ so that $QS:SR=3:2$", r"Find $\overrightarrow{PS}$"),
+    "04ai": L(*Q4, Q4AI),
+    "04aii": L(*Q4, "(a) (i) " + Q4AI, "(ii) Hence find the value of $x$."),
+    "04b": L(*Q4, "(a) (i) " + Q4AI, "(ii) Hence find the value of $x$.",
+             r"(b) Hence find the value of $\theta$ giving your answer to one decimal place."),
+    "05a": L(*Q5, "Use this relationship to find a complete equation for the model in the form", "$$A=pq^t$$",
+             "giving the value of $p$ and the value of $q$ each to 4 significant figures."),
+    "05b": L(*Q5, "With reference to the model, interpret", "(i) the value of the constant $p$,",
+             "(ii) the value of the constant $q$."),
+    "05c": L(*Q5, "Find, according to the model,",
+             "(i) the mass of algae in the pond when $t=8$, giving your answer to the nearest 0.5 kg,",
+             "(ii) the number of weeks it takes for the mass of algae in the pond to reach 4 kg."),
+    "05d": L(*Q5, "State one reason why this may not be a realistic model in the long term."),
+    "06a": L("Find the first 4 terms, in ascending powers of $x$, of the binomial expansion of",
+             r"$$\left(3-\frac{2x}{9}\right)^8$$", "giving each term in simplest form."),
+    "06b": L(r"$$\mathrm{f}(x)=\left(\frac{x-1}{2x}\right)\left(3-\frac{2x}{9}\right)^8$$",
+             r"Find the coefficient of $x^2$ in the series expansion of $\mathrm{f}(x)$, giving your answer as a "
+             r"simplified fraction."),
+    "07a": L("Factorise completely $9x-x^3$"),
+    "07b": L(*Q7C, "Sketch $C$ showing the coordinates of the points at which the curve cuts the $x$-axis."),
+    "07c": L(*Q7C, "The line $l$ has equation $y=k$ where $k$ is a constant.",
+             "Given that $C$ and $l$ intersect at 3 distinct points,",
+             "find the range of values for $k$, writing your answer in set notation.",
+             "Solutions relying on calculator technology are not acceptable."),
+    "08a": L(*Q8, "state the value of $k$."),
+    "08b": L(*Q8, Q8B, "find the time taken for the air pressure to fall to 1 kg/cm$^2$",
+             "Give your answer in minutes to one decimal place."),
+    "08c": L(*Q8, "Find the rate at which the air pressure in the tyre is decreasing exactly 2 minutes from the "
+             "instant when the tyre developed the puncture.",
+             "Give your answer in kg/cm$^2$ per minute to 3 significant figures."),
+    "09a": L(*Q9A),
+    "09b": L("(a) " + Q9A[0], *Q9A[1:], "(b) Hence, or otherwise, solve",
+             r"$$2\log_3\left(\frac{x}{9}\right)+3\log_3\left(\sqrt{x}\right)=-11$$",
+             "giving your answer as a simplified fraction.",
+             "Solutions relying on calculator technology are not acceptable."),
+    "10a": L(*Q10, *Q10A),
+    "10b": L(*Q10, "(a) " + Q10A[0], Q10A[1],
+             "The region $R$, shown shaded in Figure 2, is bounded by the $y$-axis, the curve $C$, the line $l$ and the "
+             "$x$-axis.",
+             "(b) Find the exact area of $R$."),
+    "11a": L(*Q11, "Find", "(i) the coordinates of the centre of $C$,", "(ii) the radius of $C$."),
+    "11b": L(*Q11, "Find the shortest distance between $C$ and $l$."),
+    "12a": L(*Q12, *Q12A),
+    "12b": L(*Q12, "(a) " + Q12A[0], Q12A[1], "(b) " + Q12B),
+    "12c": L(*Q12, "(a) " + Q12A[0], Q12A[1], "(b) " + Q12B, "(c) " + Q12C),
+    "12d": L(*Q12, "(a) " + Q12A[0], Q12A[1], "(b) " + Q12B, "(c) " + Q12C,
+             "(d) Hence find the minimum value of $C$, giving your answer to the nearest integer."),
+    "13a": L(*SHOW, *Q13A),
+    "13b": L(*SHOW, "Given that $\\cos2x\\neq0$", "solve for $0<x<90^\\circ$",
+             r"$$\frac{1}{\cos2x}+\tan2x=3\cos2x$$", "giving your answers to one decimal place."),
+    "14i": L("A student states", "“if $x^2$ is greater than 9 then $x$ must be greater than 3”",
+             "Determine whether or not this statement is true, giving a reason for your answer."),
+    "14ii": L("Prove that for all positive integers $n$,", "$$n^3+3n^2+2n$$", "is divisible by 6"),
+}
 
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", INT, "8.2, 2.1", 4,
-      r"Find $$\int\left(8x^3-\frac{3}{2\sqrt{x}}+5\right)\mathrm{d}x$$ giving your answer in simplest form.",
+      LATEX["01"],
       [r"M1 (AO 1.1b): $x^n\to x^{n+1}$. Notes: For raising any correct power of $x$ by 1 including $5\to5x$ (not for $+c$) "
        r"Also allow eg $x^3\to x^{3+1}$",
        r"A1 (AO 1.1b): $\int\left(8x^3-\frac{3}{2\sqrt{x}}+5\right)\mathrm{d}x=\frac{8x^4}{4}\ldots+5x$. Notes: For 2 correct "
@@ -109,7 +185,7 @@ DRAFT = [
       False, 2),
 
     # ---------------- Q2 ----------------
-    e("02a", "2(a)", ALG, "2.6", 2, Q2 + Q2A,
+    e("02a", "2(a)", ALG, "2.6", 2, LATEX["02a"],
       [r"M1 (AO 1.1b): $\mathrm{f}(-3)=2(-3)^3+5(-3)^2+2(-3)+15=-54+45-6+15$. Notes: Attempts $\mathrm{f}(-3)$. Attempted "
        r"division by $(x+3)$ or $\mathrm{f}(3)$ is M0. Look for evidence of embedded values or two correct terms of "
        r"$\mathrm{f}(-3)=-54+45-6+15=\ldots$",
@@ -118,7 +194,7 @@ DRAFT = [
        r"example, $\mathrm{f}(-3)=0\Rightarrow(x+3)$ is a factor. This may be seen in a preamble before finding "
        r"$\mathrm{f}(-3)=0$ but in these cases there must be a minimal statement ie QED, “proved”, tick etc."],
       False, 4),
-    e("02b", "2(b)", ALG, "2.6", 2, Q2 + Q2A + Q2B,
+    e("02b", "2(b)", ALG, "2.6", 2, LATEX["02b"],
       [r"M1 (AO 1.1b): At least 2 of: $a=2$, $b=-1$, $c=5$. Notes: Correct method implied by values for at least 2 correct "
        r"constants. Allow embedded in their $\mathrm{f}(x)$ or within their working if they use algebraic division/other "
        r"methods which may be seen in part (a) and used in part (b). [The mark scheme shows the long division of "
@@ -127,7 +203,7 @@ DRAFT = [
        r"as the quotient from algebraic division. Isw incorrectly stated values of $a$ $b$ and $c$ following a correct "
        r"quadratic expression seen."],
       False, 4),
-    e("02c", "2(c)", ALG, "2.3, 2.6", 2, Q2 + Q2A + Q2B + r"(c) Hence show that $\mathrm{f}(x)=0$ has only one real root.",
+    e("02c", "2(c)", ALG, "2.3, 2.6", 2, LATEX["02c"],
       [r"M1 (AO 2.1): $b^2-4ac=(-1)^2-4(2)(5)$. Notes: Either: considers the discriminant using their $a$, $b$ and $c$ (does "
        r"not need to be evaluated) $(b^2-4ac=)\,(-1)^2-4(2)(5)$ (the $(-1)^2$ may appear as $1^2$ and condone missing "
        r"brackets for this mark for $-1^2$). Discriminant $=-39$ is sufficient for M1; attempts to complete the square so "
@@ -146,12 +222,12 @@ DRAFT = [
        r"and has a minimum in the 1st quadrant. They must explain that the graph does not cross the $x$-axis so no real "
        r"roots for the quadratic so only one root for $\mathrm{f}(x)=0$."],
       False, 4),
-    e("02d", "2(d)", ALG, "2.8, 2.6", 1, Q2 + r"(d) Write down the real root of the equation $\mathrm{f}(x-5)=0$",
+    e("02d", "2(d)", ALG, "2.8, 2.6", 1, LATEX["02d"],
       [r"B1 (AO 2.2a): $(x=)\,2$. Notes: 2 condone $(2, 0)$"],
       False, 4),
 
     # ---------------- Q3 ----------------
-    e("03a", "3(a)", VEC, "9.3", 2, Q3 + r"(a) Find $\overrightarrow{QR}$",
+    e("03a", "3(a)", VEC, "9.3", 2, LATEX["03a"],
       [r"M1 (AO 1.1a): $\overrightarrow{QR}=\overrightarrow{PR}-\overrightarrow{PQ}=13\mathbf{i}-15\mathbf{j}-(3\mathbf{i}"
        r"+5\mathbf{j})$. Notes: Attempts subtraction either way round. This cannot be awarded for adding the two vectors. If "
        r"no method shown it may be implied by one correct component. eg $10\mathbf{i}-10\mathbf{j}$ on its own can score M1.",
@@ -159,16 +235,14 @@ DRAFT = [
        r"$\begin{pmatrix}10\\-20\end{pmatrix}$ but not $\begin{pmatrix}10\mathbf{i}\\-20\mathbf{j}\end{pmatrix}$"],
       False, 8),
     e("03b", "3(b)", VEC, "9.2, 2.2", 2,
-      Q3 + r"(a) Find $\overrightarrow{QR}$ (b) Hence find $\left|\overrightarrow{QR}\right|$ giving your answer as a "
-      r"simplified surd.",
+      LATEX["03b"],
       [r"M1 (AO 2.5): $\left|\overrightarrow{QR}\right|=\sqrt{\text{“}10\text{”}^2+\text{“}(-20)\text{”}^2}$. Notes: "
        r"Correct use of Pythagoras. Attempts to “square and add” before square rooting. The embedded values are sufficient. "
        r"Follow through on their $\overrightarrow{QR}$",
        r"A1ft (AO 1.1b): $=10\sqrt{5}$. Notes: $10\sqrt{5}$ following (a) of the form $\pm10\mathbf{i}\pm20\mathbf{j}$"],
       False, 8),
     e("03c", "3(c)", VEC, "9.3, 9.4", 2,
-      Q3 + r"(a) Find $\overrightarrow{QR}$ The point $S$ lies on the line segment $QR$ so that $QS:SR=3:2$ (c) Find "
-      r"$\overrightarrow{PS}$",
+      LATEX["03c"],
       [r"M1 (AO 3.1a): $\overrightarrow{PS}=\overrightarrow{PQ}+\frac{3}{5}\overrightarrow{QR}=3\mathbf{i}+5\mathbf{j}"
        r"+\frac{3}{5}(\text{“}10\mathbf{i}-20\mathbf{j}\text{”})=\ldots$ or $\overrightarrow{PS}=\overrightarrow{PR}"
        r"+\frac{2}{5}\overrightarrow{RQ}=13\mathbf{i}-15\mathbf{j}+\frac{2}{5}(\text{“}-10\mathbf{i}+20\mathbf{j}"
@@ -193,7 +267,7 @@ DRAFT = [
       False, 8),
 
     # ---------------- Q4 ----------------
-    e("04ai", "4(a)(i)", TRIG, "5.1, 2.3", 3, Q4 + Q4AI,
+    e("04ai", "4(a)(i)", TRIG, "5.1, 2.3", 3, LATEX["04ai"],
       [r"M1 (AO 3.1a): $(3x+10)^2=(x+2)^2+(7x)^2-2(x+2)(7x)\cos60^\circ$ oe. Notes: (a)(i) Mark (a) and (b) together. "
        r"Recognises the need to apply the cosine rule and attempts to use it with the sides in the correct positions and the "
        r"formula applied correctly. Condone invisible brackets and slips on $3x+10$ as $3x-10$. The angles and lengths must "
@@ -211,13 +285,12 @@ DRAFT = [
        r"variations of this if they use Pythagoras or trigonometry to find $BX$ and then apply Pythagoras to the triangle "
        r"$BXC$."],
       True, 10),
-    e("04aii", "4(a)(ii)", TRIG, "5.1, 2.3", 1, Q4 + Q4AI + r"(ii) Hence find the value of $x$.",
+    e("04aii", "4(a)(ii)", TRIG, "5.1, 2.3", 1, LATEX["04aii"],
       [r"B1 (AO 3.2a): $x=3$. Notes: Selects the appropriate value i.e. $x=3$ only. The other root must either be rejected if "
        r"found or $x=3$ must be the only root used in part (b). Can be implied by awrt 13.2 in (b)"],
       True, 10),
     e("04b", "4(b)", TRIG, "5.1", 2,
-      Q4 + Q4AI + r"(ii) Hence find the value of $x$. (b) Hence find the value of $\theta$ giving your answer to one "
-      r"decimal place.",
+      LATEX["04b"],
       [r"M1 (AO 1.1b): $\frac{5}{\sin ACB}=\frac{19}{\sin60^\circ}\Rightarrow\sin ACB=\ldots\left(\frac{5\sqrt{3}}{38}\right)$ "
        r"or e.g. $5^2=21^2+19^2-2\times19\times21\cos ACB\Rightarrow\cos ACB=\ldots\left(\frac{37}{38}\right)$. Notes: Using "
        r"their value for $x$ this mark is for either: applying the sine rule correctly (or considers 2 right angled "
@@ -230,7 +303,7 @@ DRAFT = [
       True, 10),
 
     # ---------------- Q5 ----------------
-    e("05a", "5(a)", EXP, "6.6, 6.4", 4, Q5 + Q5A,
+    e("05a", "5(a)", EXP, "6.6, 6.4", 4, LATEX["05a"],
       [r"M1 (AO 1.1b): $p=10^{0.5}$ (or $\log_{10}p=0.5$) or $q=10^{0.03}$ (or $\log_{10}q=0.03$). Notes: A correct equation in "
        r"$p$ or $q$. May be implied by a correct value for $p$ or $q$. Also score for rearranging the equation to the form "
        r"$A=10^{0.5}\ldots10^{0.03t}$",
@@ -245,8 +318,7 @@ DRAFT = [
        r"stated equation as their final answer and isw."],
       False, 14),
     e("05b", "5(b)", EXP, "6.7", 2,
-      Q5 + Q5A + r"(b) With reference to the model, interpret (i) the value of the constant $p$, (ii) the value of the "
-      r"constant $q$.",
+      LATEX["05b"],
       [r"B1 (AO 3.4): (i) The initial mass (in kg) of algae (in the pond). Notes: Must reference mass of algae and relating to "
        r"initially/at the start/beginning. Examples of acceptable answers: The mass of algae originally (in the pond); $p$ "
        r"is the mass of algae when $t=0$. Examples of answers we would not accept: $p$ is how much algae there is at the "
@@ -259,8 +331,7 @@ DRAFT = [
        r"the mass of algae in the small pond increases after $t$ number of weeks; The rate in which the algae mass increases"],
       False, 14),
     e("05c", "5(c)", EXP, "6.7, 6.5", 3,
-      Q5 + Q5A + r"(c) Find, according to the model, (i) the mass of algae in the pond when $t=8$, giving your answer to the "
-      r"nearest 0.5 kg, (ii) the number of weeks it takes for the mass of algae in the pond to reach 4 kg.",
+      LATEX["05c"],
       [r"B1 (AO 2.2a): (i) 5.5 kg. Notes: cao (including units)",
        r"M1 (AO 3.4): (ii) $4=\text{“}3.162\text{”}\times\text{“}1.072\text{”}^t$ or $\log_{10}4=0.03t+0.5$. Notes: Setting "
        r"up a correct equation to find $t$ using the given equation or their part (a). Substitution of $A=4$ into their "
@@ -271,7 +342,7 @@ DRAFT = [
        r"working is M0A0"],
       False, 14),
     e("05d", "5(d)", EXP, "6.7", 1,
-      Q5 + r"(d) State one reason why this may not be a realistic model in the long term.",
+      LATEX["05d"],
       [r"B1 (AO 3.5b): The model predicts unlimited growth; The weather may affect the rate of growth. Notes: Any reason why "
        r"the rate of change, growth or the mass of algae might change or why the model in not realistic. Be generous with "
        r"the awarding of this mark as long as the answer has engaged with the context of the problem or the model. Examples "
@@ -282,7 +353,7 @@ DRAFT = [
       False, 14),
 
     # ---------------- Q6 ----------------
-    e("06a", "6(a)", SEQ, "4.1", 4, Q6A,
+    e("06a", "6(a)", SEQ, "4.1", 4, LATEX["06a"],
       [r"B1 (AO 1.1b): $3^8$ or 6561 as the constant term. Notes: Sight of $3^8$ or 6561 as the constant term.",
        r"M1 (AO 1.1b): $\left(3-\frac{2x}{9}\right)^8=\ldots+{}^8C_1(3)^7\left(-\frac{2x}{9}\right)+{}^8C_2(3)^6\left(-\frac{2x}"
        r"{9}\right)^2+{}^8C_3(3)^5\left(-\frac{2x}{9}\right)^3+\ldots$ Notes: An attempt at the binomial expansion. This can "
@@ -307,8 +378,7 @@ DRAFT = [
        r"Allow the exact equivalent to $-\frac{448}{3}$ eg $-149.\dot{3}$ but not $-149.3$. Condone $x^1$ and eg $+-3888x$"],
       False, 18),
     e("06b", "6(b)", SEQ, "4.1, 2.1", 2,
-      Q6A + r"$$\mathrm{f}(x)=\left(\frac{x-1}{2x}\right)\left(3-\frac{2x}{9}\right)^8$$ (b) Find the coefficient of $x^2$ in "
-      r"the series expansion of $\mathrm{f}(x)$, giving your answer as a simplified fraction.",
+      LATEX["06b"],
       [r"M1 (AO 3.1a): Coefficient of $x^2$ is $\frac{1}{2}\times\text{“}1008\text{”}-\frac{1}{2}\times\text{“}-\frac{448}"
        r"{3}\text{”}$. Notes: Adopts a correct strategy for the required coefficient. This requires an attempt to calculate "
        r"$\pm\frac{1}{2}$ their coefficient of $x^2$ from part (a) $\pm\frac{1}{2}$ their coefficient of $x^3$ from part (a). "
@@ -320,7 +390,7 @@ DRAFT = [
       False, 18),
 
     # ---------------- Q7 ----------------
-    e("07a", "7(a)", ALG, "2.6", 2, r"(a) Factorise completely $9x-x^3$",
+    e("07a", "7(a)", ALG, "2.6", 2, LATEX["07a"],
       [r"M1 (AO 1.1b): $9x-x^3=x(9-x^2)$. Notes: Takes out a factor of $x$ or $-x$. Scored for $\pm x(\pm9\pm x^2)$ May be "
        r"implied by the correct answer or $\pm x(\pm x\pm3)(\pm x\pm3)$. Also allow if they attempt to take out a factor of "
        r"$(\pm x\pm3)$ so score for $(\pm x\pm3)(\pm3x\pm x^2)$",
@@ -329,8 +399,7 @@ DRAFT = [
        r"$x$ written as $(x+0)$."],
       False, 22),
     e("07b", "7(b)", ALG, "2.7", 2,
-      r"(a) Factorise completely $9x-x^3$ " + Q7C + r"(b) Sketch $C$ showing the coordinates of the points at which the "
-      r"curve cuts the $x$-axis.",
+      LATEX["07b"],
       [r"B1 (AO 1.1b): A cubic with correct orientation (the mark scheme sketch shows a negative cubic with a minimum to the "
        r"left of the $y$-axis and a maximum to the right, crossing the $x$-axis at $-3$, $O$ and 3). Notes: Correct shape "
        r"(negative cubic) appearing anywhere on a set of axes. It must have a minimum to the left and maximum to the right. "
@@ -342,9 +411,7 @@ DRAFT = [
        r"example candidate sketches marked B1B0, B0B1 and B1B1.]"],
       False, 22),
     e("07c", "7(c)", DIFF, "7.3, 2.5", 3,
-      Q7C + r"The line $l$ has equation $y=k$ where $k$ is a constant. Given that $C$ and $l$ intersect at 3 distinct points, "
-      r"(c) find the range of values for $k$, writing your answer in set notation. Solutions relying on calculator "
-      r"technology are not acceptable.",
+      LATEX["07c"],
       [r"M1 (AO 3.1a): $y=9x-x^3\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}x}=9-3x^2=0\Rightarrow x=(\pm)\sqrt{3}\Rightarrow "
        r"y=\ldots$ Notes: *Be aware the value of $y$ can be solved directly using a calculator which is not acceptable* Uses "
        r"a correct strategy for the $y$ value of either the maximum or minimum. E.g. differentiates to achieve a quadratic, "
@@ -360,12 +427,11 @@ DRAFT = [
       False, 22),
 
     # ---------------- Q8 ----------------
-    e("08a", "8(a)", EXP, "6.7, 6.1", 1, Q8 + r"(a) state the value of $k$.",
+    e("08a", "8(a)", EXP, "6.7, 6.1", 1, LATEX["08a"],
       [r"B1 (AO 1.1b): $(k=)\,0.8$. Notes: Completes the equation for the model by obtaining $(k=)\,0.8$ or equivalent."],
       False, 26),
     e("08b", "8(b)", EXP, "6.7, 6.3", 3,
-      Q8 + r"(a) state the value of $k$. From the instant when the tyre developed the puncture, (b) find the time taken for "
-      r"the air pressure to fall to 1 kg/cm$^2$ Give your answer in minutes to one decimal place.",
+      LATEX["08b"],
       [r"M1 (AO 3.1b): $1=0.8+1.4\mathrm{e}^{-0.5t}\Rightarrow1.4\mathrm{e}^{-0.5t}=0.2$. Notes: *Be aware this could be solved "
        r"entirely using a calculator which is not acceptable* For using the model with $P=1$ and their value for $k$ from (a) "
        r"and proceeding to $A\mathrm{e}^{\pm0.5t}=B$. Condone if $A$ or $B$ are negative for this mark.",
@@ -378,8 +444,7 @@ DRAFT = [
        r"$1.4\mathrm{e}^{-0.5t}=0.2\Rightarrow t=3.9$ would be M1M0A0"],
       False, 26),
     e("08c", "8(c)", DIFF, "7.2, 7.1", 2,
-      Q8 + r"(c) Find the rate at which the air pressure in the tyre is decreasing exactly 2 minutes from the instant when "
-      r"the tyre developed the puncture. Give your answer in kg/cm$^2$ per minute to 3 significant figures.",
+      LATEX["08c"],
       [r"M1 (AO 3.1b): $\left(\frac{\mathrm{d}P}{\mathrm{d}t}=\right)-0.7\mathrm{e}^{-0.5t}$, $\left(\frac{\mathrm{d}P}"
        r"{\mathrm{d}t}\right)_{t=2}=-0.7\mathrm{e}^{-0.5\times2}$. Notes: *Be aware this can be solved entirely using a "
        r"calculator which is not acceptable* Links rate of change to gradient and differentiates to obtain an expression of "
@@ -392,14 +457,13 @@ DRAFT = [
       False, 26),
 
     # ---------------- Q9 ----------------
-    e("09a", "9(a)", EXP, "6.4", 2, Q9A,
+    e("09a", "9(a)", EXP, "6.4", 2, LATEX["09a"],
       [r"B1 (AO 1.2): (i) $\log_3\left(\frac{x}{9}\right)=\log_3x-\log_39=p-2$. Notes: Recalls the subtraction law of logs and "
        r"so obtains $p-2$",
        r"B1 (AO 1.1b): (ii) $\log_3\left(\sqrt{x}\right)=\frac{1}{2}p$. Notes: $\frac{1}{2}p$ oe"],
       False, 28),
     e("09b", "9(b)", EXP, "6.4, 6.3", 4,
-      Q9A + r"(b) Hence, or otherwise, solve $$2\log_3\left(\frac{x}{9}\right)+3\log_3\left(\sqrt{x}\right)=-11$$ giving your "
-      r"answer as a simplified fraction. Solutions relying on calculator technology are not acceptable.",
+      LATEX["09b"],
       [r"M1 (AO 1.1b): $2\log_3\left(\frac{x}{9}\right)+3\log_3\left(\sqrt{x}\right)=-11\Rightarrow2p-4+\frac{3}{2}p=-11"
        r"\Rightarrow p=\ldots$ Notes: *Be aware this should be solved by non-calculator methods* Uses their results from part "
        r"(a) to form a linear equation in $p$ and attempts to solve leading to a value for $p$. Allow slips in their "
@@ -424,7 +488,7 @@ DRAFT = [
       False, 28),
 
     # ---------------- Q10 ----------------
-    e("10a", "10(a)", DIFF, "7.3, 7.2, 3.1", 5, Q10 + r"(a) Show that $l$ has equation $$13x-6y-26=0$$",
+    e("10a", "10(a)", DIFF, "7.3, 7.2, 3.1", 5, LATEX["10a"],
       [r"M1 (AO 1.1b): $y=\frac{1}{3}x^2-2\sqrt{x}+3\Rightarrow\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{2}{3}x-x^{-\frac{1}{2}}$. "
        r"Notes: (a) Calculators: If no algebraic differentiation seen then maximum in a) is M0A0B1M1A0*. $x^n\to x^{n-1}$ "
        r"seen at least once $\ldots x^2\to\ldots x^1$, $\ldots x^{\frac{1}{2}}\to\ldots x^{-\frac{1}{2}}$, $3\to0$. Also "
@@ -443,8 +507,7 @@ DRAFT = [
        r"A1* (AO 1.1b): $13x-6y-26=0$ *. Notes: Obtains the printed answer with no errors."],
       True, 30),
     e("10b", "10(b)", INT, "8.3, 8.2", 5,
-      Q10 + r"(a) Show that $l$ has equation $$13x-6y-26=0$$ The region $R$, shown shaded in Figure 2, is bounded by the "
-      r"$y$-axis, the curve $C$, the line $l$ and the $x$-axis. (b) Find the exact area of $R$.",
+      LATEX["10b"],
       [r"M1 (AO 1.1b): $\int\left(\frac{x^2}{3}-2\sqrt{x}+3\right)\mathrm{d}x=\frac{x^3}{9}-\frac{4}{3}x^{\frac{3}{2}}+3x(+c)$. "
        r"Notes: (b) Calculators: If no algebraic integration seen then maximum in b) is M0A0B1M1A0. $x^n\to x^{n+1}$ seen at "
        r"least once. Eg $\ldots x^2\to\ldots x^3$, $\ldots x^{\frac{1}{2}}\to\ldots x^{\frac{3}{2}}$, $3\to3x^1$. Allow eg "
@@ -484,13 +547,13 @@ DRAFT = [
       True, 30),
 
     # ---------------- Q11 ----------------
-    e("11a", "11(a)", COORD, "3.2", 3, Q11 + Q11A,
+    e("11a", "11(a)", COORD, "3.2", 3, LATEX["11a"],
       [r"M1 (AO 1.1b): $(x\pm5)^2+(y\pm4)^2$. Notes: Attempts to complete the square for both $x$ and $y$ terms "
        r"$(x\pm5)^2\ldots(y\pm4)^2$ which may be implied by a centre of $(\pm5,\pm4)$",
        r"A1 (AO 1.1b): (i) Centre is $(5, 4)$. Notes: Centre $(5, 4)$",
        r"A1 (AO 1.1b): (ii) Radius is 3. Notes: Radius 3"],
       True, 34),
-    e("11b", "11(b)", COORD, "3.2, 3.1, 2.4", 5, Q11 + Q11A + r"(b) Find the shortest distance between $C$ and $l$.",
+    e("11b", "11(b)", COORD, "3.2, 3.1, 2.4", 5, LATEX["11b"],
       [r"B1 (AO 2.2a): $2y+x+6=0\Rightarrow y=-\frac{1}{2}x+\ldots\Rightarrow-\frac{1}{2}\to2$. Notes: Deduces the gradient of "
        r"the perpendicular to $l$ is 2. May be seen in the equation for the perpendicular line to $l$",
        r"M1 (AO 3.1a): $m_N=2\Rightarrow y-4=2(x-5)$; $y-4=2(x-5)$, $2y+x+6=0\Rightarrow x=\ldots, y=\ldots$ Notes: A fully "
@@ -527,7 +590,7 @@ DRAFT = [
       True, 34),
 
     # ---------------- Q12 ----------------
-    e("12a", "12(a)", ALG, "2.6, 2.1", 4, Q12 + Q12A,
+    e("12a", "12(a)", ALG, "2.6, 2.1", 4, LATEX["12a"],
       [r"B1 (AO 1.1b): $V=\pi r^2h=355\Rightarrow h=\frac{355}{\pi r^2}$ $\left(\text{or }rh=\frac{355}{\pi r}\text{ or }\pi rh"
        r"=\frac{355}{r}\right)$. Notes: Correct expression for $h$ or $rh$ or $\pi rh$ in terms of $r$. This may be implied by "
        r"their later substitution.",
@@ -543,7 +606,7 @@ DRAFT = [
        r"$355=\pi r^2h$ and $C=0.04\pi r^2+0.09\pi r^2+0.04\times2\pi rh=0.13\pi r^2+0.08\pi\times\left(\frac{355}{\pi r}"
        r"\right)$"],
       False, 38),
-    e("12b", "12(b)", DIFF, "7.3, 7.2", 4, Q12 + Q12A + Q12B,
+    e("12b", "12(b)", DIFF, "7.3, 7.2", 4, LATEX["12b"],
       [r"M1 (AO 3.4): $\frac{\mathrm{d}C}{\mathrm{d}r}=0.26\pi r-\frac{28.4}{r^2}$. Notes: Differentiates to obtain at least "
        r"$r^{-1}\to r^{-2}$",
        r"A1 (AO 1.1b): $\frac{\mathrm{d}C}{\mathrm{d}r}=0.26\pi r-\frac{28.4}{r^2}$. Notes: Correct derivative.",
@@ -555,8 +618,7 @@ DRAFT = [
        r"3.26"],
       False, 38),
     e("12c", "12(c)", DIFF, "7.3", 2,
-      Q12 + Q12A + Q12B + r"(c) Using $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$ prove that the cost is minimised for the value "
-      r"of $r$ found in part (b).",
+      LATEX["12c"],
       [r"M1 (AO 1.1b): $\left(\frac{\mathrm{d}^2C}{\mathrm{d}r^2}=\right)0.26\pi+\frac{56.8}{r^3}=0.26\pi+\frac{56.8}"
        r"{\text{“}3.26\text{”}^3}$. Notes: Finds $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$ at their (positive) $r$ or considers "
        r"the sign of $\frac{\mathrm{d}^2C}{\mathrm{d}r^2}$. This mark can be scored as long as their second derivative is of "
@@ -569,7 +631,7 @@ DRAFT = [
        r"$\frac{\mathrm{d}^2C}{\mathrm{d}r^2}>0$ for $r>0$"],
       False, 38),
     e("12d", "12(d)", DIFF, "7.3", 2,
-      Q12 + Q12A + Q12B + r"(d) Hence find the minimum value of $C$, giving your answer to the nearest integer.",
+      LATEX["12d"],
       [r"M1 (AO 3.4): $C=0.13\pi(\text{“}3.26\text{”})^2+\frac{28.4}{\text{“}3.26\text{”}}$. Notes: Uses the model and "
        r"their positive $r$ found in (b) to find the minimum cost. Their $r$ embedded in the expression is sufficient. May be "
        r"seen in (b) but must be used in (d).",
@@ -577,7 +639,7 @@ DRAFT = [
       False, 38),
 
     # ---------------- Q13 ----------------
-    e("13a", "13(a)", TRIG, "5.3", 3, Q13A,
+    e("13a", "13(a)", TRIG, "5.3", 3, LATEX["13a"],
       [r"M1 (AO 1.1b): $\frac{1}{\cos\theta}+\tan\theta=\frac{1+\sin\theta}{\cos\theta}$ or $\frac{(1+\sin\theta)\cos\theta}"
        r"{\cos^2\theta}$. Notes: (a) If starting with the LHS: Condone if another variable for $\theta$ is used except for the "
        r"final mark. Combines terms with a common denominator. The numerator must be correct for their common denominator.",
@@ -603,8 +665,7 @@ DRAFT = [
        r"need to conclude at the end by stating the original equation."],
       False, 42),
     e("13b", "13(b)", TRIG, "5.4, 5.3", 5,
-      Q13A + r"Given that $\cos2x\neq0$ (b) solve for $0<x<90^\circ$ $$\frac{1}{\cos2x}+\tan2x=3\cos2x$$ giving your answers "
-      r"to one decimal place.",
+      LATEX["13b"],
       [r"M1 (AO 2.1): $\frac{1}{\cos2x}+\tan2x=3\cos2x\Rightarrow1+\sin2x=3\cos^22x=3(1-\sin^22x)$. Notes: (b) *Be aware that "
        r"this can be done entirely on their calculator which is not acceptable* Either multiplies through by $\cos2x$ and "
        r"applies $\cos^22x=1-\sin^22x$ to obtain an equation in $\sin2x$ only or alternatively sets "
@@ -626,8 +687,7 @@ DRAFT = [
 
     # ---------------- Q14 ----------------
     e("14i", "14(i)", PROOF, "1.1", 1,
-      r"A student states “if $x^2$ is greater than 9 then $x$ must be greater than 3” Determine whether or not this statement "
-      r"is true, giving a reason for your answer.",
+      LATEX["14i"],
       [r"B1 (AO 2.3): The statement is not true because e.g. when $x=-4$, $x^2=16$ (which is $>9$ but $x<3$). Notes: "
        r"Identifies the error in the statement by giving: a counter example and a reason eg $x=-4$ with $x^2=16$ eg $x=-4$ "
        r"with $(-4)^2>9$; concludes not true. There should be no errors seen including the use of brackets. The conclusion "
@@ -635,7 +695,7 @@ DRAFT = [
        r"true Eg. It is not true as when $x<-3$ then $x^2>9$ so $x$ does not have to be greater than 3. Eg. $x^2>9\Rightarrow "
        r"x<-3$ or $x>3$ so not true"],
       False, 46),
-    e("14ii", "14(ii)", PROOF, "1.1, 2.6", 3, r"Prove that for all positive integers $n$, $$n^3+3n^2+2n$$ is divisible by 6",
+    e("14ii", "14(ii)", PROOF, "1.1, 2.6", 3, LATEX["14ii"],
       [r"M1 (AO 2.1): $n^3+3n^2+2n=n(n^2+3n+2)=n(n+1)(n+2)$. Notes: Takes out a factor of $n$ and attempts to factorise the "
        r"resulting quadratic.",
        r"A1 (AO 2.2a): $n(n+1)(n+2)$ is the product of 3 consecutive integers. Notes: Deduces that the expression is the "

@@ -22,6 +22,43 @@
             "8MA0-01_2018-06_Q13b: difficulty",
             "8MA0-01_2018-06_Q13b: difficulty_evidence"
           ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "question_latex layout rule: shared stem, dependent earlier parts, paper line breaks, figures in place, lead-ins on the next part only",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2018-06_Q01: question_latex",
+            "8MA0-01_2018-06_Q02ii: question_latex",
+            "8MA0-01_2018-06_Q03a: question_latex",
+            "8MA0-01_2018-06_Q03b: question_latex",
+            "8MA0-01_2018-06_Q04: question_latex",
+            "8MA0-01_2018-06_Q05a: question_latex",
+            "8MA0-01_2018-06_Q05b: question_latex",
+            "8MA0-01_2018-06_Q06a: question_latex",
+            "8MA0-01_2018-06_Q06b: question_latex",
+            "8MA0-01_2018-06_Q06c: question_latex",
+            "8MA0-01_2018-06_Q07a: question_latex",
+            "8MA0-01_2018-06_Q07b: question_latex",
+            "8MA0-01_2018-06_Q08a: question_latex",
+            "8MA0-01_2018-06_Q08b: question_latex",
+            "8MA0-01_2018-06_Q08c: question_latex",
+            "8MA0-01_2018-06_Q09a: question_latex",
+            "8MA0-01_2018-06_Q09b: question_latex",
+            "8MA0-01_2018-06_Q09c: question_latex",
+            "8MA0-01_2018-06_Q11a: question_latex",
+            "8MA0-01_2018-06_Q11b: question_latex",
+            "8MA0-01_2018-06_Q11c: question_latex",
+            "8MA0-01_2018-06_Q12a: question_latex",
+            "8MA0-01_2018-06_Q12b: question_latex",
+            "8MA0-01_2018-06_Q13a: question_latex",
+            "8MA0-01_2018-06_Q13b: question_latex",
+            "8MA0-01_2018-06_Q13c: question_latex",
+            "8MA0-01_2018-06_Q14a: question_latex",
+            "8MA0-01_2018-06_Q14b: question_latex",
+            "8MA0-01_2018-06_Q15: question_latex"
+          ]
         }
       ]
     },
@@ -66,6 +103,35 @@
             "9MA0-31_2019-06_Q04d: question_latex",
             "9MA0-31_2019-06_Q04e: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "question_latex layout rule: shared stem, dependent earlier parts, paper line breaks, figures in place, lead-ins on the next part only",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-31_2019-06_Q01a: question_latex",
+            "9MA0-31_2019-06_Q01b: question_latex",
+            "9MA0-31_2019-06_Q01c: question_latex",
+            "9MA0-31_2019-06_Q01d: question_latex",
+            "9MA0-31_2019-06_Q02a: question_latex",
+            "9MA0-31_2019-06_Q02b: question_latex",
+            "9MA0-31_2019-06_Q02c: has_diagram",
+            "9MA0-31_2019-06_Q02c: question_latex",
+            "9MA0-31_2019-06_Q02d: has_diagram",
+            "9MA0-31_2019-06_Q02d: question_latex",
+            "9MA0-31_2019-06_Q02e: has_diagram",
+            "9MA0-31_2019-06_Q02e: question_latex",
+            "9MA0-31_2019-06_Q03b: question_latex",
+            "9MA0-31_2019-06_Q03c: question_latex",
+            "9MA0-31_2019-06_Q04bi: question_latex",
+            "9MA0-31_2019-06_Q04bii: question_latex",
+            "9MA0-31_2019-06_Q04c: question_latex",
+            "9MA0-31_2019-06_Q04d: question_latex",
+            "9MA0-31_2019-06_Q04e: question_latex",
+            "9MA0-31_2019-06_Q05b: question_latex",
+            "9MA0-31_2019-06_Q05c: question_latex"
+          ]
         }
       ]
     },
@@ -109,6 +175,50 @@
             "8MA0-01_2019-06_Q14d: mark_scheme",
             "8MA0-01_2019-06_Q15: mark_scheme",
             "8MA0-01_2019-06_Q16i: mark_scheme"
+          ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "question_latex layout rule: shared stem, dependent earlier parts, paper line breaks, figures in place, lead-ins on the next part only",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2019-06_Q01a: question_latex",
+            "8MA0-01_2019-06_Q01b: question_latex",
+            "8MA0-01_2019-06_Q02i: question_latex",
+            "8MA0-01_2019-06_Q02ii: question_latex",
+            "8MA0-01_2019-06_Q03a: question_latex",
+            "8MA0-01_2019-06_Q03b: question_latex",
+            "8MA0-01_2019-06_Q04a: question_latex",
+            "8MA0-01_2019-06_Q04b: question_latex",
+            "8MA0-01_2019-06_Q05a: question_latex",
+            "8MA0-01_2019-06_Q05b: question_latex",
+            "8MA0-01_2019-06_Q06a: question_latex",
+            "8MA0-01_2019-06_Q06b: question_latex",
+            "8MA0-01_2019-06_Q07a: question_latex",
+            "8MA0-01_2019-06_Q07b: question_latex",
+            "8MA0-01_2019-06_Q07c: question_latex",
+            "8MA0-01_2019-06_Q08a: question_latex",
+            "8MA0-01_2019-06_Q08b: question_latex",
+            "8MA0-01_2019-06_Q09a: question_latex",
+            "8MA0-01_2019-06_Q09b: question_latex",
+            "8MA0-01_2019-06_Q09c: question_latex",
+            "8MA0-01_2019-06_Q09d: question_latex",
+            "8MA0-01_2019-06_Q10a: question_latex",
+            "8MA0-01_2019-06_Q10b: question_latex",
+            "8MA0-01_2019-06_Q11a: question_latex",
+            "8MA0-01_2019-06_Q11b: question_latex",
+            "8MA0-01_2019-06_Q11c: question_latex",
+            "8MA0-01_2019-06_Q11d: question_latex",
+            "8MA0-01_2019-06_Q12a: question_latex",
+            "8MA0-01_2019-06_Q12b: question_latex",
+            "8MA0-01_2019-06_Q13: question_latex",
+            "8MA0-01_2019-06_Q14a: question_latex",
+            "8MA0-01_2019-06_Q14b: question_latex",
+            "8MA0-01_2019-06_Q14c: question_latex",
+            "8MA0-01_2019-06_Q14d: question_latex",
+            "8MA0-01_2019-06_Q16i: question_latex",
+            "8MA0-01_2019-06_Q16ii: question_latex"
           ]
         }
       ]
@@ -156,6 +266,46 @@
             "8MA0-01_2020-10_Q11ii: mark_scheme",
             "8MA0-01_2020-10_Q13a: mark_scheme"
           ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "question_latex layout rule: shared stem, dependent earlier parts, paper line breaks, figures in place, lead-ins on the next part only",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2020-10_Q01: question_latex",
+            "8MA0-01_2020-10_Q02a: question_latex",
+            "8MA0-01_2020-10_Q02b: question_latex",
+            "8MA0-01_2020-10_Q03i: question_latex",
+            "8MA0-01_2020-10_Q03ii: question_latex",
+            "8MA0-01_2020-10_Q04a: question_latex",
+            "8MA0-01_2020-10_Q04b: question_latex",
+            "8MA0-01_2020-10_Q05a: question_latex",
+            "8MA0-01_2020-10_Q05b: question_latex",
+            "8MA0-01_2020-10_Q06a: question_latex",
+            "8MA0-01_2020-10_Q06b: question_latex",
+            "8MA0-01_2020-10_Q07a: question_latex",
+            "8MA0-01_2020-10_Q07b: question_latex",
+            "8MA0-01_2020-10_Q08a: question_latex",
+            "8MA0-01_2020-10_Q08b: question_latex",
+            "8MA0-01_2020-10_Q08c: question_latex",
+            "8MA0-01_2020-10_Q08d: question_latex",
+            "8MA0-01_2020-10_Q09a: question_latex",
+            "8MA0-01_2020-10_Q09b: question_latex",
+            "8MA0-01_2020-10_Q09c: question_latex",
+            "8MA0-01_2020-10_Q10a: question_latex",
+            "8MA0-01_2020-10_Q10b: question_latex",
+            "8MA0-01_2020-10_Q10c: question_latex",
+            "8MA0-01_2020-10_Q11i: question_latex",
+            "8MA0-01_2020-10_Q11ii: question_latex",
+            "8MA0-01_2020-10_Q12a: question_latex",
+            "8MA0-01_2020-10_Q12b: question_latex",
+            "8MA0-01_2020-10_Q12c: question_latex",
+            "8MA0-01_2020-10_Q13a: question_latex",
+            "8MA0-01_2020-10_Q13b: question_latex",
+            "8MA0-01_2020-10_Q14a: question_latex",
+            "8MA0-01_2020-10_Q14b: question_latex"
+          ]
         }
       ]
     },
@@ -185,6 +335,50 @@
             "8MA0-01_2021-10_Q15a: mark_scheme",
             "8MA0-01_2021-10_Q15c: mark_scheme",
             "8MA0-01_2021-10_Q16b: mark_scheme"
+          ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "question_latex layout rule: shared stem, dependent earlier parts, paper line breaks, figures in place, lead-ins on the next part only",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2021-10_Q01: question_latex",
+            "8MA0-01_2021-10_Q02: question_latex",
+            "8MA0-01_2021-10_Q03: question_latex",
+            "8MA0-01_2021-10_Q04a: question_latex",
+            "8MA0-01_2021-10_Q04b: question_latex",
+            "8MA0-01_2021-10_Q05a: question_latex",
+            "8MA0-01_2021-10_Q05b: question_latex",
+            "8MA0-01_2021-10_Q05c: question_latex",
+            "8MA0-01_2021-10_Q06a: question_latex",
+            "8MA0-01_2021-10_Q06b: question_latex",
+            "8MA0-01_2021-10_Q07a: question_latex",
+            "8MA0-01_2021-10_Q07b: question_latex",
+            "8MA0-01_2021-10_Q08a: question_latex",
+            "8MA0-01_2021-10_Q08b: question_latex",
+            "8MA0-01_2021-10_Q09: question_latex",
+            "8MA0-01_2021-10_Q10a: question_latex",
+            "8MA0-01_2021-10_Q10b: question_latex",
+            "8MA0-01_2021-10_Q11a: question_latex",
+            "8MA0-01_2021-10_Q11b: question_latex",
+            "8MA0-01_2021-10_Q11c: question_latex",
+            "8MA0-01_2021-10_Q12i: question_latex",
+            "8MA0-01_2021-10_Q12iia: question_latex",
+            "8MA0-01_2021-10_Q12iib: question_latex",
+            "8MA0-01_2021-10_Q13a: question_latex",
+            "8MA0-01_2021-10_Q13b: question_latex",
+            "8MA0-01_2021-10_Q13c: question_latex",
+            "8MA0-01_2021-10_Q14a: question_latex",
+            "8MA0-01_2021-10_Q14b: question_latex",
+            "8MA0-01_2021-10_Q14c: question_latex",
+            "8MA0-01_2021-10_Q15a: question_latex",
+            "8MA0-01_2021-10_Q15b: question_latex",
+            "8MA0-01_2021-10_Q15c: question_latex",
+            "8MA0-01_2021-10_Q16a: question_latex",
+            "8MA0-01_2021-10_Q16b: question_latex",
+            "8MA0-01_2021-10_Q16c: question_latex",
+            "8MA0-01_2021-10_Q16d: question_latex"
           ]
         }
       ]

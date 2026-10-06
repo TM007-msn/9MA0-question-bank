@@ -41,56 +41,131 @@ INT = "Integration"
 VEC = "Vectors"
 PROOF = "Proof"
 
-SHOW = (r"In this question you should show all stages of your working. Solutions relying on calculator technology "
-        r"are not acceptable. ")
 
-# Shared stems go in variables so each part's question_latex stands alone.
-Q4 = (r"[In this question the unit vectors $\mathbf{i}$ and $\mathbf{j}$ are due east and due north respectively.] "
-      r"A stone slides horizontally across ice. Initially the stone is at the point $A(-24\mathbf{i}-10\mathbf{j})$ m "
-      r"relative to a fixed point $O$. After 4 seconds the stone is at the point $B(12\mathbf{i}+5\mathbf{j})$ m "
-      r"relative to the fixed point $O$. The motion of the stone is modelled as that of a particle moving in a "
-      r"straight line at constant speed. Using the model, ")
-FIG1 = (r"[Figure 1: part of the curve $y=3x^2-2$, a U-shaped parabola with its minimum on the $y$-axis just below "
-        r"$O$; the point $P(2, 10)$ is marked on the right-hand branch, with the point $Q$ above it on the same "
-        r"branch.]" "\n")
-Q5 = FIG1 + r"Figure 1 shows part of the curve with equation $y=3x^2-2$ The point $P(2, 10)$ lies on the curve. "
-Q5B = r"The point $Q$ with $x$ coordinate $2+h$ also lies on the curve. "
-Q6A = r"(a) Using algebra, find all solutions of the equation $$3x^3-17x^2-6x=0$$ "
-Q7 = (r"A parallelogram $PQRS$ has area 50 cm$^2$ Given: $PQ$ has length 14 cm; $QR$ has length 7 cm; angle $SPQ$ is "
-      r"obtuse, find ")
-Q8 = (r"$$\mathrm{g}(x)=(2+ax)^8\qquad\text{where }a\text{ is a constant}$$ Given that one of the terms in the binomial "
-      r"expansion of $\mathrm{g}(x)$ is $3402x^5$ ")
-Q10 = r"A student is investigating the following statement about natural numbers. “$n^3-n$ is a multiple of 4” "
-Q11 = (r"The owners of a nature reserve decided to increase the area of the reserve covered by trees. Tree planting "
-       r"started on 1st January 2005. The area of the nature reserve covered by trees, $A$ km$^2$, is modelled by the "
-       r"equation $$A=80-45\mathrm{e}^{ct}$$ where $c$ is a constant and $t$ is the number of years after 1st January "
-       r"2005. Using the model, ")
-Q11B = r"On 1st January 2019 an area of 60 km$^2$ of the nature reserve was covered by trees. "
-Q12 = (r"In this question you should show all stages of your working. Solutions relying entirely on calculator "
-       r"technology are not acceptable. ")
-FIG2 = (r"[Figure 2: a straight line on axes $\log_{10}m$ (horizontal) and $\log_{10}h$ (vertical), meeting the "
-        r"$\log_{10}h$ axis at 2.25 and sloping downwards to the right.]" "\n")
-Q13 = (FIG2 + r"The resting heart rate, $h$, of a mammal, measured in beats per minute, is modelled by the equation "
-       r"$$h=pm^q$$ where $p$ and $q$ are constants and $m$ is the mass of the mammal measured in kg. Figure 2 "
-       r"illustrates the linear relationship between $\log_{10}h$ and $\log_{10}m$ The line meets the vertical "
-       r"$\log_{10}h$ axis at 2.25 and has a gradient of $-0.235$ ")
-Q14 = r"A curve $C$ has equation $y=\mathrm{f}(x)$ where $$\mathrm{f}(x)=-3x^2+12x+8$$ "
-FIG3 = (r"[Figure 3: sketch of the curve $C$, an inverted parabola crossing the positive $y$-axis and both sides of "
-        r"the $x$-axis, with maximum point $M$ to the right of the $y$-axis; the horizontal line $l$ through $M$; the "
-        r"region $R$ between $C$, $l$ and the $y$-axis is shaded.]" "\n")
-FIG4 = (r"[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the "
-        r"point $P$, below and to the right of $N$.]" "\n")
-Q15 = (FIG4 + r"Figure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$ The line $l$ with equation $y=\frac{1}{3}x$ "
-       r"is a tangent to $C$ at the point $P$. Find ")
-Q16 = (r"The curve $C$ has equation $y=\mathrm{f}(x)$ where $$\mathrm{f}(x)=ax^3+15x^2-39x+b$$ and $a$ and $b$ are "
-       r"constants. Given: the point $(2, 10)$ lies on $C$; the gradient of the curve at $(2, 10)$ is $-3$ ")
-Q16A = r"(a) (i) show that the value of $a$ is $-2$ (ii) find the value of $b$. "
-Q16C = r"(c) Write $\mathrm{f}(x)$ in the form $(x-4)\mathrm{Q}(x)$ where $\mathrm{Q}(x)$ is a quadratic expression to be found. "
+def L(*lines):
+    """question_latex from printed lines (CLAUDE.md: question_latex content and order)."""
+    return "\n".join(lines)
+
+
+# question_latex per entry: shared stem, then earlier parts this part depends on, then the part.
+SHOW = ["In this question you should show all stages of your working.",
+        "Solutions relying on calculator technology are not acceptable."]
+Q4 = ["[In this question the unit vectors $\\mathbf{i}$ and $\\mathbf{j}$ are due east and due north respectively.]",
+      "A stone slides horizontally across ice.",
+      r"Initially the stone is at the point $A(-24\mathbf{i}-10\mathbf{j})$ m relative to a fixed point $O$.",
+      r"After 4 seconds the stone is at the point $B(12\mathbf{i}+5\mathbf{j})$ m relative to the fixed point $O$.",
+      "The motion of the stone is modelled as that of a particle moving in a straight line at constant speed.",
+      "Using the model,"]
+Q5 = [r"[Figure 1: part of the curve $y=3x^2-2$, a U-shaped parabola with its minimum on the $y$-axis just below $O$; "
+      r"the point $P(2, 10)$ is marked on the right-hand branch, with the point $Q$ above it on the same branch.]",
+      "Figure 1 shows part of the curve with equation $y=3x^2-2$", "The point $P(2, 10)$ lies on the curve."]
+Q5A = "Find the gradient of the tangent to the curve at $P$."
+Q5Q = "The point $Q$ with $x$ coordinate $2+h$ also lies on the curve."
+Q5B = "Find the gradient of the line $PQ$, giving your answer in terms of $h$ in simplest form."
+Q6A = ["Using algebra, find all solutions of the equation", "$$3x^3-17x^2-6x=0$$"]
+Q7 = ["A parallelogram $PQRS$ has area 50 cm$^2$", "Given", "• $PQ$ has length 14 cm", "• $QR$ has length 7 cm",
+      "• angle $SPQ$ is obtuse", "find"]
+Q8 = [r"$$\mathrm{g}(x)=(2+ax)^8\qquad\text{where }a\text{ is a constant}$$",
+      r"Given that one of the terms in the binomial expansion of $\mathrm{g}(x)$ is $3402x^5$"]
+Q10 = ["A student is investigating the following statement about natural numbers.", "“$n^3-n$ is a multiple of 4”"]
+Q11 = ["The owners of a nature reserve decided to increase the area of the reserve covered by trees.",
+       "Tree planting started on 1st January 2005.",
+       "The area of the nature reserve covered by trees, $A$ km$^2$, is modelled by the equation",
+       r"$$A=80-45\mathrm{e}^{ct}$$",
+       "where $c$ is a constant and $t$ is the number of years after 1st January 2005.",
+       "Using the model,"]
+Q11B = "On 1st January 2019 an area of 60 km$^2$ of the nature reserve was covered by trees."
+Q12 = ["In this question you should show all stages of your working.",
+       "Solutions relying entirely on calculator technology are not acceptable."]
+Q13 = [r"[Figure 2: a straight line on axes $\log_{10}m$ (horizontal) and $\log_{10}h$ (vertical), meeting the "
+       r"$\log_{10}h$ axis at 2.25 and sloping downwards to the right.]",
+       "The resting heart rate, $h$, of a mammal, measured in beats per minute, is modelled by the equation",
+       "$$h=pm^q$$",
+       "where $p$ and $q$ are constants and $m$ is the mass of the mammal measured in kg.",
+       r"Figure 2 illustrates the linear relationship between $\log_{10}h$ and $\log_{10}m$",
+       r"The line meets the vertical $\log_{10}h$ axis at 2.25 and has a gradient of $-0.235$"]
+Q13M = "A particular mammal has a mass of 5 kg and a resting heart rate of 119 beats per minute."
+Q14 = [r"A curve $C$ has equation $y=\mathrm{f}(x)$ where", r"$$\mathrm{f}(x)=-3x^2+12x+8$$"]
+Q14M = "The curve $C$ has a maximum turning point at $M$."
+Q15 = [r"[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the "
+       r"point $P$, below and to the right of $N$.]",
+       "Figure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$",
+       r"The line $l$ with equation $y=\frac{1}{3}x$ is a tangent to $C$ at the point $P$.",
+       "Find"]
+Q16 = [r"The curve $C$ has equation $y=\mathrm{f}(x)$ where", r"$$\mathrm{f}(x)=ax^3+15x^2-39x+b$$",
+       "and $a$ and $b$ are constants.", "Given", "• the point $(2, 10)$ lies on $C$",
+       "• the gradient of the curve at $(2, 10)$ is $-3$"]
+Q16A = ["(a) (i) show that the value of $a$ is $-2$", "(ii) find the value of $b$."]
+Q16C = r"Write $\mathrm{f}(x)$ in the form $(x-4)\mathrm{Q}(x)$ where $\mathrm{Q}(x)$ is a quadratic expression to be found."
+
+LATEX = {
+    "01": L(*SHOW, "Using algebra, solve the inequality", "$$x^2-x>20$$", "writing your answer in set notation."),
+    "02": L(*SHOW, "Given", r"$$\frac{9^{x-1}}{3^{y+2}}=81$$",
+            "express $y$ in terms of $x$, writing your answer in simplest form."),
+    "03": L("Find", r"$$\int\frac{3x^4-4}{2x^3}\,\mathrm{d}x$$", "writing your answer in simplest form."),
+    "04a": L(*Q4, "prove that the stone passes through $O$,"),
+    "04b": L(*Q4[:-1], "calculate the speed of the stone."),
+    "05a": L(*Q5, Q5A),
+    "05b": L(*Q5, Q5Q, Q5B),
+    "05c": L(*Q5, "(a) " + Q5A, Q5Q, "(b) " + Q5B,
+             "(c) Explain briefly the relationship between part (b) and the answer to part (a)."),
+    "06a": L(*SHOW, *Q6A),
+    "06b": L(*SHOW, "(a) " + Q6A[0], Q6A[1], "(b) Hence find all real solutions of",
+             "$$3(y-2)^6-17(y-2)^4-6(y-2)^2=0$$"),
+    "07a": L(*Q7, "the size of angle $SPQ$, in degrees, to 2 decimal places,"),
+    "07b": L(*Q7, "the length of the diagonal $SQ$, in cm, to one decimal place."),
+    "08a": L(*Q8, "find the value of $a$."),
+    "08b": L(*Q8, "(a) find the value of $a$.", "Using this value of $a$,", "(b) find the constant term in the expansion of",
+             r"$$\left(1+\frac{1}{x^4}\right)(2+ax)^8$$"),
+    "09": L("Find the value of the constant $k$, $0<k<9$, such that", r"$$\int_k^9\frac{6}{\sqrt{x}}\,\mathrm{d}x=20$$"),
+    "10a": L(*Q10, "Prove, using algebra, that the statement is true for all odd numbers."),
+    "10b": L(*Q10, "Use a counterexample to show that the statement is not always true."),
+    "11a": L(*Q11, "find the area of the nature reserve that was covered by trees just before tree planting started."),
+    "11b": L(*Q11[:-1], Q11B, "Use this information to find a complete equation for the model, giving your value of $c$ to "
+             "3 significant figures."),
+    "11c": L(*Q11[:-1], "On 1st January 2020, the owners of the nature reserve announced a long-term plan to have "
+             "100 km$^2$ of the nature reserve covered by trees.",
+             "State a reason why the model is not appropriate for this plan."),
+    "12i": L(*Q12, r"Solve, for $0<\theta\leqslant450^\circ$, the equation", r"$$5\cos^2\theta=6\sin\theta$$",
+             "giving your answers to one decimal place."),
+    "12iia": L(*Q12, "A student’s attempt to solve the question",
+               r"“Solve, for $-90^\circ<x<90^\circ$, the equation $3\tan x-5\sin x=0$”",
+               "is set out below.",
+               r"$$\begin{aligned}3\tan x-5\sin x&=0\\3\frac{\sin x}{\cos x}-5\sin x&=0\\3\sin x-5\sin x\cos x&=0\\"
+               r"3-5\cos x&=0\\\cos x&=\frac{3}{5}\\x&=53.1^\circ\end{aligned}$$",
+               "Identify two errors or omissions made by this student, giving a brief explanation of each."),
+    "12iib": L(*Q12, "The first four positive solutions, in order of size, of the equation",
+               r"$$\cos(5\alpha+40^\circ)=\frac{3}{5}$$", r"are $\alpha_1$, $\alpha_2$, $\alpha_3$ and $\alpha_4$",
+               r"Find, to the nearest degree, the value of $\alpha_4$"),
+    "13a": L(*Q13, "Find, to 3 significant figures, the value of $p$ and the value of $q$."),
+    "13b": L(*Q13, Q13M, "Comment on the suitability of the model for this mammal."),
+    "13c": L(*Q13, "With reference to the model, interpret the value of the constant $p$."),
+    "14a": L(*Q14, r"Write $\mathrm{f}(x)$ in the form", "$$a(x+b)^2+c$$", "where $a$, $b$ and $c$ are constants to be found."),
+    "14b": L(*Q14, Q14M, "Find the coordinates of $M$."),
+    "14c": L(*Q14, Q14M,
+             r"[Figure 3: sketch of the curve $C$, an inverted parabola crossing the positive $y$-axis and both sides of "
+             r"the $x$-axis, with maximum point $M$ to the right of the $y$-axis; the horizontal line $l$ through $M$; the "
+             r"region $R$ between $C$, $l$ and the $y$-axis is shaded.]",
+             "Figure 3 shows a sketch of the curve $C$.",
+             "The line $l$ passes through $M$ and is parallel to the $x$-axis.",
+             "The region $R$, shown shaded in Figure 3, is bounded by $C$, $l$ and the $y$-axis.",
+             "Using algebraic integration, find the area of $R$."),
+    "15a": L(*Q15, "the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,"),
+    "15b": L(*Q15, "an equation for $C$."),
+    "15c": L(*Q15, r"The line with equation $y=\frac{1}{3}x+k$, where $k$ is a non-zero constant, is also a tangent to "
+             r"$C$.", "Find the value of $k$."),
+    "16a": L(*Q16, "(i) show that the value of $a$ is $-2$", "(ii) find the value of $b$."),
+    "16b": L(*Q16, *Q16A, "(b) Hence show that $C$ has no stationary points."),
+    "16c": L(*Q16, *Q16A, "(c) " + Q16C),
+    "16d": L(*Q16, *Q16A, "(c) " + Q16C,
+             "(d) Hence deduce the coordinates of the points of intersection of the curve with equation",
+             r"$$y=\mathrm{f}(0.2x)$$", "and the coordinate axes."),
+}
 
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", ALG, "2.5", 3,
-      SHOW + r"Using algebra, solve the inequality $$x^2-x>20$$ writing your answer in set notation.",
+      LATEX["01"],
       [r"M1 (AO 1.1b): Finds critical values $x^2-x>20\Rightarrow x^2-x-20>0\Rightarrow x=(5,-4)$. Notes: Attempts to "
        r"find the critical values using an algebraic method. Condone slips but an allowable method should be used and "
        r"two critical values should be found",
@@ -104,7 +179,7 @@ DRAFT = [
 
     # ---------------- Q2 ----------------
     e("02", "2", ALG, "2.1", 3,
-      SHOW + r"Given $$\frac{9^{x-1}}{3^{y+2}}=81$$ express $y$ in terms of $x$, writing your answer in simplest form.",
+      LATEX["02"],
       [r"M1 (AO 1.1b): $\frac{9^{x-1}}{3^{y+2}}=81\Rightarrow\frac{3^{2x-2}}{3^{y+2}}=3^4$ or "
        r"$\frac{9^{x-1}}{3^{y+2}}=81\Rightarrow\frac{9^{x-1}}{9^{\frac{1}{2}(y+2)}}=9^2$. Notes: Attempts to set $9^{x-1}$ "
        r"and 81 as powers of 3. Condone $9^{x-1}=3^{2x-1}$ and $9^{x-1}=3^{3x-3}$.",
@@ -121,7 +196,7 @@ DRAFT = [
 
     # ---------------- Q3 ----------------
     e("03", "3", INT, "8.2, 2.1", 4,
-      r"Find $$\int\frac{3x^4-4}{2x^3}\,\mathrm{d}x$$ writing your answer in simplest form.",
+      LATEX["03"],
       [r"M1 (AO 1.1b): $\int\frac{3x^4-4}{2x^3}\,\mathrm{d}x=\int\frac{3}{2}x-2x^{-3}\,\mathrm{d}x$. Notes: Attempts to "
        r"divide to form a sum of terms. Implied by two terms with one correct index. "
        r"$\int\frac{3x^4}{2x^3}-\frac{4}{2x^3}\,\mathrm{d}x$ scores this mark.",
@@ -136,7 +211,7 @@ DRAFT = [
       False, 6),
 
     # ---------------- Q4 ----------------
-    e("04a", "4(a)", VEC, "9.3, 9.4", 2, Q4 + r"prove that the stone passes through $O$,",
+    e("04a", "4(a)", VEC, "9.3, 9.4", 2, LATEX["04a"],
       [r"M1 (AO 1.1b): Attempts to compare the two position vectors. Allow an attempt using two of "
        r"$\overrightarrow{AO}$, $\overrightarrow{OB}$ or $\overrightarrow{AB}$ E.g. "
        r"$(-24\mathbf{i}-10\mathbf{j})=-2\times(12\mathbf{i}+5\mathbf{j})$. Notes: Attempts to compare the two position "
@@ -155,7 +230,7 @@ DRAFT = [
        r"ALT: Alternatively (a), gradients — M1 (AO 1.1b): Alternatively, allow an attempt finding the gradient using "
        r"any two of $AO$, $OB$ or $AB$"],
       False, 8),
-    e("04b", "4(b)", VEC, "9.4, 9.5", 3, Q4 + r"calculate the speed of the stone.",
+    e("04b", "4(b)", VEC, "9.4, 9.5", 3, LATEX["04b"],
       [r"M1 (AO 1.1b): Attempts distance $AB=\sqrt{(12+24)^2+(10+5)^2}$. Notes: Attempts to find the distance $AB$ using "
        r"a correct method. Condone slips but expect to see an attempt at $\sqrt{a^2+b^2}$ where $a$ or $b$ is correct",
        r"dM1 (AO 3.1a): Attempts speed $=\frac{\sqrt{(12+24)^2+(10+5)^2}}{4}$. Notes: Dependent upon the previous mark. "
@@ -164,14 +239,14 @@ DRAFT = [
       False, 8),
 
     # ---------------- Q5 ----------------
-    e("05a", "5(a)", DIFF, "7.3, 7.2", 2, Q5 + r"Find the gradient of the tangent to the curve at $P$.",
+    e("05a", "5(a)", DIFF, "7.3, 7.2", 2, LATEX["05a"],
       [r"M1 (AO 1.1b): Attempts to find the value of $\frac{\mathrm{d}y}{\mathrm{d}x}$ at $x=2$. Notes: Attempts to "
        r"differentiate, allow $3x^2-2\to\ldots x$ and substitutes $x=2$ into their answer",
        r"A1 (AO 1.1b): $\frac{\mathrm{d}y}{\mathrm{d}x}=6x\Rightarrow$ gradient of tangent at $P$ is 12. Notes: cso "
        r"$\frac{\mathrm{d}y}{\mathrm{d}x}=6x\Rightarrow$ gradient of tangent at $P$ is 12"],
       True, 10),
     e("05b", "5(b)", DIFF, "7.1", 3,
-      Q5 + Q5B + r"Find the gradient of the line $PQ$, giving your answer in terms of $h$ in simplest form.",
+      LATEX["05b"],
       [r"B1 (AO 1.1b): Gradient $PQ=\frac{3(2+h)^2-2-10}{(2+h)-2}$ oe. Notes: Correct expression for the gradient of the "
        r"chord seen or implied.",
        r"M1 (AO 1.1b): $=\frac{3(2+h)^2-12}{(2+h)-2}=\frac{12h+3h^2}{h}$. Notes: Attempts $\frac{\delta y}{\delta x}$, "
@@ -179,16 +254,14 @@ DRAFT = [
        r"A1 (AO 2.1): $=12+3h$. Notes: cso $12+3h$"],
       True, 10),
     e("05c", "5(c)", DIFF, "7.1", 1,
-      Q5 + r"(a) Find the gradient of the tangent to the curve at $P$. " + Q5B + r"(b) Find the gradient of the line "
-      r"$PQ$, giving your answer in terms of $h$ in simplest form. (c) Explain briefly the relationship between part (b) "
-      r"and the answer to part (a).",
+      LATEX["05c"],
       [r"B1 (AO 2.4): Explains that as $h\to0$, $12+3h\to12$ and states that the gradient of the chord tends to the "
        r"gradient of (the tangent to) the curve. Notes: Explains that as $h\to0$, $12+3h\to12$ and states that the "
        r"gradient of the chord tends to the gradient of the curve"],
       True, 10),
 
     # ---------------- Q6 ----------------
-    e("06a", "6(a)", ALG, "2.6, 2.3", 3, SHOW + Q6A,
+    e("06a", "6(a)", ALG, "2.6, 2.3", 3, LATEX["06a"],
       [r"M1 (AO 1.1a): $3x^3-17x^2-6x=0\Rightarrow x(3x^2-17x-6)=0$. Notes: Factorises out or cancels by $x$ to form a "
        r"quadratic equation.",
        r"dM1 (AO 1.1b): $\Rightarrow x(3x+1)(x-6)=0$. Notes: Scored for an attempt to find $x$. May be awarded for "
@@ -196,7 +269,7 @@ DRAFT = [
        r"A1 (AO 1.1b): $\Rightarrow x=0,-\frac{1}{3},6$. Notes: $x=0,-\frac{1}{3},6$ and no extras"],
       False, 12),
     e("06b", "6(b)", ALG, "2.6, 2.3", 3,
-      SHOW + Q6A + r"(b) Hence find all real solutions of $$3(y-2)^6-17(y-2)^4-6(y-2)^2=0$$",
+      LATEX["06b"],
       [r"M1 (AO 2.2a): Attempts to solve $(y-2)^2=n$ where $n$ is any solution $\geqslant0$ to (a). Notes: Attempts to "
        r"solve $(y-2)^2=n$ where $n$ is any solution $\geqslant0$ to (a). At least one stage of working must be seen to "
        r"award this mark. Eg $(y-2)^2=0\Rightarrow y=2$",
@@ -207,7 +280,7 @@ DRAFT = [
       False, 12),
 
     # ---------------- Q7 ----------------
-    e("07a", "7(a)", TRIG, "5.1", 3, Q7 + r"the size of angle $SPQ$, in degrees, to 2 decimal places,",
+    e("07a", "7(a)", TRIG, "5.1", 3, LATEX["07a"],
       [r"B1 (AO 1.2): Sets $50=7\times14\sin(SPQ)$ oe. Notes: Sets $50=7\times14\sin(SPQ)$ oe",
        r"M1 (AO 1.1b): Finds $180^\circ-\arcsin\left(\text{“}\frac{50}{98}\text{”}\right)$. Notes: Attempts the correct "
        r"method of finding obtuse $\angle SPQ$. See scheme.",
@@ -218,7 +291,7 @@ DRAFT = [
        r"$90^\circ+\arccos\left(\frac{h}{7}\right)$ or $90^\circ+\arccos\left(\frac{h_1}{14}\right)$",
        r"ALT: Alt(a) — A1 (AO 1.1b): awrt $149.32^\circ$"],
       False, 14),
-    e("07b", "7(b)", TRIG, "5.1", 2, Q7 + r"the length of the diagonal $SQ$, in cm, to one decimal place.",
+    e("07b", "7(b)", TRIG, "5.1", 2, LATEX["07b"],
       [r"M1 (AO 1.1b): Method of finding $SQ$: $SQ^2=14^2+7^2-2\times14\times7\cos\text{“}149.32\text{”}$. Notes: A "
        r"correct method of finding $SQ$ using their $\angle SPQ$. $SQ^2=14^2+7^2-2\times14\times7\cos\text{“}149.32"
        r"\text{”}$ scores this mark.",
@@ -226,7 +299,7 @@ DRAFT = [
       False, 14),
 
     # ---------------- Q8 ----------------
-    e("08a", "8(a)", SEQ, "4.1", 4, Q8 + r"find the value of $a$.",
+    e("08a", "8(a)", SEQ, "4.1", 4, LATEX["08a"],
       [r"M1 (AO 1.1a): $(2+ax)^8$ Attempts the term in $x^5={}^8C_5\,2^3(ax)^5=448a^5x^5$. Notes: An attempt at selecting "
        r"the correct term of the binomial expansion. If all terms are given then the correct term must be used. Allow "
        r"with a missing bracket ${}^8C_5\,2^3ax^5$ and left without the binomial coefficient expanded",
@@ -236,8 +309,7 @@ DRAFT = [
        r"A1 (AO 1.1b): $\Rightarrow a=\frac{3}{2}$. Notes: Correct work leading to $a=\frac{3}{2}$"],
       False, 16),
     e("08b", "8(b)", SEQ, "4.1", 3,
-      Q8 + r"(a) find the value of $a$. Using this value of $a$, (b) find the constant term in the expansion of "
-      r"$$\left(1+\frac{1}{x^4}\right)(2+ax)^8$$",
+      LATEX["08b"],
       [r"M1 (AO 1.1b): Attempts either term. So allow for $2^8$ or ${}^8C_4\,2^4a^4$. Notes: Finds either term required. "
        r"So allow for $2^8$ or ${}^8C_4\,2^4a^4$ (even allowing with $a$)",
        r"dM1 (AO 2.1): Attempts the sum of both terms $2^8+{}^8C_4\,2^4a^4$. Notes: Attempts the sum of both terms "
@@ -247,7 +319,7 @@ DRAFT = [
 
     # ---------------- Q9 ----------------
     e("09", "9", INT, "8.3, 8.2, 2.1", 4,
-      r"Find the value of the constant $k$, $0<k<9$, such that $$\int_k^9\frac{6}{\sqrt{x}}\,\mathrm{d}x=20$$",
+      LATEX["09"],
       [r"M1 (AO 1.1b): $\int_k^9\frac{6}{\sqrt{x}}\,\mathrm{d}x=\left[ax^{\frac{1}{2}}\right]_k^9=20\Rightarrow"
        r"36-12\sqrt{k}=20$. Notes: For setting $\left[ax^{\frac{1}{2}}\right]_k^9=20$",
        r"A1 (AO 1.1b): $36-12\sqrt{k}=20$. Notes: A correct equation involving p Eg. $36-12\sqrt{k}=20$",
@@ -258,7 +330,7 @@ DRAFT = [
       False, 18),
 
     # ---------------- Q10 ----------------
-    e("10a", "10(a)", PROOF, "1.1", 4, Q10 + r"Prove, using algebra, that the statement is true for all odd numbers.",
+    e("10a", "10(a)", PROOF, "1.1", 4, LATEX["10a"],
       [r"B1 (AO 3.1a): Selects a correct strategy. E.g uses an odd number is $2k\pm1$. Notes: Note: May be in any "
        r"variable (condone use of $n$). Selects a correct strategy. E.g uses an odd number is $2k\pm1$",
        r"M1 (AO 2.1): Attempts to simplify $(2k\pm1)^3-(2k\pm1)=\ldots$ Notes: Attempts $(2k\pm1)^3-(2k\pm1)=\ldots$ "
@@ -273,20 +345,19 @@ DRAFT = [
        r"ALT: Alt (a) — dM1 (AO 1.1b): States that $k-1$ multiplied by $k+1$ is therefore a multiple of 4",
        r"ALT: Alt (a) — A1 (AO 2.4): Concludes that $k^3-k$ is a multiple of 4 as it is odd $\times$ multiple of 4"],
       False, 20),
-    e("10b", "10(b)", PROOF, "1.1", 1, Q10 + r"Use a counterexample to show that the statement is not always true.",
+    e("10b", "10(b)", PROOF, "1.1", 1, LATEX["10b"],
       [r"B1 (AO 2.4): Any counter example with correct statement. Eg. $2^3-2=6$ which is not a multiple of 4. Notes: Any "
        r"counter example with correct statement."],
       False, 20),
 
     # ---------------- Q11 ----------------
     e("11a", "11(a)", EXP, "6.7", 1,
-      Q11 + r"find the area of the nature reserve that was covered by trees just before tree planting started.",
+      LATEX["11a"],
       [r"B1 (AO 3.4): 35 (km$^2$). Notes: Uses the equation of the model to find that 35 (km$^2$) of the reserve was "
        r"covered on 1st January 2005. Do not accept eg. 35 m$^2$"],
       False, 24),
     e("11b", "11(b)", EXP, "6.7, 6.3", 4,
-      Q11 + Q11B + r"Use this information to find a complete equation for the model, giving your value of $c$ to 3 "
-      r"significant figures.",
+      LATEX["11b"],
       [r"M1 (AO 1.1b): Sets their $60=80-45\mathrm{e}^{14c}\Rightarrow45\mathrm{e}^{14c}=20$. Notes: Sets their "
        r"$60=80-45\mathrm{e}^{14c}\Rightarrow A\mathrm{e}^{14c}=B$",
        r"A1 (AO 1.1b): $45\mathrm{e}^{14c}=20$. Notes: $45\mathrm{e}^{14c}=20$ or equivalent.",
@@ -297,8 +368,7 @@ DRAFT = [
        r"$A=80-45\mathrm{e}^{-0.0579t}$"],
       False, 24),
     e("11c", "11(c)", EXP, "6.7", 1,
-      Q11 + Q11B + r"On 1st January 2020, the owners of the nature reserve announced a long-term plan to have 100 km$^2$ "
-      r"of the nature reserve covered by trees. State a reason why the model is not appropriate for this plan.",
+      LATEX["11c"],
       [r"B1 (AO 3.5b): Gives a suitable answer: The maximum area covered by trees is only 80 km$^2$; The “80” would need "
        r"to be “100”; Substitutes 100 into the equation of the model and shows that the formula fails with a reason eg. "
        r"you cannot take a log of a negative number. Notes: Gives a suitable interpretation (See scheme)"],
@@ -306,8 +376,7 @@ DRAFT = [
 
     # ---------------- Q12 ----------------
     e("12i", "12(i)", TRIG, "5.4, 5.3", 5,
-      Q12 + r"Solve, for $0<\theta\leqslant450^\circ$, the equation $$5\cos^2\theta=6\sin\theta$$ giving your answers to "
-      r"one decimal place.",
+      LATEX["12i"],
       [r"M1 (AO 1.2): Uses $\cos^2\theta=1-\sin^2\theta$: $5\cos^2\theta=6\sin\theta\Rightarrow5\sin^2\theta+6\sin\theta"
        r"-5=0$. Notes: Uses $\cos^2\theta=1-\sin^2\theta$ to form a 3TQ in $\sin\theta$",
        r"A1 (AO 1.1b): $5\sin^2\theta+6\sin\theta-5=0$. Notes: Correct 3TQ=0 $5\sin^2\theta+6\sin\theta-5=0$",
@@ -320,26 +389,20 @@ DRAFT = [
        r"$\theta=34.5^\circ,145.5^\circ,394.5^\circ$ and no other values"],
       False, 26),
     e("12iia", "12(ii)(a)", TRIG, "5.4, 5.3", 2,
-      Q12 + r"A student’s attempt to solve the question “Solve, for $-90^\circ<x<90^\circ$, the equation "
-      r"$3\tan x-5\sin x=0$” is set out below. "
-      r"$$\begin{aligned}3\tan x-5\sin x&=0\\3\frac{\sin x}{\cos x}-5\sin x&=0\\3\sin x-5\sin x\cos x&=0\\"
-      r"3-5\cos x&=0\\\cos x&=\frac{3}{5}\\x&=53.1^\circ\end{aligned}$$ "
-      r"Identify two errors or omissions made by this student, giving a brief explanation of each.",
+      LATEX["12iia"],
       [r"B1 (AO 2.3): One of: They cancel by $\sin x$ (and hence they miss the solution $\sin x=0\Rightarrow x=0$); They "
        r"do not find all the solutions of $\cos x=\frac{3}{5}$ (in the given range) or they missed the solution "
        r"$x=-53.1^\circ$. Notes: See scheme",
        r"B1 (AO 2.3): Both of the above. Notes: See scheme"],
       False, 26),
     e("12iib", "12(ii)(b)", TRIG, "5.4, 5.2", 2,
-      Q12 + r"The first four positive solutions, in order of size, of the equation "
-      r"$$\cos(5\alpha+40^\circ)=\frac{3}{5}$$ are $\alpha_1$, $\alpha_2$, $\alpha_3$ and $\alpha_4$ Find, to the nearest "
-      r"degree, the value of $\alpha_4$",
+      LATEX["12iib"],
       [r"M1 (AO 3.1a): Sets $5\alpha+40^\circ=720^\circ-53.1^\circ$. Notes: Sets $5\alpha+40^\circ=666.9^\circ$ o.e.",
        r"A1 (AO 1.1b): $\alpha=125^\circ$. Notes: awrt $\alpha=125^\circ$"],
       False, 26),
 
     # ---------------- Q13 ----------------
-    e("13a", "13(a)", EXP, "6.6, 6.4", 3, Q13 + r"Find, to 3 significant figures, the value of $p$ and the value of $q$.",
+    e("13a", "13(a)", EXP, "6.6, 6.4", 3, LATEX["13a"],
       [r"M1 (AO 1.1b): $\log_{10}h=2.25-0.235\log_{10}m\Rightarrow h=10^{2.25-0.235\log_{10}m}\Rightarrow "
        r"h=10^{2.25}\times m^{-0.235}$. Notes: Establishes a link between $h=pm^q$ and $\log_{10}h=2.25-0.235\log_{10}m$. "
        r"May be implied by a correct equation in $p$ or $q$",
@@ -350,9 +413,7 @@ DRAFT = [
        r"ALT: Second scheme column — A1 (AO 1.1b): Or either one of $\log_{10}p=2.25$, $q=-0.235$"],
       True, 30),
     e("13b", "13(b)", EXP, "6.7, 6.6", 3,
-      Q13 + r"(a) Find, to 3 significant figures, the value of $p$ and the value of $q$. A particular mammal has a mass "
-      r"of 5 kg and a resting heart rate of 119 beats per minute. (b) Comment on the suitability of the model for this "
-      r"mammal.",
+      LATEX["13b"],
       [r"M1 (AO 3.1b): $h=\text{“}178\text{”}\times5^{\text{“}-0.235\text{”}}$. Notes: Uses either model to set up an "
        r"equation in $h$ (or $m$)",
        r"A1 (AO 1.1b): $h=122$. Notes: $h=$ awrt 122. Condone $h=$ awrt 122 bpm",
@@ -363,14 +424,14 @@ DRAFT = [
        r"ALT: Second scheme column — M1 (AO 3.1b): $\log_{10}h=\text{“}2.25\text{”}-\text{“}0.235\text{”}\log_{10}5$",
        r"ALT: Second scheme column — A1 (AO 1.1b): $h=122$"],
       True, 30),
-    e("13c", "13(c)", EXP, "6.7", 1, Q13 + r"With reference to the model, interpret the value of the constant $p$.",
+    e("13c", "13(c)", EXP, "6.7", 1, LATEX["13c"],
       [r"B1 (AO 3.4): “$p$” would be the (resting) heart rate (in bpm) of a mammal with a mass of 1 kg. Notes: “$p$” "
        r"would be the (resting) heart rate of a mammal with a mass of 1 kg"],
       True, 30),
 
     # ---------------- Q14 ----------------
     e("14a", "14(a)", ALG, "2.3", 3,
-      Q14 + r"Write $\mathrm{f}(x)$ in the form $$a(x+b)^2+c$$ where $a$, $b$ and $c$ are constants to be found.",
+      LATEX["14a"],
       [r"M1 (AO 1.1b): $\mathrm{f}(x)=-3x^2+12x+8=-3(x\pm2)^2+\ldots$ Notes: Attempts to take out a common factor and "
        r"complete the square. Award for $-3(x\pm2)^2+\ldots$",
        r"A1 (AO 1.1b): $=-3(x-2)^2+\ldots$ Notes: Proceeds to a form $-3(x-2)^2+\ldots$",
@@ -380,16 +441,13 @@ DRAFT = [
        r"ALT: Alternatively (a), comparing coefficients — A1 (AO 1.1b): or via comparison finds $a=-3, b=-2$"],
       False, 34),
     e("14b", "14(b)", ALG, "2.3", 2,
-      Q14 + r"(a) Write $\mathrm{f}(x)$ in the form $a(x+b)^2+c$ where $a$, $b$ and $c$ are constants to be found. "
-      r"The curve $C$ has a maximum turning point at $M$. (b) Find the coordinates of $M$.",
+      LATEX["14b"],
       [r"B1ft (AO 1.1b): Coordinates of $M=(2,20)$. Notes: One correct coordinate",
        r"B1ft (AO 2.2a): Coordinates of $M=(2,20)$. Notes: Correct coordinates. Allow as $x=\ldots, y=\ldots$ Follow "
        r"through on their $(-b,c)$"],
       False, 34),
     e("14c", "14(c)", INT, "8.3, 8.2", 5,
-      Q14 + r"The curve $C$ has a maximum turning point at $M$. " + FIG3 + r"Figure 3 shows a sketch of the curve $C$. "
-      r"The line $l$ passes through $M$ and is parallel to the $x$-axis. The region $R$, shown shaded in Figure 3, is "
-      r"bounded by $C$, $l$ and the $y$-axis. Using algebraic integration, find the area of $R$.",
+      LATEX["14c"],
       [r"M1 (AO 1.1b): $\int-3x^2+12x+8\,\mathrm{d}x=-x^3+6x^2+8x$. Notes: Attempts to integrate. Award for any correct "
        r"index",
        r"A1 (AO 1.1b): $\int-3x^2+12x+8\,\mathrm{d}x=-x^3+6x^2+8x$. Notes: $\int-3x^2+12x+8\,\mathrm{d}x=-x^3+6x^2+8x"
@@ -407,14 +465,14 @@ DRAFT = [
       True, 34),
 
     # ---------------- Q15 ----------------
-    e("15a", "15(a)", COORD, "3.1", 2, Q15 + r"the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,",
+    e("15a", "15(a)", COORD, "3.1", 2, LATEX["15a"],
       [r"M1 (AO 2.2a): Deduces the line has gradient “$-3$” and point $(7,4)$ Eg $y-4=-3(x-7)$. Notes: Uses the idea "
        r"of perpendicular gradients to deduce that gradient of $PN$ is $-3$ with point $(7,4)$ to find the equation of "
        r"line $PN$. So sight of $y-4=-3(x-7)$ would score this mark. If the form $y=mx+c$ is used expect the candidates "
        r"to proceed as far as $c=\ldots$ to score this mark.",
        r"A1 (AO 1.1b): $y=-3x+25$. Notes: Achieves $y=-3x+25$"],
       True, 38),
-    e("15b", "15(b)", COORD, "3.2, 3.1, 2.4", 4, Q15 + r"an equation for $C$.",
+    e("15b", "15(b)", COORD, "3.2, 3.1, 2.4", 4, LATEX["15b"],
       [r"M1 (AO 3.1a): Solves $y=-3x+25$ and $y=\frac{1}{3}x$ simultaneously. Notes: Awarded for an attempt at the key "
        r"step of finding the coordinates of point $P$. ie for an attempt at solving their $y=-3x+25$ and "
        r"$y=\frac{1}{3}x$ simultaneously. Allow any methods (including use of a calculator) but it must be a valid "
@@ -429,9 +487,7 @@ DRAFT = [
        r"$(x-7)^2+(y-4)^2=\left(\sqrt{\frac{5}{2}}\right)^2$"],
       True, 38),
     e("15c", "15(c)", COORD, "3.2, 2.3", 3,
-      Q15 + r"(a) the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants, (b) an equation for "
-      r"$C$. The line with equation $y=\frac{1}{3}x+k$, where $k$ is a non-zero constant, is also a tangent to $C$. "
-      r"(c) Find the value of $k$.",
+      LATEX["15c"],
       [r"M1 (AO 3.1a): Attempts to find where $y=\frac{1}{3}x+k$ meets $C$ using vectors Eg: "
        r"$\begin{pmatrix}7.5\\2.5\end{pmatrix}+2\times\begin{pmatrix}-0.5\\1.5\end{pmatrix}$. Notes: Attempts to find "
        r"where $y=\frac{1}{3}x+k$ meets $C$ using a vector approach",
@@ -457,7 +513,7 @@ DRAFT = [
       True, 38),
 
     # ---------------- Q16 ----------------
-    e("16a", "16(a)", DIFF, "7.2, 7.1", 4, Q16 + Q16A,
+    e("16a", "16(a)", DIFF, "7.2, 7.1", 4, LATEX["16a"],
       [r"M1 (AO 1.1b): (i) Uses $\frac{\mathrm{d}y}{\mathrm{d}x}=-3$ at $x=2\Rightarrow12a+60-39=-3$. Notes: Attempts to "
        r"use $\frac{\mathrm{d}y}{\mathrm{d}x}=-3$ at $x=2$ to form an equation in $a$. Condone slips but expect to see two "
        r"of the powers reduced correctly",
@@ -468,7 +524,7 @@ DRAFT = [
        r"$(2,10)$ lies on $C$ by setting up an equation in $a$ and $b$ with $a=-2$ leading to $b=\ldots$",
        r"A1 (AO 1.1b): Subs $a=-2$ into $10=8a+60-78+b\Rightarrow b=44$. Notes: $b=44$"],
       False, 42),
-    e("16b", "16(b)", DIFF, "7.3, 2.3", 3, Q16 + Q16A + r"(b) Hence show that $C$ has no stationary points.",
+    e("16b", "16(b)", DIFF, "7.3, 2.3", 3, LATEX["16b"],
       [r"B1 (AO 1.1b): $\mathrm{f}(x)=-2x^3+15x^2-39x+44\Rightarrow\mathrm{f}'(x)=-6x^2+30x-39$. Notes: "
        r"$\mathrm{f}'(x)=-6x^2+30x-39$ oe",
        r"M1 (AO 3.1a): Attempts to show that $-6x^2+30x-39$ has no roots Eg. calculates "
@@ -479,15 +535,14 @@ DRAFT = [
        r"Notes: A fully correct method with reason and conclusion. Eg as $b^2-4ac=-36<0$, $\mathrm{f}'(x)\neq0$ meaning "
        r"that no stationary points exist"],
       False, 42),
-    e("16c", "16(c)", ALG, "2.6", 2, Q16 + Q16A + Q16C,
+    e("16c", "16(c)", ALG, "2.6", 2, LATEX["16c"],
       [r"M1 (AO 1.1b): $-2x^3+15x^2-39x+44\equiv(x-4)(-2x^2+7x-11)$. Notes: For an attempt at division (seen or implied) "
        r"Eg $-2x^3+15x^2-39x+b\equiv(x-4)\left(-2x^2\ldots\pm\frac{b}{4}\right)$",
        r"A1 (AO 1.1b): $-2x^3+15x^2-39x+44\equiv(x-4)(-2x^2+7x-11)$. Notes: $(x-4)(-2x^2+7x-11)$ Sight of the quadratic "
        r"with no incorrect working seen can score both marks."],
       False, 42),
     e("16d", "16(d)", ALG, "2.8, 2.6", 2,
-      Q16 + Q16A + Q16C + r"(d) Hence deduce the coordinates of the points of intersection of the curve with equation "
-      r"$$y=\mathrm{f}(0.2x)$$ and the coordinate axes.",
+      LATEX["16d"],
       [r"B1ft (AO 1.1b): Deduces either intercept. $(0,44)$ or $(20,0)$. Notes: See scheme. You can follow through on "
        r"their value for $b$",
        r"B1ft (AO 2.2a): Deduces both intercepts $(0,44)$ and $(20,0)$. Notes: See scheme. You can follow through on "
