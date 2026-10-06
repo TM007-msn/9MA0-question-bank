@@ -1,0 +1,5 @@
+jsonschema
+pymupdf
+sympy
+requests
+beautifulsoup4

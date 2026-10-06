@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./source/reserved/**)",
+      "Edit(./source/reserved/**)",
+      "Bash(*source/reserved*)",
+      "PowerShell(*source/reserved*)",
+      "PowerShell(*source\\reserved*)"
+    ]
+  }
+}

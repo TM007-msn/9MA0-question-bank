@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://9ma0-bank.local/schemas/generated.schema.json",
+  "title": "Generated question",
+  "description": "A variant written from a real question (the anchor). Uses every question field plus verification fields.",
+  "allOf": [
+    { "$ref": "question.schema.json#/$defs/core" }
+  ],
+  "required": ["anchor_id", "variant", "final_answer", "verified", "verified_on"],
+  "properties": {
+    "id": {
+      "description": "Anchor id plus variant, e.g. 9MA0-01_2023-06_Q07b-A.",
+      "type": "string",
+      "pattern": "^9MA0-0[1-3]_[0-9]{4}-(0[1-9]|1[0-2])_Q[0-9]{1,2}[a-z]?-[ABC]$"
+    },
+    "anchor_id": {
+      "description": "id of the questions.json entry this variant is based on.",
+      "type": "string",
+      "pattern": "^9MA0-0[1-3]_[0-9]{4}-(0[1-9]|1[0-2])_Q[0-9]{1,2}[a-z]?$"
+    },
+    "variant": { "enum": ["A", "B", "C"] },
+    "final_answer": { "type": ["string", "null"] },
+    "verified": { "type": "boolean" },
+    "verified_on": {
+      "description": "Date verification ran (YYYY-MM-DD). Null if it has not run.",
+      "type": ["string", "null"],
+      "format": "date"
+    }
+  },
+  "unevaluatedProperties": false
+}

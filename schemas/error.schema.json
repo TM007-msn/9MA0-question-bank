@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://9ma0-bank.local/schemas/error.schema.json",
+  "title": "Error entry",
+  "description": "A common error, taken from examiner reports or my own attempts.",
+  "type": "object",
+  "required": ["topic", "error", "mentions", "example_ids"],
+  "additionalProperties": false,
+  "properties": {
+    "topic": { "type": "string", "minLength": 1 },
+    "error": { "type": "string", "minLength": 1 },
+    "mentions": {
+      "description": "How many times this error has been seen.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "example_ids": {
+      "description": "Question ids where this error appears.",
+      "type": "array",
+      "items": { "type": "string" },
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Generated output for / from the reMarkable
+out/
+
+# Source PDFs (copyrighted; kept local only)
+source/**/*.pdf
