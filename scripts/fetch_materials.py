@@ -1,12 +1,12 @@
-"""Find and download Edexcel A-level Maths (9MA0) past papers and reference files.
+"""Find and download Edexcel A-level (9MA0) and AS (8MA0) Maths past papers and reference files.
 
 Usage (from the project root, with the venv active):
     python scripts/fetch_materials.py              # plan only: print what would be fetched
     python scripts/fetch_materials.py --download   # download, then write log/missing.csv
 
 Sources, in order of preference for each paper/series/type:
-  1. Pearson, but only files Pearson lists as public. Anything Pearson tags
-     as secure content (teacher login) is never downloaded from Pearson.
+  1. Pearson, but only files that Pearson's public past-papers page lists
+     as downloadable without a login (see is_login_only below).
   2. Physics & Maths Tutor (PMT), for question papers and mark schemes.
 Anything neither source can supply goes into log/missing.csv.
 
@@ -33,30 +33,59 @@ from paths import ROOT
 SOURCE_DIR = ROOT / "source"
 MISSING_CSV = ROOT / "log" / "missing.csv"
 
-# The three most recent June series available when this was set up
-# (2026-10). Fixed on purpose rather than worked out each run: if it moved
-# forward automatically, an old mock series would land in source/papers/
-# the next time a new series came out. Keep in sync with CLAUDE.md.
-RESERVED_SERIES = {"2023-06", "2024-06", "2025-06"}
+# Series kept back as mock papers, per qualification: the most recent June
+# series available when this was set up (2026-10). Fixed on purpose rather
+# than worked out each run: if it moved forward automatically, an old mock
+# series would land in source/papers/ the next time a new series came out.
+# Keep in sync with the "Reserved mocks" table in CLAUDE.md.
+RESERVED_SERIES = {
+    "9MA0": {"2023-06", "2024-06", "2025-06"},
+    "8MA0": {"2025-06"},
+}
 
 FIRST_YEAR = 2018
 DELAY_SECONDS = 1
 USER_AGENT = "9MA0-question-bank/1.0 (personal study script; python-requests)"
 
-PMT_PAGE = "https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/"
+# Per qualification: PMT page, PMT folder prefix for each paper, and which
+# paper split into Statistics/Mechanics papers from 2019 onwards.
+QUALIFICATIONS = {
+    "9MA0": {
+        "pmt_page": "https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers/",
+        "pmt_folder": "Paper-",
+        "single_papers": ["01", "02", "03"],  # June 2018, SAM, SPEC
+        "split_papers": ["01", "02", "31", "32"],  # 2019 onwards
+        "split_from": "3",  # PMT "Paper-3 ... (Stats)" -> 31, "(Mech)" -> 32
+    },
+    "8MA0": {
+        "pmt_page": "https://www.physicsandmathstutor.com/maths-revision/a-level-edexcel/papers-as/",
+        "pmt_folder": "AS-Paper-",
+        "single_papers": ["01", "02"],
+        "split_papers": ["01", "21", "22"],
+        "split_from": "2",  # PMT "AS-Paper-2 ... (Stats)" -> 21, "(Mech)" -> 22
+    },
+}
 
-# Pearson's course-materials page fills its file list from this Algolia
-# search index. The app id and key are the public, search-only values
-# embedded in that page; they can only read the public listing.
+# Pearson's past-papers and course-materials pages fill their file lists
+# from this Algolia search index. The app id and key are the public,
+# search-only values embedded in those pages.
 PEARSON_HOST = "https://qualifications.pearson.com"
 ALGOLIA_URL = "https://L639T95U5A-dsn.algolia.net/1/indexes/qualifications-uk_LIVE_master-content/query"
 ALGOLIA_HEADERS = {
     "X-Algolia-Application-Id": "L639T95U5A",
     "X-Algolia-API-Key": "f79c7a8352e9ffbdaec387bf43612ee6",
 }
-ALGOLIA_FILTERS = [
-    ["category:Pearson-UK:Specification-Code/maths-2017-as-al"],
-]
+# What the public past-papers page asks the index for when you pick
+# A level / AS Mathematics: question papers, mark schemes, examiner reports.
+PAST_PAPERS_FILTER = (
+    '(category:"Pearson-UK:Qualification-Family/A-Level" OR category:"Pearson-UK:Qualification-Family/AS")'
+    ' AND category:"Pearson-UK:Qualification-Subject/Mathematics"'
+    ' AND (category:"Pearson-UK:Document-Type/Question-paper"'
+    ' OR category:"Pearson-UK:Document-Type/Mark-scheme"'
+    ' OR category:"Pearson-UK:Document-Type/Examiner-report")'
+)
+# The reference files are listed on the course-materials page instead.
+REFERENCE_FILTER = 'category:"Pearson-UK:Specification-Code/maths-2017-as-al"'
 
 # Reference files: (file name in Pearson's index, name to save as).
 REFERENCE_FILES = [
@@ -68,9 +97,12 @@ REFERENCE_FILES = [
 
 MONTHS = {"January": "01", "June": "06", "October": "10", "November": "11"}
 
-# Pearson calls the autumn 2021 series "November 2021", but the papers were
-# sat in October 2021 and PMT lists them as October. Use one name for both.
-SERIES_ALIASES = {"2021-11": "2021-10"}
+# One name per series, whatever each site calls it:
+# - Pearson calls the autumn 2021 series "November 2021" (PMT's AS page does
+#   too), but the papers were sat in October 2021.
+# - PMT's AS page calls the 2020 series "June 2020", but no exams were sat in
+#   June 2020 (COVID); Pearson lists that series as October 2020.
+SERIES_ALIASES = {"2021-11": "2021-10", "2020-06": "2020-10"}
 
 PEARSON_TYPES = {
     "Question-paper": "QP",
@@ -91,16 +123,17 @@ def http_get(session, url, **kwargs):
 
 
 def series_from_words(month, year):
-    """("June", "2019") -> "2019-06", with the November 2021 alias applied."""
+    """("June", "2019") -> "2019-06", with SERIES_ALIASES applied."""
     series = f"{year}-{MONTHS[month]}"
     return SERIES_ALIASES.get(series, series)
 
 
-def papers_for_series(series):
-    """Paper codes sat in a series. Paper 3 split into 31 and 32 from 2019."""
+def papers_for_series(qual, series):
+    """Paper codes sat in a series. The applied paper split from 2019."""
+    config = QUALIFICATIONS[qual]
     if series in ("SAM", "SPEC", "2018-06"):
-        return ["01", "02", "03"]
-    return ["01", "02", "31", "32"]
+        return config["single_papers"]
+    return config["split_papers"]
 
 
 def types_for_series(series):
@@ -108,16 +141,23 @@ def types_for_series(series):
     return ["QP", "MS"] if series in ("SAM", "SPEC") else ["QP", "MS", "ER"]
 
 
+def is_reserved(qual, series):
+    return series in RESERVED_SERIES.get(qual, set())
+
+
 # ---------------------------------------------------------------- listing
 
-def list_pmt(session):
-    """Return {(paper, series, type): url} for every 9MA0 QP/MS PMT links to."""
-    html = http_get(session, PMT_PAGE).text
+def list_pmt(session, qual):
+    """Return {(qual, paper, series, type): url} for every QP/MS PMT links to."""
+    config = QUALIFICATIONS[qual]
+    html = http_get(session, config["pmt_page"]).text
     soup = BeautifulSoup(html, "html.parser")
+    folder = re.escape(config["pmt_folder"])
     found = {}
     for link in soup.find_all("a", href=True):
         # e.g. .../Edexcel/Paper-3/MS/June 2019 MS (Stats).pdf
-        match = re.search(r"/Edexcel/Paper-([123])/(QP|MS)/([^/]+)\.pdf$", link["href"])
+        #      .../Edexcel/AS-Paper-2/QP/November 2021 QP (Mech).pdf
+        match = re.search(rf"/Edexcel/{folder}([123])/(QP|MS)/([^/]+)\.pdf$", link["href"])
         if not match:
             continue
         paper_number, doc_type, name = match.groups()
@@ -135,22 +175,27 @@ def list_pmt(session):
         else:
             continue
 
-        # PMT keeps the split Paper 3 under Paper-3 with a (Stats)/(Mech) suffix.
-        paper = {"Stats": "31", "Mech": "32"}.get(section, f"0{paper_number}")
-        found[(paper, series, doc_type)] = link["href"]
+        # PMT files the split paper under one folder with a (Stats)/(Mech)
+        # suffix; Pearson numbers them e.g. 31/32 (9MA0) or 21/22 (8MA0).
+        if section:
+            assert paper_number == config["split_from"], link["href"]
+            paper = config["split_from"] + ("1" if section == "Stats" else "2")
+        else:
+            paper = f"0{paper_number}"
+        found[(qual, paper, series, doc_type)] = link["href"]
     return found
 
 
-def query_pearson(session):
-    """All hits in Pearson's index for the 2017 maths specification."""
+def query_pearson(session, filters):
+    """All hits in Pearson's index matching an Algolia filter string."""
     hits, page = [], 0
     while True:
         body = {
             "query": "",
-            "hitsPerPage": 500,
+            "filters": filters,
+            "hitsPerPage": 1000,
             "page": page,
-            "facetFilters": ALGOLIA_FILTERS,
-            "attributesToRetrieve": ["title", "url", "category"],
+            "attributesToRetrieve": ["title", "url", "id", "category"],
             "attributesToHighlight": [],
         }
         response = session.post(ALGOLIA_URL, headers=ALGOLIA_HEADERS, json=body, timeout=60)
@@ -164,8 +209,15 @@ def query_pearson(session):
             return hits
 
 
-def is_secure(hit):
-    return any("secure-content" in c for c in hit["category"])
+def is_login_only(hit):
+    """True if Pearson's past-papers page shows this file with a padlock.
+
+    The page's own script sets its "secure" flag (the padlock, "Secure
+    download. Centre login required.") only when the file lives under
+    /content/dam/secure/. The "secure-content/silver" category tag that many
+    public files also carry is not used by the page.
+    """
+    return any("/content/dam/secure/" in (hit.get(field) or "") for field in ("url", "id"))
 
 
 def category_value(hit, prefix):
@@ -177,14 +229,18 @@ def category_value(hit, prefix):
 
 
 def list_pearson(hits):
-    """Return {(paper, series, type): (url, secure)} for 9MA0 exam materials."""
+    """Return {(qual, paper, series, type): (url, login_only)} for exam materials."""
     found = {}
     for hit in hits:
         filename = hit["url"].rsplit("/", 1)[-1]
-        # e.g. 9ma0-01-que-2018.pdf, 9MA0_31_pef_20190815.pdf. Skip zips and
-        # the "modified" (accessibility) versions.
-        match = re.match(r"9ma0[-_](0[1-3]|3[12])[-_]", filename, re.IGNORECASE)
+        # e.g. 9ma0-01-que-2018.pdf, 9MA0_31_pef_20190815.pdf. One Pearson
+        # file is named 8MA0_-21_pef_..., hence [-_]+. Skip zips and the
+        # "modified" (accessibility) versions.
+        match = re.match(r"([89]MA0)[-_]+(0[1-3]|2[12]|3[12])[-_]", filename, re.IGNORECASE)
         if not match or not filename.lower().endswith(".pdf") or "modified" in filename.lower():
+            continue
+        qual, paper = match.group(1).upper(), match.group(2)
+        if paper not in set(QUALIFICATIONS[qual]["single_papers"]) | set(QUALIFICATIONS[qual]["split_papers"]):
             continue
         doc_type = PEARSON_TYPES.get(category_value(hit, "Pearson-UK:Document-Type/"))
         series_tag = category_value(hit, "Pearson-UK:Exam-Series/")  # e.g. June-2019
@@ -193,21 +249,21 @@ def list_pearson(hits):
         month, year = series_tag.split("-")
         if int(year) < FIRST_YEAR or month not in MONTHS:
             continue
-        key = (match.group(1), series_from_words(month, year), doc_type)
-        # If Pearson lists two versions, keep a public one over a secure one.
-        if key not in found or (found[key][1] and not is_secure(hit)):
-            found[key] = (PEARSON_HOST + hit["url"], is_secure(hit))
+        key = (qual, paper, series_from_words(month, year), doc_type)
+        # If Pearson lists two versions, keep a public one over a login-only one.
+        if key not in found or (found[key][1] and not is_login_only(hit)):
+            found[key] = (PEARSON_HOST + hit["url"], is_login_only(hit))
     return found
 
 
 def pearson_reference(hits):
-    """Return {pearson file name: (url, secure)} for the reference files we want."""
+    """Return {pearson file name: (url, login_only)} for the reference files we want."""
     wanted = {name for name, _ in REFERENCE_FILES}
     found = {}
     for hit in hits:
         filename = hit["url"].rsplit("/", 1)[-1]
         if filename in wanted:
-            found[filename] = (PEARSON_HOST + hit["url"], is_secure(hit))
+            found[filename] = (PEARSON_HOST + hit["url"], is_login_only(hit))
     return found
 
 
@@ -220,32 +276,33 @@ def build_plan(pmt, pearson, reference):
       planned: list of dicts with dest (Path), url, source and slot details
       missing: list of dicts with paper, series, type, reason
     """
-    all_series = {key[1] for key in pmt} | {key[1] for key in pearson}
     planned, missing = [], []
 
-    for series in sorted(all_series):
-        for paper in papers_for_series(series):
-            for doc_type in types_for_series(series):
-                key = (paper, series, doc_type)
-                filename = f"9MA0-{paper}_{series}_{doc_type}.pdf"
-                assert FILENAME_RE.match(filename), filename
-                folder = "reserved" if series in RESERVED_SERIES else TYPE_FOLDERS[doc_type]
-                slot = {"paper": f"9MA0-{paper}", "series": series, "type": doc_type}
+    for qual in QUALIFICATIONS:
+        all_series = {k[2] for k in pmt if k[0] == qual} | {k[2] for k in pearson if k[0] == qual}
+        for series in sorted(all_series):
+            for paper in papers_for_series(qual, series):
+                for doc_type in types_for_series(series):
+                    key = (qual, paper, series, doc_type)
+                    filename = f"{qual}-{paper}_{series}_{doc_type}.pdf"
+                    assert FILENAME_RE.match(filename), filename
+                    folder = "reserved" if is_reserved(qual, series) else TYPE_FOLDERS[doc_type]
+                    slot = {"paper": f"{qual}-{paper}", "series": series, "type": doc_type}
 
-                pearson_entry = pearson.get(key)
-                if pearson_entry and not pearson_entry[1]:
-                    planned.append({**slot, "dest": SOURCE_DIR / folder / filename,
-                                    "url": pearson_entry[0], "source": "Pearson"})
-                elif key in pmt:
-                    planned.append({**slot, "dest": SOURCE_DIR / folder / filename,
-                                    "url": pmt[key], "source": "PMT"})
-                else:
-                    if pearson_entry:
-                        reason = "Pearson: secure (login only)"
+                    pearson_entry = pearson.get(key)
+                    if pearson_entry and not pearson_entry[1]:
+                        planned.append({**slot, "dest": SOURCE_DIR / folder / filename,
+                                        "url": pearson_entry[0], "source": "Pearson"})
+                    elif key in pmt:
+                        planned.append({**slot, "dest": SOURCE_DIR / folder / filename,
+                                        "url": pmt[key], "source": "PMT"})
                     else:
-                        reason = "Pearson: not listed"
-                    reason += "; PMT: no examiner reports" if doc_type == "ER" else "; PMT: not listed"
-                    missing.append({**slot, "reason": reason})
+                        if pearson_entry:
+                            reason = "Pearson: centre login required (padlock)"
+                        else:
+                            reason = "Pearson: not listed"
+                        reason += "; PMT: no examiner reports" if doc_type == "ER" else "; PMT: not listed"
+                        missing.append({**slot, "reason": reason})
 
     for pearson_name, save_as in REFERENCE_FILES:
         entry = reference.get(pearson_name)
@@ -254,7 +311,7 @@ def build_plan(pmt, pearson, reference):
             planned.append({**slot, "dest": SOURCE_DIR / "reference" / save_as,
                             "url": entry[0], "source": "Pearson"})
         else:
-            reason = "Pearson: secure (login only)" if entry else "Pearson: not listed"
+            reason = "Pearson: centre login required (padlock)" if entry else "Pearson: not listed"
             missing.append({**slot, "reason": reason})
 
     return planned, missing
@@ -274,32 +331,33 @@ def print_plan(planned, missing):
 
 
 def print_coverage(planned, missing):
-    """Grid of series x paper. Each cell shows QP, MS, ER in that order:
-    a letter when the file is planned or on disk, '.' when missing,
-    and a blank when that type doesn't exist for the series."""
+    """One grid per qualification: series x paper. Each cell shows QP, MS, ER
+    in that order: a letter when the file is planned or on disk, '.' when
+    missing, and a blank when that type doesn't exist for the series."""
     have = {(i["paper"], i["series"], i["type"]) for i in planned}
     gone = {(m["paper"], m["series"], m["type"]) for m in missing}
-    papers = ["01", "02", "03", "31", "32"]
-    series_list = sorted({s for _, s, _ in have | gone if s})
 
     print("\nCoverage (Q = question paper, M = mark scheme, E = examiner report, . = missing)")
-    print(f"{'series':10}" + "".join(f"9MA0-{p:<6}" for p in papers))
-    for series in series_list:
-        cells = []
-        for paper in papers:
-            if paper not in papers_for_series(series):
-                cells.append(f"{'':11}")
-                continue
-            cell = ""
-            for doc_type, letter in (("QP", "Q"), ("MS", "M"), ("ER", "E")):
-                key = (f"9MA0-{paper}", series, doc_type)
-                cell += letter if key in have else "." if key in gone else " "
-            cells.append(f"{cell:11}")
-        note = "  (reserved)" if series in RESERVED_SERIES else ""
-        print(f"{series:10}" + "".join(cells) + note)
+    for qual, config in QUALIFICATIONS.items():
+        papers = sorted(set(config["single_papers"]) | set(config["split_papers"]))
+        series_list = sorted({s for p, s, _ in have | gone if p.startswith(qual)})
+        print(f"\n{'series':10}" + "".join(f"{qual}-{p:<6}" for p in papers))
+        for series in series_list:
+            cells = []
+            for paper in papers:
+                if paper not in papers_for_series(qual, series):
+                    cells.append(f"{'':11}")
+                    continue
+                cell = ""
+                for doc_type, letter in (("QP", "Q"), ("MS", "M"), ("ER", "E")):
+                    key = (f"{qual}-{paper}", series, doc_type)
+                    cell += letter if key in have else "." if key in gone else " "
+                cells.append(f"{cell:11}")
+            note = "  (reserved)" if is_reserved(qual, series) else ""
+            print(f"{series:10}" + "".join(cells) + note)
 
     ref_missing = [m for m in missing if m["paper"] == "reference"]
-    print(f"reference: {3 - len(ref_missing)}/3 available")
+    print(f"\nreference: {len(REFERENCE_FILES) - len(ref_missing)}/{len(REFERENCE_FILES)} available")
 
 
 def write_missing(missing):
@@ -370,10 +428,13 @@ def main():
     session.headers["User-Agent"] = USER_AGENT
 
     try:
-        pmt = list_pmt(session)
-        time.sleep(DELAY_SECONDS)
-        hits = query_pearson(session)
-        planned, missing = build_plan(pmt, list_pearson(hits), pearson_reference(hits))
+        pmt = {}
+        for qual in QUALIFICATIONS:
+            pmt.update(list_pmt(session, qual))
+            time.sleep(DELAY_SECONDS)
+        pearson = list_pearson(query_pearson(session, PAST_PAPERS_FILTER))
+        reference = pearson_reference(query_pearson(session, REFERENCE_FILTER))
+        planned, missing = build_plan(pmt, pearson, reference)
 
         if not args.download:
             print_plan(planned, missing)

@@ -12,12 +12,12 @@
     "question_id": {
       "description": "PAPER_SERIES_Qpart, e.g. 9MA0-01_2023-06_Q07bii, 9MA0-31_2022-06_Q03a or 8MA0-02_SAM_Q03a. Keep in sync with scripts/naming.py.",
       "type": "string",
-      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-0[12])_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?$"
+      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?$"
     },
     "generated_id": {
       "description": "Anchor question id plus -A, -B or -C. Keep in sync with scripts/naming.py.",
       "type": "string",
-      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-0[12])_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?-[ABC]$"
+      "pattern": "^(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))_([0-9]{4}-(0[1-9]|1[0-2])|SAM|SPEC)_Q[0-9]{1,2}([a-z](i{1,3}|iv|vi{0,3}|ix|x)?)?-[ABC]$"
     },
     "core": {
       "type": "object",
@@ -33,8 +33,8 @@
           "minLength": 1
         },
         "paper": {
-          "description": "Paper code. 9MA0 = A level (01-03; from 2019 Paper 3 is 31 Statistics + 32 Mechanics), 8MA0 = AS (01-02).",
-          "enum": ["9MA0-01", "9MA0-02", "9MA0-03", "9MA0-31", "9MA0-32", "8MA0-01", "8MA0-02"]
+          "description": "Paper code. 9MA0 = A level (01-03; from 2019 Paper 3 is 31 Statistics + 32 Mechanics), 8MA0 = AS (01-02; from 2019 Paper 2 is 21 Statistics + 22 Mechanics).",
+          "enum": ["9MA0-01", "9MA0-02", "9MA0-03", "9MA0-31", "9MA0-32", "8MA0-01", "8MA0-02", "8MA0-21", "8MA0-22"]
         },
         "series": {
           "description": "Exam series as YYYY-MM, SAM for sample assessment materials, or SPEC for the specimen set.",

@@ -7,9 +7,10 @@ import Python. tests/test_naming.py checks that the two copies agree.
 import re
 
 # Qualification + paper: A level (9MA0) has papers 01-03, AS (8MA0) has 01-02.
-# From 2019 onwards 9MA0 Paper 3 is sat as two papers, 31 (Statistics) and
-# 32 (Mechanics); June 2018, SAM and SPEC have a single 03.
-PAPER = r"(9MA0-(0[1-3]|3[12])|8MA0-0[12])"
+# From 2019 onwards the applied paper is sat as two papers: 9MA0 Paper 3 as
+# 31 (Statistics) + 32 (Mechanics), 8MA0 Paper 2 as 21 (Statistics) + 22
+# (Mechanics). June 2018, SAM and SPEC have the single 03 / 02.
+PAPER = r"(9MA0-(0[1-3]|3[12])|8MA0-(0[12]|2[12]))"
 
 # Exam series: year-month (e.g. 2023-06), SAM for sample assessment materials,
 # or SPEC for the separate specimen set.
