@@ -1,0 +1,53 @@
+{
+  "description": "Hand-written labels (LaTeX) for specification statements whose PDF text is garbled: maths (fractions, powers, subscripts, calculus notation) or jumbled word order. Each was transcribed from the specification PDF. scripts/build_topics.py uses these in place of the extracted text. All other labels were checked by reading and are taken from the PDF text.",
+  "9MA0": {
+    "pure": {
+      "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials, the modulus of a linear function, $y=\\frac{a}{x}$ and $y=\\frac{a}{x^2}$ …",
+      "2.9": "Understand the effect of simple transformations on the graph of $y=\\mathrm{f}(x)$, including sketching associated graphs: $y=a\\mathrm{f}(x)$, $y=\\mathrm{f}(x)+a$, $y=\\mathrm{f}(x+a)$, $y=\\mathrm{f}(ax)$ and combinations of these transformations",
+      "3.1": "Understand and use the equation of a straight line, including the forms $y-y_1=m(x-x_1)$ and $ax+by+c=0$; gradient conditions for two straight lines to be parallel or perpendicular …",
+      "4.1": "Understand and use the binomial expansion of $(a+bx)^n$ for positive integer $n$; the notations $n!$ and ${}^nC_r$; link to binomial probabilities. Extend to any rational $n$ …",
+      "5.2": "Understand and use the standard small angle approximations of sine, cosine and tangent: $\\sin\\theta\\approx\\theta$, $\\cos\\theta\\approx1-\\frac{\\theta^2}{2}$, $\\tan\\theta\\approx\\theta$, where $\\theta$ is in radians",
+      "5.5": "Understand and use $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}$. Understand and use $\\sin^2\\theta+\\cos^2\\theta=1$; $\\sec^2\\theta=1+\\tan^2\\theta$ and $\\mathrm{cosec}^2\\theta=1+\\cot^2\\theta$",
+      "6.1": "Know and use the function $a^x$ and its graph, where $a$ is positive. Know and use the function $\\mathrm{e}^x$ and its graph.",
+      "6.2": "Know that the gradient of $\\mathrm{e}^{kx}$ is equal to $k\\mathrm{e}^{kx}$ and hence understand why the exponential model is suitable in many applications.",
+      "6.3": "Know and use the definition of $\\log_a x$ as the inverse of $a^x$, where $a$ is positive and $x\\geqslant0$. Know and use the function $\\ln x$ and its graph. Know and use $\\ln x$ as the inverse function of $\\mathrm{e}^x$",
+      "6.4": "Understand and use the laws of logarithms: $\\log_a x+\\log_a y=\\log_a(xy)$; $\\log_a x-\\log_a y=\\log_a\\left(\\frac{x}{y}\\right)$; $k\\log_a x=\\log_a x^k$ (including, for example, $k=-1$ and $k=-\\frac{1}{2}$)",
+      "6.5": "Solve equations of the form $a^x=b$",
+      "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form $y=ax^n$ and $y=kb^x$, given data for $x$ and $y$",
+      "7.1": "Understand and use the derivative of $\\mathrm{f}(x)$ as the gradient of the tangent to the graph of $y=\\mathrm{f}(x)$ at a general point $(x,y)$; the gradient of the tangent as a limit; interpretation as a rate of change; sketching the gradient function for a given curve; second derivatives; differentiation from first principles …; the second derivative as the rate of change of gradient …",
+      "7.2": "Differentiate $x^n$, for rational values of $n$, and related constant multiples, sums and differences. Differentiate $\\mathrm{e}^{kx}$ and $a^{kx}$, $\\sin kx$, $\\cos kx$, $\\tan kx$ and related sums, differences and constant multiples. Understand and use the derivative of $\\ln x$",
+      "7.3": "Apply differentiation to find gradients, tangents and normals, maxima and minima and stationary points, points of inflection. Identify where functions are increasing or decreasing.",
+      "8.2": "Integrate $x^n$ (excluding $n=-1$) and related sums, differences and constant multiples. Integrate $\\mathrm{e}^{kx}$, $\\frac{1}{x}$, $\\sin kx$, $\\cos kx$ and related sums, differences and constant multiples.",
+      "9.1": "Locate roots of $\\mathrm{f}(x)=0$ by considering changes of sign of $\\mathrm{f}(x)$ in an interval of $x$ on which $\\mathrm{f}(x)$ is sufficiently well behaved. Understand how change of sign methods can fail.",
+      "9.3": "Solve equations using the Newton-Raphson method and other recurrence relations of the form $x_{n+1}=\\mathrm{g}(x_n)$. Understand how such methods can fail."
+    },
+    "statistics": {
+      "4.1": "Understand and use simple, discrete probability distributions (calculation of mean and variance of discrete random variables is excluded), including the binomial distribution, as a model; calculate probabilities using the binomial distribution."
+    },
+    "mechanics": {
+      "7.4": "Use calculus in kinematics for motion in a straight line: $v=\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, $a=\\frac{\\mathrm{d}v}{\\mathrm{d}t}=\\frac{\\mathrm{d}^2r}{\\mathrm{d}t^2}$, $r=\\int v\\,\\mathrm{d}t$, $v=\\int a\\,\\mathrm{d}t$. Extend to 2 dimensions using vectors.",
+      "8.6": "Understand and use the $F\\leqslant\\mu R$ model for friction; coefficient of friction; motion of a body on a rough surface; limiting friction and statics."
+    }
+  },
+  "8MA0": {
+    "pure": {
+      "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials, $y=\\frac{a}{x}$ and $y=\\frac{a}{x^2}$ (including their vertical and horizontal asymptotes) …",
+      "2.8": "Understand the effect of simple transformations on the graph of $y=\\mathrm{f}(x)$, including sketching associated graphs: $y=a\\mathrm{f}(x)$, $y=\\mathrm{f}(x)+a$, $y=\\mathrm{f}(x+a)$, $y=\\mathrm{f}(ax)$",
+      "3.1": "Understand and use the equation of a straight line, including the forms $y-y_1=m(x-x_1)$ and $ax+by+c=0$; gradient conditions for two straight lines to be parallel or perpendicular …",
+      "4.1": "Understand and use the binomial expansion of $(a+bx)^n$ for positive integer $n$; the notations $n!$ and ${}^nC_r$; link to binomial probabilities.",
+      "5.3": "Understand and use $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}$. Understand and use $\\sin^2\\theta+\\cos^2\\theta=1$",
+      "6.1": "Know and use the function $a^x$ and its graph, where $a$ is positive. Know and use the function $\\mathrm{e}^x$ and its graph",
+      "6.2": "Know that the gradient of $\\mathrm{e}^{kx}$ is equal to $k\\mathrm{e}^{kx}$ and hence understand why the exponential model is suitable in many applications.",
+      "6.3": "Know and use the definition of $\\log_a x$ as the inverse of $a^x$, where $a$ is positive and $x\\geqslant0$. Know and use the function $\\ln x$ and its graph. Know and use $\\ln x$ as the inverse function of $\\mathrm{e}^x$",
+      "6.4": "Understand and use the laws of logarithms: $\\log_a x+\\log_a y=\\log_a(xy)$; $\\log_a x-\\log_a y=\\log_a\\left(\\frac{x}{y}\\right)$; $k\\log_a x=\\log_a x^k$ (including, for example, $k=-1$ and $k=-\\frac{1}{2}$)",
+      "6.5": "Solve equations of the form $a^x=b$",
+      "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form $y=ax^n$ and $y=kb^x$, given data for $x$ and $y$",
+      "7.1": "Understand and use the derivative of $\\mathrm{f}(x)$ as the gradient of the tangent to the graph of $y=\\mathrm{f}(x)$ at a general point $(x,y)$; the gradient of the tangent as a limit; interpretation as a rate of change; sketching the gradient function for a given curve; second derivatives; differentiation from first principles …",
+      "7.2": "Differentiate $x^n$, for rational values of $n$, and related constant multiples, sums and differences.",
+      "8.2": "Integrate $x^n$ (excluding $n=-1$) and related sums, differences and constant multiples."
+    },
+    "mechanics": {
+      "7.4": "Use calculus in kinematics for motion in a straight line: $v=\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, $a=\\frac{\\mathrm{d}v}{\\mathrm{d}t}=\\frac{\\mathrm{d}^2r}{\\mathrm{d}t^2}$, $r=\\int v\\,\\mathrm{d}t$, $v=\\int a\\,\\mathrm{d}t$"
+    }
+  }
+}

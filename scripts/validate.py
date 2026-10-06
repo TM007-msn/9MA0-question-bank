@@ -57,8 +57,8 @@ def build_registry():
     registry = Registry()
     schemas = {}
     # *.schema.json plus topics.json, which the question and error schemas
-    # reference for the topic enum.
-    for path in SCHEMA_DIR.glob("*.json"):
+    # reference for the topic enum. (spec_labels.json is data, not a schema.)
+    for path in [*SCHEMA_DIR.glob("*.schema.json"), SCHEMA_DIR / "topics.json"]:
         schema = load_json(path)
         resource = Resource.from_contents(schema)
         registry = registry.with_resource(path.name, resource)

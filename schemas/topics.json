@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://9ma0-bank.local/schemas/topics.json",
   "title": "Topics",
-  "description": "Canonical topic list built from the 9MA0 and 8MA0 specifications by scripts/build_topics.py. Names are the A level names; AS topics use the same name. Do not edit by hand: rerun the script.",
+  "description": "Canonical topic list built from the 9MA0 and 8MA0 specifications by scripts/build_topics.py. Names are the A level names; AS topics use the same name. Ref labels are the opening of each statement; statements with maths use the hand-written LaTeX in spec_labels.json. Do not edit by hand: rerun the script.",
   "$defs": {
     "topic_name": {
       "enum": [
@@ -57,9 +57,9 @@
           "2.4": "Solve simultaneous equations in two variables by elimination and by substitution, including one linear and one quadratic equation.",
           "2.5": "Solve linear and quadratic inequalities in a single variable and interpret such inequalities graphically,",
           "2.6": "Manipulate polynomials algebraically, including expanding brackets and collecting like terms, factorisation and simple algebraic division; use of the …",
-          "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials The modulus of a …",
+          "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials, the modulus of a linear function, $y=\\frac{a}{x}$ and $y=\\frac{a}{x^2}$ …",
           "2.8": "Understand and use composite functions; inverse functions and their graphs.",
-          "2.9": "Understand the effect of simple transformations on the graph of y = f(x), including sketching associated graphs: y …",
+          "2.9": "Understand the effect of simple transformations on the graph of $y=\\mathrm{f}(x)$, including sketching associated graphs: $y=a\\mathrm{f}(x)$, $y=\\mathrm{f}(x)+a$, $y=\\mathrm{f}(x+a)$, $y=\\mathrm{f}(ax)$ and combinations of these transformations",
           "2.10": "Decompose rational functions into partial fractions (denominators not more complicated than squared linear terms and with no more …",
           "2.11": "Use of functions in modelling, including consideration of limitations and refinements of the models."
         }
@@ -73,8 +73,8 @@
           "2.4": "Solve simultaneous equations in two variables by elimination and by substitution, including one linear and one quadratic equation.",
           "2.5": "Solve linear and quadratic inequalities in a single variable and interpret such inequalities graphically,",
           "2.6": "Manipulate polynomials algebraically, including expanding brackets and collecting like terms, factorisation and simple algebraic division; use of the …",
-          "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials a a y = …",
-          "2.8": "Understand the effect of simple transformations on the graph of y = f(x), including sketching associated graphs: y …"
+          "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials, $y=\\frac{a}{x}$ and $y=\\frac{a}{x^2}$ (including their vertical and horizontal asymptotes) …",
+          "2.8": "Understand the effect of simple transformations on the graph of $y=\\mathrm{f}(x)$, including sketching associated graphs: $y=a\\mathrm{f}(x)$, $y=\\mathrm{f}(x)+a$, $y=\\mathrm{f}(x+a)$, $y=\\mathrm{f}(ax)$"
         }
       }
     },
@@ -84,7 +84,7 @@
       "9MA0": {
         "topic_number": 3,
         "refs": {
-          "3.1": "Understand and use the equation of a straight line, including the forms y – y1 = m(x – …",
+          "3.1": "Understand and use the equation of a straight line, including the forms $y-y_1=m(x-x_1)$ and $ax+by+c=0$; gradient conditions for two straight lines to be parallel or perpendicular …",
           "3.2": "Understand and use the coordinate geometry of the circle including using the equation of a circle in the …",
           "3.3": "Understand and use the parametric equations of curves and conversion between Cartesian and parametric forms.",
           "3.4": "Use parametric equations in modelling in a variety of contexts."
@@ -93,7 +93,7 @@
       "8MA0": {
         "topic_number": 3,
         "refs": {
-          "3.1": "Understand and use the equation of a straight line, including the forms y – y1 = m(x – …",
+          "3.1": "Understand and use the equation of a straight line, including the forms $y-y_1=m(x-x_1)$ and $ax+by+c=0$; gradient conditions for two straight lines to be parallel or perpendicular …",
           "3.2": "Understand and use the coordinate geometry of the circle including using the equation of a circle in the …"
         }
       }
@@ -104,7 +104,7 @@
       "9MA0": {
         "topic_number": 4,
         "refs": {
-          "4.1": "Understand and use the binomial expansion of (a + bx)n for positive integer n; the notations n! nC …",
+          "4.1": "Understand and use the binomial expansion of $(a+bx)^n$ for positive integer $n$; the notations $n!$ and ${}^nC_r$; link to binomial probabilities. Extend to any rational $n$ …",
           "4.2": "Work with sequences including those given by a formula for the nth term and those generated by a …",
           "4.3": "Understand and use sigma notation for sums of series.",
           "4.4": "Understand and work with arithmetic sequences and series, including the formulae for nth term and the sum to …",
@@ -115,7 +115,7 @@
       "8MA0": {
         "topic_number": 4,
         "refs": {
-          "4.1": "Understand and use the binomial expansion of (a + bx)n for positive n; n! integer the notations nC …"
+          "4.1": "Understand and use the binomial expansion of $(a+bx)^n$ for positive integer $n$; the notations $n!$ and ${}^nC_r$; link to binomial probabilities."
         }
       }
     },
@@ -126,10 +126,10 @@
         "topic_number": 5,
         "refs": {
           "5.1": "Understand and use the definitions of sine, cosine and tangent for all arguments; the sine and cosine rules; …",
-          "5.2": "Understand and use the standard small angle approximations of sine, cosine and tangent sin θ ≈ θ , …",
+          "5.2": "Understand and use the standard small angle approximations of sine, cosine and tangent: $\\sin\\theta\\approx\\theta$, $\\cos\\theta\\approx1-\\frac{\\theta^2}{2}$, $\\tan\\theta\\approx\\theta$, where $\\theta$ is in radians",
           "5.3": "Understand and use the sine, cosine and tangent functions; their graphs, symmetries and periodicity. Know and use exact …",
           "5.4": "Understand and use the definitions of secant, cosecant and cotangent and of arcsin, arccos and arctan; their relationships …",
-          "5.5": "Understand and use sin θ tan θ = cos θ Understand and use sin2θ + cos2θ = 1 …",
+          "5.5": "Understand and use $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}$. Understand and use $\\sin^2\\theta+\\cos^2\\theta=1$; $\\sec^2\\theta=1+\\tan^2\\theta$ and $\\mathrm{cosec}^2\\theta=1+\\cot^2\\theta$",
           "5.6": "Understand and use double angle formulae; use of formulae for sin (A ± B), cos (A ± B), …",
           "5.7": "Solve simple trigonometric equations in a given interval, including quadratic equations in sin, cos and tan and equations …",
           "5.8": "Construct proofs involving trigonometric functions and identities.",
@@ -141,7 +141,7 @@
         "refs": {
           "5.1": "Understand and use the definitions of sine, cosine and tangent for all arguments; the sine and cosine rules; …",
           "5.2": "Understand and use the sine, cosine and tangent functions; their graphs, symmetries and periodicity.",
-          "5.3": "Understand and use sin θ tan θ = cos θ Understand and use sin2 θ + cos2 θ …",
+          "5.3": "Understand and use $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}$. Understand and use $\\sin^2\\theta+\\cos^2\\theta=1$",
           "5.4": "Solve simple trigonometric equations in a given interval, including quadratic equations in sin, cos and tan and equations …"
         }
       }
@@ -152,24 +152,24 @@
       "9MA0": {
         "topic_number": 6,
         "refs": {
-          "6.1": "Know and use the function ax and its graph, where a is positive. Know and use the function …",
-          "6.2": "Know that the gradient of ekx is equal to kekx and hence understand why the exponential model is …",
-          "6.3": "Know and use the definition of loga x as the inverse of a x, where a is positive …",
-          "6.4": "laws of logarithms: loga x + loga y = loga (xy)  x  loga x − loga …",
-          "6.5": "Solve equations of the form a x = b",
-          "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form y = axn and y = kbx, …",
+          "6.1": "Know and use the function $a^x$ and its graph, where $a$ is positive. Know and use the function $\\mathrm{e}^x$ and its graph.",
+          "6.2": "Know that the gradient of $\\mathrm{e}^{kx}$ is equal to $k\\mathrm{e}^{kx}$ and hence understand why the exponential model is suitable in many applications.",
+          "6.3": "Know and use the definition of $\\log_a x$ as the inverse of $a^x$, where $a$ is positive and $x\\geqslant0$. Know and use the function $\\ln x$ and its graph. Know and use $\\ln x$ as the inverse function of $\\mathrm{e}^x$",
+          "6.4": "Understand and use the laws of logarithms: $\\log_a x+\\log_a y=\\log_a(xy)$; $\\log_a x-\\log_a y=\\log_a\\left(\\frac{x}{y}\\right)$; $k\\log_a x=\\log_a x^k$ (including, for example, $k=-1$ and $k=-\\frac{1}{2}$)",
+          "6.5": "Solve equations of the form $a^x=b$",
+          "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form $y=ax^n$ and $y=kb^x$, given data for $x$ and $y$",
           "6.7": "Understand and use exponential growth and decay; use in modelling (examples may include the use of e in …"
         }
       },
       "8MA0": {
         "topic_number": 6,
         "refs": {
-          "6.1": "Know and use the function ax and its graph, where a is positive. Know and use the function …",
-          "6.2": "Know that the gradient of ekx is equal to kekx and hence understand why the exponential model is …",
-          "6.3": "Know and use the definition of logax as the inverse of ax, where a is positive and x …",
-          "6.4": "Understand and use the laws of logarithms: logax + logay = loga(xy)  x  logax − logay …",
-          "6.5": "Solve equations of the form ax = b",
-          "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form y = axn and y = kbx, …",
+          "6.1": "Know and use the function $a^x$ and its graph, where $a$ is positive. Know and use the function $\\mathrm{e}^x$ and its graph",
+          "6.2": "Know that the gradient of $\\mathrm{e}^{kx}$ is equal to $k\\mathrm{e}^{kx}$ and hence understand why the exponential model is suitable in many applications.",
+          "6.3": "Know and use the definition of $\\log_a x$ as the inverse of $a^x$, where $a$ is positive and $x\\geqslant0$. Know and use the function $\\ln x$ and its graph. Know and use $\\ln x$ as the inverse function of $\\mathrm{e}^x$",
+          "6.4": "Understand and use the laws of logarithms: $\\log_a x+\\log_a y=\\log_a(xy)$; $\\log_a x-\\log_a y=\\log_a\\left(\\frac{x}{y}\\right)$; $k\\log_a x=\\log_a x^k$ (including, for example, $k=-1$ and $k=-\\frac{1}{2}$)",
+          "6.5": "Solve equations of the form $a^x=b$",
+          "6.6": "Use logarithmic graphs to estimate parameters in relationships of the form $y=ax^n$ and $y=kb^x$, given data for $x$ and $y$",
           "6.7": "Understand and use exponential growth and decay; use in modelling (examples may include the use of e in …"
         }
       }
@@ -180,9 +180,9 @@
       "9MA0": {
         "topic_number": 7,
         "refs": {
-          "7.1": "Understand and use the second derivative as the cont. rate of change of gradient; connection to convex and …",
-          "7.2": "xn, Differentiate for n, rational values of and related constant multiples, sums and differences. Differentiate ekx and akx, …",
-          "7.3": "Apply differentiation to find gradients, tangents and normals maxima and minima and stationary points. points of inflection Identify …",
+          "7.1": "Understand and use the derivative of $\\mathrm{f}(x)$ as the gradient of the tangent to the graph of $y=\\mathrm{f}(x)$ at a general point $(x,y)$; the gradient of the tangent as a limit; interpretation as a rate of change; sketching the gradient function for a given curve; second derivatives; differentiation from first principles …; the second derivative as the rate of change of gradient …",
+          "7.2": "Differentiate $x^n$, for rational values of $n$, and related constant multiples, sums and differences. Differentiate $\\mathrm{e}^{kx}$ and $a^{kx}$, $\\sin kx$, $\\cos kx$, $\\tan kx$ and related sums, differences and constant multiples. Understand and use the derivative of $\\ln x$",
+          "7.3": "Apply differentiation to find gradients, tangents and normals, maxima and minima and stationary points, points of inflection. Identify where functions are increasing or decreasing.",
           "7.4": "Differentiate using the product rule, the quotient rule and the chain rule, including problems involving connected rates of …",
           "7.5": "Differentiate simple functions and relations defined implicitly or parametrically, for first derivative only.",
           "7.6": "Construct simple differential equations in pure mathematics and in context, (contexts may include kinematics, population growth and modelling …"
@@ -191,8 +191,8 @@
       "8MA0": {
         "topic_number": 7,
         "refs": {
-          "7.1": "Understand and use the f(x) derivative of as the gradient of the tangent to the graph of y …",
-          "7.2": "Differentiate xn, for rational values of n, and related constant multiples, sums and differences.",
+          "7.1": "Understand and use the derivative of $\\mathrm{f}(x)$ as the gradient of the tangent to the graph of $y=\\mathrm{f}(x)$ at a general point $(x,y)$; the gradient of the tangent as a limit; interpretation as a rate of change; sketching the gradient function for a given curve; second derivatives; differentiation from first principles …",
+          "7.2": "Differentiate $x^n$, for rational values of $n$, and related constant multiples, sums and differences.",
           "7.3": "Apply differentiation to find gradients, tangents and normals, maxima and minima and stationary points. Identify where functions are …"
         }
       }
@@ -204,7 +204,7 @@
         "topic_number": 8,
         "refs": {
           "8.1": "Know and use the Fundamental Theorem of Calculus",
-          "8.2": "Integrate xn (excluding n = −1) and related sums, differences and constant multiples.",
+          "8.2": "Integrate $x^n$ (excluding $n=-1$) and related sums, differences and constant multiples. Integrate $\\mathrm{e}^{kx}$, $\\frac{1}{x}$, $\\sin kx$, $\\cos kx$ and related sums, differences and constant multiples.",
           "8.3": "Evaluate definite integrals; use a definite integral to find the area under a curve and the area between …",
           "8.4": "Understand and use integration as the limit of a sum.",
           "8.5": "Carry out simple cases of integration by substitution and integration by parts; understand these methods as the inverse …",
@@ -217,7 +217,7 @@
         "topic_number": 8,
         "refs": {
           "8.1": "Know and use the Fundamental Theorem of Calculus.",
-          "8.2": "Integrate xn (excluding n = −1) and related sums, differences and constant multiples.",
+          "8.2": "Integrate $x^n$ (excluding $n=-1$) and related sums, differences and constant multiples.",
           "8.3": "Evaluate definite integrals; use a definite integral to find the area under a curve."
         }
       }
@@ -228,9 +228,9 @@
       "9MA0": {
         "topic_number": 9,
         "refs": {
-          "9.1": "Locate roots of f ( x) = 0 by considering changes of sign of f ( x) in …",
+          "9.1": "Locate roots of $\\mathrm{f}(x)=0$ by considering changes of sign of $\\mathrm{f}(x)$ in an interval of $x$ on which $\\mathrm{f}(x)$ is sufficiently well behaved. Understand how change of sign methods can fail.",
           "9.2": "Solve equations approximately using simple iterative methods; be able to draw associated cobweb and staircase diagrams.",
-          "9.3": "Solve equations using the Newton-Raphson method and other recurrence relations of the form xn+1= g(xn) Understand how such …",
+          "9.3": "Solve equations using the Newton-Raphson method and other recurrence relations of the form $x_{n+1}=\\mathrm{g}(x_n)$. Understand how such methods can fail.",
           "9.4": "Understand and use numerical integration of functions, including the use of the trapezium rule and estimating the approximate …",
           "9.5": "Use numerical methods to solve problems in context."
         }
@@ -323,7 +323,7 @@
       "9MA0": {
         "topic_number": 4,
         "refs": {
-          "4.1": "simple, discrete probability distributions (calculation of mean and variance of discrete random variables is excluded), including the binomial …",
+          "4.1": "Understand and use simple, discrete probability distributions (calculation of mean and variance of discrete random variables is excluded), including the binomial distribution, as a model; calculate probabilities using the binomial distribution.",
           "4.2": "Understand and use the Normal distribution as a model; find probabilities using the Normal distribution",
           "4.3": "Select an appropriate probability distribution for a context, with appropriate reasoning, including recognising when the binomial or Normal …"
         }
@@ -379,7 +379,7 @@
           "7.1": "Understand and use the language of kinematics: position; displacement; distance travelled; velocity; speed; acceleration.",
           "7.2": "Understand, use and interpret graphs in kinematics for motion in a straight line: displacement against time and interpretation …",
           "7.3": "Understand, use and derive the formulae for constant acceleration for motion in a straight line. Extend to 2 …",
-          "7.4": "kinematics for motion in a straight line: d r d v d 2 r v = , a …",
+          "7.4": "Use calculus in kinematics for motion in a straight line: $v=\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, $a=\\frac{\\mathrm{d}v}{\\mathrm{d}t}=\\frac{\\mathrm{d}^2r}{\\mathrm{d}t^2}$, $r=\\int v\\,\\mathrm{d}t$, $v=\\int a\\,\\mathrm{d}t$. Extend to 2 dimensions using vectors.",
           "7.5": "Model motion under gravity in a vertical plane using vectors; projectiles."
         }
       },
@@ -389,7 +389,7 @@
           "7.1": "Understand and use the language of kinematics: position; displacement; distance travelled; velocity; speed; acceleration.",
           "7.2": "Understand, use and interpret graphs in kinematics for motion in a straight line: displacement against time and interpretation …",
           "7.3": "Understand, use and derive the formulae for constant acceleration for motion in a straight line.",
-          "7.4": "Use calculus in kinematics for motion in a straight line: d r d v d 2 r v …"
+          "7.4": "Use calculus in kinematics for motion in a straight line: $v=\\frac{\\mathrm{d}r}{\\mathrm{d}t}$, $a=\\frac{\\mathrm{d}v}{\\mathrm{d}t}=\\frac{\\mathrm{d}^2r}{\\mathrm{d}t^2}$, $r=\\int v\\,\\mathrm{d}t$, $v=\\int a\\,\\mathrm{d}t$"
         }
       }
     },
@@ -404,7 +404,7 @@
           "8.3": "Understand and use weight and motion in a straight line under gravity; gravitational acceleration, g, and its value …",
           "8.4": "Understand and use Newton’s third law; equilibrium of forces on a particle and motion in a straight line …",
           "8.5": "Understand and use addition of forces; resultant forces; dynamics for motion in a plane.",
-          "8.6": "Understand and use the F ≤ µ R model for friction; coefficient of friction; motion of a body …"
+          "8.6": "Understand and use the $F\\leqslant\\mu R$ model for friction; coefficient of friction; motion of a body on a rough surface; limiting friction and statics."
         }
       },
       "8MA0": {

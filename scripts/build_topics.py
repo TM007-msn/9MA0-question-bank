@@ -28,6 +28,8 @@ SPECS = {
     "8MA0": ROOT / "source" / "reference" / "8MA0_specification.pdf",
 }
 OUT = ROOT / "schemas" / "topics.json"
+# Hand-written LaTeX labels for statements whose PDF text is garbled.
+LABELS = ROOT / "schemas" / "spec_labels.json"
 
 REF_RE = re.compile(r"^\d{1,2}\.\d{1,2}$")
 
@@ -141,8 +143,12 @@ def parse_spec(path):
             elif w[0] < guidance_x and topic is not None:
                 if REF_RE.fullmatch(w[4]) and w[4].split(".")[0] == str(topic["number"]):
                     ref = w[4]
-                    topic["refs"][ref] = ""
+                    # A statement that runs onto the next page is repeated
+                    # there as "7.1 cont.": keep adding to it, don't restart.
+                    topic["refs"].setdefault(ref, "")
                     last_y = w[1]
+                elif w[4] == "cont." and ref in topic["refs"]:
+                    continue
                 elif ref in topic["refs"]:
                     # A big vertical gap means the table has ended (e.g. the
                     # assessment notes under the last topic): stop collecting.
@@ -162,22 +168,37 @@ def short(statement, words=18):
     return " ".join(parts[:words]) + (" …" if len(parts) > words else "")
 
 
+def labels_for(qual, strand, refs, overrides):
+    """Label per ref: the hand-written LaTeX label from spec_labels.json if
+    there is one, otherwise the first words of the extracted statement."""
+    hand = overrides.get(qual, {}).get(strand, {})
+    unknown = set(hand) - set(refs)
+    if unknown:
+        sys.exit(f"spec_labels.json has {qual} {strand} refs not in the spec: {sorted(unknown)}")
+    return {r: hand.get(r, short(s)) for r, s in refs.items()}
+
+
 def build():
     parsed = {qual: parse_spec(path) for qual, path in SPECS.items()}
+    overrides = json.loads(LABELS.read_text(encoding="utf-8"))
     topics = []
     for strand in ("pure", "statistics", "mechanics"):
         a_level = parsed["9MA0"][strand]
         as_level = {t["name"]: t for t in parsed["8MA0"][strand]}
+        # Collect each qualification's refs for the whole strand, so a label
+        # override can be checked against every ref in that strand.
+        all_refs = {q: {r: s for t in parsed[q][strand] for r, s in t["refs"].items()} for q in parsed}
+        labels = {q: labels_for(q, strand, all_refs[q], overrides) for q in parsed}
         for t in a_level:
             as_topic = as_level.pop(t["name"], None)
             topics.append({
                 "name": t["name"],
                 "strand": strand,
                 "9MA0": {"topic_number": t["number"],
-                         "refs": {r: short(s) for r, s in t["refs"].items()}},
+                         "refs": {r: labels["9MA0"][r] for r in t["refs"]}},
                 "8MA0": None if as_topic is None else {
                     "topic_number": as_topic["number"],
-                    "refs": {r: short(s) for r, s in as_topic["refs"].items()}},
+                    "refs": {r: labels["8MA0"][r] for r in as_topic["refs"]}},
             })
         if as_level:
             sys.exit(f"AS {strand} topics with no A level match: {sorted(as_level)}")
@@ -204,7 +225,7 @@ def main():
         "$schema": "https://json-schema.org/draft/2020-12/schema",
         "$id": "https://9ma0-bank.local/schemas/topics.json",
         "title": "Topics",
-        "description": "Canonical topic list built from the 9MA0 and 8MA0 specifications by scripts/build_topics.py. Names are the A level names; AS topics use the same name. Do not edit by hand: rerun the script.",
+        "description": "Canonical topic list built from the 9MA0 and 8MA0 specifications by scripts/build_topics.py. Names are the A level names; AS topics use the same name. Ref labels are the opening of each statement; statements with maths use the hand-written LaTeX in spec_labels.json. Do not edit by hand: rerun the script.",
         "$defs": {"topic_name": {"enum": names}},
         "topics": topics,
     }

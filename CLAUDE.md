@@ -55,10 +55,27 @@ These series are in `source/reserved/` and are **never** opened, read or extract
 - Describe figures in `question_latex` as `[Figure N: ...]`. Any entry with one must have `has_diagram: true` (validate.py enforces this).
 - `source_file` is the question paper the entry comes from, and `source_page` is the page in that file where the question starts.
 - `mark_scheme`: one string per mark of the main method, `CODE (AO x.y): scheme line. Notes: ...`, copied from the mark scheme. Then every alternative the mark scheme lists, as separate strings starting `ALT:`, one per mark. An alternative is anything the mark scheme labels as one: "Alt", "ALT", "Alternative(ly)", "Method N", a second scheme column or table, or "Either … Or …" between two methods. Keep alternatives out of the main strings.
-- `examiner_notes`: sentences copied from the examiner report for that part. Never paraphrase either field into new claims.
+- `examiner_notes`: sentences copied from the examiner report, in report order. A sentence about the whole question goes on every part. A sentence that names one or more parts goes only on those parts. Never paraphrase either field into new claims.
 - `topic`: a name from `schemas/topics.json`, which uses the A level names for both qualifications.
 - `spec_ref`: refs from the entry's own qualification's specification, comma-separated, main ref first. The first ref must belong to the topic, and the others must come from the same strand (pure, statistics or mechanics).
-- `difficulty`: only from what the examiner report says about that part. Easy = very accessible, usually well done, or most succeed. Hard = demanding, limited success, or few/rare full marks. Medium = mixed. If the report doesn't comment on the part, it's `null`; never guess.
+- Spec statement labels in `topics.json` come from the PDF text, except that statements with maths (or garbled text) use the hand-written LaTeX in `schemas/spec_labels.json`. When a spec statement's label looks garbled, add it there and rerun `scripts/build_topics.py`.
+- `difficulty`: set by `scripts/difficulty.py` from the examiner report's wording, using the mapping below. Never set it by judgement.
+
+### Difficulty mapping
+Phrases (case-insensitive, whole words):
+- **easy:** “well done”, “done well”, “well answered”, “accessible”, “well prepared”, “good source of marks”, “good starting question”, “good solutions”, “was more successful”, “much more successful”, “many scoring full marks”, “many gained all marks”, “scored full marks”
+- **medium:** “mixed”, “varying success”, “some success”, “some candidates”, “some students”, “at least one mark”
+- **hard:** “demanding”, “challenge”, “difficult”, “very few”, “few candidates”, “few students”, “few responses”, “few then”, “rare”, “rarely”, “limited success”, “less well”, “less so”, “struggled”, “disappointing”, “lacking”, “unable to”, “only more able”, “significant hurdle”, “frequently lost”
+
+Exceptions: "a few students/candidates/responses" (a minority error) doesn't count as "few", and "less well done" isn't "well done".
+
+For each part:
+1. Use the report sentences about that part, including sentences that name it alongside other parts. When one sentence judges parts differently ("Part (a) was very accessible, part (b) less so"), each part uses only its own clause.
+2. Easy and hard phrases both present → medium. Otherwise: any hard phrase → hard, then any easy phrase → easy, then any medium phrase → medium.
+3. No phrases found → apply step 2 to the sentences about the whole question.
+4. Still nothing (or no report) → `null`.
+
+The phrase lists in this section and in `scripts/difficulty.py` must match.
 - Save only through `python scripts/add_entries.py draft.json`. It checks the schema, the reserved list, the marks check and per-question mark totals, and rejects duplicate ids.
 - SPEC combined papers restart their numbering in Section B. Their sections are filed under the split codes: 9MA0-03 SPEC becomes 9MA0-31 (Section A) and 9MA0-32 (Section B), and 8MA0-02 SPEC becomes 8MA0-21 and 8MA0-22. `source_file` stays the combined PDF, e.g. `9MA0-03_SPEC_QP.pdf`. The 2018 and SAM combined papers number straight through and keep 03 / 02.
 - After saving, build the review sheet (`python scripts/build_review.py PAPER SERIES`) and stop. To redo a paper that's in review, use `add_entries.py --replace`.

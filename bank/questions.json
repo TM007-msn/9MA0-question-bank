@@ -44,7 +44,7 @@
       "ALT: Method 4 (sketch graph using calculator) — A1: Required to state that quadratics only have one turning point and as “1” is above the $x$-axis then $x^2-8x+17>0$."
     ],
     "examiner_notes": "Most students gained marks in at least one part of this question. However, the rigorous approach required to achieve full marks was generally lacking. In part (i), most attempted to complete the square but a common error was to state that a square number must be positive, with no reference to the possibility of it being zero. Those who found the discriminant rarely scored more than the first mark as they did not realise the need to consider the shape of the curve. A small number attempted differentiation and whilst they stated (4,1) was a minimum it was very unusual to have this confirmed (e.g. using the second derivative). It was rare to see a fully graphical approach but those who tried usually gained two marks for a correct sketch with the correct minimum shown. A few students tried to give an explanation in words or used a few numerical examples.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 4,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -65,7 +65,7 @@
       "ALT: Algebraic approach — A1: States sometimes true and states/implies true for $x>-\\frac{3}{2}$ or states/implies not true for $x\\leqslant-\\frac{3}{2}$. In both cases you should expect to see the statement “sometimes true” to score the A1."
     ],
     "examiner_notes": "Most students gained marks in at least one part of this question. However, the rigorous approach required to achieve full marks was generally lacking. In part (ii), most students used a numerical approach and the majority concluded that the statement is ‘sometimes true’. It was common, however, to show working for a negative value only, for which the statement is not true. Some attempted a true and a false value, as required, but failed to conclude that the statement is ‘sometimes true’. Many students unsuccessfully tried to write general statements referring to positive and negative values being used, but only scored marks if they produced a counter-example. Of those who attempted an algebraic approach, many reached 6x + 9 > 0 but tended to stop there and did not gain the final mark for a correct conclusion.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 4,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -142,7 +142,7 @@
       "B1 (AO 2.3): Identifies one of the two errors: “You cannot use the subtraction law without dealing with the 2 first”; “They undo the logs incorrectly. It should be $x=2^3=8$”. Notes: Error One: either in words states ‘They cannot use the subtraction law without dealing with the 2 first’ or writes that line 2 should be $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)(=3)$. If they rewrite line two it must be correct. Allow ‘the coefficient of each log term is different so we cannot use the subtraction law’. Allow responses such as ‘it must be $\\log x^2$ before subtracting the logs’. Do not accept an incomplete response such as “the student ignored the 2”. There must be some reference to the subtraction law as well. Error Two: either in words states ‘They undo the log incorrectly’ or writes that ‘if $\\log_2x=3$ then $x=2^3=8$’. If it is rewritten it must be correct, e.g. $x=\\log_2 9$ is B0.",
       "B1 (AO 2.3): Identifies both errors. Notes: States both of the two errors."
     ],
-    "examiner_notes": "Students found it difficult to explain the errors in part (a) even though fully correct answers were seen in (b). The error in line 2 caused the most problems with many students failing to mention the subtraction law. The second error $\\log_2 x=3$ should be $2^3$ not $3^2$ was more successfully dealt with. It is really important in questions such as these that a full explanation is given.",
+    "examiner_notes": "Students found it difficult to explain the errors in part (a) even though fully correct answers were seen in (b). The error in line 2 caused the most problems with many students failing to mention the subtraction law. The second error $\\log_2 x=3$ should be $2^3$ not $3^2$ was more successfully dealt with. It is really important in questions such as these that a full explanation is given. Log work, in general, remains a difficult topic for less able students.",
     "difficulty": "hard",
     "has_diagram": false,
     "source_page": 10,
@@ -166,7 +166,7 @@
       "ALT: Second column of the scheme — A1 (AO 1.1b): $x=4$"
     ],
     "examiner_notes": "Students found it difficult to explain the errors in part (a) even though fully correct answers were seen in (b). Students were much more successful in part (b). Log work, in general, remains a difficult topic for less able students.",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "has_diagram": false,
     "source_page": 10,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -186,7 +186,7 @@
       "ALT: Sets P = 0 — M1: Sets $P=0$ and finds $x=5, 13$.",
       "ALT: Sets P = 0 — A1: States $15>13$ and states makes a loss."
     ],
-    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. Additionally, students should be aware that units are necessary in modelling questions and in particular the answer to (c)(i) is £100 000 and not 100, £100 or 100 000 as commonly seen. (a) Most students gained at least one mark on this part. The easiest method is to substitute x =15 into the given equation and explain that it isn’t a sensible selling price as the company would be making a loss of £125 000. The most common errors in this part were: (1) substituting in P = 0 and finding x, (2) stating that the company would not make any money or “may/could” make a loss.",
+    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. (a) Most students gained at least one mark on this part. The easiest method is to substitute x =15 into the given equation and explain that it isn’t a sensible selling price as the company would be making a loss of £125 000. The most common errors in this part were: (1) substituting in P = 0 and finding x, (2) stating that the company would not make any money or “may/could” make a loss.",
     "difficulty": "medium",
     "has_diagram": true,
     "source_page": 12,
@@ -207,7 +207,7 @@
       "A1 (AO 3.2a): Minimum Price $=\\pounds7.22$. Notes: Deduces that the minimum Price $=\\pounds7.22$ ($\\pounds7.21$ is not acceptable).",
       "ALT: dM1: Alternatively award if the candidate selects the lower of their two positive values $9-\\sqrt{3.2}$."
     ],
-    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. Additionally, students should be aware that units are necessary in modelling questions and in particular the answer to (c)(i) is £100 000 and not 100, £100 or 100 000 as commonly seen. (b) Many students attempted this part. The most common error was to use 80,000 rather than 80. This error resulted in a score of 000. Students who did use 80 usually attempted to solve the quadratic, but many by expanding and factorising rather than by using the form given. Some students only found one solution, rather than the two required. Very few students gained the final accuracy mark, with most students incorrectly stating £7.21 as the final value, not taking into account the need to round up. A small number of students used a trial and improvement method, which was often more successful in achieving the correct answer. Others used their graphical calculators to gain the correct answer with limited working.",
+    "examiner_notes": "Success on this question was partially determined by students realising that P was measured in thousands of pounds. (b) Many students attempted this part. The most common error was to use 80,000 rather than 80. This error resulted in a score of 000. Students who did use 80 usually attempted to solve the quadratic, but many by expanding and factorising rather than by using the form given. Some students only found one solution, rather than the two required. Very few students gained the final accuracy mark, with most students incorrectly stating £7.21 as the final value, not taking into account the need to round up. A small number of students used a trial and improvement method, which was often more successful in achieving the correct answer. Others used their graphical calculators to gain the correct answer with limited working.",
     "difficulty": "hard",
     "has_diagram": true,
     "source_page": 12,
@@ -329,7 +329,7 @@
       "B1 (AO 3.5b): It would be impossible to drive at this speed over the whole journey. Notes: Gives a limitation of the given model, for example: it would be impossible to drive at this speed over the whole journey; the traffic would mean that you cannot drive at a constant speed. Any statement that implies that the speed could not be constant is acceptable."
     ],
     "examiner_notes": "This proved to be a challenge and a large number of students did not recognise that it was a differentiation problem until asked to find the second derivative in (b). Part (c) was sometimes the only mark collected in this question by less able students. Some simply re-stated the model’s assumption of a constant speed without reference to this not being possible. Others gave vague or irrelevant statements such as “there might be different routes”.",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 18,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -348,7 +348,7 @@
       "A1 (AO 2.4): $\\mathrm{g}(-2)=0\\Rightarrow(x+2)$ is a factor. Notes: Requires a correct statement and conclusion. Both “$\\mathrm{g}(-2)=0$” and “$(x+2)$ is a factor” must be seen in the solution. This may be seen in a preamble before finding $\\mathrm{g}(-2)=0$ but in these cases there must be a minimal statement ie QED, “proved”, tick etc. Also accept, in one coherent line/sentence, explanations such as ‘as $\\mathrm{g}(x)=0$ when $x=-2$, $(x+2)$ is a factor.’"
     ],
     "examiner_notes": "This question on the factor theorem proved to be a good source of marks for many students. Clearly they had been well prepared for this kind of question. In part (a), most students correctly substituted $x=-2$ into the function and obtained the answer 0. A few students incorrectly used $x=2$. The accuracy mark was often not awarded as explanations were insufficient or indeed absent. Many failed to use the correct terminology g (-2) = …, just substituting $x=-2$ into the “expression” rather than the function. Additionally, a significant minority of students did not state any conclusion. A small number of students incorrectly used long division rather than the factor theorem but these students were allowed to score the marks in (b) following this approach.",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "has_diagram": false,
     "source_page": 22,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -372,7 +372,7 @@
       "ALT: Alt (b), comparing coefficients — M1: Multiplies out expression $(x+2)(\\pm2x\\pm5)^2$ and compares to $4x^3-12x^2-15x+50$.",
       "ALT: Alt (b), comparing coefficients — A1 (AO 1.1b): All terms must be compared or else expression must be multiplied out and establishes that $4x^3-12x^2-15x+50=(x+2)(2x-5)^2$."
     ],
-    "examiner_notes": "This question on the factor theorem proved to be a good source of marks for many students. Clearly they had been well prepared for this kind of question. The majority attempted part (b) using long division or inspection with most obtaining the correct quadratic expression $4x^2-20x+25$. Most then correctly factorised this quadratic. A small number did not state a final, fully factorised solution. Common errors of (x – 2.5)² and (4x – 10)² probably came from students using their calculators to find the solutions then attempting to work backwards.",
+    "examiner_notes": "This question on the factor theorem proved to be a good source of marks for many students. Clearly they had been well prepared for this kind of question. A small number of students incorrectly used long division rather than the factor theorem but these students were allowed to score the marks in (b) following this approach. The majority attempted part (b) using long division or inspection with most obtaining the correct quadratic expression $4x^2-20x+25$. Most then correctly factorised this quadratic. A small number did not state a final, fully factorised solution. Common errors of (x – 2.5)² and (4x – 10)² probably came from students using their calculators to find the solutions then attempting to work backwards.",
     "difficulty": "easy",
     "has_diagram": false,
     "source_page": 22,
@@ -441,7 +441,7 @@
       "ALT: 11(a) alt — A1 (AO 1.1b): $=\\ldots-144x+\\ldots$",
       "ALT: 11(a) alt — A1 (AO 1.1b): $=\\ldots+\\ldots+18x^2\\ (+\\ldots)$"
     ],
-    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). The majority of students attempted part (a) of this question. Most were able to apply the binomial expansion and gain the correct unsimplified quadratic form. Common errors included missing out the negative in the expansion, so 512+144x+18x² was a common incorrect answer. Some students failed to simplify correctly leaving their coefficients as fractions.",
+    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. The majority of students attempted part (a) of this question. Most were able to apply the binomial expansion and gain the correct unsimplified quadratic form. Common errors included missing out the negative in the expansion, so 512+144x+18x² was a common incorrect answer. Some students failed to simplify correctly leaving their coefficients as fractions. Students scoring full marks in this question were rare.",
     "difficulty": "easy",
     "has_diagram": false,
     "source_page": 28,
@@ -461,7 +461,7 @@
       "A1ft (AO 1.1b): $(a=)\\frac{1}{4}$ oe. Notes: Follow through on $\\frac{128}{\\text{their }512}$.",
       "ALT: M1: Substitutes $x=0$ into both sides of the identity and proceeds to find a value for $a$."
     ],
-    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). A common error in parts (b) and (c) was to set up a pair of (incorrect) simultaneous equations in a and b. Solutions of this type, that is via attempting to solve 512(a + bx) = 128 does show a lack of understanding between constants and variables. Students who did successfully find a = 0.25 rarely could handle the more complex process required to find b. Students scoring full marks in this question were rare.",
+    "examiner_notes": "This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). A common error in parts (b) and (c) was to set up a pair of (incorrect) simultaneous equations in a and b. Solutions of this type, that is via attempting to solve 512(a + bx) = 128 does show a lack of understanding between constants and variables. Students who did successfully find a = 0.25 rarely could handle the more complex process required to find b. Students scoring full marks in this question were rare.",
     "difficulty": "hard",
     "has_diagram": false,
     "source_page": 28,
@@ -480,7 +480,7 @@
       "M1 (AO 2.2a): Sets $\\text{‘}512\\text{’}b+\\text{‘}-144\\text{’}a=36\\Rightarrow b=\\ldots$ Notes: Condone $512b\\pm144\\times a=36$ following through on their 512, their $-144$ and using their value of “$a$” to find a value for “$b$”.",
       "A1 (AO 1.1b): $(b=)\\frac{9}{64}$ oe."
     ],
-    "examiner_notes": "Part (a) was standard ‘book work’ on the binomial expansion. This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). A common error in parts (b) and (c) was to set up a pair of (incorrect) simultaneous equations in a and b. Solutions of this type, that is via attempting to solve 512(a + bx) = 128 does show a lack of understanding between constants and variables. Students who did successfully find a = 0.25 rarely could handle the more complex process required to find b. Students scoring full marks in this question were rare.",
+    "examiner_notes": "This was usually well done but applying this expansion within a new expression was met with limited success. Many students did not attempt parts (b) and (c). A common error in parts (b) and (c) was to set up a pair of (incorrect) simultaneous equations in a and b. Solutions of this type, that is via attempting to solve 512(a + bx) = 128 does show a lack of understanding between constants and variables. Students who did successfully find a = 0.25 rarely could handle the more complex process required to find b. Students scoring full marks in this question were rare.",
     "difficulty": "hard",
     "has_diagram": false,
     "source_page": 28,
@@ -501,8 +501,8 @@
       "M1 (AO 1.1b): $\\Rightarrow4\\cos^2\\theta-\\cos\\theta=2(1-\\cos^2\\theta)$. Notes: Attempts to use the correct identity $1-\\cos^2\\theta=\\sin^2\\theta$ to form an equation in just $\\cos\\theta$.",
       "A1* (AO 2.1): $6\\cos^2\\theta-\\cos\\theta-2=0$ *. Notes: Proceeds to correct answer through rigorous and clear reasoning. No errors in notation or bracketing. For example $\\sin^2\\theta=\\sin\\theta^2$ is an error in notation."
     ],
-    "examiner_notes": "Overall this question was well done, with many students taking advantage of being able to attempt (b) without completing (a). The few who restarted unnecessarily in (b) lost valuable time in the examination. In (a) almost all students substituted for tan θ correctly, with just a few using the identity upside down or attempting some version of sinθ = tanθ cosθ. It was common for the first accuracy mark to be lost for 4cos²θ – 1 instead of 4cos²θ – cosθ after multiplication by cosθ. Whilst many correctly used sin²θ+cos²θ=1 it was disappointing to see sinθ+cosθ =1 being quoted. The final mark was sometimes lost through bracketing errors or poor notation e.g. sinθ² for sin²θ.",
-    "difficulty": "medium",
+    "examiner_notes": "Overall this question was well done, with many students taking advantage of being able to attempt (b) without completing (a). In (a) almost all students substituted for tan θ correctly, with just a few using the identity upside down or attempting some version of sinθ = tanθ cosθ. It was common for the first accuracy mark to be lost for 4cos²θ – 1 instead of 4cos²θ – cosθ after multiplication by cosθ. Whilst many correctly used sin²θ+cos²θ=1 it was disappointing to see sinθ+cosθ =1 being quoted. The final mark was sometimes lost through bracketing errors or poor notation e.g. sinθ² for sin²θ.",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 32,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -523,7 +523,7 @@
       "A1 (AO 2.2a): $x=40^\\circ, 80^\\circ$, awrt $16.1^\\circ$. Notes: $x=40^\\circ,80^\\circ$, awrt $16.1^\\circ$ only. Withhold this mark if there are any other values even if they are outside the range. Condone 40 and 80 appearing as 40.0 and 80.0."
     ],
     "examiner_notes": "Overall this question was well done, with many students taking advantage of being able to attempt (b) without completing (a). The few who restarted unnecessarily in (b) lost valuable time in the examination. In (b) students generally managed to solve the quadratic, often using a calculator to find the two roots. The most common error was to give the signs of the roots the wrong way around, even after correct factorisation in some cases. Almost all found solutions for 3x but many failed to divide by 3. A substantial number of students who went on to find values for x missed a solution (often the 80°) or gave extra solutions outside the range e.g. 103.9°",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "has_diagram": false,
     "source_page": 32,
     "source_file": "8MA0-01_2018-06_QP.pdf"
@@ -585,7 +585,7 @@
       "M1 (AO 3.4): Uses $V=63100\\times1.122^{30}$ or $\\log V=0.05\\times30+4.8$ leading to $V=\\ldots$ Notes: For substituting $t=30$ into $V=pq^t$ using their values for $p$ and $q$ or substituting $t=30$ into $\\log_{10}V=0.05t+4.8$ and proceeds to $V$.",
       "A1 (AO 1.1b): $=$ awrt $(\\pounds)\\,2000000$. Notes: For awrt either £1.99 million or £2.00 million. Condone the omission of the £ sign. Remember to isw after a correct answer."
     ],
-    "examiner_notes": "Although this was another new question, it was less well attempted than others with more students leaving this question blank, or starting the question but not gaining any marks. Part (c) could be answered without values for p and q and some students scored just marks in this part of the question. When attempted it was generally done well. The follow through error mentioned in part (a) often led to the loss of the accuracy mark here.",
+    "examiner_notes": "Although this was another new question, it was less well attempted than others with more students leaving this question blank, or starting the question but not gaining any marks. Although this was not penalised in part (a), it did often lead to a wrong answer in part (c). Part (c) could be answered without values for p and q and some students scored just marks in this part of the question. When attempted it was generally done well. The follow through error mentioned in part (a) often led to the loss of the accuracy mark here.",
     "difficulty": "easy",
     "has_diagram": true,
     "source_page": 36,
