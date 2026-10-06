@@ -143,7 +143,7 @@
     "topic": "Exponentials and logarithms",
     "spec_ref": "6.4, 6.3",
     "marks": 2,
-    "question_latex": "A student’s attempt to solve the equation $2\\log_2 x-\\log_2\\sqrt{x}=3$ is shown below.\n$2\\log_2 x-\\log_2\\sqrt{x}=3$\n$2\\log_2\\left(\\frac{x}{\\sqrt{x}}\\right)=3$ \\quad using the subtraction law for logs\n$2\\log_2\\left(\\sqrt{x}\\right)=3$ \\quad simplifying\n$\\log_2 x=3$ \\quad using the power law for logs\n$x=3^2=9$ \\quad using the definition of a log\nIdentify two errors made by this student, giving a brief explanation of each.",
+    "question_latex": "A student’s attempt to solve the equation $2\\log_2 x-\\log_2\\sqrt{x}=3$ is shown below.\n$$\\begin{aligned}2\\log_2 x-\\log_2\\sqrt{x}&=3\\\\2\\log_2\\left(\\frac{x}{\\sqrt{x}}\\right)&=3&&\\text{using the subtraction law for logs}\\\\2\\log_2\\left(\\sqrt{x}\\right)&=3&&\\text{simplifying}\\\\\\log_2 x&=3&&\\text{using the power law for logs}\\\\x&=3^2=9&&\\text{using the definition of a log}\\end{aligned}$$\nIdentify two errors made by this student, giving a brief explanation of each.",
     "mark_scheme": [
       "B1 (AO 2.3): Identifies one of the two errors: “You cannot use the subtraction law without dealing with the 2 first”; “They undo the logs incorrectly. It should be $x=2^3=8$”. Notes: Error One: either in words states ‘They cannot use the subtraction law without dealing with the 2 first’ or writes that line 2 should be $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)(=3)$. If they rewrite line two it must be correct. Allow ‘the coefficient of each log term is different so we cannot use the subtraction law’. Allow responses such as ‘it must be $\\log x^2$ before subtracting the logs’. Do not accept an incomplete response such as “the student ignored the 2”. There must be some reference to the subtraction law as well. Error Two: either in words states ‘They undo the log incorrectly’ or writes that ‘if $\\log_2x=3$ then $x=2^3=8$’. If it is rewritten it must be correct, e.g. $x=\\log_2 9$ is B0.",
       "B1 (AO 2.3): Identifies both errors. Notes: States both of the two errors."
@@ -163,7 +163,7 @@
     "topic": "Exponentials and logarithms",
     "spec_ref": "6.4, 6.3",
     "marks": 3,
-    "question_latex": "A student’s attempt to solve the equation $2\\log_2 x-\\log_2\\sqrt{x}=3$ is shown below.\n$2\\log_2 x-\\log_2\\sqrt{x}=3$\n$2\\log_2\\left(\\frac{x}{\\sqrt{x}}\\right)=3$ \\quad using the subtraction law for logs\n$2\\log_2\\left(\\sqrt{x}\\right)=3$ \\quad simplifying\n$\\log_2 x=3$ \\quad using the power law for logs\n$x=3^2=9$ \\quad using the definition of a log\nWrite out the correct solution.",
+    "question_latex": "A student’s attempt to solve the equation $2\\log_2 x-\\log_2\\sqrt{x}=3$ is shown below.\n$$\\begin{aligned}2\\log_2 x-\\log_2\\sqrt{x}&=3\\\\2\\log_2\\left(\\frac{x}{\\sqrt{x}}\\right)&=3&&\\text{using the subtraction law for logs}\\\\2\\log_2\\left(\\sqrt{x}\\right)&=3&&\\text{simplifying}\\\\\\log_2 x&=3&&\\text{using the power law for logs}\\\\x&=3^2=9&&\\text{using the definition of a log}\\end{aligned}$$\nWrite out the correct solution.",
     "mark_scheme": [
       "M1 (AO 1.1b): $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)=3$. Notes: Uses a correct method of combining the two log terms. Either uses both the power law and the subtraction law to reach a form $\\log_2\\left(\\frac{x^2}{\\sqrt{x}}\\right)=3$ oe. Or uses both the power law and subtraction to reach $\\frac{3}{2}\\log_2(x)=3$.",
       "M1 (AO 1.1b): $x^{3/2}=2^3$ or $\\frac{x^2}{\\sqrt{x}}=2^3$. Notes: Uses correct work to “undo” the log, e.g. moves from $\\log_2(Ax^n)=b\\Rightarrow Ax^n=2^b$. This is independent of the previous mark so allow following earlier error.",
@@ -259,7 +259,7 @@
       "A1 (AO 1.1b): $\\cos\\theta=\\pm\\frac{4}{5}$. Notes: $\\cos\\theta=\\pm\\frac{4}{5}$ or $\\pm0.8$. Condone these values appearing from $\\pm0.79\\ldots$"
     ],
     "examiner_notes": "This proved to be a very demanding question. The idea of there being two values for $\\theta$ or $\\cos\\theta$ was lost on many students. Most students ignored the need for two values in (a) and hence in part (b), which involved choosing the obtuse angle, no marks could be awarded. In (a) almost all students were able to apply the area formula to achieve an acceptable answer for sin θ or θ. However, few then had a strategy for obtaining cos θ. Even those who produced the two correct angles often failed to find the values of cos θ. The use of $\\cos^2\\theta+\\sin^2\\theta=1$ was quite rare. Another acceptable method was to sketch a right angled triangle and use trigonometric ratios. Perhaps because of the request for values for cos θ some students incorrectly quoted $\\frac{1}{2}ab\\cos C$ for the area.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 16,
     "source_file": "8MA0-01_2018-06_QP.pdf",
@@ -593,11 +593,11 @@
       "B1 (AO 3.4): (ii) The proportional increase in value each year. Notes: E.g. accept an explanation that explains that the value of the painting will rise 12.2% a year (follow through on their value of $q$). Accept “the rate” by which the value is rising/price is changing. “1.122 is the decimal multiplier representing the year on year increase in value”. Do not accept “the amount” by which it is rising or “how much” it is rising by. If they are not labelled (b)(i) and (b)(ii) mark in the order given but accept any way around as long as clearly labelled “p is…” and “q is…”."
     ],
     "examiner_notes": "Although this was another new question, it was less well attempted than others with more students leaving this question blank, or starting the question but not gaining any marks. Part (b) was attempted by the majority of students, even for those who failed to attempt part (a). Part (i) was well answered with the majority of students identifying p as the initial value of the painting. A few students did not put their statement in the context of the model. In part (ii) common mistakes were to state it was the increase in value, rather than to link it to the rate or proportional increase, or to state it was the gradient of the line. Very few students explained that the value of the painting would rise by 12.2% a year or that 1.122 was the decimal multiplier representing the year on year increase in value.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "has_diagram": true,
     "source_page": 36,
     "source_file": "8MA0-01_2018-06_QP.pdf",
-    "difficulty_evidence": "Part (i) was well answered with the majority of students identifying p as the initial value of the painting."
+    "difficulty_evidence": "Very few students explained that the value of the painting would rise by 12.2% a year or that 1.122 was the decimal multiplier representing the year on year increase in value."
   },
   {
     "id": "8MA0-01_2018-06_Q13c",
@@ -863,7 +863,7 @@
       "ALT: Second column of the scheme — M1 (AO 1.1b): $\\text{‘}29.251\\ldots\\text{’}-\\text{‘}15.948\\ldots\\text{’}$. Notes: or for their $P_{90}-P_{10}$ where $25<P_{90}<35$ and $10<P_{10}<20$."
     ],
     "examiner_notes": "Parts (a), (c) were well attempted by most candidates with part (d) being tackled by more able candidates. The most popular approach in part (d) here seemed to be use of the inverse Normal function on a calculator to find the 10th and 90th percentiles. This was usually successful although many candidates then went no further, hence gaining only the first mark. It was evident that some were not aware of what was meant by interpercentile range; it was not understood that the difference needed to be found (as when finding IQR), some stating a range for x as an inequality (e.g. $15.9\\leqslant x\\leqslant29.3$) with others instead reaching a probability answer of 0.8. Of those continuing to find the IPR some had prematurely rounded both percentile values to 3 significant figures before subtraction, leading to 13.4 as an inaccurate final answer. Candidates need to be encouraged to work with accurate figures, only rounding their final answer. Fewer candidates used the more ‘traditional’ (and longer) approach of standardisation to obtain the percentiles needed, although this was often done successfully.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 6,
     "source_file": "9MA0-31_2019-06_QP.pdf",
@@ -1009,7 +1009,7 @@
       "A1 (AO 1.1b): $=51.7385\\ldots$ awrt 51.7. Notes: awrt 51.7."
     ],
     "examiner_notes": "This question demonstrated that most candidates are confident in carrying out statistical calculations, particularly probabilities, but only the most able are confident in interpreting in context what these mean. In part (b)(ii) while candidates rarely had difficulty finding P(X=7) they frequently went no further, despite the question’s requirement for the expected value.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "has_diagram": false,
     "source_page": 14,
     "source_file": "9MA0-31_2019-06_QP.pdf",
@@ -1203,7 +1203,7 @@
       "ALT: Alternative via squaring (notes) — M1 (AO 1.1b): An alternative is via squaring and combining the algebraic terms to reach $a^{\\pm3}=k, k>0$. Eg. $\\ldots a^4=\\ldots a\\Rightarrow a^{\\pm3}=k$ or $\\ldots a^4=\\ldots a\\Rightarrow\\ldots a^4-\\ldots a=0\\Rightarrow\\ldots a\\left(a^3-\\ldots\\right)=0\\Rightarrow a^3=\\ldots$"
     ],
     "examiner_notes": "(i) Many candidates approached this question well and were able to manipulate the indices correctly to achieve $a=0.25$. Several candidates who derived a fractional index of $x$ on one side of the equation were unable to successfully ‘undo’ the index e.g. $x^{3/2}=k$ often became $x=\\sqrt{k^3}$. Few managed to deduce $a=0$ due to cancelling a factor of $a$ instead of factorising it out. Many candidates squared both sides of the given equation to have integer indices, though they frequently did not square the coefficients as well. Depending on how they processed their equation was key to whether they got both solutions. Those who factorised or used calculator methods to solve the quartic equation were more likely to get both solutions. A significant number of candidates displayed very poor algebra skills when attempting to isolate $a$ in this part and for the most part the same candidates also tackled (ii) poorly.",
-    "difficulty": "medium",
+    "difficulty": "hard",
     "difficulty_evidence": "Few managed to deduce $a=0$ due to cancelling a factor of $a$ instead of factorising it out.",
     "has_diagram": false,
     "source_page": 4,

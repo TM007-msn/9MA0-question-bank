@@ -8,7 +8,22 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-06 (including judged difficulty ratings)."
+      "note": "Approved 2026-10-06 (including judged difficulty ratings).",
+      "history": [
+        {
+          "date": "2026-10-06",
+          "reason": "Rubric change: rate by how many completed the part; Q05a-b working moved into one aligned block",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2018-06_Q05a: question_latex",
+            "8MA0-01_2018-06_Q05b: question_latex",
+            "8MA0-01_2018-06_Q07a: difficulty",
+            "8MA0-01_2018-06_Q13b: difficulty",
+            "8MA0-01_2018-06_Q13b: difficulty_evidence"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-31",
@@ -17,7 +32,27 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-06 (including judged difficulty ratings)."
+      "note": "Approved 2026-10-06 (including judged difficulty ratings).",
+      "history": [
+        {
+          "date": "2026-10-06",
+          "reason": "Rubric change: rate by how many completed the part",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-31_2019-06_Q02d: difficulty"
+          ]
+        },
+        {
+          "date": "2026-10-06",
+          "reason": "Rubric change: Q04bii 'frequently went no further' treated like Q02d's 'many went no further' (few completed)",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-31_2019-06_Q04bii: difficulty"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",

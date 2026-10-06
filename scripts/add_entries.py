@@ -3,9 +3,16 @@
 Usage (from the project root, with the venv active):
     python scripts/add_entries.py path/to/draft.json
     python scripts/add_entries.py --replace path/to/draft.json
+    python scripts/add_entries.py --replace-approved "why" path/to/draft.json
 
 --replace swaps out the paper's existing entries for the draft. It is only
 allowed while the paper is still in_review (i.e. being redone after review).
+
+--replace-approved does the same for a paper that is already done (approved),
+e.g. after a rule change applied across the bank. It needs a reason. The
+paper stays done, and a dated record of the reason and of every id and field
+that changed is appended to the paper's "history" in bank/progress.json.
+Every check below still runs.
 
 The draft is a JSON array of question entries, all from one paper and series.
 Nothing is written unless every check passes:
@@ -15,8 +22,9 @@ Nothing is written unless every check passes:
   3. check_marks.py says the mark scheme matches the question paper ("ok")
   4. for each question, the entries' marks add up to the question paper's total
   5. no id is already in the bank, and no id repeats within the draft
-If all pass, the entries are appended and the paper is set to in_review in
-bank/progress.json.
+If all pass, the entries are saved (a replaced paper keeps its place in the
+file) and the paper is set to in_review in bank/progress.json (or, with
+--replace-approved, stays done with a history record).
 """
 
 import argparse
@@ -58,8 +66,12 @@ def question_number(entry):
     return int(digits)
 
 
-def check_draft(draft, replace=False):
-    """Return (paper, series, problems)."""
+def check_draft(draft, replace=None):
+    """Return (paper, series, problems).
+
+    replace is None for new entries, "in_review" for --replace and "done"
+    for --replace-approved: the status the paper must have to be replaced.
+    """
     problems = []
     if not isinstance(draft, list) or not draft:
         return None, None, ["draft must be a non-empty JSON array"]
@@ -107,8 +119,9 @@ def check_draft(draft, replace=False):
     if replace:
         status = next((i["status"] for i in load(PROGRESS)["queue"]
                        if i["paper"] == paper and i["series"] == series), None)
-        if status != "in_review":
-            problems.append(f"--replace is only for papers in_review; {paper} {series} is {status}")
+        if status != replace:
+            flag = "--replace" if replace == "in_review" else "--replace-approved"
+            problems.append(f"{flag} is only for papers that are {replace}; {paper} {series} is {status}")
     seen = set()
     for entry in draft:
         if entry["id"] in existing:
@@ -120,14 +133,34 @@ def check_draft(draft, replace=False):
     return paper, series, problems
 
 
+def changes(old, new):
+    """What a replacement changes: ids added and removed, and "id: field" for
+    each field whose value differs."""
+    old_by_id = {e["id"]: e for e in old}
+    new_by_id = {e["id"]: e for e in new}
+    changed = []
+    for entry_id in sorted(set(old_by_id) & set(new_by_id)):
+        a, b = old_by_id[entry_id], new_by_id[entry_id]
+        changed += [f"{entry_id}: {k}" for k in sorted(set(a) | set(b)) if a.get(k) != b.get(k)]
+    return {"added": sorted(set(new_by_id) - set(old_by_id)),
+            "removed": sorted(set(old_by_id) - set(new_by_id)),
+            "changed": changed}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("draft", help="JSON array of entries for one paper")
-    parser.add_argument("--replace", action="store_true",
-                        help="replace this paper's existing entries (in_review only)")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--replace", action="store_true",
+                      help="replace this paper's existing entries (in_review only)")
+    mode.add_argument("--replace-approved", metavar="REASON",
+                      help="replace an approved (done) paper's entries; REASON is recorded in progress.json")
     args = parser.parse_args()
+    if args.replace_approved is not None and not args.replace_approved.strip():
+        parser.error("--replace-approved needs a reason")
+    replace = "in_review" if args.replace else "done" if args.replace_approved else None
     draft = load(args.draft)
-    paper, series, problems = check_draft(draft, args.replace)
+    paper, series, problems = check_draft(draft, replace)
     if problems:
         print("NOT SAVED:")
         for p in problems:
@@ -135,23 +168,44 @@ def main():
         return 1
 
     bank = load(QUESTIONS)
-    if args.replace:
-        removed = [e for e in bank if e["paper"] == paper and e["series"] == series]
-        bank = [e for e in bank if e not in removed]
+    removed = []
+    if replace:
+        # Put the new entries where the old ones were, so the file keeps its order.
+        is_this_paper = [e["paper"] == paper and e["series"] == series for e in bank]
+        removed = [e for e, mine in zip(bank, is_this_paper) if mine]
+        at = is_this_paper.index(True) if removed else len(bank)
+        bank = [e for e, mine in zip(bank, is_this_paper) if not mine]
+        bank[at:at] = draft
         print(f"Replacing {len(removed)} existing entries for {paper} {series}.")
-    bank.extend(draft)
+    else:
+        bank.extend(draft)
+
+    diff = changes(removed, draft)
+    if replace == "done" and not any(diff.values()):
+        print(f"NOT SAVED: the draft is identical to the saved entries for {paper} {series}.")
+        return 1
     save(QUESTIONS, bank)
 
+    today = date.today().isoformat()
     progress = load(PROGRESS)
+    status = None
     for item in progress["queue"]:
         if item["paper"] == paper and item["series"] == series:
-            item["status"] = "in_review"
             item["marks_check"] = "ok"
-    progress["updated"] = date.today().isoformat()
+            if replace == "done":
+                item.setdefault("history", []).append(
+                    {"date": today, "reason": args.replace_approved.strip(), **diff})
+            else:
+                item["status"] = "in_review"
+            status = item["status"]
+    progress["updated"] = today
     save(PROGRESS, progress)
 
     print(f"Saved {len(draft)} entries for {paper} {series} "
-          f"({sum(e['marks'] for e in draft)} marks). Status: in_review.")
+          f"({sum(e['marks'] for e in draft)} marks). Status: {status}.")
+    if replace == "done":
+        print(f"History: {len(diff['changed'])} field changes, {len(diff['added'])} added, "
+              f"{len(diff['removed'])} removed.")
     return 0
 
 

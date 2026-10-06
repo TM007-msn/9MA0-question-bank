@@ -96,6 +96,20 @@ TOPICS = load_topics()
 # "[In this question i and j are ...]") does not count.
 FIGURE_RE = re.compile(r"\[Figure\b")
 
+# Maths regions in question_latex: $$...$$ first, then $...$, \[...\] and \(...\).
+# Everything outside these is plain text, where LaTeX spacing and line-break
+# commands are printed literally instead of being typeset.
+MATH_RE = re.compile(r"\$\$.*?\$\$|\$.*?\$|\\\[.*?\\\]|\\\(.*?\\\)", re.DOTALL)
+# \quad, \qquad and \\ (line break). Multi-line working belongs in one
+# $$\begin{aligned}...\end{aligned}$$ block with explanations in \text{...}.
+TEXT_LAYOUT_RE = re.compile(r"\\q?quad\b|\\\\")
+
+
+def layout_outside_maths(text):
+    """The \\quad, \\qquad or \\\\ commands that sit outside maths in text."""
+    return TEXT_LAYOUT_RE.findall(MATH_RE.sub(" ", text or ""))
+
+
 # SPEC combined papers whose sections are filed under the split paper codes:
 # entries for these papers may point at the combined source_file.
 SPEC_SPLITS = {"9MA0-31": "9MA0-03", "9MA0-32": "9MA0-03", "8MA0-21": "8MA0-02", "8MA0-22": "8MA0-02"}
@@ -177,6 +191,10 @@ def consistency_errors(filename, entry):
         # A figure described in the question text means the entry has a diagram.
         if FIGURE_RE.search(entry.get("question_latex") or "") and entry.get("has_diagram") is not True:
             errors.append("question_latex describes a [Figure ...] but has_diagram is not true")
+        stray = layout_outside_maths(entry.get("question_latex"))
+        if stray:
+            errors.append(f"question_latex has {', '.join(sorted(set(stray)))} outside maths: put multi-line "
+                          "working in one $$\\begin{aligned}...\\end{aligned}$$ block with \\text{...} explanations")
         errors.extend(spec_ref_errors(entry))
         errors.extend(source_file_errors(entry))
         errors.extend(difficulty_errors(entry))

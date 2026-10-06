@@ -76,13 +76,15 @@ Wording is a guide, not a lookup:
 - **hard:** most candidates scored few or none of the marks, or the report calls it demanding ("demanding", "challenging", "few candidates", "limited success", "poorly done", "many left it blank").
 
 Weighting:
+- Rate by how many candidates **completed** the part, not by how many earned its early method marks. "Most got the first marks but few finished" is **hard**. The line between medium and hard is how many finished: "often lost the final mark" (many still finished) is medium; "few finished", "rarely completed" or "few reached the answer" is hard, however many earned the opening marks.
 - Sentences about how most candidates did outweigh comments about a minority's errors. "A few students used x = 2" doesn't make a part hard.
 - Sentences about the part itself outweigh the whole-question summary. Use the summary when the report says little about the part.
 - Prefer a sentence about the part as evidence. Use a whole-question sentence only if it's the best basis.
 
 - Save only through `python scripts/add_entries.py draft.json`. It checks the schema, the reserved list, the marks check and per-question mark totals, and rejects duplicate ids.
 - SPEC combined papers restart their numbering in Section B. Their sections are filed under the split codes: 9MA0-03 SPEC becomes 9MA0-31 (Section A) and 9MA0-32 (Section B), and 8MA0-02 SPEC becomes 8MA0-21 and 8MA0-22. `source_file` stays the combined PDF, e.g. `9MA0-03_SPEC_QP.pdf`. The 2018 and SAM combined papers number straight through and keep 03 / 02.
-- After saving, build the review sheet (`python scripts/build_review.py PAPER SERIES`) and stop. To redo a paper that's in review, use `add_entries.py --replace`.
+- After saving, build the review sheet (`python scripts/build_review.py PAPER SERIES`) and stop. To redo a paper that's in review, use `add_entries.py --replace`. To change a paper that's already done (e.g. after a rule change), use `add_entries.py --replace-approved "reason"`: every save check still runs, the paper stays done, and the reason and changed fields are recorded in its `history` in `progress.json`.
+- **question_latex layout:** multi-line working goes in one `$$\begin{aligned}...\end{aligned}$$` block, with explanations in `\text{...}`. `\quad`, `\qquad` and `\\` are only allowed inside maths; outside it they print literally. validate.py enforces this.
 
 ## Setup
 ```

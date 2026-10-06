@@ -85,6 +85,18 @@ class ConsistencyTests(unittest.TestCase):
         self.assertTrue(self.check(examiner_notes=notes, difficulty="hard", difficulty_evidence="Students found it hard."))
         self.assertTrue(self.check(examiner_notes=notes, difficulty_evidence="Some used x = 2."))
 
+    def test_layout_commands_outside_maths_are_refused(self):
+        for text in (r"[Figure 2: sketch] $\log_2 x=3$ \quad using the power law",
+                     r"[Figure 2: sketch] Line one \\ line two",
+                     r"[Figure 2: sketch] $x=1$ \qquad simplifying"):
+            with self.subTest(text=text):
+                self.assertTrue(any("outside maths" in e for e in self.check(question_latex=text)))
+
+    def test_layout_commands_inside_maths_are_allowed(self):
+        text = (r"[Figure 2: sketch] $$\begin{aligned}\log_2 x&=3&&\text{using the power law}\\"
+                r"x&=8\end{aligned}$$ and $n=184\qquad\sum x=4153.6$")
+        self.assertEqual(self.check(question_latex=text), [])
+
     def test_split_mapping_is_only_for_spec(self):
         errors = consistency_errors("questions.json", entry(
             id="9MA0-32_2018-06_Q06", paper="9MA0-32", series="2018-06", topic="Kinematics",

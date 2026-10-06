@@ -40,7 +40,26 @@
             "description": "Last result of scripts/check_marks.py for this paper. Entries are only saved after an ok.",
             "enum": ["ok", "MISMATCH", "UNCHECKED", null]
           },
-          "note": { "type": ["string", "null"] }
+          "note": { "type": ["string", "null"] },
+          "history": {
+            "description": "Changes made to an approved paper with add_entries.py --replace-approved, oldest first.",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["date", "reason", "added", "removed", "changed"],
+              "additionalProperties": false,
+              "properties": {
+                "date": { "type": "string", "format": "date" },
+                "reason": { "type": "string", "minLength": 1 },
+                "added": { "type": "array", "items": { "type": "string" } },
+                "removed": { "type": "array", "items": { "type": "string" } },
+                "changed": {
+                  "description": "\"id: field\" for each field whose value changed.",
+                  "type": "array", "items": { "type": "string" }
+                }
+              }
+            }
+          }
         }
       }
     }

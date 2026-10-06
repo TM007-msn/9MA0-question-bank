@@ -996,7 +996,7 @@ def at(q, opening):
 RATINGS = {
     "01a": ("easy", at("01", "This question was generally well answered")),
     "01b": ("easy", at("01", "This question was generally well answered")),
-    "02i": ("medium", at("02", "Few managed to deduce")),
+    "02i": ("hard", at("02", "Few managed to deduce")),
     "02ii": ("medium", at("02", "(ii) Many candidates were able to spot")),
     "03a": ("easy", at("03", "In part (a) the majority")),
     "03b": ("medium", at("03", "In part (b) most candidates")),
