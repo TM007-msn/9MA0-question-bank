@@ -830,7 +830,7 @@ REPORT = {
         ({"b"}, "The majority failed to determine the lower limit of $k$, $k>9$, which arose from the requirement that "
                 "the circle did not touch the $x$-axis."),
         ({"b"}, "Here, the most common mistake was in assuming the circle must not touch the $x$-axis, resulting in "
-                "$k>25$."),
+                "$k>25$.", {"note": "the mark scheme's answer is $9<k<34$, so the $x$-axis condition gives $k>9$"}),
         ({"b"}, "Some candidates approached this part of the question by substituting the coordinates of their centre "
                 "and then using the discriminant involving $k$, while those who drew a decent sketch used the far simpler "
                 "geometric approach and arrived at the result in a far more concise fashion.", NO),
@@ -1161,7 +1161,7 @@ RATINGS = {
     "11b": ("hard", at("11", "In part (b), the majority of candidates failed")),
     "11c": ("easy", at("11", "In part (c), most candidates identified")),
     "12a": ("easy", at("12", "Part (a) was generally well answered")),
-    "12b": ("easy", at("12", "This question involving the use of trigonometric")),
+    "12b": ("medium", at("12", "Part (b) was attempted by the majority")),
     "12c": ("hard", at("12", "Part (c) was much less successful")),
     "13a": ("easy", at("13", "In part (a), most candidates successfully reached")),
     "13b": ("easy", at("13", "Most were then able to calculate")),
