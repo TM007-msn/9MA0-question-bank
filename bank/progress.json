@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06",
+  "updated": "2026-10-07",
   "queue": [
     {
       "paper": "8MA0-01",
@@ -58,6 +58,15 @@
             "8MA0-01_2018-06_Q14a: question_latex",
             "8MA0-01_2018-06_Q14b: question_latex",
             "8MA0-01_2018-06_Q15: question_latex"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Lead-in rule narrowed: information sentences restored on every later part; only comma connectives go on the next part",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2018-06_Q06c: question_latex"
           ]
         }
       ]
@@ -130,6 +139,17 @@
             "9MA0-31_2019-06_Q04d: question_latex",
             "9MA0-31_2019-06_Q04e: question_latex",
             "9MA0-31_2019-06_Q05b: question_latex",
+            "9MA0-31_2019-06_Q05c: question_latex"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Lead-in rule narrowed: information sentences restored on every later part; only comma connectives go on the next part",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-31_2019-06_Q02d: question_latex",
+            "9MA0-31_2019-06_Q02e: question_latex",
             "9MA0-31_2019-06_Q05c: question_latex"
           ]
         }
@@ -219,6 +239,16 @@
             "8MA0-01_2019-06_Q14d: question_latex",
             "8MA0-01_2019-06_Q16i: question_latex",
             "8MA0-01_2019-06_Q16ii: question_latex"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Lead-in rule narrowed: information sentences restored on every later part; only comma connectives go on the next part",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2019-06_Q14c: question_latex",
+            "8MA0-01_2019-06_Q14d: question_latex"
           ]
         }
       ]
@@ -379,6 +409,16 @@
             "8MA0-01_2021-10_Q16b: question_latex",
             "8MA0-01_2021-10_Q16c: question_latex",
             "8MA0-01_2021-10_Q16d: question_latex"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Lead-in rule narrowed: information sentences restored on every later part; only comma connectives go on the next part",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2021-10_Q11c: question_latex",
+            "8MA0-01_2021-10_Q13c: question_latex"
           ]
         }
       ]

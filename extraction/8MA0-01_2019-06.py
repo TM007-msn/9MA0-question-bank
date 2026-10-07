@@ -140,8 +140,8 @@ LATEX = {
              "(ii) Hence find the age of the car at this instant, giving your answer in years and months to the nearest "
              "month.",
              "(Solutions based entirely on graphical or numerical methods are not acceptable.)"),
-    "14c": L(*Q14[:-1], Q14A, "State the value of $A$."),
-    "14d": L(*Q14[:-1], "State a limitation of this model."),
+    "14c": L(*Q14[:-1], Q14B, Q14A, "State the value of $A$."),
+    "14d": L(*Q14[:-1], Q14B, Q14A, "State a limitation of this model."),
     "15": L(r"Given $n\in\mathbb{N}$, prove that $n^3+2$ is not divisible by 8"),
     "16i": L(r"Two non-zero vectors, $\mathbf{a}$ and $\mathbf{b}$, are such that",
              r"$$|\mathbf{a}+\mathbf{b}|=|\mathbf{a}|+|\mathbf{b}|$$",

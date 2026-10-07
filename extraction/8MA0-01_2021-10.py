@@ -123,7 +123,7 @@ LATEX = {
     "11a": L(*Q11, "find the area of the nature reserve that was covered by trees just before tree planting started."),
     "11b": L(*Q11[:-1], Q11B, "Use this information to find a complete equation for the model, giving your value of $c$ to "
              "3 significant figures."),
-    "11c": L(*Q11[:-1], "On 1st January 2020, the owners of the nature reserve announced a long-term plan to have "
+    "11c": L(*Q11[:-1], Q11B, "On 1st January 2020, the owners of the nature reserve announced a long-term plan to have "
              "100 km$^2$ of the nature reserve covered by trees.",
              "State a reason why the model is not appropriate for this plan."),
     "12i": L(*Q12, r"Solve, for $0<\theta\leqslant450^\circ$, the equation", r"$$5\cos^2\theta=6\sin\theta$$",
@@ -139,7 +139,7 @@ LATEX = {
                r"Find, to the nearest degree, the value of $\alpha_4$"),
     "13a": L(*Q13, "Find, to 3 significant figures, the value of $p$ and the value of $q$."),
     "13b": L(*Q13, Q13M, "Comment on the suitability of the model for this mammal."),
-    "13c": L(*Q13, "With reference to the model, interpret the value of the constant $p$."),
+    "13c": L(*Q13, Q13M, "With reference to the model, interpret the value of the constant $p$."),
     "14a": L(*Q14, r"Write $\mathrm{f}(x)$ in the form", "$$a(x+b)^2+c$$", "where $a$, $b$ and $c$ are constants to be found."),
     "14b": L(*Q14, Q14M, "Find the coordinates of $M$."),
     "14c": L(*Q14, Q14M,
