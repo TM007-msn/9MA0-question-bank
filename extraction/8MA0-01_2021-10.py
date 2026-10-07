@@ -104,7 +104,7 @@ LATEX = {
             "express $y$ in terms of $x$, writing your answer in simplest form."),
     "03": L("Find", r"$$\int\frac{3x^4-4}{2x^3}\,\mathrm{d}x$$", "writing your answer in simplest form."),
     "04a": L(*Q4, "prove that the stone passes through $O$,"),
-    "04b": L(*Q4[:-1], "calculate the speed of the stone."),
+    "04b": L(*Q4[:-1], "Calculate the speed of the stone."),
     "05a": L(*Q5, Q5A),
     "05b": L(*Q5, Q5Q, Q5B),
     "05c": L(*Q5, "(a) " + Q5A, Q5Q, "(b) " + Q5B,

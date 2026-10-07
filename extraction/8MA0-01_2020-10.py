@@ -114,7 +114,7 @@ LATEX = {
     "07b": L(Q7, "(a) " + Q7A, "(b) Hence, using algebra, find any values of $k$ such that",
              r"$$\int_1^k\left(\frac{5}{2\sqrt{x}}+3\right)\mathrm{d}x=4$$"),
     "08a": L(*Q8, "the temperature of the cup of tea when it was placed on the table,"),
-    "08b": L(*Q8[:-1], r"the value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\circ$C."),
+    "08b": L(*Q8, r"the value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\circ$C."),
     "08c": L(*Q8[:-1], r"Explain why, according to this model, the temperature of the cup of tea could not fall to $15^\circ$C."),
     "08d": L(*Q8[:-1],
              r"[Figure 2: sketch of $\mu$ against $t$: a decreasing curve starting at the point $(0, 94)$ on the "

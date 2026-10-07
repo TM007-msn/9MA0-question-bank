@@ -1538,7 +1538,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.3",
     "marks": 1,
-    "question_latex": "A company started mining tin in Riverdale on 1st January 2019.\nA model to find the total mass of tin that will be mined by the company in Riverdale is given by the equation\n$$T=1200-3(n-20)^2$$\nwhere $T$ tonnes is the total mass of tin mined in the $n$ years after the start of mining.\ndeduce the maximum total mass of tin that could be mined,",
+    "question_latex": "A company started mining tin in Riverdale on 1st January 2019.\nA model to find the total mass of tin that will be mined by the company in Riverdale is given by the equation\n$$T=1200-3(n-20)^2$$\nwhere $T$ tonnes is the total mass of tin mined in the $n$ years after the start of mining.\nDeduce the maximum total mass of tin that could be mined,",
     "mark_scheme": [
       "B1 (AO 2.2a): 1200 tonnes. Notes: Only withhold the mark for a lack of tonnes, once, the first time that it occurs. 1200 tonnes or 1200 t."
     ],
@@ -1557,7 +1557,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.3",
     "marks": 2,
-    "question_latex": "A company started mining tin in Riverdale on 1st January 2019.\nA model to find the total mass of tin that will be mined by the company in Riverdale is given by the equation\n$$T=1200-3(n-20)^2$$\nwhere $T$ tonnes is the total mass of tin mined in the $n$ years after the start of mining.\ncalculate the mass of tin that will be mined in 2023.",
+    "question_latex": "A company started mining tin in Riverdale on 1st January 2019.\nA model to find the total mass of tin that will be mined by the company in Riverdale is given by the equation\n$$T=1200-3(n-20)^2$$\nwhere $T$ tonnes is the total mass of tin mined in the $n$ years after the start of mining.\nCalculate the mass of tin that will be mined in 2023.",
     "mark_scheme": [
       "M1 (AO 3.1a): Attempts $\\left\\{1200-3\\times(5-20)^2\\right\\}-\\left\\{1200-3\\times(4-20)^2\\right\\}$. Notes: Attempts $T_5-T_4=\\left\\{1200-3\\times(5-20)^2\\right\\}-\\left\\{1200-3\\times(4-20)^2\\right\\}$ May be implied by $525-432$. Condone for this mark an attempt at $T_4-T_3=\\left\\{1200-3\\times(4-20)^2\\right\\}-\\left\\{1200-3\\times(3-20)^2\\right\\}$",
       "A1 (AO 1.1b): 93 tonnes. Notes: Only withhold the mark for a lack of tonnes, once, the first time that it occurs. 93 tonnes or 93 t"
@@ -2259,7 +2259,7 @@
     "topic": "Exponentials and logarithms",
     "spec_ref": "6.7, 6.3",
     "marks": 3,
-    "question_latex": "The temperature, $\\theta^\\circ$C, of a cup of tea $t$ minutes after it was placed on a table in a room, is modelled by the equation\n$$\\theta=18+65\\mathrm{e}^{-\\frac{t}{8}}\\qquad t\\geqslant0$$\nthe value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\\circ$C.",
+    "question_latex": "The temperature, $\\theta^\\circ$C, of a cup of tea $t$ minutes after it was placed on a table in a room, is modelled by the equation\n$$\\theta=18+65\\mathrm{e}^{-\\frac{t}{8}}\\qquad t\\geqslant0$$\nFind, according to the model,\nthe value of $t$, to one decimal place, when the temperature of the cup of tea was $35^\\circ$C.",
     "mark_scheme": [
       "M1 (AO 1.1b): $18+65\\mathrm{e}^{-\\frac{t}{8}}=35\\Rightarrow65\\mathrm{e}^{-\\frac{t}{8}}=17$. Notes: Uses the information and proceeds to $P\\mathrm{e}^{\\pm\\frac{t}{8}}=Q$ condoning slips",
       "dM1 (AO 1.1b): $t=-8\\ln\\left(\\frac{17}{65}\\right)$. Notes: A full method using correct log laws and a knowledge that $\\mathrm{e}^x$ and $\\ln x$ are inverse functions. This cannot be scored from unsolvable equations, e.g $P>0, Q<0$. Condone one error in their solution.",
@@ -2749,7 +2749,7 @@
     "topic": "Vectors",
     "spec_ref": "9.4, 9.5",
     "marks": 3,
-    "question_latex": "[In this question the unit vectors $\\mathbf{i}$ and $\\mathbf{j}$ are due east and due north respectively.]\nA stone slides horizontally across ice.\nInitially the stone is at the point $A(-24\\mathbf{i}-10\\mathbf{j})$ m relative to a fixed point $O$.\nAfter 4 seconds the stone is at the point $B(12\\mathbf{i}+5\\mathbf{j})$ m relative to the fixed point $O$.\nThe motion of the stone is modelled as that of a particle moving in a straight line at constant speed.\ncalculate the speed of the stone.",
+    "question_latex": "[In this question the unit vectors $\\mathbf{i}$ and $\\mathbf{j}$ are due east and due north respectively.]\nA stone slides horizontally across ice.\nInitially the stone is at the point $A(-24\\mathbf{i}-10\\mathbf{j})$ m relative to a fixed point $O$.\nAfter 4 seconds the stone is at the point $B(12\\mathbf{i}+5\\mathbf{j})$ m relative to the fixed point $O$.\nThe motion of the stone is modelled as that of a particle moving in a straight line at constant speed.\nCalculate the speed of the stone.",
     "mark_scheme": [
       "M1 (AO 1.1b): Attempts distance $AB=\\sqrt{(12+24)^2+(10+5)^2}$. Notes: Attempts to find the distance $AB$ using a correct method. Condone slips but expect to see an attempt at $\\sqrt{a^2+b^2}$ where $a$ or $b$ is correct",
       "dM1 (AO 3.1a): Attempts speed $=\\frac{\\sqrt{(12+24)^2+(10+5)^2}}{4}$. Notes: Dependent upon the previous mark. Look for an attempt at $\\frac{\\text{distance }AB}{4}$",

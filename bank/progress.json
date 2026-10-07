@@ -250,6 +250,16 @@
             "8MA0-01_2019-06_Q14c: question_latex",
             "8MA0-01_2019-06_Q14d: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Capitalise parts left starting lower case after a connective was removed",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2019-06_Q09b: question_latex",
+            "8MA0-01_2019-06_Q09c: question_latex"
+          ]
         }
       ]
     },
@@ -336,6 +346,24 @@
             "8MA0-01_2020-10_Q14a: question_latex",
             "8MA0-01_2020-10_Q14b: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Capitalise parts left starting lower case after a connective was removed",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2020-10_Q08b: question_latex"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Lead-in that carries the command word restored on every part it completes",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2020-10_Q08b: question_latex"
+          ]
         }
       ]
     },
@@ -419,6 +447,15 @@
           "changed": [
             "8MA0-01_2021-10_Q11c: question_latex",
             "8MA0-01_2021-10_Q13c: question_latex"
+          ]
+        },
+        {
+          "date": "2026-10-07",
+          "reason": "Capitalise parts left starting lower case after a connective was removed",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2021-10_Q04b: question_latex"
           ]
         }
       ]
