@@ -26,7 +26,7 @@ All commands run from the project root with `.venv/Scripts/python.exe`. Set `PYT
 - **SPEC section** (`section` is A or B): check_marks.py can't yet check one section of a combined PDF. **Stop** and tell the user that per-section support is needed first.
 
 ## 2. Read the sources
-- **Question paper** (`source/papers/<source_file>`): render each question page with `scripts/render_pages.py` and read it as an image. Text extraction garbles maths. Note each question's start page, every part's marks, and every figure.
+- **Question paper** (`source/papers/<source_file>`): render each question page with `scripts/render_pages.py` and read it as an image. Text extraction garbles maths. Note each question's start page, every part's marks, and every figure. Re-render every figure page with `--figure` (200 dpi; add `--clip-bottom` to crop to the figure) and describe the figure from that render.
 - **Mark scheme** (`source/mark-schemes/PAPER_SERIES_MS.pdf`): render every page with content and read each mark, AO, scheme line and note, and every alternative.
 - **Examiner report** (`source/examiner-reports/PAPER_SERIES_ER.pdf`): text extraction is fine for prose. Render the passages where maths was garbled. If there's no report (SAM, SPEC, or missing), `examiner_notes`, `difficulty` and `difficulty_evidence` are all `null`.
 
@@ -34,7 +34,7 @@ All commands run from the project root with `.venv/Scripts/python.exe`. Set `PYT
 Copy `extraction/_template.py` to `extraction/PAPER_SERIES.py` and fill it in. The fields follow CLAUDE.md:
 - **Entries:** one per separately marked part. Use the id scheme in CLAUDE.md. `question_latex` repeats the shared stem. Figures are `[Figure N: …]` with `has_diagram: true`. Set `source_page` and `source_file`.
 - **Topic and spec refs:** `topic` comes from `schemas/topics.json`. `spec_ref` uses refs from the entry's own qualification, main ref first, others from the same strand.
-- **Mark scheme:** one main string per mark: `CODE (AO x.y): scheme line. Notes: …`. Then every alternative the mark scheme labels as one ("Alt", "ALT", "Alternative(ly)", "Method N", a second scheme column or table, "Either … Or …" between two methods), as separate `ALT:` strings. Keep alternatives out of the main strings. Copy; never invent.
+- **Mark scheme:** one main string per mark: `CODE (AO x.y): scheme line. Notes: …`. A multi-mark code (B2, M2, A2) is one string; the builder's check counts its value. Then every alternative the mark scheme labels as one ("Alt", "ALT", "Alternative(ly)", "Method N", a second scheme column or table, "Either … Or …" between two methods), as separate `ALT:` strings. Keep alternatives out of the main strings. Copy; never invent.
 - **REPORT:** every examiner-report sentence for each question, in order, tagged with its part(s), or `None` for the whole question. Sentences that refer back ("this", "it", "these" …) get `{"ref": True}` or `{"ref": "opening words"}`. Sentences that contain those words but don't refer back get `{"ref": False}`. `er_notes.py` refuses to run until every one is marked.
 - **RATINGS:** difficulty by judgement, using the rubric in CLAUDE.md. Read everything the report says about the question, and weight how most candidates did over a minority's errors. Each rating points at the one sentence it rests on. `None` only if the report says nothing usable.
 

@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from er_notes import apply_report, part_key  # noqa: E402
+from mark_codes import main_marks  # noqa: E402
 from paths import ensure_out_dir  # noqa: E402
 
 P, S = "PAPER", "SERIES"            # e.g. "8MA0-01", "2019-06"
@@ -73,9 +74,10 @@ def build():
         if rating is not None:
             entry["difficulty"] = rating
             entry["difficulty_evidence"] = REPORT[where[0]][where[1]][1]
-        main = [m for m in entry["mark_scheme"] or [] if not m.startswith("ALT:")]
-        if entry["mark_scheme"] is not None and len(main) != entry["marks"]:
-            raise SystemExit(f"{entry['id']}: {len(main)} main mark-scheme lines for {entry['marks']} marks")
+        # Each main line counts its code's value (B2 is one line worth 2 marks); ALT lines don't count.
+        if entry["mark_scheme"] is not None and main_marks(entry["mark_scheme"]) != entry["marks"]:
+            raise SystemExit(f"{entry['id']}: main mark-scheme lines are worth {main_marks(entry['mark_scheme'])} "
+                             f"marks, entry has {entry['marks']}")
     return entries
 
 
