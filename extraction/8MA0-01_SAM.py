@@ -19,6 +19,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from er_notes import apply_report, part_key  # noqa: E402
+from mark_codes import main_marks  # noqa: E402
 from paths import ensure_out_dir  # noqa: E402
 
 P, S = "8MA0-01", "SAM"
@@ -81,8 +82,9 @@ Q14 = [r"[Figure 2: axes $t$ (horizontal) and $\log_{10}P$ (vertical) with origi
 Q14A = "Write down an equation for $l$."
 Q14B = "Find the value of $a$ and the value of $b$."
 Q16 = [r"[Figure 4: plan of the pool: a rectangle $ABDE$ with $A$ top left, $E$ top right, $B$ below $A$ and $D$ below "
-       r"$E$; the top edge $AE$ is labelled $2x$ m and the side $ED$ is labelled $y$ m; $AE$ and $BD$ are dashed; a "
-       r"semicircle $BCD$ lies below $BD$, with $C$ at its lowest point.]",
+       r"$E$; the top edge $AE$ is labelled $2x$ m and the side $ED$ is labelled $y$ m; $AE$ and $BD$ are dashed lines, "
+       r"while the sides $AB$ and $ED$ are solid; a solid semicircular arc $BCD$ lies below $BD$, with $C$ at its lowest "
+       r"point.]",
        "Figure 4 shows the plan view of the design for a swimming pool.",
        r"The shape of this pool $ABCDEA$ consists of a rectangular section $ABDE$ joined to a semicircular section $BCD$ "
        r"as shown in Figure 4.",
@@ -133,9 +135,10 @@ LATEX = {
              "(ii) the number of years it takes the population to reach 200 000, according to the model."),
     "14e": L(*Q14, "State two reasons why this may not be a realistic population model."),
     "15": L(r"[Figure 3: the curve $C_1$, a U-shaped parabola crossing the positive $y$-axis with its minimum point to "
-            r"the right of the $y$-axis and above the $x$-axis; the curve $C_2$, rising steeply from below the $x$-axis "
-            r"just to the right of $O$, crossing the $x$-axis and continuing to rise more gently to the right, below "
-            r"$C_1$; marked “Diagram not drawn to scale”.]",
+            r"the right of the $y$-axis and above the $x$-axis; the curve $C_2$, rising from low down close to the "
+            r"negative $y$-axis, crossing the $x$-axis just to the right of $O$, passing just below and to the right of "
+            r"the minimum point of $C_1$ and then rising more gently to the right; $C_1$ and $C_2$ do not meet; marked "
+            r"“Diagram not drawn to scale”.]",
             "The curve $C_1$, shown in Figure 3, has equation $y=4x^2-6x+4$.",
             r"The point $P\left(\frac{1}{2}, 2\right)$ lies on $C_1$",
             r"The curve $C_2$, also shown in Figure 3, has equation $y=\frac{1}{2}x+\ln(2x)$.",
@@ -393,11 +396,10 @@ DRAFT = [
        r"A1ft (AO 1.1b): (d)(ii) 60.2 years to 3sf. Notes: On their values of $a$ and $b$ with correct log work"],
       True, 20),
     e("14e", "14(e)", EXP, "6.7", 2, LATEX["14e"],
-      [r"B1 (AO 3.5b): Any two valid reasons- e.g. • 100 years is a long time and population may be affected by wars and "
+      [r"B2 (AO 3.5b): Any two valid reasons- e.g. • 100 years is a long time and population may be affected by wars and "
        r"disease • Inaccuracies in measuring gradient may result in widely different estimates • Population growth may "
        r"not be proportional to population size • The model predicts unlimited growth. Notes: As given in the scheme – any "
-       r"two valid reasons [the mark scheme awards these two marks as one B2 (AO 3.5b); this line is the first of them]",
-       r"B1 (AO 3.5b): [second mark of the B2 above: a second valid reason]"],
+       r"two valid reasons"],
       True, 20),
 
     # ---------------- Q15 ----------------
@@ -509,9 +511,10 @@ def build():
         if rating is not None:
             entry["difficulty"] = rating
             entry["difficulty_evidence"] = REPORT[where[0]][where[1]][1]
-        main = [m for m in entry["mark_scheme"] or [] if not m.startswith("ALT:")]
-        if entry["mark_scheme"] is not None and len(main) != entry["marks"]:
-            raise SystemExit(f"{entry['id']}: {len(main)} main mark-scheme lines for {entry['marks']} marks")
+        # Each main line counts its code's value (B2 is one line worth 2 marks); ALT lines don't count.
+        if entry["mark_scheme"] is not None and main_marks(entry["mark_scheme"]) != entry["marks"]:
+            raise SystemExit(f"{entry['id']}: main mark-scheme lines are worth {main_marks(entry['mark_scheme'])} "
+                             f"marks, entry has {entry['marks']}")
     return entries
 
 
