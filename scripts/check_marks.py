@@ -188,11 +188,15 @@ def overrides(paper, series):
         notes.append(f"QP totals read by hand ({why}): {totals}; they add up to "
                      f"{sum(entry['totals'].values())} of {entry.get('paper_total', '?')}. "
                      f"Read from: {entry['read_from']}")
-    fixes = load_overrides(MS_CORRECTIONS).get(ms_path.name, {}).get("corrections", {})
-    for q, fix in fixes.items():
+    ms_entry = load_overrides(MS_CORRECTIONS).get(ms_path.name, {})
+    for q, fix in ms_entry.get("corrections", {}).items():
         printed = "no total printed" if fix["printed"] is None else f"printed {fix['printed']}"
         notes.append(f"MS correction Q{q}: {printed}, corrected to {fix['total']} "
                      f"(MS page {fix['page']}). {fix['reason']}")
+    # Rows printed in the mark scheme but left out of the bank (e.g. a duplicated row).
+    # They don't change any total; they're listed so the reviewer sees them.
+    for row in ms_entry.get("omitted_rows", []):
+        notes.append(f"MS row left out, Q{row['question']} (MS page {row['page']}): “{row['row']}”. {row['reason']}")
     return notes
 
 

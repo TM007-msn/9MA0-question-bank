@@ -115,6 +115,15 @@ class OverrideTests(unittest.TestCase):
         self.assertTrue(any("MS correction Q1" in n and "MS page 1" in n for n in notes))
         self.assertTrue(any("MS correction Q14" in n and "MS page 13" in n for n in notes))
 
+    def test_omitted_rows_are_listed_without_changing_the_result(self):
+        (status, problems), notes = self.run_with("8MA0-01", "SPEC")
+        self.assertEqual((status, problems), ("ok", []))
+        self.assertTrue(any("MS row left out, Q13(c)" in n and "MS page 13" in n for n in notes))
+        del self.fixes["papers"]["8MA0-01_SPEC_MS.pdf"]
+        (status_without, _), notes_without = self.run_with("8MA0-01", "SPEC")
+        self.assertEqual(status_without, "ok")
+        self.assertEqual(notes_without, [])
+
     def test_hand_read_totals_must_add_up_to_the_paper_total(self):
         self.sam()["totals"]["17"] = 9
         (status, problems), _ = self.run_with()

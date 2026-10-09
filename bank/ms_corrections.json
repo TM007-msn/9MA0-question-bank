@@ -1,5 +1,5 @@
 {
-  "description": "Corrections to per-question totals printed in a mark scheme, for misprints and missing totals. \"printed\" is what check_marks.py reads from the PDF (a number, or null when no total is printed); the correction only applies while the PDF still reads that way. Each records the page and the reason, and is listed on the paper's review sheet.",
+  "description": "Corrections to per-question totals printed in a mark scheme, for misprints and missing totals. \"printed\" is what check_marks.py reads from the PDF (a number, or null when no total is printed); the correction only applies while the PDF still reads that way. Each records the page and the reason, and is listed on the paper's review sheet. \"omitted_rows\" lists rows printed in a mark scheme but left out of the bank (e.g. a duplicated row), with the page and the reason; they don't change any total and are listed on the review sheet too.",
   "papers": {
     "8MA0-01_SAM_MS.pdf": {
       "date": "2026-10-09",
@@ -17,6 +17,17 @@
           "reason": "No question total is printed; the parts are (a) 2, (b) 4, (c) 2, (d) 3, (e) 2 = 13, matching the question paper's 'Total for Question 14 is 13 marks'."
         }
       }
+    },
+    "8MA0-01_SPEC_MS.pdf": {
+      "date": "2026-10-09",
+      "omitted_rows": [
+        {
+          "question": "13(c)",
+          "page": 13,
+          "row": "At t = 5 ⇒ Rate of Growth is 0.06e^1.5 = 0.269 m²/day — A1 (1.1b), followed by a part total (2)",
+          "reason": "Duplicate of the second 13(b) row, printed again after 13(c)'s own M1 A1 M1 A1 (4). It is not a 13(c) mark: 13(c) is 4 marks on the question paper and Q13 totals 8 = (a) 1 + (b) 2 + (c) 4 + (d) 1. Left out of Q13c's mark_scheme."
+        }
+      ]
     }
   }
 }
