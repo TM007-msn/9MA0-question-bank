@@ -373,8 +373,9 @@ DRAFT = [
        rf"M1 (AO 1.1b): Attempts $(x-2)^2+(y-5)^2={R_}$. Notes: As scheme or substitutes $(-2,3)$ into "
        rf"$(x-2)^2+(y-5)^2={R_}$",
        r"A1 (AO 1.1b): Correct equation $(x-2)^2+(y-5)^2=20$. Notes: For a correct equation",
-       r"ALT: If students use $x^2+y^2+2fx+2gy+c=0$ — M1: $f=2$, $g=5$",
-       r"ALT: If students use $x^2+y^2+2fx+2gy+c=0$ — M1: substitutes $(2,5)$ to find value of $c$",
+       r"ALT: If students use $x^2+y^2+2fx+2gy+c=0$ — M1: $f=2$, $g=5$ [sic: the main scheme's centre is $(2, 5)$]",
+       r"ALT: If students use $x^2+y^2+2fx+2gy+c=0$ — M1: substitutes $(2,5)$ to find value of $c$ [sic: the main "
+       r"scheme substitutes the point $(-2,3)$; its centre is $(2, 5)$]",
        r"ALT: If students use $x^2+y^2+2fx+2gy+c=0$ — A1: $x^2+y^2-4x-10y+9=0$"],
       False, 20),
     e("10b", "10(b)", COORD, "3.2, 3.1", 5, LATEX["10b"],
