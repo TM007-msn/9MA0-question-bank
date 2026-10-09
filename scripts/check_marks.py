@@ -39,7 +39,9 @@ QP_TOTAL_RE = re.compile(r"Total\s+for\s+Question\s+(\d+)\s+is\s+(\d+)\s+marks?"
 # Each mark scheme table starts with the column headings, then the question
 # label in the first cell, e.g. "Question\nScheme\nMarks\nAOs\n2(i)".
 # Some tables leave the "Question" heading cell blank (8MA0-01 2019-06 Q13).
-MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme\s*\n\s*Marks\s*\n\s*AOs\s*\n\s*(\d+)")
+# The Scheme heading may name the method, e.g. "Scheme for Substitution" and
+# "Scheme for by parts" (9MA0-01 2018-06 Q13), so it may run on to the end of its line.
+MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme[^\n]*\n\s*Marks\s*\n\s*AOs\s*\n\s*(\d+)")
 # Some questions open with a page of notes headed just "Question 15" on its
 # own line, before the scheme table (8MA0-01 2019-06 Q15). Lines such as
 # "Notes on Question 4 continue" don't match because the line must hold

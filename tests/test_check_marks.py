@@ -50,7 +50,7 @@ EXPECTED = {
     ("8MA0-22", "2022-06"): "UNCHECKED",
     ("8MA0-22", "2023-06"): "ok",
     ("8MA0-22", "2024-06"): "UNCHECKED",
-    ("9MA0-01", "2018-06"): "UNCHECKED",
+    ("9MA0-01", "2018-06"): "ok",  # "Scheme for Substitution" headings (Q13)
     ("9MA0-01", "2019-06"): "UNCHECKED",
     ("9MA0-01", "2020-10"): "ok",
     ("9MA0-01", "2021-10"): "ok",
@@ -76,6 +76,16 @@ EXPECTED = {
     ("9MA0-32", "2021-10"): "UNCHECKED",
     ("9MA0-32", "2022-06"): "ok",
 }
+
+
+class HeaderPatternTests(unittest.TestCase):
+    def test_scheme_heading_may_name_the_method(self):
+        for heading in ["Question \nScheme \nMarks \nAOs \n13 ",
+                        "Question \nScheme for Substitution  \nMarks \nAOs \n13 ",
+                        "Question \nAlt \nScheme for by parts \nMarks \nAOs \n13 "]:
+            match = check_marks.MS_HEADER_RE.search(heading)
+            self.assertIsNotNone(match, heading)
+            self.assertEqual(match.group(1), "13")
 
 
 @unittest.skipUnless(HAVE_SOURCES, "source PDFs not present")
