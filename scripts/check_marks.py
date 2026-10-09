@@ -58,6 +58,7 @@ def pdf_text(path):
 
 
 MANUAL_TOTALS = ROOT / "bank" / "qp_totals_manual.json"
+MS_CORRECTIONS = ROOT / "bank" / "ms_corrections.json"
 
 
 def has_text_layer(path, min_chars_per_page=100):
@@ -68,24 +69,56 @@ def has_text_layer(path, min_chars_per_page=100):
         return chars >= min_chars_per_page * doc.page_count / 10
 
 
-def manual_totals(path):
-    """Hand-read totals for a scanned question paper, or None.
+def load_overrides(path, key="papers"):
+    """{file name: entry} from a bank override file, or {} if it doesn't exist."""
+    if not path.exists():
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)[key]
 
-    Only used when the PDF has no text layer, so a hand-read number can
-    never override totals read from the PDF itself.
+
+def manual_entry(path):
+    """The hand-read totals entry for this question paper, if it may be used.
+
+    Hand-read totals never override totals read from the PDF itself. They are
+    used only when the PDF has no text layer (a scan), or when the entry says
+    the text layer is unreadable (fonts with no character mapping) and no
+    "Total for Question" lines can be parsed from it.
     """
-    if has_text_layer(path) or not MANUAL_TOTALS.exists():
+    entry = load_overrides(MANUAL_TOTALS).get(path.name)
+    if not entry:
         return None
-    with open(MANUAL_TOTALS, encoding="utf-8") as f:
-        entry = json.load(f)["papers"].get(path.name)
+    if not has_text_layer(path):
+        return entry
+    if entry.get("text_layer") == "unreadable" and not QP_TOTAL_RE.search(pdf_text(path)):
+        return entry
+    return None
+
+
+def manual_totals(path):
+    """Hand-read totals {question: marks} for this question paper, or None."""
+    entry = manual_entry(path)
     return {int(q): m for q, m in entry["totals"].items()} if entry else None
+
+
+def manual_problems(path):
+    """Problems with a hand-read totals entry: they must add up to the paper total."""
+    entry = manual_entry(path)
+    if not entry:
+        return []
+    added = sum(entry["totals"].values())
+    if "paper_total" not in entry:
+        return [f"hand-read totals for {path.name} have no paper_total to check against"]
+    if added != entry["paper_total"]:
+        return [f"hand-read totals for {path.name} add up to {added}, not the paper total {entry['paper_total']}"]
+    return []
 
 
 def qp_marks(path):
     """{question number: total marks} from the question paper.
 
-    For a scanned paper (no text layer) this falls back to the totals read
-    by hand in bank/qp_totals_manual.json, if they've been recorded.
+    For a scan, or a paper whose text layer is recorded as unreadable, this
+    falls back to the totals read by hand in bank/qp_totals_manual.json.
     """
     found = {int(q): int(m) for q, m in QP_TOTAL_RE.findall(pdf_text(path))}
     if not found:
@@ -119,6 +152,50 @@ def ms_marks(path):
     return totals
 
 
+def corrected_ms_marks(path):
+    """(totals, problems): the mark scheme's totals with any recorded
+    corrections applied (bank/ms_corrections.json).
+
+    A correction states what the parser reads from the PDF ("printed": a
+    number, or null when no total is printed) and the true total. It only
+    applies while the PDF still reads that way; otherwise it is reported as a
+    problem, so a stale or wrong correction can't hide a real mismatch.
+    """
+    totals = ms_marks(path)
+    problems = []
+    for q, fix in load_overrides(MS_CORRECTIONS).get(path.name, {}).get("corrections", {}).items():
+        q = int(q)
+        read = totals.get(q, set())
+        expected = set() if fix["printed"] is None else {fix["printed"]}
+        if read != expected:
+            problems.append(f"Q{q}: MS correction expects the printed total to read {fix['printed']}, "
+                            f"but the parser reads {sorted(read) or 'none'}")
+            continue
+        totals[q] = {fix["total"]}
+    return totals, problems
+
+
+def overrides(paper, series):
+    """Human-readable list of every hand-read total and mark-scheme correction
+    used for this paper (shown in check_marks output and on the review sheet)."""
+    notes = []
+    qp_path = PAPERS_DIR / f"{paper}_{series}_QP.pdf"
+    ms_path = MARK_SCHEMES_DIR / f"{paper}_{series}_MS.pdf"
+    entry = manual_entry(qp_path) if qp_path.exists() else None
+    if entry:
+        why = "scan with no text layer" if entry.get("text_layer") != "unreadable" else "unreadable text layer"
+        totals = ", ".join(f"Q{q} {m}" for q, m in entry["totals"].items())
+        notes.append(f"QP totals read by hand ({why}): {totals}; they add up to "
+                     f"{sum(entry['totals'].values())} of {entry.get('paper_total', '?')}. "
+                     f"Read from: {entry['read_from']}")
+    fixes = load_overrides(MS_CORRECTIONS).get(ms_path.name, {}).get("corrections", {})
+    for q, fix in fixes.items():
+        printed = "no total printed" if fix["printed"] is None else f"printed {fix['printed']}"
+        notes.append(f"MS correction Q{q}: {printed}, corrected to {fix['total']} "
+                     f"(MS page {fix['page']}). {fix['reason']}")
+    return notes
+
+
 def compare(paper, series):
     """Return (status, problems) where status is ok, MISMATCH or UNCHECKED."""
     qp_path = PAPERS_DIR / f"{paper}_{series}_QP.pdf"
@@ -128,8 +205,8 @@ def compare(paper, series):
             return "UNCHECKED", [f"missing {path.relative_to(ROOT).as_posix()}"]
 
     qp = qp_marks(qp_path)
-    ms = ms_marks(ms_path)
-    problems = []
+    ms, problems = corrected_ms_marks(ms_path)
+    problems += manual_problems(qp_path)
     # A real mismatch needs one clean total on each side that disagree.
     # Anything else (missing or several totals) means the parser lost track.
     mismatch = False
@@ -194,8 +271,9 @@ def main():
         else:
             qp_path = PAPERS_DIR / f"{paper}_{series}_QP.pdf"
             total = sum(qp_marks(qp_path).values())
-            how = "  [QP totals read by hand from a scan]" if manual_totals(qp_path) else ""
-            print(f"{'ok':9} {paper} {series}  ({total} marks){how}")
+            print(f"{'ok':9} {paper} {series}  ({total} marks)")
+            for note in overrides(paper, series):
+                print(f"    [override] {note}")
     return 1 if failed else 0
 
 

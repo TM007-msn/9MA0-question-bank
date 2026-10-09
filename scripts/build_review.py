@@ -25,7 +25,7 @@ from collections import OrderedDict
 import pymupdf
 
 from add_entries import question_number
-from check_marks import compare
+from check_marks import compare, overrides
 from paths import RESERVED_DIR, ROOT, ensure_out_dir
 from validate import consistency_errors, load_topics
 
@@ -43,6 +43,8 @@ STYLE = """
           --alt:#2b2740; --alt-ink:#c9c0ff; --warn:#ffb27a; --chip:#2f2e2a; }
 }
 * { box-sizing:border-box; }
+.overrides { border-left:4px solid var(--warn); background:var(--card); padding:8px 16px; margin:16px 0; }
+.overrides h2 { color:var(--warn); font-size:1.05rem; }
 body { margin:0; padding:24px 16px 64px; background:var(--bg); color:var(--ink);
        font:15px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
 main { max-width:1100px; margin:0 auto; }
@@ -177,6 +179,13 @@ def build(paper, series):
             f"<b>{len(entries)}</b> entries · <b>{total}</b> marks · <b>{alts}</b> ALT mark-scheme lines · "
             f"<b>{nulls}</b> null fields · <b>{problems}</b> validation problems",
             "</p>"]
+    # Every hand-read total and mark-scheme correction behind the marks check,
+    # so the reviewer sees them before the questions.
+    notes = overrides(paper, series)
+    if notes:
+        body.append('<section class="overrides"><h2>Marks-check overrides and corrections</h2><ul>')
+        body.extend(f"<li>{esc(n)}</li>" for n in notes)
+        body.append("</ul></section>")
     for q, group in by_question.items():
         first = group[0]
         img = crop_png(first["source_file"], first["source_page"])

@@ -21,6 +21,7 @@ All commands run from the project root with `.venv/Scripts/python.exe`. Set `PYT
 - **ok:** continue.
 - **MISMATCH:** **stop.** Tell the user which questions disagree. The mark scheme may belong to another paper. Don't extract.
 - **UNCHECKED, question paper is a scan:** render the pages (`scripts/render_pages.py`), read every "(Total for Question N is X marks)" line, and check they add up to the paper total on the cover. Record them in `bank/qp_totals_manual.json`, saying where each was read. Re-run the check.
+- **UNCHECKED, question paper text layer unreadable** (garbled text, no totals parsed): treat it like a scan, adding `"text_layer": "unreadable"` and `paper_total` to its `qp_totals_manual.json` entry. A mark-scheme misprint or missing total found this way is **not** fixed silently: stop, show the user the evidence, and add a `bank/ms_corrections.json` entry only with their agreement.
 - **UNCHECKED, text layout not parsed:** you may improve the parser in `scripts/check_marks.py`. Then run `python scripts/check_marks.py --all`. No pair that was `ok` before may change, and no `MISMATCH` may appear. If that can't be done cleanly, **stop** and explain.
 - **SPEC section** (`section` is A or B): check_marks.py can't yet check one section of a combined PDF. **Stop** and tell the user that per-section support is needed first.
 

@@ -1,0 +1,22 @@
+{
+  "description": "Corrections to per-question totals printed in a mark scheme, for misprints and missing totals. \"printed\" is what check_marks.py reads from the PDF (a number, or null when no total is printed); the correction only applies while the PDF still reads that way. Each records the page and the reason, and is listed on the paper's review sheet.",
+  "papers": {
+    "8MA0-01_SAM_MS.pdf": {
+      "date": "2026-10-09",
+      "corrections": {
+        "1": {
+          "printed": 7,
+          "total": 3,
+          "page": 1,
+          "reason": "Misprint: Q1 is three alternative methods (Way 1, Way 2, Way 3), each marked M1 A1 A1 (3); the question paper prints 'Total for Question 1 is 3 marks'."
+        },
+        "14": {
+          "printed": null,
+          "total": 13,
+          "page": 13,
+          "reason": "No question total is printed; the parts are (a) 2, (b) 4, (c) 2, (d) 3, (e) 2 = 13, matching the question paper's 'Total for Question 14 is 13 marks'."
+        }
+      }
+    }
+  }
+}
