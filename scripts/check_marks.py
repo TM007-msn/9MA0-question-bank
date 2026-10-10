@@ -41,7 +41,9 @@ QP_TOTAL_RE = re.compile(r"Total\s+for\s+Question\s+(\d+)\s+is\s+(\d+)\s+marks?"
 # Some tables leave the "Question" heading cell blank (8MA0-01 2019-06 Q13).
 # The Scheme heading may name the method, e.g. "Scheme for Substitution" and
 # "Scheme for by parts" (9MA0-01 2018-06 Q13), so it may run on to the end of its line.
-MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme[^\n]*\n\s*Marks\s*\n\s*AOs\s*\n\s*(\d+)")
+# A page footer ("PMT") can fall between the headings and the label when the
+# table starts at the foot of a page (9MA0-01 2019-06 Q4).
+MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme[^\n]*\n\s*Marks\s*\n\s*AOs\s*\n\s*(?:PMT\s*\n\s*)?(\d+)")
 # Some questions open with a page of notes headed just "Question 15" on its
 # own line, before the scheme table (8MA0-01 2019-06 Q15). Lines such as
 # "Notes on Question 4 continue" don't match because the line must hold
@@ -50,7 +52,8 @@ MS_HEADING_RE = re.compile(r"^[ \t]*Question[ \t]+(\d+)[ \t]*$", re.MULTILINE)
 # The total is usually "(7 marks)"; occasionally it is printed without
 # brackets, as a line of its own ("4 marks"). The unbracketed form must be
 # alone on its line so that notes like "scores 0 marks" aren't counted.
-MS_TOTAL_RE = re.compile(r"\(\s*(\d+)\s+marks?\s*\)|^[ \t]*(\d+)[ \t]+marks?[ \t]*$",
+# The bracketed form may have no space: "(11marks)" (9MA0-01 2019-06 Q13).
+MS_TOTAL_RE = re.compile(r"\(\s*(\d+)\s*marks?\s*\)|^[ \t]*(\d+)[ \t]+marks?[ \t]*$",
                          re.IGNORECASE | re.MULTILINE)
 
 

@@ -28,6 +28,17 @@
           "reason": "Duplicate of the second 13(b) row, printed again after 13(c)'s own M1 A1 M1 A1 (4). It is not a 13(c) mark: 13(c) is 4 marks on the question paper and Q13 totals 8 = (a) 1 + (b) 2 + (c) 4 + (d) 1. Left out of Q13c's mark_scheme."
         }
       ]
+    },
+    "9MA0-01_2019-06_MS.pdf": {
+      "date": "2026-10-10",
+      "corrections": {
+        "10": {
+          "printed": null,
+          "total": 6,
+          "page": 21,
+          "reason": "No question total is printed; (i) is 4 marks (each example proof is M1 A1 dM1 A1*, (4)) and (ii) is 2 marks (each table is M1 A1, (2)), = 6, matching the question paper's 'Total for Question 10 is 6 marks'. MS pages 21-23."
+        }
+      }
     }
   }
 }

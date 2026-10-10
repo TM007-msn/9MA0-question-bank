@@ -51,7 +51,7 @@ EXPECTED = {
     ("8MA0-22", "2023-06"): "ok",
     ("8MA0-22", "2024-06"): "UNCHECKED",
     ("9MA0-01", "2018-06"): "ok",  # "Scheme for Substitution" headings (Q13)
-    ("9MA0-01", "2019-06"): "UNCHECKED",
+    ("9MA0-01", "2019-06"): "ok",  # PMT footer, "(11marks)", Q10 total recorded in ms_corrections.json
     ("9MA0-01", "2020-10"): "ok",
     ("9MA0-01", "2021-10"): "ok",
     ("9MA0-01", "2022-06"): "ok",
@@ -86,6 +86,17 @@ class HeaderPatternTests(unittest.TestCase):
             match = check_marks.MS_HEADER_RE.search(heading)
             self.assertIsNotNone(match, heading)
             self.assertEqual(match.group(1), "13")
+
+    def test_page_footer_between_headings_and_label(self):
+        match = check_marks.MS_HEADER_RE.search("Question \nScheme \nMarks \nAOs \nPMT\n\n4 (a) \n")
+        self.assertIsNotNone(match)
+        self.assertEqual(match.group(1), "4")
+
+    def test_total_may_have_no_space(self):
+        for text in ["(11marks)", "(11 marks)", "( 7 marks )"]:
+            match = check_marks.MS_TOTAL_RE.search(text)
+            self.assertIsNotNone(match, text)
+        self.assertIsNone(check_marks.MS_TOTAL_RE.search("scores 0 marks in total"))
 
 
 @unittest.skipUnless(HAVE_SOURCES, "source PDFs not present")

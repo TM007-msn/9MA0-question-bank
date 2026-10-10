@@ -457,7 +457,7 @@ DRAFT = [
        r"$\ln H=\frac{1}{10}\sin0.25t+c\Rightarrow H=\mathrm{e}^{\frac{1}{10}\sin0.25t+c}\Rightarrow "
        r"H=A\mathrm{e}^{\frac{1}{10}\sin0.25t}$ The dM1 and A1* under this method are awarded at virtually the same time. "
        r"Also, for the final two marks, you may see a proof from $\int_0^H\frac{40}{H}\,\mathrm{d}H="
-       r"\int_5^t\cos0.25t\,\mathrm{d}t$",
+       r"\int_5^t\cos0.25t\,\mathrm{d}t$ [sic: the main scheme's boundary condition is $t=0$, $H=5$]",
        r"ALT: There is an alternative via the use of an integrating factor."],
       False, 26),
     e("10b", "10(b)", INT, "8.8", 1, LATEX["10b"],
@@ -535,7 +535,8 @@ DRAFT = [
        r"M1 (AO 1.1b): (ii) Substitutes their $p=1.0658$ into either equation and finds $A$ "
        r"$A=\frac{32000}{\text{‘}1.0658\text{’}^4}$ or $A=\frac{50000}{\text{‘}1.0658\text{’}^{11}}$. Notes: Substitutes "
        r"their $p=1.0658$ into either of their equations and finds $A$ Eg $A=\frac{32000}{1.0658^4}$ or "
-       r"$A=\frac{50000}{1.0658^7}$ but you may follow through on incorrect equations from part (i)",
+       r"$A=\frac{50000}{1.0658^7}$ [sic: the main scheme divides 50000 by $1.0658^{11}$] but you may follow through on "
+       r"incorrect equations from part (i)",
        r"A1* (AO 1.1b): $A=24795\to24805=24\,800$ *. Notes: Shows that $A$ is between 24 795 and 24 805 before you see "
        r"‘$=24\,800$’ or ‘$\approx24800$’. Accept with or without units.",
        r"ALT: An alternative to (ii) is to start with the given answer. — M1: Attempts "
@@ -962,7 +963,7 @@ RATINGS = {
     "05": ("medium", ("05", 2)),
     "06a": ("easy", ("06", 1)),
     "06b": ("easy", ("06", 3)),
-    "06c": ("medium", ("06", 11)),
+    "06c": ("hard", ("06", 11)),
     "07a": ("easy", ("07", 0)),
     "07b": ("easy", ("07", 0)),
     "08a": ("easy", ("08", 1)),
