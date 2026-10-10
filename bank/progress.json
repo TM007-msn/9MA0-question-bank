@@ -537,16 +537,16 @@
       "series": "2021-10",
       "source_file": "9MA0-01_2021-10_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-10."
     },
     {
       "paper": "9MA0-01",
       "series": "2022-06",
       "source_file": "9MA0-01_2022-06_QP.pdf",
       "section": null,
-      "status": "queued",
+      "status": "in_review",
       "marks_check": "ok",
       "note": null
     },
