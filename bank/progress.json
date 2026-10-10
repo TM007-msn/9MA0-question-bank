@@ -577,17 +577,17 @@
       "series": "SPEC",
       "source_file": "9MA0-01_SPEC_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-10."
     },
     {
       "paper": "9MA0-02",
       "series": "2018-06",
       "source_file": "9MA0-02_2018-06_QP.pdf",
       "section": null,
-      "status": "queued",
-      "marks_check": "UNCHECKED",
+      "status": "in_review",
+      "marks_check": "ok",
       "note": null
     },
     {

@@ -39,6 +39,17 @@
           "reason": "No question total is printed; (i) is 4 marks (each example proof is M1 A1 dM1 A1*, (4)) and (ii) is 2 marks (each table is M1 A1, (2)), = 6, matching the question paper's 'Total for Question 10 is 6 marks'. MS pages 21-23."
         }
       }
+    },
+    "9MA0-02_2018-06_MS.pdf": {
+      "date": "2026-10-10",
+      "corrections": {
+        "13": {
+          "printed": null,
+          "total": 10,
+          "page": 36,
+          "reason": "No question total is printed, only the part total (10); Q13 has no parts and its marks are M1 A1 M1 A1 M1 M1 dM1 A1 M1 A1 = 10, matching the question paper's 'Total for Question 13 is 10 marks'."
+        }
+      }
     }
   }
 }
