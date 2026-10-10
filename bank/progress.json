@@ -539,24 +539,37 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Q04c and Q10b re-rated medium: most/many lost only the final mark (rubric clarification)",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-01_2021-10_Q04c: difficulty",
+            "9MA0-01_2021-10_Q10b: difficulty",
+            "9MA0-01_2021-10_Q10b: difficulty_evidence"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
       "series": "2022-06",
       "source_file": "9MA0-01_2022-06_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-10."
     },
     {
       "paper": "9MA0-01",
       "series": "SAM",
       "source_file": "9MA0-01_SAM_QP.pdf",
       "section": null,
-      "status": "queued",
-      "marks_check": "UNCHECKED",
+      "status": "in_review",
+      "marks_check": "ok",
       "note": null
     },
     {

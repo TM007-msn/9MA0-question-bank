@@ -39,6 +39,30 @@
       "reason": "The PDF has a text layer, but its fonts have no character mapping, so the extracted text is garbled (a different code per font) and no 'Total for Question' line can be parsed.",
       "read_from": "'(Total for Question N is X marks)' lines on file pages 2, 3, 4, 5, 6, 7, 9, 11, 13, 14, 15, 17, 19, 21, 23, 25, 28; they add to 100, matching the cover ('The total mark for this paper is 100') and 'TOTAL FOR PAPER IS 100 MARKS' on file page 28.",
       "date": "2026-10-09"
+    },
+    "9MA0-01_SAM_QP.pdf": {
+      "totals": {
+        "1": 7,
+        "2": 5,
+        "3": 4,
+        "4": 4,
+        "5": 3,
+        "6": 7,
+        "7": 5,
+        "8": 6,
+        "9": 5,
+        "10": 5,
+        "11": 9,
+        "12": 9,
+        "13": 13,
+        "14": 10,
+        "15": 8
+      },
+      "paper_total": 100,
+      "text_layer": "unreadable",
+      "reason": "The PDF has a text layer, but its fonts have no character mapping, so the extracted text is garbled (a different code per font) and no 'Total for Question' line can be parsed.",
+      "read_from": "'(Total for Question N is X marks)' lines on file pages 3, 4, 5, 6, 7, 9, 11, 13, 14, 15, 17, 21, 25, 29, 32; they add to 100, matching the cover ('The total mark for this paper is 100') and 'TOTAL FOR PAPER IS 100 MARKS' on file page 32.",
+      "date": "2026-10-10"
     }
   }
 }

@@ -55,7 +55,7 @@ EXPECTED = {
     ("9MA0-01", "2020-10"): "ok",
     ("9MA0-01", "2021-10"): "ok",
     ("9MA0-01", "2022-06"): "ok",
-    ("9MA0-01", "SAM"): "UNCHECKED",
+    ("9MA0-01", "SAM"): "ok",  # unreadable text layer; QP totals read by hand
     ("9MA0-01", "SPEC"): "ok",
     ("9MA0-02", "2018-06"): "UNCHECKED",
     ("9MA0-02", "2019-06"): "ok",
