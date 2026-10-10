@@ -80,7 +80,7 @@ Wording is a guide, not a lookup:
 
 Weighting:
 - Rate by how many candidates **completed** the part, not by how many earned its early method marks. "Most got the first marks but few finished" is **hard**. The line between medium and hard is how many finished: "often lost the final mark" (many still finished) is medium; "few finished", "rarely completed" or "few reached the answer" is hard, however many earned the opening marks. Many or most candidates losing only the final mark is **medium**; "many not finishing" means failing before the answer, not dropping the last mark.
-- Quantity words: “most”, “the majority” or “almost all” doing well is **easy**; “many” doing well is **medium**; “many” scoring nothing or not finishing is **hard**.
+- Quantity words: “most”, “the majority”, “almost all” or “generally” doing well is **easy**; “many” doing well is **medium**; “many” scoring nothing or not finishing is **hard**.
 - Sentences about how most candidates did outweigh comments about a minority's errors. "A few students used x = 2" doesn't make a part hard.
 - Sentences about the part itself outweigh the whole-question summary. Use the summary when the report says little about the part.
 - Prefer a sentence about the part as evidence. Use a whole-question sentence only if it's the best basis.

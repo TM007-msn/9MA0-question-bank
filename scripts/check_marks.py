@@ -43,7 +43,15 @@ QP_TOTAL_RE = re.compile(r"Total\s+for\s+Question\s+(\d+)\s+is\s+(\d+)\s+marks?"
 # "Scheme for by parts" (9MA0-01 2018-06 Q13), so it may run on to the end of its line.
 # A page footer ("PMT") can fall between the headings and the label when the
 # table starts at the foot of a page (9MA0-01 2019-06 Q4).
-MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme[^\n]*\n\s*Marks\s*\n\s*AOs\s*\n\s*(?:PMT\s*\n\s*)?(\d+)")
+# The AOs heading may be printed "AO's" (9MA0-02 2020-10).
+MS_HEADER_RE = re.compile(r"(?:Question\s*\n\s*)?Scheme[^\n]*\n\s*Marks\s*\n\s*AO['’]?s\s*\n\s*(?:PMT\s*\n\s*)?(\d+)")
+# When the headings end a page, the next page's text may start with the first
+# row's maths and reach the label ("3(a)") only later (9MA0-02 2020-10 Q3).
+# Used only where MS_HEADER_RE finds no label: the label is the first line on
+# the next page of the form "N(a)" or "N(i)", before any further headings.
+MS_HEADER_PAGEBREAK_RE = re.compile(
+    r"(?:Question\s*\n\s*)?Scheme[^\n]*\n\s*Marks\s*\n\s*AO['’]?s\s*\n\s*PMT\s*\n"
+    r"(?:(?!Scheme)[\s\S]){0,3000}?^[ \t]*(\d+)[ \t]*\((?:a|i)\)", re.MULTILINE)
 # Some questions open with a page of notes headed just "Question 15" on its
 # own line, before the scheme table (8MA0-01 2019-06 Q15). Lines such as
 # "Notes on Question 4 continue" don't match because the line must hold
@@ -140,6 +148,9 @@ def ms_marks(path):
     """
     text = pdf_text(path)
     events = [(m.start(), "header", int(m.group(1))) for m in MS_HEADER_RE.finditer(text)]
+    found_at = {pos for pos, _, _ in events}
+    events += [(m.start(), "header", int(m.group(1))) for m in MS_HEADER_PAGEBREAK_RE.finditer(text)
+               if m.start() not in found_at]
     events += [(m.start(), "header", int(m.group(1))) for m in MS_HEADING_RE.finditer(text)]
     # MS_TOTAL_RE has one group per form; whichever matched holds the number.
     events += [(m.start(), "total", int(m.group(1) or m.group(2))) for m in MS_TOTAL_RE.finditer(text)]
