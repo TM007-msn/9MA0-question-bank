@@ -113,6 +113,8 @@ Q14A = [r"Show that the $x$ coordinates of the points of intersection of $l$ wit
 Q15 = [*CALC, r"A geometric series has common ratio $r$ and first term $a$.", r"Given $r\neq1$ and $a\neq0$"]
 Q15A = ["prove that", r"$$S_n=\frac{a(1-r^n)}{1-r}$$"]
 
+Q9A = r"(a) find a complete equation for the model, giving the values of $A$ and $B$ to 3 significant figures."
+
 LATEX = {
     "01a": L(*Q1, *Q1A),
     "01b": L(*Q1, "(a) " + Q1A[0], *Q1A[1:], Q1B),
@@ -150,16 +152,16 @@ LATEX = {
             r"• the $y$ intercept of $C$ is $-12$",
             r"• $(x+4)$ is a factor of $\mathrm{f}(x)$",
             r"find, in simplest form, $\mathrm{f}(x)$"),
-    "09a": L(*Q9, r"find a complete equation for the model, giving the values of $A$ and $B$ to 3 significant figures."),
-    "09b": L(*Q9, r"Ethanol has a boiling point of approximately $78^\circ$C", "Use this information to evaluate the model."),
+    "09a": L(*Q9, Q9A[4:]),
+    "09b": L(*Q9, Q9A, r"Ethanol has a boiling point of approximately $78^\circ$C", "(b) Use this information to evaluate the model."),
     "10a": L(*CALC, *Q10A),
     "10b": L(*CALC, "(a) " + Q10A[0], Q10A[1],
              r"(b) Hence solve, for $-90^\circ\leqslant x\leqslant180^\circ$, the equation", r"$$1-\cos3x=\sin^2x$$"),
     "11a": L(*Q11, r"Find the coordinates of $P$."),
     "11b": L(*Q11, "Solve the equation", r"$$3x+40=2\left|x+4\right|-5$$"),
-    "11c": L(*Q11, r"A line $l$ has equation $y=ax$, where $a$ is a constant.",
+    "11c": L(*Q11, r"(a) Find the coordinates of $P$.", r"A line $l$ has equation $y=ax$, where $a$ is a constant.",
              r"Given that $l$ intersects $y=2\left|x+4\right|-5$ at least once,",
-             r"find the range of possible values of $a$, writing your answer in set notation."),
+             r"(c) find the range of possible values of $a$, writing your answer in set notation."),
     "12ai": L(*Q12, Q12AI),
     "12aii": L(*Q12, "(a) (i) " + Q12AI, r"(ii) Hence show, by algebraic integration, that the area of $R$ is exactly 20"),
     "12b": L(*Q12,

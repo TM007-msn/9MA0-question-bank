@@ -177,6 +177,34 @@ C12 = "ALT: Alt (b)"
 Q16A = "ALT: 16 Alt 1"
 Q16B = "ALT: Alt 2 (odd and even numbers)"
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "13b": L(
+        r"A sequence of numbers $a_1,a_2,a_3,\ldots$ is defined by",
+        r"$$a_{n+1}=\frac{k(a_n+2)}{a_n}\qquad n\in\mathbb{N}$$",
+        r"where $k$ is a constant.",
+        r"Given that",
+        r"• the sequence is a periodic sequence of order 3",
+        r"• $a_1=2$",
+        r"(a) show that",
+        r"$$k^2+k-2=0$$",
+        r"(b) For this sequence explain why $k\neq1$",
+    ),
+    "13c": L(
+        r"A sequence of numbers $a_1,a_2,a_3,\ldots$ is defined by",
+        r"$$a_{n+1}=\frac{k(a_n+2)}{a_n}\qquad n\in\mathbb{N}$$",
+        r"where $k$ is a constant.",
+        r"Given that",
+        r"• the sequence is a periodic sequence of order 3",
+        r"• $a_1=2$",
+        r"(a) show that",
+        r"$$k^2+k-2=0$$",
+        r"(b) For this sequence explain why $k\neq1$",
+        r"(c) Find the value of",
+        r"$$\sum_{r=1}^{80}a_r$$",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01a", "1(a)", SEQ, "4.1", 3, LATEX["01a"],

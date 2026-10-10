@@ -184,6 +184,19 @@ DVT = r"\frac{\mathrm{d}v}{\mathrm{d}t}"
 DSR = r"\frac{\mathrm{d}S}{\mathrm{d}r}"
 D2S = r"\frac{\mathrm{d}^2S}{\mathrm{d}r^2}"
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "03b": L(
+        r"A circle has equation",
+        r"$$x^2+y^2-10x+16y=80$$",
+        r"(a) Find",
+        r"(i) the coordinates of the centre of the circle,",
+        r"(ii) the radius of the circle.",
+        r"Given that $P$ is the point on the circle that is furthest away from the origin $O$,",
+        r"(b) find the exact length $OP$",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01a", "1(a)", ALG, "2.9", 1, LATEX["01a"],

@@ -168,6 +168,29 @@ LATEX = {
 DYDX = r"\frac{\mathrm{d}y}{\mathrm{d}x}"
 R_ = r"\text{“}r\text{”}^2"
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "02b": L(
+        r"The quadrilateral $OABC$ has $\overrightarrow{OA}=4\mathbf{i}+2\mathbf{j}$, $\overrightarrow{OB}=6\mathbf{i}-3\mathbf{j}$ and $\overrightarrow{OC}=8\mathbf{i}-20\mathbf{j}$.",
+        r"(a) Find $\overrightarrow{AB}$.",
+        r"(b) Show that quadrilateral $OABC$ is a trapezium.",
+    ),
+    "05c": L(
+        r"$$\mathrm{f}(x)=x^3+3x^2-4x-12$$",
+        r"(a) Using the factor theorem, explain why $\mathrm{f}(x)$ is divisible by $(x+3)$.",
+        r"(b) Hence fully factorise $\mathrm{f}(x)$.",
+        r"(c) Show that $\frac{x^3+3x^2-4x-12}{x^3+5x^2+6x}$ can be written in the form $A+\frac{B}{x}$ where $A$ and $B$ are integers to be found.",
+    ),
+    "12b": L(
+        r"[Figure 3: the curve $C$ starting at $O$, dipping just below the $x$-axis, crossing it and rising to the right; the straight line $l$ with positive gradient, crossing the negative $y$-axis and meeting $C$ at the point $A$, above the $x$-axis.]",
+        r"Figure 3 shows a sketch of the curve $C$ with equation $y=3x-2\sqrt{x},\ x\geqslant0$ and the line $l$ with equation $y=8x-16$",
+        r"The line cuts the curve at point $A$ as shown in Figure 3.",
+        r"(a) Using algebra, find the $x$ coordinate of point $A$.",
+        r"(b) [Figure 4: the curve $C$ and the line $l$ as in Figure 3, with $l$ now dashed, and a solid vertical line through the point where $C$ crosses the $x$-axis; the region $R$, left unshaded, is bounded by this vertical line on the left, by $C$ above (from the vertical line to $A$) and by $l$ below and to the right; everything else is shaded.]",
+        r"The region $R$ is shown unshaded in Figure 4. Identify the inequalities that define $R$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01a", "1(a)", DIFF, "7.2", 2, LATEX["01a"],

@@ -162,6 +162,61 @@ LATEX = {
              r"$$y=\mathrm{f}(0.2x)$$", "and the coordinate axes."),
 }
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "07b": L(
+        r"A parallelogram $PQRS$ has area 50 cm$^2$",
+        r"Given",
+        r"• $PQ$ has length 14 cm",
+        r"• $QR$ has length 7 cm",
+        r"• angle $SPQ$ is obtuse",
+        r"find",
+        r"(a) the size of angle $SPQ$, in degrees, to 2 decimal places,",
+        r"(b) the length of the diagonal $SQ$, in cm, to one decimal place.",
+    ),
+    "14b": L(
+        r"A curve $C$ has equation $y=\mathrm{f}(x)$ where",
+        r"$$\mathrm{f}(x)=-3x^2+12x+8$$",
+        r"(a) Write $\mathrm{f}(x)$ in the form",
+        r"$$a(x+b)^2+c$$",
+        r"where $a$, $b$ and $c$ are constants to be found.",
+        r"The curve $C$ has a maximum turning point at $M$.",
+        r"(b) Find the coordinates of $M$.",
+    ),
+    "14c": L(
+        r"A curve $C$ has equation $y=\mathrm{f}(x)$ where",
+        r"$$\mathrm{f}(x)=-3x^2+12x+8$$",
+        r"(a) Write $\mathrm{f}(x)$ in the form",
+        r"$$a(x+b)^2+c$$",
+        r"where $a$, $b$ and $c$ are constants to be found.",
+        r"The curve $C$ has a maximum turning point at $M$.",
+        r"(b) Find the coordinates of $M$.",
+        r"[Figure 3: sketch of the curve $C$, an inverted parabola crossing the positive $y$-axis and both sides of the $x$-axis, with maximum point $M$ to the right of the $y$-axis; the horizontal line $l$ through $M$; the region $R$ between $C$, $l$ and the $y$-axis is shaded.]",
+        r"Figure 3 shows a sketch of the curve $C$.",
+        r"The line $l$ passes through $M$ and is parallel to the $x$-axis.",
+        r"The region $R$, shown shaded in Figure 3, is bounded by $C$, $l$ and the $y$-axis.",
+        r"(c) Using algebraic integration, find the area of $R$.",
+    ),
+    "15b": L(
+        r"[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the point $P$, below and to the right of $N$.]",
+        r"Figure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$",
+        r"The line $l$ with equation $y=\frac{1}{3}x$ is a tangent to $C$ at the point $P$.",
+        r"Find",
+        r"(a) the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,",
+        r"(b) an equation for $C$.",
+    ),
+    "15c": L(
+        r"[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the point $P$, below and to the right of $N$.]",
+        r"Figure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$",
+        r"The line $l$ with equation $y=\frac{1}{3}x$ is a tangent to $C$ at the point $P$.",
+        r"Find",
+        r"(a) the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,",
+        r"(b) an equation for $C$.",
+        r"The line with equation $y=\frac{1}{3}x+k$, where $k$ is a non-zero constant, is also a tangent to $C$.",
+        r"(c) Find the value of $k$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", ALG, "2.5", 3,

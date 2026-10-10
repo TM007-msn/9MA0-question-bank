@@ -153,6 +153,36 @@ LATEX = {
               r"degrees, to one decimal place."),
 }
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "01b": L(
+        r"The line $l_1$ has equation $2x+4y-3=0$",
+        r"The line $l_2$ has equation $y=mx+7$, where $m$ is a constant.",
+        r"Given that $l_1$ and $l_2$ are perpendicular,",
+        r"(a) find the value of $m$.",
+        r"The lines $l_1$ and $l_2$ meet at the point $P$.",
+        r"(b) Find the $x$ coordinate of $P$.",
+    ),
+    "10b": L(
+        r"A circle $C$ has equation",
+        r"$$x^2+y^2-4x+8y-8=0$$",
+        r"(a) Find",
+        r"(i) the coordinates of the centre of $C$,",
+        r"(ii) the exact radius of $C$.",
+        r"The straight line with equation $x=k$, where $k$ is a constant, is a tangent to $C$.",
+        r"(b) Find the possible values for $k$.",
+    ),
+    "11d": L(
+        r"$$\mathrm{f}(x)=2x^3-13x^2+8x+48$$",
+        r"(a) Prove that $(x-4)$ is a factor of $\mathrm{f}(x)$.",
+        r"(b) Hence, using algebra, show that the equation $\mathrm{f}(x)=0$ has only two distinct roots.",
+        r"[Figure 2: sketch of part of the curve $y=\mathrm{f}(x)$: a positive cubic crossing the negative $x$-axis once, with a maximum just to the right of the $y$-axis and touching the positive $x$-axis at a minimum.]",
+        r"Figure 2 shows a sketch of part of the curve with equation $y=\mathrm{f}(x)$.",
+        r"Given that $k$ is a constant and the curve with equation $y=\mathrm{f}(x+k)$ passes through the origin,",
+        r"(d) find the two possible values of $k$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01a", "1(a)", COORD, "3.1", 2, LATEX["01a"],

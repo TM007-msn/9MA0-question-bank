@@ -156,6 +156,42 @@ LATEX = {
     "14b": L(*Q14, r"(a) find $\mathrm{g}(x)$,", "(b) prove that the stationary point at $(2, 9)$ is a maximum."),
 }
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "05b": L(
+        r"[Figure 1 (not to scale): triangle $ABD$ with $AB$ as the horizontal base and $C$ on $AD$ between $A$ and $D$; the angle of $27^\circ$ at $A$ is marked, and beams $BC$ and $BD$ join $B$ to $C$ and $D$.]",
+        r"Figure 1 shows the design for a structure used to support a roof.",
+        r"The structure consists of four steel beams, $AB$, $BD$, $BC$ and $AD$.",
+        r"Given $AB=12$ m, $BC=BD=7$m and angle $BAC=27^\circ$",
+        r"(a) find, to one decimal place, the size of angle $ACB$.",
+        r"The steel beams can only be bought in whole metre lengths.",
+        r"(b) Find the minimum length of steel that needs to be bought to make the complete structure.",
+    ),
+    "06b": L(
+        r"(a) Find the first 4 terms, in ascending powers of $x$, in the binomial expansion of",
+        r"$$(1+kx)^{10}$$",
+        r"where $k$ is a non-zero constant. Write each coefficient as simply as possible.",
+        r"Given that in the expansion of $(1+kx)^{10}$ the coefficient $x^3$ is 3 times the coefficient of $x$,",
+        r"(b) find the possible values of $k$.",
+    ),
+    "09b": L(
+        r"[Figure 3: part of the curve $y=3\cos x^\circ$, with a maximum on the $y$-axis and minimum points either side of it; the minimum point $P(c, d)$ to the left of the $y$-axis is marked.]",
+        r"Figure 3 shows part of the curve with equation $y=3\cos x^\circ$.",
+        r"The point $P(c, d)$ is a minimum point on the curve with $c$ being the smallest negative value of $x$ at which a minimum occurs.",
+        r"(a) State the value of $c$ and the value of $d$.",
+        r"(b) State the coordinates of the point to which $P$ is mapped by the transformation which transforms the curve with equation $y=3\cos x^\circ$ to the curve with equation",
+        r"(i) $y=3\cos\left(\frac{x^\circ}{4}\right)$",
+        r"(ii) $y=3\cos(x-36)^\circ$",
+    ),
+    "10c": L(
+        r"$$\mathrm{g}(x)=2x^3+x^2-41x-70$$",
+        r"(a) Use the factor theorem to show that $\mathrm{g}(x)$ is divisible by $(x-5)$.",
+        r"(b) Hence, showing all your working, write $\mathrm{g}(x)$ as a product of three linear factors.",
+        r"The finite region $R$ is bounded by the curve with equation $y=\mathrm{g}(x)$ and the $x$-axis, and lies below the $x$-axis.",
+        r"(c) Find, using algebraic integration, the exact value of the area of $R$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", DIFF, "7.3, 7.2, 3.1", 5,

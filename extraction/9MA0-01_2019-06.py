@@ -187,6 +187,32 @@ ALGP = "ALT: Example of a very similar algebraic proof"
 LOGP = "ALT: Example of a proof via logic"
 CONP = "ALT: Example of proof via contradiction"
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "05b": L(
+        r"$$\mathrm{f}(x)=2x^2+4x+9\qquad x\in\mathbb{R}$$",
+        r"(a) Write $\mathrm{f}(x)$ in the form $a(x+b)^2+c$, where $a$, $b$ and $c$ are integers to be found.",
+        r"(b) Sketch the curve with equation $y=\mathrm{f}(x)$ showing any points of intersection with the coordinate axes and the coordinates of any turning point.",
+    ),
+    "05c": L(
+        r"$$\mathrm{f}(x)=2x^2+4x+9\qquad x\in\mathbb{R}$$",
+        r"(a) Write $\mathrm{f}(x)$ in the form $a(x+b)^2+c$, where $a$, $b$ and $c$ are integers to be found.",
+        r"(c) (i) Describe fully the transformation that maps the curve with equation $y=\mathrm{f}(x)$ onto the curve with equation $y=\mathrm{g}(x)$ where",
+        r"$$\mathrm{g}(x)=2(x-2)^2+4x-3\qquad x\in\mathbb{R}$$",
+        r"(ii) Find the range of the function",
+        r"$$\mathrm{h}(x)=\frac{21}{2x^2+4x+9}\qquad x\in\mathbb{R}$$",
+    ),
+    "14c": L(
+        r"The curve $C$, in the standard Cartesian plane, is defined by the equation",
+        r"$$x=4\sin2y\qquad\frac{-\pi}{4}<y<\frac{\pi}{4}$$",
+        r"The curve $C$ passes through the origin $O$",
+        r"(a) Find the value of $\frac{\mathrm{d}y}{\mathrm{d}x}$ at the origin.",
+        r"(c) Show that, for all points $(x, y)$ lying on $C$,",
+        r"$$\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{1}{a\sqrt{b-x^2}}$$",
+        r"where $a$ and $b$ are constants to be found.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", ALG, "2.6", 3, LATEX["01"],

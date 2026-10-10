@@ -101,7 +101,7 @@
     "topic": "Vectors",
     "spec_ref": "9.2, 9.4",
     "marks": 2,
-    "question_latex": "Given that the point $A$ has position vector $4\\mathbf{i}-5\\mathbf{j}$ and the point $B$ has position vector $-5\\mathbf{i}-2\\mathbf{j}$,\nfind $\\left|\\overrightarrow{AB}\\right|$.\nGive your answer as a simplified surd.",
+    "question_latex": "Given that the point $A$ has position vector $4\\mathbf{i}-5\\mathbf{j}$ and the point $B$ has position vector $-5\\mathbf{i}-2\\mathbf{j}$,\n(a) find the vector $\\overrightarrow{AB}$,\n(b) find $\\left|\\overrightarrow{AB}\\right|$.\nGive your answer as a simplified surd.",
     "mark_scheme": [
       "M1 (AO 1.1b): Finds length using ‘Pythagoras’ $\\left|AB\\right|=\\sqrt{(-9)^2+(3)^2}$. Notes: Correct use of Pythagoras theorem or modulus formula using their answer to (a). Note that $\\left|AB\\right|=\\sqrt{(9)^2+(3)^2}$ is also correct. Condone missing brackets in the expression $\\left|AB\\right|=\\sqrt{-9^2+(3)^2}$. Also allow a restart usually accompanied by a diagram.",
       "A1ft (AO 1.1b): $\\left|AB\\right|=3\\sqrt{10}$. Notes: ft from their answer to (a) as long as it has both an $\\mathbf{i}$ and $\\mathbf{j}$ component. It must be simplified, if appropriate. Note that $\\pm3\\sqrt{10}$ would be M1 A0. In cases where there is no working, the correct answer implies M1A1."
@@ -273,7 +273,7 @@
     "topic": "Trigonometry",
     "spec_ref": "5.1",
     "marks": 2,
-    "question_latex": "In a triangle $ABC$, side $AB$ has length 10 cm, side $AC$ has length 5 cm, and angle $BAC=\\theta$ where $\\theta$ is measured in degrees. The area of triangle $ABC$ is 15 cm$^2$\nGiven that $BC$ is the longest side of the triangle,\nfind the exact length of $BC$.",
+    "question_latex": "In a triangle $ABC$, side $AB$ has length 10 cm, side $AC$ has length 5 cm, and angle $BAC=\\theta$ where $\\theta$ is measured in degrees. The area of triangle $ABC$ is 15 cm$^2$\n(a) Find the two possible values of $\\cos\\theta$\nGiven that $BC$ is the longest side of the triangle,\n(b) find the exact length of $BC$.",
     "mark_scheme": [
       "M1 (AO 3.1a): Uses $BC^2=10^2+5^2-2\\times10\\times5\\times\\text{“}-\\frac{4}{5}\\text{”}$. Notes: Uses a suitable method of finding the longest side. For example chooses the negative value (or the obtuse angle) and proceeds to find $BC$ using the cosine rule. If stated the cosine rule should be correct (with a minus sign). Note if the sign is +ve and the acute angle is chosen the correct value will be seen. It is however M0 A0.",
       "A1 (AO 1.1b): $BC=\\sqrt{205}$.",
@@ -476,7 +476,7 @@
     "topic": "Sequences and series",
     "spec_ref": "4.1",
     "marks": 2,
-    "question_latex": "$$\\mathrm{f}(x)=(a+bx)\\left(2-\\frac{x}{16}\\right)^9,\\ \\text{where }a\\text{ and }b\\text{ are constants}$$\nGiven that the first two terms, in ascending powers of $x$, in the series expansion of $\\mathrm{f}(x)$ are 128 and $36x$,\nfind the value of $a$,",
+    "question_latex": "(a) Find the first 3 terms, in ascending powers of $x$, of the binomial expansion of\n$$\\left(2-\\frac{x}{16}\\right)^9$$\ngiving each term in its simplest form.\n$$\\mathrm{f}(x)=(a+bx)\\left(2-\\frac{x}{16}\\right)^9,\\ \\text{where }a\\text{ and }b\\text{ are constants}$$\nGiven that the first two terms, in ascending powers of $x$, in the series expansion of $\\mathrm{f}(x)$ are 128 and $36x$,\n(b) find the value of $a$,",
     "mark_scheme": [
       "M1 (AO 1.1b): Sets $\\text{‘}512\\text{’}a=128\\Rightarrow a=\\ldots$ Notes: For setting their $512a=128$ and proceeding to find a value for $a$.",
       "A1ft (AO 1.1b): $(a=)\\frac{1}{4}$ oe. Notes: Follow through on $\\frac{128}{\\text{their }512}$.",
@@ -497,7 +497,7 @@
     "topic": "Sequences and series",
     "spec_ref": "4.1",
     "marks": 2,
-    "question_latex": "$$\\mathrm{f}(x)=(a+bx)\\left(2-\\frac{x}{16}\\right)^9,\\ \\text{where }a\\text{ and }b\\text{ are constants}$$\nGiven that the first two terms, in ascending powers of $x$, in the series expansion of $\\mathrm{f}(x)$ are 128 and $36x$,\nfind the value of $b$.",
+    "question_latex": "(a) Find the first 3 terms, in ascending powers of $x$, of the binomial expansion of\n$$\\left(2-\\frac{x}{16}\\right)^9$$\ngiving each term in its simplest form.\n$$\\mathrm{f}(x)=(a+bx)\\left(2-\\frac{x}{16}\\right)^9,\\ \\text{where }a\\text{ and }b\\text{ are constants}$$\nGiven that the first two terms, in ascending powers of $x$, in the series expansion of $\\mathrm{f}(x)$ are 128 and $36x$,\n(b) find the value of $a$,\n(c) find the value of $b$.",
     "mark_scheme": [
       "M1 (AO 2.2a): Sets $\\text{‘}512\\text{’}b+\\text{‘}-144\\text{’}a=36\\Rightarrow b=\\ldots$ Notes: Condone $512b\\pm144\\times a=36$ following through on their 512, their $-144$ and using their value of “$a$” to find a value for “$b$”.",
       "A1 (AO 1.1b): $(b=)\\frac{9}{64}$ oe."
@@ -1169,7 +1169,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.1, 2.4",
     "marks": 2,
-    "question_latex": "The line $l_1$ has equation $2x+4y-3=0$\nThe line $l_2$ has equation $y=mx+7$, where $m$ is a constant.\nGiven that $l_1$ and $l_2$ are perpendicular,\nThe lines $l_1$ and $l_2$ meet at the point $P$.\nFind the $x$ coordinate of $P$.",
+    "question_latex": "The line $l_1$ has equation $2x+4y-3=0$\nThe line $l_2$ has equation $y=mx+7$, where $m$ is a constant.\nGiven that $l_1$ and $l_2$ are perpendicular,\n(a) find the value of $m$.\nThe lines $l_1$ and $l_2$ meet at the point $P$.\n(b) Find the $x$ coordinate of $P$.",
     "mark_scheme": [
       "M1 (AO 1.1b): Combines 'their' $y=2x+7$ with $2x+4y-3=0\\Rightarrow2x+4(2x+7)-3=0\\Rightarrow x=\\ldots$ Notes: Substitutes their $y=mx+7$ into $2x+4y-3=0$, condoning slips, in an attempt to form and solve an equation in $x$. Don't be too concerned by the mechanics of the candidates attempt to solve. (E.g. allow solutions from their calculators.) You may see $2x+4y-3=2x-y+7$ with $y$ being found before the value of $x$ appears. It cannot be awarded from “unsolvable” equations (e.g. lines that are parallel).",
       "A1 (AO 1.1b): $x=-2.5$ oe. Notes: $x=-2.5$. The answer alone can score both marks as long as both equations are correct and no incorrect working is seen. Remember to isw after the correct answer and ignore any $y$ coordinate.",
@@ -1619,7 +1619,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2",
     "marks": 2,
-    "question_latex": "A circle $C$ has equation\n$$x^2+y^2-4x+8y-8=0$$\nThe straight line with equation $x=k$, where $k$ is a constant, is a tangent to $C$.\nFind the possible values for $k$.",
+    "question_latex": "A circle $C$ has equation\n$$x^2+y^2-4x+8y-8=0$$\n(a) Find\n(i) the coordinates of the centre of $C$,\n(ii) the exact radius of $C$.\nThe straight line with equation $x=k$, where $k$ is a constant, is a tangent to $C$.\n(b) Find the possible values for $k$.",
     "mark_scheme": [
       "M1 (AO 3.1a): Attempts to add/subtract '$r$' from '2' (beside a sketch of the circle, centre $(2,-4)$, with vertical tangents). Notes: Attempts to add or subtract their radius from their 2.",
       "A1ft (AO 1.1b): $k=2\\pm\\sqrt{28}$. Notes: $k=2+\\sqrt{28}$ and $k=2-\\sqrt{28}$ Follow through on their 2 and their $\\sqrt{28}$. If decimals are used the values must be calculated. Eg $k=2\\pm5.29\\to k=7.29, k=-3.29$. Accept just $2\\pm\\sqrt{28}$ or equivalent such as $2\\pm2\\sqrt{7}$. Condone $x=2+\\sqrt{28}$ and $x=2-\\sqrt{28}$ but not $y=2+\\sqrt{28}$ and $y=2-\\sqrt{28}$",
@@ -1704,7 +1704,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.8",
     "marks": 2,
-    "question_latex": "$$\\mathrm{f}(x)=2x^3-13x^2+8x+48$$\n[Figure 2: sketch of part of the curve $y=\\mathrm{f}(x)$: a positive cubic crossing the negative $x$-axis once, with a maximum just to the right of the $y$-axis and touching the positive $x$-axis at a minimum.]\nFigure 2 shows a sketch of part of the curve with equation $y=\\mathrm{f}(x)$.\nGiven that $k$ is a constant and the curve with equation $y=\\mathrm{f}(x+k)$ passes through the origin,\nfind the two possible values of $k$.",
+    "question_latex": "$$\\mathrm{f}(x)=2x^3-13x^2+8x+48$$\n(a) Prove that $(x-4)$ is a factor of $\\mathrm{f}(x)$.\n(b) Hence, using algebra, show that the equation $\\mathrm{f}(x)=0$ has only two distinct roots.\n[Figure 2: sketch of part of the curve $y=\\mathrm{f}(x)$: a positive cubic crossing the negative $x$-axis once, with a maximum just to the right of the $y$-axis and touching the positive $x$-axis at a minimum.]\nFigure 2 shows a sketch of part of the curve with equation $y=\\mathrm{f}(x)$.\nGiven that $k$ is a constant and the curve with equation $y=\\mathrm{f}(x+k)$ passes through the origin,\n(d) find the two possible values of $k$.",
     "mark_scheme": [
       "M1 (AO 1.1b): For sight of $k=\\pm4,\\pm\\frac{3}{2}$. Notes: For sight of $\\pm4$ and $\\pm\\frac{3}{2}$ Follow through on $\\pm$ their roots.",
       "A1ft (AO 1.1b): $k=4,-\\frac{3}{2}$. Notes: $k=4,-\\frac{3}{2}$ Follow through on their roots. Accept $4,-\\frac{3}{2}$ but not $x=4,-\\frac{3}{2}$"
@@ -2130,7 +2130,7 @@
     "topic": "Trigonometry",
     "spec_ref": "5.1",
     "marks": 3,
-    "question_latex": "[Figure 1 (not to scale): triangle $ABD$ with $AB$ as the horizontal base and $C$ on $AD$ between $A$ and $D$; the angle of $27^\\circ$ at $A$ is marked, and beams $BC$ and $BD$ join $B$ to $C$ and $D$.]\nFigure 1 shows the design for a structure used to support a roof.\nThe structure consists of four steel beams, $AB$, $BD$, $BC$ and $AD$.\nGiven $AB=12$ m, $BC=BD=7$m and angle $BAC=27^\\circ$\nThe steel beams can only be bought in whole metre lengths.\nFind the minimum length of steel that needs to be bought to make the complete structure.",
+    "question_latex": "[Figure 1 (not to scale): triangle $ABD$ with $AB$ as the horizontal base and $C$ on $AD$ between $A$ and $D$; the angle of $27^\\circ$ at $A$ is marked, and beams $BC$ and $BD$ join $B$ to $C$ and $D$.]\nFigure 1 shows the design for a structure used to support a roof.\nThe structure consists of four steel beams, $AB$, $BD$, $BC$ and $AD$.\nGiven $AB=12$ m, $BC=BD=7$m and angle $BAC=27^\\circ$\n(a) find, to one decimal place, the size of angle $ACB$.\nThe steel beams can only be bought in whole metre lengths.\n(b) Find the minimum length of steel that needs to be bought to make the complete structure.",
     "mark_scheme": [
       "M1 (AO 1.1b): Attempts to find part or all of $AD$ Eg $AD^2=7^2+12^2-2\\times12\\times7\\cos101.9=(AD=15.09)$ Eg $(AC)^2=7^2+12^2-2\\times12\\times7\\cos(180-\\text{“}128.9\\text{”}-27)$ Eg $12\\cos27$ or $7\\cos\\text{“}51\\text{”}$. Notes: Attempts a “correct” method of finding either $AD$ or a part of $AD$ eg ($AC$ or $CD$ or forming a perpendicular to split the triangle into two right angled triangles to find $AX$ or $XD$) which may be seen in (a). You should condone incorrect labelling of the side. Look for attempted application of the cosine rule $(AD)^2=7^2+12^2-2\\times12\\times7\\cos(\\text{“}128.9\\text{”}-27)$ or $(AC)^2=7^2+12^2-2\\times12\\times7\\cos(180-\\text{“}128.9\\text{”}-27)$ Or an attempted application of the sine rule $\\frac{(AD)}{\\sin(\\text{“}128.9\\text{”}-27)}=\\frac{7}{\\sin27}$ Or $\\frac{(AC)}{\\sin(180-\\text{“}128.9\\text{”}-27)}=\\frac{7}{\\sin27}$ Or an attempt using trigonometry on a right-angled triangle to find part of $AD$: $12\\cos27$ or $7\\cos\\text{“}51\\text{”}$. This method can be implied by sight of awrt 15.1 or awrt 6.3 or awrt 8.8 or awrt 10.7 or awrt 4.4",
       "dM1 (AO 3.1a): Full method for the total length $=12+7+7+\\text{“}15.09\\text{”}=$. Notes: A complete method of finding the TOTAL length. There must have been an attempt to use the correct combination of angles and sides. Expect to see $7+7+12+\\text{“}AD\\text{”}$ found using a correct method. This is scored by either $7+7+12+\\text{“}AD\\text{”}$ if $\\angle ACB=128.9^\\circ$ in a) or $7+7+12+$ awrt 15.1 by candidates who may have assumed $\\angle ACB=51.1^\\circ$ in a)",
@@ -2172,7 +2172,7 @@
     "topic": "Sequences and series",
     "spec_ref": "4.1, 2.6",
     "marks": 3,
-    "question_latex": "Given that in the expansion of $(1+kx)^{10}$ the coefficient $x^3$ is 3 times the coefficient of $x$,\nfind the possible values of $k$.",
+    "question_latex": "(a) Find the first 4 terms, in ascending powers of $x$, in the binomial expansion of\n$$(1+kx)^{10}$$\nwhere $k$ is a non-zero constant. Write each coefficient as simply as possible.\nGiven that in the expansion of $(1+kx)^{10}$ the coefficient $x^3$ is 3 times the coefficient of $x$,\n(b) find the possible values of $k$.",
     "mark_scheme": [
       "B1 (AO 1.2): Sets $120k^3=3\\times10k$. Notes: Sets their $120k^3=3\\times$ their $10k$ (Seen or implied). For candidates who haven't cubed allow $120k=3\\times$ their $10k$. If they write $120k^3x^3=3\\times$ their $10kx$ only allow recovery of this mark if $x$ disappears afterwards.",
       "M1 (AO 1.1b): $4k^2=1\\Rightarrow k=\\ldots$ Notes: Solves a cubic of the form $Ak^3=Bk$ by factorising out/cancelling the $k$ and proceeding correctly to at least one value for $k$. Usually $k=\\sqrt{\\frac{B}{A}}$",
@@ -2341,7 +2341,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.8, 5.2",
     "marks": 2,
-    "question_latex": "[Figure 3: part of the curve $y=3\\cos x^\\circ$, with a maximum on the $y$-axis and minimum points either side of it; the minimum point $P(c, d)$ to the left of the $y$-axis is marked.]\nFigure 3 shows part of the curve with equation $y=3\\cos x^\\circ$.\nThe point $P(c, d)$ is a minimum point on the curve with $c$ being the smallest negative value of $x$ at which a minimum occurs.\nState the coordinates of the point to which $P$ is mapped by the transformation which transforms the curve with equation $y=3\\cos x^\\circ$ to the curve with equation\n(i) $y=3\\cos\\left(\\frac{x^\\circ}{4}\\right)$\n(ii) $y=3\\cos(x-36)^\\circ$",
+    "question_latex": "[Figure 3: part of the curve $y=3\\cos x^\\circ$, with a maximum on the $y$-axis and minimum points either side of it; the minimum point $P(c, d)$ to the left of the $y$-axis is marked.]\nFigure 3 shows part of the curve with equation $y=3\\cos x^\\circ$.\nThe point $P(c, d)$ is a minimum point on the curve with $c$ being the smallest negative value of $x$ at which a minimum occurs.\n(a) State the value of $c$ and the value of $d$.\n(b) State the coordinates of the point to which $P$ is mapped by the transformation which transforms the curve with equation $y=3\\cos x^\\circ$ to the curve with equation\n(i) $y=3\\cos\\left(\\frac{x^\\circ}{4}\\right)$\n(ii) $y=3\\cos(x-36)^\\circ$",
     "mark_scheme": [
       "B1ft (AO 2.2a): (i) $(-720^\\circ, -3)$. Notes: Deduces that $P'(-720^\\circ,-3)$ Follow through on their $(c,d)\\to(4c,d)$ where $d$ is negative",
       "B1ft (AO 2.2a): (ii) $(-144^\\circ, -3)$. Notes: Deduces that $P'(-144^\\circ,-3)$ Follow through on their $(c,d)\\to(c+36^\\circ,d)$ where $d$ is negative"
@@ -2426,7 +2426,7 @@
     "topic": "Integration",
     "spec_ref": "8.3, 8.2",
     "marks": 4,
-    "question_latex": "$$\\mathrm{g}(x)=2x^3+x^2-41x-70$$\nThe finite region $R$ is bounded by the curve with equation $y=\\mathrm{g}(x)$ and the $x$-axis, and lies below the $x$-axis.\nFind, using algebraic integration, the exact value of the area of $R$.",
+    "question_latex": "$$\\mathrm{g}(x)=2x^3+x^2-41x-70$$\n(a) Use the factor theorem to show that $\\mathrm{g}(x)$ is divisible by $(x-5)$.\n(b) Hence, showing all your working, write $\\mathrm{g}(x)$ as a product of three linear factors.\nThe finite region $R$ is bounded by the curve with equation $y=\\mathrm{g}(x)$ and the $x$-axis, and lies below the $x$-axis.\n(c) Find, using algebraic integration, the exact value of the area of $R$.",
     "mark_scheme": [
       "M1 (AO 1.1b): $\\int2x^3+x^2-41x-70\\,\\mathrm{d}x=\\frac{1}{2}x^4+\\frac{1}{3}x^3-\\frac{41}{2}x^2-70x$. Notes: For $x^n\\to x^{n+1}$ for any of the terms in $x$ for $\\mathrm{g}(x)$ so $2x^3\\to\\ldots x^4$, $x^2\\to\\ldots x^3$, $-41x\\to\\ldots x^2$, $-70\\to\\ldots x$",
       "A1 (AO 1.1b): $\\int2x^3+x^2-41x-70\\,\\mathrm{d}x=\\frac{1}{2}x^4+\\frac{1}{3}x^3-\\frac{41}{2}x^2-70x$. Notes: $\\int2x^3+x^2-41x-70\\,\\mathrm{d}x=\\frac{1}{2}x^4+\\frac{1}{3}x^3-\\frac{41}{2}x^2-70x$ which may be left unsimplified (ignore any reference to $+C$)",
@@ -2896,7 +2896,7 @@
     "topic": "Trigonometry",
     "spec_ref": "5.1",
     "marks": 2,
-    "question_latex": "A parallelogram $PQRS$ has area 50 cm$^2$\nGiven\n• $PQ$ has length 14 cm\n• $QR$ has length 7 cm\n• angle $SPQ$ is obtuse\nfind\nthe length of the diagonal $SQ$, in cm, to one decimal place.",
+    "question_latex": "A parallelogram $PQRS$ has area 50 cm$^2$\nGiven\n• $PQ$ has length 14 cm\n• $QR$ has length 7 cm\n• angle $SPQ$ is obtuse\nfind\n(a) the size of angle $SPQ$, in degrees, to 2 decimal places,\n(b) the length of the diagonal $SQ$, in cm, to one decimal place.",
     "mark_scheme": [
       "M1 (AO 1.1b): Method of finding $SQ$: $SQ^2=14^2+7^2-2\\times14\\times7\\cos\\text{“}149.32\\text{”}$. Notes: A correct method of finding $SQ$ using their $\\angle SPQ$. $SQ^2=14^2+7^2-2\\times14\\times7\\cos\\text{“}149.32\\text{”}$ scores this mark.",
       "A1 (AO 1.1b): $=20.3$ cm. Notes: awrt 20.3 cm (condone lack of units)"
@@ -3237,7 +3237,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.3",
     "marks": 2,
-    "question_latex": "A curve $C$ has equation $y=\\mathrm{f}(x)$ where\n$$\\mathrm{f}(x)=-3x^2+12x+8$$\nThe curve $C$ has a maximum turning point at $M$.\nFind the coordinates of $M$.",
+    "question_latex": "A curve $C$ has equation $y=\\mathrm{f}(x)$ where\n$$\\mathrm{f}(x)=-3x^2+12x+8$$\n(a) Write $\\mathrm{f}(x)$ in the form\n$$a(x+b)^2+c$$\nwhere $a$, $b$ and $c$ are constants to be found.\nThe curve $C$ has a maximum turning point at $M$.\n(b) Find the coordinates of $M$.",
     "mark_scheme": [
       "B1ft (AO 1.1b): Coordinates of $M=(2,20)$. Notes: One correct coordinate",
       "B1ft (AO 2.2a): Coordinates of $M=(2,20)$. Notes: Correct coordinates. Allow as $x=\\ldots, y=\\ldots$ Follow through on their $(-b,c)$"
@@ -3257,7 +3257,7 @@
     "topic": "Integration",
     "spec_ref": "8.3, 8.2",
     "marks": 5,
-    "question_latex": "A curve $C$ has equation $y=\\mathrm{f}(x)$ where\n$$\\mathrm{f}(x)=-3x^2+12x+8$$\nThe curve $C$ has a maximum turning point at $M$.\n[Figure 3: sketch of the curve $C$, an inverted parabola crossing the positive $y$-axis and both sides of the $x$-axis, with maximum point $M$ to the right of the $y$-axis; the horizontal line $l$ through $M$; the region $R$ between $C$, $l$ and the $y$-axis is shaded.]\nFigure 3 shows a sketch of the curve $C$.\nThe line $l$ passes through $M$ and is parallel to the $x$-axis.\nThe region $R$, shown shaded in Figure 3, is bounded by $C$, $l$ and the $y$-axis.\nUsing algebraic integration, find the area of $R$.",
+    "question_latex": "A curve $C$ has equation $y=\\mathrm{f}(x)$ where\n$$\\mathrm{f}(x)=-3x^2+12x+8$$\n(a) Write $\\mathrm{f}(x)$ in the form\n$$a(x+b)^2+c$$\nwhere $a$, $b$ and $c$ are constants to be found.\nThe curve $C$ has a maximum turning point at $M$.\n(b) Find the coordinates of $M$.\n[Figure 3: sketch of the curve $C$, an inverted parabola crossing the positive $y$-axis and both sides of the $x$-axis, with maximum point $M$ to the right of the $y$-axis; the horizontal line $l$ through $M$; the region $R$ between $C$, $l$ and the $y$-axis is shaded.]\nFigure 3 shows a sketch of the curve $C$.\nThe line $l$ passes through $M$ and is parallel to the $x$-axis.\nThe region $R$, shown shaded in Figure 3, is bounded by $C$, $l$ and the $y$-axis.\n(c) Using algebraic integration, find the area of $R$.",
     "mark_scheme": [
       "M1 (AO 1.1b): $\\int-3x^2+12x+8\\,\\mathrm{d}x=-x^3+6x^2+8x$. Notes: Attempts to integrate. Award for any correct index",
       "A1 (AO 1.1b): $\\int-3x^2+12x+8\\,\\mathrm{d}x=-x^3+6x^2+8x$. Notes: $\\int-3x^2+12x+8\\,\\mathrm{d}x=-x^3+6x^2+8x\\,(+c)$ (which may be unsimplified)",
@@ -3305,7 +3305,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2, 3.1, 2.4",
     "marks": 4,
-    "question_latex": "[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the point $P$, below and to the right of $N$.]\nFigure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$\nThe line $l$ with equation $y=\\frac{1}{3}x$ is a tangent to $C$ at the point $P$.\nFind\nan equation for $C$.",
+    "question_latex": "[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the point $P$, below and to the right of $N$.]\nFigure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$\nThe line $l$ with equation $y=\\frac{1}{3}x$ is a tangent to $C$ at the point $P$.\nFind\n(a) the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,\n(b) an equation for $C$.",
     "mark_scheme": [
       "M1 (AO 3.1a): Solves $y=-3x+25$ and $y=\\frac{1}{3}x$ simultaneously. Notes: Awarded for an attempt at the key step of finding the coordinates of point $P$. ie for an attempt at solving their $y=-3x+25$ and $y=\\frac{1}{3}x$ simultaneously. Allow any methods (including use of a calculator) but it must be a valid attempt to find both coordinates.",
       "A1 (AO 1.1b): $P=\\left(\\frac{15}{2},\\frac{5}{2}\\right)$ oe. Notes: $P=\\left(\\frac{15}{2},\\frac{5}{2}\\right)$",
@@ -3327,7 +3327,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2, 2.3",
     "marks": 3,
-    "question_latex": "[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the point $P$, below and to the right of $N$.]\nFigure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$\nThe line $l$ with equation $y=\\frac{1}{3}x$ is a tangent to $C$ at the point $P$.\nFind\nThe line with equation $y=\\frac{1}{3}x+k$, where $k$ is a non-zero constant, is also a tangent to $C$.\nFind the value of $k$.",
+    "question_latex": "[Figure 4: circle $C$ with centre $N$ in the first quadrant, and the line $l$ through $O$ touching $C$ at the point $P$, below and to the right of $N$.]\nFigure 4 shows a sketch of a circle $C$ with centre $N(7, 4)$\nThe line $l$ with equation $y=\\frac{1}{3}x$ is a tangent to $C$ at the point $P$.\nFind\n(a) the equation of line $PN$ in the form $y=mx+c$, where $m$ and $c$ are constants,\n(b) an equation for $C$.\nThe line with equation $y=\\frac{1}{3}x+k$, where $k$ is a non-zero constant, is also a tangent to $C$.\n(c) Find the value of $k$.",
     "mark_scheme": [
       "M1 (AO 3.1a): Attempts to find where $y=\\frac{1}{3}x+k$ meets $C$ using vectors Eg: $\\begin{pmatrix}7.5\\\\2.5\\end{pmatrix}+2\\times\\begin{pmatrix}-0.5\\\\1.5\\end{pmatrix}$. Notes: Attempts to find where $y=\\frac{1}{3}x+k$ meets $C$ using a vector approach",
       "M1 (AO 2.1): Substitutes their $\\left(\\frac{13}{2},\\frac{11}{2}\\right)$ in $y=\\frac{1}{3}x+k$ to find $k$. Notes: For a full method leading to $k$. Scored for substituting their $\\left(\\frac{13}{2},\\frac{11}{2}\\right)$ in $y=\\frac{1}{3}x+k$",
@@ -3519,7 +3519,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.8, 2.6",
     "marks": 1,
-    "question_latex": "$$\\mathrm{f}(x)=2x^3+5x^2+2x+15$$\nWrite down the real root of the equation $\\mathrm{f}(x-5)=0$",
+    "question_latex": "$$\\mathrm{f}(x)=2x^3+5x^2+2x+15$$\n(a) Use the factor theorem to show that $(x+3)$ is a factor of $\\mathrm{f}(x)$.\n(d) Write down the real root of the equation $\\mathrm{f}(x-5)=0$",
     "mark_scheme": [
       "B1 (AO 2.2a): $(x=)\\,2$. Notes: 2 condone $(2, 0)$"
     ],
@@ -3578,7 +3578,7 @@
     "topic": "Vectors",
     "spec_ref": "9.3, 9.4",
     "marks": 2,
-    "question_latex": "The triangle $PQR$ is such that $\\overrightarrow{PQ}=3\\mathbf{i}+5\\mathbf{j}$ and $\\overrightarrow{PR}=13\\mathbf{i}-15\\mathbf{j}$\nThe point $S$ lies on the line segment $QR$ so that $QS:SR=3:2$\nFind $\\overrightarrow{PS}$",
+    "question_latex": "The triangle $PQR$ is such that $\\overrightarrow{PQ}=3\\mathbf{i}+5\\mathbf{j}$ and $\\overrightarrow{PR}=13\\mathbf{i}-15\\mathbf{j}$\n(a) Find $\\overrightarrow{QR}$\nThe point $S$ lies on the line segment $QR$ so that $QS:SR=3:2$\n(c) Find $\\overrightarrow{PS}$",
     "mark_scheme": [
       "M1 (AO 3.1a): $\\overrightarrow{PS}=\\overrightarrow{PQ}+\\frac{3}{5}\\overrightarrow{QR}=3\\mathbf{i}+5\\mathbf{j}+\\frac{3}{5}(\\text{“}10\\mathbf{i}-20\\mathbf{j}\\text{”})=\\ldots$ or $\\overrightarrow{PS}=\\overrightarrow{PR}+\\frac{2}{5}\\overrightarrow{RQ}=13\\mathbf{i}-15\\mathbf{j}+\\frac{2}{5}(\\text{“}-10\\mathbf{i}+20\\mathbf{j}\\text{”})=\\ldots$ Notes: Full attempt at finding a $\\overrightarrow{PS}$. They must be attempting $\\overrightarrow{PQ}\\pm\\frac{3}{5}\\overrightarrow{QR}$ or $\\overrightarrow{PS}=\\overrightarrow{PR}\\pm\\frac{2}{5}\\overrightarrow{RQ}$ but condone arithmetical slips after that. Cannot be scored for just stating eg $\\overrightarrow{PQ}\\pm\\frac{3}{5}\\overrightarrow{QR}$. Follow through on their $\\overrightarrow{QR}$. Terms do not need to be collected for this mark. If no method shown it may be implied by one correct component following through on their $\\overrightarrow{QR}$",
       "A1 (AO 1.1b): $=9\\mathbf{i}-7\\mathbf{j}$. Notes: Correct vector as shown. Allow $9\\mathbf{i}-7\\mathbf{j}$ and $\\begin{pmatrix}9\\\\-7\\end{pmatrix}$. Only withhold the mark for $\\begin{pmatrix}9\\mathbf{i}\\\\-7\\mathbf{j}\\end{pmatrix}$ if the mark has not already been withheld in (a) for $\\begin{pmatrix}10\\mathbf{i}\\\\-20\\mathbf{j}\\end{pmatrix}$",
@@ -3769,7 +3769,7 @@
     "topic": "Sequences and series",
     "spec_ref": "4.1, 2.1",
     "marks": 2,
-    "question_latex": "$$\\mathrm{f}(x)=\\left(\\frac{x-1}{2x}\\right)\\left(3-\\frac{2x}{9}\\right)^8$$\nFind the coefficient of $x^2$ in the series expansion of $\\mathrm{f}(x)$, giving your answer as a simplified fraction.",
+    "question_latex": "(a) Find the first 4 terms, in ascending powers of $x$, of the binomial expansion of\n$$\\left(3-\\frac{2x}{9}\\right)^8$$\ngiving each term in simplest form.\n$$\\mathrm{f}(x)=\\left(\\frac{x-1}{2x}\\right)\\left(3-\\frac{2x}{9}\\right)^8$$\n(b) Find the coefficient of $x^2$ in the series expansion of $\\mathrm{f}(x)$, giving your answer as a simplified fraction.",
     "mark_scheme": [
       "M1 (AO 3.1a): Coefficient of $x^2$ is $\\frac{1}{2}\\times\\text{“}1008\\text{”}-\\frac{1}{2}\\times\\text{“}-\\frac{448}{3}\\text{”}$. Notes: Adopts a correct strategy for the required coefficient. This requires an attempt to calculate $\\pm\\frac{1}{2}$ their coefficient of $x^2$ from part (a) $\\pm\\frac{1}{2}$ their coefficient of $x^3$ from part (a). There must be an attempt to bring these terms together to a single value. ie they cannot just circle the relevant terms in the expansion for this mark. The strategy may be implied by their answer. Condone any appearance of $x^2$ or $x^3$ appearing in their intermediate working.",
       "A1 (AO 1.1b): $=\\frac{1736}{3}$ (or $578\\frac{2}{3}$). Notes: $\\frac{1736}{3}$ or $578\\frac{2}{3}$. Do not accept $578.\\dot{6}$ or $\\frac{1736}{3}x^2$"
@@ -3809,7 +3809,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.7",
     "marks": 2,
-    "question_latex": "The curve $C$ has equation\n$$y=9x-x^3$$\nSketch $C$ showing the coordinates of the points at which the curve cuts the $x$-axis.",
+    "question_latex": "(a) Factorise completely $9x-x^3$\nThe curve $C$ has equation\n$$y=9x-x^3$$\n(b) Sketch $C$ showing the coordinates of the points at which the curve cuts the $x$-axis.",
     "mark_scheme": [
       "B1 (AO 1.1b): A cubic with correct orientation (the mark scheme sketch shows a negative cubic with a minimum to the left of the $y$-axis and a maximum to the right, crossing the $x$-axis at $-3$, $O$ and 3). Notes: Correct shape (negative cubic) appearing anywhere on a set of axes. It must have a minimum to the left and maximum to the right. Be tolerant of pen slips. Judge the intent of the shape. (see examples)",
       "B1 (AO 1.1b): Passes though origin, $(3, 0)$ and $(-3, 0)$. Notes: Passes through each of the origin, $(3, 0)$ and $(-3, 0)$ and no other points on the $x$ axis. (The graph should not turn on any of these points). The points may be indicated as just 3 and $-3$ on the axes. Condone $x$ and $y$ to be the wrong way round eg $(0,-3)$ for $(-3, 0)$ as long as it is on the correct axis but do not allow $(-3, 0)$ to be labelled as $(3, 0)$. [The mark scheme then shows example candidate sketches marked B1B0, B0B1 and B1B1.]"
@@ -3869,7 +3869,7 @@
     "topic": "Exponentials and logarithms",
     "spec_ref": "6.7, 6.3",
     "marks": 3,
-    "question_latex": "In this question you must show all stages of your working.\nSolutions relying entirely on calculator technology are not acceptable.\nThe air pressure, $P$ kg/cm$^2$, inside a car tyre, $t$ minutes from the instant when the tyre developed a puncture is given by the equation\n$$P=k+1.4\\mathrm{e}^{-0.5t}\\qquad t\\in\\mathbb{R}\\qquad t\\geqslant0$$\nwhere $k$ is a constant.\nGiven that the initial air pressure inside the tyre was 2.2 kg/cm$^2$\nFrom the instant when the tyre developed the puncture,\nfind the time taken for the air pressure to fall to 1 kg/cm$^2$\nGive your answer in minutes to one decimal place.",
+    "question_latex": "In this question you must show all stages of your working.\nSolutions relying entirely on calculator technology are not acceptable.\nThe air pressure, $P$ kg/cm$^2$, inside a car tyre, $t$ minutes from the instant when the tyre developed a puncture is given by the equation\n$$P=k+1.4\\mathrm{e}^{-0.5t}\\qquad t\\in\\mathbb{R}\\qquad t\\geqslant0$$\nwhere $k$ is a constant.\nGiven that the initial air pressure inside the tyre was 2.2 kg/cm$^2$\n(a) state the value of $k$.\nFrom the instant when the tyre developed the puncture,\n(b) find the time taken for the air pressure to fall to 1 kg/cm$^2$\nGive your answer in minutes to one decimal place.",
     "mark_scheme": [
       "M1 (AO 3.1b): $1=0.8+1.4\\mathrm{e}^{-0.5t}\\Rightarrow1.4\\mathrm{e}^{-0.5t}=0.2$. Notes: *Be aware this could be solved entirely using a calculator which is not acceptable* For using the model with $P=1$ and their value for $k$ from (a) and proceeding to $A\\mathrm{e}^{\\pm0.5t}=B$. Condone if $A$ or $B$ are negative for this mark.",
       "M1 (AO 1.1b): $-0.5t=\\ln\\left(\\frac{0.2}{1.4}\\right)\\Rightarrow t=\\ldots$ Notes: Uses correct log work to solve an equation of the form $A\\mathrm{e}^{\\pm0.5t}=B$ leading to a value for $t$. They cannot proceed directly to awrt 3.9 without some intermediate working seen. Eg $t=2\\ln7$ or $-2\\ln\\left(\\frac{1}{7}\\right)$ is acceptable. Also allow $1.4\\mathrm{e}^{-0.5t}=0.2\\Rightarrow-0.5t=-1.9459\\ldots\\Rightarrow t=\\ldots$ This cannot be scored from an unsolvable equation (eg when their $k\\geqslant1$ so that $\\mathrm{e}^{\\pm0.5t}\\leqslant0$).",
@@ -4028,7 +4028,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2, 3.1, 2.4",
     "marks": 5,
-    "question_latex": "[Figure 3: the circle $C$ in the first quadrant, clear of both axes, and the line $l$ sloping down from the second quadrant, crossing the negative $y$-axis, into the fourth quadrant.]\nFigure 3 shows the circle $C$ with equation\n$$x^2+y^2-10x-8y+32=0$$\nand the line $l$ with equation\n$$2y+x+6=0$$\nFind the shortest distance between $C$ and $l$.",
+    "question_latex": "[Figure 3: the circle $C$ in the first quadrant, clear of both axes, and the line $l$ sloping down from the second quadrant, crossing the negative $y$-axis, into the fourth quadrant.]\nFigure 3 shows the circle $C$ with equation\n$$x^2+y^2-10x-8y+32=0$$\nand the line $l$ with equation\n$$2y+x+6=0$$\n(a) Find\n(i) the coordinates of the centre of $C$,\n(ii) the radius of $C$.\n(b) Find the shortest distance between $C$ and $l$.",
     "mark_scheme": [
       "B1 (AO 2.2a): $2y+x+6=0\\Rightarrow y=-\\frac{1}{2}x+\\ldots\\Rightarrow-\\frac{1}{2}\\to2$. Notes: Deduces the gradient of the perpendicular to $l$ is 2. May be seen in the equation for the perpendicular line to $l$",
       "M1 (AO 3.1a): $m_N=2\\Rightarrow y-4=2(x-5)$; $y-4=2(x-5)$, $2y+x+6=0\\Rightarrow x=\\ldots, y=\\ldots$ Notes: A fully correct strategy for finding the intersection. This requires use of their gradient of the perpendicular which cannot be the gradient of $l$. Look for $y-\\text{“}4\\text{”}=\\text{“}2\\text{”}(x-\\text{“}5\\text{”})$ where $(5,4)$ is their centre being solved simultaneously with the equation of $l$. Do not be concerned with the mechanics of their rearrangement when solving simultaneously. Many are finding the $y$-intercept of $l$ $(0,-3)$ which is M0",
@@ -4432,7 +4432,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2, 2.5",
     "marks": 3,
-    "question_latex": "The circle $C$ has equation\n$$x^2+y^2-6x+10y+k=0$$\nwhere $k$ is a constant.\nGiven that $C$ does not cut or touch the $x$-axis,\nfind the range of possible values for $k$.",
+    "question_latex": "The circle $C$ has equation\n$$x^2+y^2-6x+10y+k=0$$\nwhere $k$ is a constant.\n(a) Find the coordinates of the centre of $C$.\nGiven that $C$ does not cut or touch the $x$-axis,\n(b) find the range of possible values for $k$.",
     "mark_scheme": [
       "B1ft (AO 2.2a): Deduces that $k=9$ is a critical point. Notes: Deduces that $k\\ldots9$ is a critical point. Allow this to come from their $(\\text{“}5\\text{”})^2$ Condone $\\frac{36}{4}$. Note that this might come from setting $y=0$ and using the discriminant on $x^2-6x+k=0$",
       "M1 (AO 3.1a): Recognises that radius $>0$: $\\text{“}9\\text{”}+\\text{“}25\\text{”}-k>0$. Notes: $(x\\pm3)^2+(y\\pm5)^2=(\\text{“}3\\text{”})^2+(\\text{“}5\\text{”})^2-k$ and recognises that the radius$^2$ must be positive so $(\\text{“}3\\text{”})^2+(\\text{“}5\\text{”})^2-k>0$ but condone $(\\text{“}3\\text{”})^2+(\\text{“}5\\text{”})^2-k\\geqslant0$. $k<34$ or $k\\leqslant34$ would imply this method mark. Note: they may have incorrectly calculated $(\\text{“}3\\text{”})^2+(\\text{“}5\\text{”})^2$ in (a) so allow their value for this in place of $(\\text{“}3\\text{”})^2+(\\text{“}5\\text{”})^2$ as long as the intention is clear.",
@@ -4756,7 +4756,7 @@
     "topic": "Vectors",
     "spec_ref": "9.2, 2.2",
     "marks": 2,
-    "question_latex": "Relative to a fixed origin $O$\n• point $A$ has position vector $10\\mathbf{i}-3\\mathbf{j}$\n• point $B$ has position vector $-8\\mathbf{i}+9\\mathbf{j}$\n• point $C$ has position vector $-2\\mathbf{i}+p\\mathbf{j}$ where $p$ is a constant\nFind $\\left|\\overrightarrow{AB}\\right|$ giving your answer as a fully simplified surd.",
+    "question_latex": "Relative to a fixed origin $O$\n• point $A$ has position vector $10\\mathbf{i}-3\\mathbf{j}$\n• point $B$ has position vector $-8\\mathbf{i}+9\\mathbf{j}$\n• point $C$ has position vector $-2\\mathbf{i}+p\\mathbf{j}$ where $p$ is a constant\n(a) Find $\\overrightarrow{AB}$\n(b) Find $\\left|\\overrightarrow{AB}\\right|$ giving your answer as a fully simplified surd.",
     "mark_scheme": [
       "M1 (AO 1.1b): $\\left|\\overrightarrow{AB}\\right|=\\sqrt{\\text{“}18\\text{”}^2+\\text{“}12\\text{”}^2}\\left\\{=\\sqrt{468}\\right\\}$. Notes: Attempts to use Pythagoras' theorem on their vector from part (a). Allow restarts. Note that -18 will commonly be squared as 18. May be implied by awrt 21.6 This will need checking if (a) is incorrect.",
       "A1 (AO 1.1b): $=6\\sqrt{13}$. Notes: cao $6\\sqrt{13}$ May come from $\\begin{pmatrix}\\pm18\\\\\\pm12\\end{pmatrix}$"
@@ -4776,7 +4776,7 @@
     "topic": "Vectors",
     "spec_ref": "9.5, 9.3",
     "marks": 3,
-    "question_latex": "Relative to a fixed origin $O$\n• point $A$ has position vector $10\\mathbf{i}-3\\mathbf{j}$\n• point $B$ has position vector $-8\\mathbf{i}+9\\mathbf{j}$\n• point $C$ has position vector $-2\\mathbf{i}+p\\mathbf{j}$ where $p$ is a constant\nGiven that points $A$, $B$ and $C$ lie on a straight line,\n(i) find the value of $p$,\n(ii) state the ratio of the area of triangle $AOC$ to the area of triangle $AOB$.",
+    "question_latex": "Relative to a fixed origin $O$\n• point $A$ has position vector $10\\mathbf{i}-3\\mathbf{j}$\n• point $B$ has position vector $-8\\mathbf{i}+9\\mathbf{j}$\n• point $C$ has position vector $-2\\mathbf{i}+p\\mathbf{j}$ where $p$ is a constant\n(a) Find $\\overrightarrow{AB}$\nGiven that points $A$, $B$ and $C$ lie on a straight line,\n(c) (i) find the value of $p$,\n(ii) state the ratio of the area of triangle $AOC$ to the area of triangle $AOB$.",
     "mark_scheme": [
       "M1 (AO 2.1): For the key step in using the fact that $BCA$ forms a straight line in an attempt to find “$p$” $\\overrightarrow{AB}=\\lambda\\overrightarrow{BC}\\Rightarrow-18\\mathbf{i}+12\\mathbf{j}=6\\lambda\\mathbf{i}+\\lambda(p-9)\\mathbf{j}$ with components equated leading to a value for $\\lambda$ and to $p=\\ldots$ Notes: For the key step in using the fact that $BCA$ forms a straight line in an attempt to find “$p$”. Condone sign slips. Award, for example, for $\\pm\\frac{p-9}{6}=\\pm\\frac{2}{3}$ leading to $p=\\ldots$ It is implied by $p=5$ unless it comes directly from work that is clearly incorrect. e.g., award for an attempt to use: $\\overrightarrow{AB}=\\alpha\\overrightarrow{AC}\\Rightarrow-18\\mathbf{i}+12\\mathbf{j}=-12\\alpha\\mathbf{i}+\\alpha(p+3)\\mathbf{j}$ with components equated leading to a value for $\\alpha$ and to $p=\\ldots$; gradient $BC=$ gradient $BA=-\\frac{2}{3}$ e.g., $\\frac{p-9}{6}=\\frac{9--3}{-8-10}$ leading to $p=\\ldots$; triangles $BCM$ and $BAN$ are similar with lengths in a ratio 1:3. e.g., $p=9-\\frac{1}{3}\\times12$ or $p=-3+\\frac{2}{3}\\times12$; attempt to find the equation of line $AB$ using both points (FYI line $AB$ has equation $y=-\\frac{2}{3}x+\\frac{11}{3}$) and then sub in $x=-2$ leading to $p=\\ldots$; $\\frac{p+3}{12}=\\frac{2}{3}$ or $\\frac{p+3}{2}=9-p$ leading to $p=\\ldots$",
       "A1 (AO 1.1b): (i) $p=5$. Notes: $p=5$ Correct answer implies both marks, unless it comes directly from work that is clearly incorrect.",
@@ -5049,7 +5049,7 @@
     "topic": "Vectors",
     "spec_ref": "9.5, 9.2, 3.1",
     "marks": 2,
-    "question_latex": "Relative to a fixed origin $O$,\n• point $P$ has position vector $9\\mathbf{i}-8\\mathbf{j}$\n• point $Q$ has position vector $3\\mathbf{i}-5\\mathbf{j}$\nGiven that $R$ is the point such that $\\overrightarrow{QR}=9\\mathbf{i}+18\\mathbf{j}$\nshow that angle $PQR=90^\\circ$",
+    "question_latex": "Relative to a fixed origin $O$,\n• point $P$ has position vector $9\\mathbf{i}-8\\mathbf{j}$\n• point $Q$ has position vector $3\\mathbf{i}-5\\mathbf{j}$\n(a) Find $\\overrightarrow{PQ}$\nGiven that $R$ is the point such that $\\overrightarrow{QR}=9\\mathbf{i}+18\\mathbf{j}$\n(b) show that angle $PQR=90^\\circ$",
     "mark_scheme": [
       "M1 (AO 3.1a): Gradient of $PQ=\\frac{-5--8}{3-9}\\left(=-\\frac{1}{2}\\right)$ and Gradient of $QR=\\frac{18}{9}(=2)$ or $\\left|\\overrightarrow{PQ}\\right|=\\sqrt{\\text{“}(-6)\\text{”}^2+\\text{“}3\\text{”}^2}\\ (=3\\sqrt{5})$ and $\\left|\\overrightarrow{QR}\\right|=\\sqrt{9^2+18^2}\\ (=9\\sqrt{5})$ and $\\left|\\overrightarrow{PR}\\right|=\\sqrt{\\text{“}3\\text{”}^2+\\text{“}21\\text{”}^2}\\ (=15\\sqrt{2})$. Notes: Condone lack of labelling / poor notation for lengths/angles provided the intention is clear. Attempts to find the gradient of the line $PQ$ and the gradient of the line $QR$. If they find the reciprocals of both they must be labelled e.g. $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$ o.e. (but not gradient or $m$). Do not allow sign slips for this mark. Alternatively they may find the lengths $PQ$, $QR$ and $PR$ or $PQ^2$, $QR^2$ and $PR^2$. Be aware of Further Maths methods such as attempting the dot product $\\begin{pmatrix}-6\\\\3\\end{pmatrix}\\cdot\\begin{pmatrix}9\\\\18\\end{pmatrix}=(-6\\times9)+(3\\times18)$",
       "A1* (AO 2.4): e.g. shows that $-\\frac{1}{2}\\times2=-1$ and deduces angle $PQR=90^\\circ$ * or e.g. shows $\\left|\\overrightarrow{PQ}\\right|^2+\\left|\\overrightarrow{QR}\\right|^2=\\left|\\overrightarrow{PR}\\right|^2$ and deduces angle $PQR=90^\\circ$ *. Notes: Correct working and conclusion that angle $PQR=90^\\circ$: using gradients or their reciprocals they need to state or show that the product is equal to -1 o.e. or refer to the values being negative reciprocals of each other; using Pythagoras’ Theorem they must state or show that $\\left|\\overrightarrow{PQ}\\right|^2+\\left|\\overrightarrow{QR}\\right|^2=\\left|\\overrightarrow{PR}\\right|^2$; using the cosine rule and finding angle $PQR=90^\\circ$; using the scalar dot product they must show that $\\begin{pmatrix}-6\\\\3\\end{pmatrix}\\cdot\\begin{pmatrix}9\\\\18\\end{pmatrix}=0$. In all cases there must be some sort of minimal conclusion that angle $PQR=90^\\circ$ e.g. “hence right angle” or if they start with a preamble it is acceptable to state “hence proven”, “QED” or a tick. Use of e.g. cosine rule resulting in $90^\\circ$ is sufficient."
@@ -5069,7 +5069,7 @@
     "topic": "Vectors",
     "spec_ref": "9.5, 9.2",
     "marks": 4,
-    "question_latex": "Relative to a fixed origin $O$,\n• point $P$ has position vector $9\\mathbf{i}-8\\mathbf{j}$\n• point $Q$ has position vector $3\\mathbf{i}-5\\mathbf{j}$\nGiven that $R$ is the point such that $\\overrightarrow{QR}=9\\mathbf{i}+18\\mathbf{j}$\n(b) show that angle $PQR=90^\\circ$\nGiven also that $S$ is the point such that $\\overrightarrow{PS}=3\\overrightarrow{QR}$\n(c) find the exact area of $PQRS$",
+    "question_latex": "Relative to a fixed origin $O$,\n• point $P$ has position vector $9\\mathbf{i}-8\\mathbf{j}$\n• point $Q$ has position vector $3\\mathbf{i}-5\\mathbf{j}$\n(a) Find $\\overrightarrow{PQ}$\nGiven that $R$ is the point such that $\\overrightarrow{QR}=9\\mathbf{i}+18\\mathbf{j}$\n(b) show that angle $PQR=90^\\circ$\nGiven also that $S$ is the point such that $\\overrightarrow{PS}=3\\overrightarrow{QR}$\n(c) find the exact area of $PQRS$",
     "mark_scheme": [
       "M1 (AO 2.1): Attempts to find the length $PQ$ and at least one of $QR$ or $PS$ using Pythagoras’ Theorem correctly e.g. $\\left|\\overrightarrow{PQ}\\right|=\\sqrt{\\text{“}(-6)\\text{”}^2+\\text{“}3\\text{”}^2}$ and either $\\left|\\overrightarrow{QR}\\right|=\\sqrt{9^2+18^2}$ or $\\left|\\overrightarrow{PS}\\right|=\\sqrt{\\text{“}27\\text{”}^2+\\text{“}54\\text{”}^2}$. Notes: Condone lack of labelling / poor notation for lengths provided the intention is clear. Correct use of Pythagoras’ Theorem to find the length of $PQ$ and at least one of $QR$ or $PS$. Must be used or seen in (c) to score this mark. Condone working using rounded or truncated values.",
       "A1ft (AO 1.1b): $\\left|\\overrightarrow{PQ}\\right|=\\text{“}\\sqrt{45}\\text{”}\\ \\left(=3\\sqrt{5}\\right)$ and either $\\left|\\overrightarrow{QR}\\right|=\\sqrt{405}\\ \\left(=9\\sqrt{5}\\right)$ or $\\left|\\overrightarrow{PS}\\right|=27\\sqrt{5}$. Notes: Correct length of $PQ$ and at least one of $QR$ or $PS$. Follow through on their vectors for $PQ$ and $PS$ but $QR$ must be $\\sqrt{405}$ or equivalent. Lengths do not need to be simplified but they must be exact. Must be used or seen in (c) to score this mark.",
@@ -5499,7 +5499,7 @@
     "topic": "Exponentials and logarithms",
     "spec_ref": "6.2, 6.7, 6.3",
     "marks": 4,
-    "question_latex": "The prices of two precious metals are being monitored.\nThe price per gram of metal $A$, £$V_A$, is modelled by the equation\n$$V_A=100+20\\mathrm{e}^{0.04t}$$\nwhere $t$ is the number of months after monitoring began.\nThe price per gram of metal $B$, £$V_B$, is modelled by the equation\n$$V_B=p\\mathrm{e}^{-0.02t}$$\nwhere $p$ is a positive constant and $t$ is the number of months after monitoring began.\nGiven that $V_B=2V_A$ when $t=0$\nWhen $t=T$, the rate of $\\textbf{increase}$ in the price per gram of metal $A$ was equal to the rate of $\\textbf{decrease}$ in the price per gram of metal $B$\nFind the value of $T$, giving your answer to one decimal place.\n(Solutions based entirely on calculator technology are not acceptable.)",
+    "question_latex": "The prices of two precious metals are being monitored.\nThe price per gram of metal $A$, £$V_A$, is modelled by the equation\n$$V_A=100+20\\mathrm{e}^{0.04t}$$\nwhere $t$ is the number of months after monitoring began.\nThe price per gram of metal $B$, £$V_B$, is modelled by the equation\n$$V_B=p\\mathrm{e}^{-0.02t}$$\nwhere $p$ is a positive constant and $t$ is the number of months after monitoring began.\nGiven that $V_B=2V_A$ when $t=0$\n(a) find the value of $p$\nWhen $t=T$, the rate of $\\textbf{increase}$ in the price per gram of metal $A$ was equal to the rate of $\\textbf{decrease}$ in the price per gram of metal $B$\n(b) Find the value of $T$, giving your answer to one decimal place.\n(Solutions based entirely on calculator technology are not acceptable.)",
     "mark_scheme": [
       "M1 (AO 3.1b): $\\ldots\\mathrm{e}^{0.04T}=\\ldots\\mathrm{e}^{-0.02T}$. Notes: Candidates who state that $\\frac{\\mathrm{d}V_B}{\\mathrm{d}t}=\\text{“}4.8\\text{”}\\mathrm{e}^{-0.02T}$ can still score full marks question (they had already determined that they needed to take the modulus of the gradient function) May be in terms of $t$ or $T$. Attempts to set $\\pm\\frac{\\mathrm{d}V_A}{\\mathrm{d}t}$ equal to $\\pm\\frac{\\mathrm{d}V_B}{\\mathrm{d}t}$. Look for an equation of the form $p\\mathrm{e}^{0.04T}=q\\mathrm{e}^{-0.02T}$ where $p$ and $q$ are constants or may be implied by further work. e.g. $\\mathrm{e}^{\\pm0.06T}=\\ldots$ (it cannot be for awrt 29.9). Do not allow $\\ldots T\\mathrm{e}^{0.04T}=\\ldots T\\mathrm{e}^{-0.02T}$",
       "A1ft (AO 1.1b): $0.8\\mathrm{e}^{0.04T}=\\text{“}4.8\\text{”}\\mathrm{e}^{-0.02T}$. Notes: $0.8\\mathrm{e}^{0.04T}=\\text{“}4.8\\text{”}\\mathrm{e}^{-0.02T}$. Follow through on their positive value for $p$. May be implied by further work which is not awrt 29.9.",
@@ -6454,7 +6454,7 @@
     "topic": "Vectors",
     "spec_ref": "9.5, 9.3",
     "marks": 2,
-    "question_latex": "The quadrilateral $OABC$ has $\\overrightarrow{OA}=4\\mathbf{i}+2\\mathbf{j}$, $\\overrightarrow{OB}=6\\mathbf{i}-3\\mathbf{j}$ and $\\overrightarrow{OC}=8\\mathbf{i}-20\\mathbf{j}$.\nShow that quadrilateral $OABC$ is a trapezium.",
+    "question_latex": "The quadrilateral $OABC$ has $\\overrightarrow{OA}=4\\mathbf{i}+2\\mathbf{j}$, $\\overrightarrow{OB}=6\\mathbf{i}-3\\mathbf{j}$ and $\\overrightarrow{OC}=8\\mathbf{i}-20\\mathbf{j}$.\n(a) Find $\\overrightarrow{AB}$.\n(b) Show that quadrilateral $OABC$ is a trapezium.",
     "mark_scheme": [
       "M1 (AO 1.1b): Explains that $\\overrightarrow{OC}$ is parallel to $\\overrightarrow{AB}$ as $8\\mathbf{i}-20\\mathbf{j}=4\\times(2\\mathbf{i}-5\\mathbf{j})$. Notes: Attempts to compare vectors $\\overrightarrow{OC}$ and $\\overrightarrow{AB}$ by considering their directions",
       "A1 (AO 2.4): As $\\overrightarrow{OC}=4\\times\\overrightarrow{AB}$ it is parallel to it and not the same length Hence $OABC$ is a trapezium. Notes: Fully explains why $OABC$ is a trapezium. (The candidate is required to state that $OC$ is parallel to $AB$ but not the same length as it.)"
@@ -6653,7 +6653,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.6",
     "marks": 3,
-    "question_latex": "$$\\mathrm{f}(x)=x^3+3x^2-4x-12$$\nShow that $\\frac{x^3+3x^2-4x-12}{x^3+5x^2+6x}$ can be written in the form $A+\\frac{B}{x}$ where $A$ and $B$ are integers to be found.",
+    "question_latex": "$$\\mathrm{f}(x)=x^3+3x^2-4x-12$$\n(a) Using the factor theorem, explain why $\\mathrm{f}(x)$ is divisible by $(x+3)$.\n(b) Hence fully factorise $\\mathrm{f}(x)$.\n(c) Show that $\\frac{x^3+3x^2-4x-12}{x^3+5x^2+6x}$ can be written in the form $A+\\frac{B}{x}$ where $A$ and $B$ are integers to be found.",
     "mark_scheme": [
       "M1 (AO 3.1a): $\\frac{x^3+3x^2-4x-12}{x^3+5x^2+6x}=\\frac{\\ldots\\ldots}{x(x^2+5x+6)}$. Notes: Takes a common factor of $x$ out of the denominator and writes the numerator in factors.",
       "dM1 (AO 1.1b): $=\\frac{(x+3)(x+2)(x-2)}{x(x+3)(x+2)}$. Notes: Further factorises the denominator and cancels",
@@ -6997,7 +6997,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.5",
     "marks": 3,
-    "question_latex": "[Figure 3: the curve $C$ starting at $O$, dipping just below the $x$-axis, crossing it and rising to the right; the straight line $l$ with positive gradient, crossing the negative $y$-axis and meeting $C$ at the point $A$, above the $x$-axis.]\nFigure 3 shows a sketch of the curve $C$ with equation $y=3x-2\\sqrt{x},\\ x\\geqslant0$ and the line $l$ with equation $y=8x-16$\nThe line cuts the curve at point $A$ as shown in Figure 3.\n[Figure 4: the curve $C$ and the line $l$ as in Figure 3, with $l$ now dashed, and a solid vertical line through the point where $C$ crosses the $x$-axis; the region $R$, left unshaded, is bounded by this vertical line on the left, by $C$ above (from the vertical line to $A$) and by $l$ below and to the right; everything else is shaded.]\nThe region $R$ is shown unshaded in Figure 4. Identify the inequalities that define $R$.",
+    "question_latex": "[Figure 3: the curve $C$ starting at $O$, dipping just below the $x$-axis, crossing it and rising to the right; the straight line $l$ with positive gradient, crossing the negative $y$-axis and meeting $C$ at the point $A$, above the $x$-axis.]\nFigure 3 shows a sketch of the curve $C$ with equation $y=3x-2\\sqrt{x},\\ x\\geqslant0$ and the line $l$ with equation $y=8x-16$\nThe line cuts the curve at point $A$ as shown in Figure 3.\n(a) Using algebra, find the $x$ coordinate of point $A$.\n(b) [Figure 4: the curve $C$ and the line $l$ as in Figure 3, with $l$ now dashed, and a solid vertical line through the point where $C$ crosses the $x$-axis; the region $R$, left unshaded, is bounded by this vertical line on the left, by $C$ above (from the vertical line to $A$) and by $l$ below and to the right; everything else is shaded.]\nThe region $R$ is shown unshaded in Figure 4. Identify the inequalities that define $R$.",
     "mark_scheme": [
       "M1 (AO 2.1): Attempts to solve $3x-2\\sqrt{x}=0$. Notes: Attempts to solve $3x-2\\sqrt{x}=0$ For example Allow $3x=2\\sqrt{x}\\Rightarrow9x^2=4x\\Rightarrow x=\\ldots$ Allow $3x=2\\sqrt{x}\\Rightarrow x^{\\frac{1}{2}}=\\frac{2}{3}\\Rightarrow x=\\ldots$",
       "A1 (AO 1.1b): Correct solution $x=\\frac{4}{9}$. Notes: Correct solution to $3x-2\\sqrt{x}=0\\Rightarrow x=\\frac{4}{9}$",
@@ -7170,7 +7170,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.3",
     "marks": 2,
-    "question_latex": "A curve $C$ has equation\n$$y=x^2-2x-24\\sqrt{x},\\qquad x>0$$\nVerify that $C$ has a stationary point when $x=4$",
+    "question_latex": "A curve $C$ has equation\n$$y=x^2-2x-24\\sqrt{x},\\qquad x>0$$\n(a) Find (i) $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$\n(ii) $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$\n(b) Verify that $C$ has a stationary point when $x=4$",
     "mark_scheme": [
       "M1 (AO 1.1b): Substitutes $x=4$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=2\\times4-2-12\\times4^{-\\frac{1}{2}}=\\ldots$ Notes: Substitutes $x=4$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ and attempts to evaluate. There must be evidence $\\left.\\frac{\\mathrm{d}y}{\\mathrm{d}x}\\right|_{x=4}=\\ldots$",
       "A1 (AO 2.1): Shows $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=0$ and states “hence there is a stationary point” oe. Notes: There must be a reason and a minimal conclusion. Allow ✓, QED for a minimal conclusion Shows $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=0$ and states “hence there is a stationary point” oe",
@@ -7192,7 +7192,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.3",
     "marks": 2,
-    "question_latex": "A curve $C$ has equation\n$$y=x^2-2x-24\\sqrt{x},\\qquad x>0$$\n(b) Verify that $C$ has a stationary point when $x=4$\n(c) Determine the nature of this stationary point, giving a reason for your answer.",
+    "question_latex": "A curve $C$ has equation\n$$y=x^2-2x-24\\sqrt{x},\\qquad x>0$$\n(a) Find (i) $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$\n(ii) $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$\n(b) Verify that $C$ has a stationary point when $x=4$\n(c) Determine the nature of this stationary point, giving a reason for your answer.",
     "mark_scheme": [
       "M1 (AO 1.1b): Substitutes $x=4$ into their $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}=2+6\\times4^{-\\frac{3}{2}}=(2.75)$. Notes: Substitutes $x=4$ into their $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ and calculates its value, or implies its sign by a statement such as when $x=4\\Rightarrow\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}>0$. This must be seen in (c) and not labelled (b).",
       "A1ft (AO 2.2a): $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}=2.75>0$ and states “hence minimum”. Notes: For a correct calculation, a valid reason and a correct conclusion. Ignore additional work where candidate finds $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ left and right of $x=4$. Follow through on an incorrect $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ but it is dependent upon having a negative or fractional index. Ignore any references to the word convex. The nature of the turning point is “minimum”.",
@@ -7346,7 +7346,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2, 2.3",
     "marks": 3,
-    "question_latex": "[Figure 3: the circle $C$ with centre $A$ in the first quadrant; the straight line $l$ with positive gradient, crossing the $y$-axis just above $O$ and touching $C$ at the point $P$ on the upper left of the circle; marked “Not to scale”.]\nThe circle $C$ has centre $A$ with coordinates $(7, 5)$.\nThe line $l$, with equation $y=2x+1$, is the tangent to $C$ at the point $P$, as shown in Figure 3.\nThe line with equation $y=2x+k,\\quad k\\neq1$ is also a tangent to $C$.\nFind the value of the constant $k$.",
+    "question_latex": "[Figure 3: the circle $C$ with centre $A$ in the first quadrant; the straight line $l$ with positive gradient, crossing the $y$-axis just above $O$ and touching $C$ at the point $P$ on the upper left of the circle; marked “Not to scale”.]\nThe circle $C$ has centre $A$ with coordinates $(7, 5)$.\nThe line $l$, with equation $y=2x+1$, is the tangent to $C$ at the point $P$, as shown in Figure 3.\n(a) Show that an equation of the line $PA$ is $2y+x=17$\n(b) Find an equation for $C$.\nThe line with equation $y=2x+k,\\quad k\\neq1$ is also a tangent to $C$.\n(c) Find the value of the constant $k$.",
     "mark_scheme": [
       "M1 (AO 3.1a): Attempts to find where $y=2x+k$ meets $C$ using $\\overrightarrow{OA}+\\overrightarrow{PA}$. Notes: Attempts to find where $y=2x+k$ meets $C$. Awarded for using $\\overrightarrow{OA}+\\overrightarrow{PA}$. $(11,3)$ or one correct coordinate of $(11,3)$ is evidence of this award.",
       "M1 (AO 2.1): Substitutes their $(11,3)$ in $y=2x+k$ to find $k$. Notes: For a full method leading to $k$. Scored for either substituting their $(11,3)$ in $y=2x+k$",
@@ -8027,7 +8027,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.3, 2.7",
     "marks": 3,
-    "question_latex": "$$\\mathrm{f}(x)=2x^2+4x+9\\qquad x\\in\\mathbb{R}$$\nSketch the curve with equation $y=\\mathrm{f}(x)$ showing any points of intersection with the coordinate axes and the coordinates of any turning point.",
+    "question_latex": "$$\\mathrm{f}(x)=2x^2+4x+9\\qquad x\\in\\mathbb{R}$$\n(a) Write $\\mathrm{f}(x)$ in the form $a(x+b)^2+c$, where $a$, $b$ and $c$ are integers to be found.\n(b) Sketch the curve with equation $y=\\mathrm{f}(x)$ showing any points of intersection with the coordinate axes and the coordinates of any turning point.",
     "mark_scheme": [
       "B1 (AO 1.2): U shaped curve any position but not through (0,0) [Sketch: a U-shaped parabola with its minimum at $(-1,7)$ and $y$-intercept at $(0,9)$.] Notes: For a U-shaped curve in any position not passing through $(0,0)$. Be tolerant of slips of the pen but do not allow if the curve bends back on itself",
       "B1 (AO 1.1b): $y$ - intercept at $(0,9)$. Notes: A curve with a $y$ - intercept on the +ve $y$ axis of 9. The curve cannot just stop at $(0,9)$ Allow the intercept to be marked 9, $(0,9)$ but not $(9,0)$",
@@ -8048,7 +8048,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.9, 2.3",
     "marks": 4,
-    "question_latex": "$$\\mathrm{f}(x)=2x^2+4x+9\\qquad x\\in\\mathbb{R}$$\n(i) Describe fully the transformation that maps the curve with equation $y=\\mathrm{f}(x)$ onto the curve with equation $y=\\mathrm{g}(x)$ where\n$$\\mathrm{g}(x)=2(x-2)^2+4x-3\\qquad x\\in\\mathbb{R}$$\n(ii) Find the range of the function\n$$\\mathrm{h}(x)=\\frac{21}{2x^2+4x+9}\\qquad x\\in\\mathbb{R}$$",
+    "question_latex": "$$\\mathrm{f}(x)=2x^2+4x+9\\qquad x\\in\\mathbb{R}$$\n(a) Write $\\mathrm{f}(x)$ in the form $a(x+b)^2+c$, where $a$, $b$ and $c$ are integers to be found.\n(c) (i) Describe fully the transformation that maps the curve with equation $y=\\mathrm{f}(x)$ onto the curve with equation $y=\\mathrm{g}(x)$ where\n$$\\mathrm{g}(x)=2(x-2)^2+4x-3\\qquad x\\in\\mathbb{R}$$\n(ii) Find the range of the function\n$$\\mathrm{h}(x)=\\frac{21}{2x^2+4x+9}\\qquad x\\in\\mathbb{R}$$",
     "mark_scheme": [
       "M1 (AO 3.1a): (i) Deduces translation with one correct aspect. Notes: Deduces translation with one correct aspect or states $\\begin{pmatrix}2\\\\-4\\end{pmatrix}$ with no reference to ‘translate’. Allow instead of the word translate, shift or move. $\\mathrm{g}(x)=\\mathrm{f}(x-2)-4$ can score M1 For example, possible methods of arriving at this deduction are: • $\\mathrm{f}(x)\\to\\mathrm{g}(x)$ is $2x^2+4x+9\\to2(x-2)^2+4(x-2)+5$ So $\\mathrm{g}(x)=\\mathrm{f}(x-2)-4$ • $\\mathrm{g}(x)=2(x-1)^2+3$ New curve has its minimum at $(1,3)$ so $(-1,7)\\to(1,3)$ • Using a graphical calculator to sketch $y=\\mathrm{g}(x)$ and compares to the sketch of $y=\\mathrm{f}(x)$ In almost all cases you will not allow if the candidate gives two different types of transformations. Eg, stretch and .....",
       "A1 (AO 2.2a): Translate $\\begin{pmatrix}2\\\\-4\\end{pmatrix}$. Notes: Requires both ‘translate’ and ‘$\\begin{pmatrix}2\\\\-4\\end{pmatrix}$’ Allow ‘shift’ or move’ instead of translate. So condone “ Move shift 2 (units) to the right and move 4 (units) down However, for M1 A1, it is possible to reflect in $x=0$ and translate $\\begin{pmatrix}0\\\\-4\\end{pmatrix}$, so please consider all responses. SC: If the candidate writes translate $\\begin{pmatrix}-2\\\\4\\end{pmatrix}$ or “ move 2 (units) to the left and 4 (units) up” score M1 A0",
@@ -8610,7 +8610,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.4, 5.5",
     "marks": 3,
-    "question_latex": "The curve $C$, in the standard Cartesian plane, is defined by the equation\n$$x=4\\sin2y\\qquad\\frac{-\\pi}{4}<y<\\frac{\\pi}{4}$$\nThe curve $C$ passes through the origin $O$\nShow that, for all points $(x, y)$ lying on $C$,\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{1}{a\\sqrt{b-x^2}}$$\nwhere $a$ and $b$ are constants to be found.",
+    "question_latex": "The curve $C$, in the standard Cartesian plane, is defined by the equation\n$$x=4\\sin2y\\qquad\\frac{-\\pi}{4}<y<\\frac{\\pi}{4}$$\nThe curve $C$ passes through the origin $O$\n(a) Find the value of $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ at the origin.\n(c) Show that, for all points $(x, y)$ lying on $C$,\n$$\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{1}{a\\sqrt{b-x^2}}$$\nwhere $a$ and $b$ are constants to be found.",
     "mark_scheme": [
       "M1 (AO 2.1): Uses their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as a function of $y$ and, using both $\\sin^22y+\\cos^22y=1$ and $x=4\\sin2y$ in an attempt to write $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ or $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$ as a function of $x$ Allow for $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=k\\frac{1}{\\cos2y}=\\ldots\\frac{1}{\\sqrt{1-(\\ldots x)^2}}$. Notes: Uses their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ as a function of $y$ and, using both $\\sin^22y+\\cos^22y=1$ and $x=4\\sin2y$, attempts to write $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ or $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$ as a function of $x$. The $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ may not be seen and may be implied by their calculation.",
       "A1 (AO 1.1b): A correct answer $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{1}{8\\sqrt{1-\\left(\\frac{x}{4}\\right)^2}}$ or $\\frac{\\mathrm{d}x}{\\mathrm{d}y}=8\\sqrt{1-\\left(\\frac{x}{4}\\right)^2}$. Notes: A correct (un-simplified) answer for $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$ or $\\frac{\\mathrm{d}x}{\\mathrm{d}y}$ Eg. $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=\\frac{1}{8\\sqrt{1-\\left(\\frac{x}{4}\\right)^2}}$",
@@ -9163,7 +9163,7 @@
     "topic": "Sequences and series",
     "spec_ref": "4.2",
     "marks": 1,
-    "question_latex": "A sequence of numbers $a_1,a_2,a_3,\\ldots$ is defined by\n$$a_{n+1}=\\frac{k(a_n+2)}{a_n}\\qquad n\\in\\mathbb{N}$$\nwhere $k$ is a constant.\nGiven that\n• the sequence is a periodic sequence of order 3\n• $a_1=2$\nFor this sequence explain why $k\\neq1$",
+    "question_latex": "A sequence of numbers $a_1,a_2,a_3,\\ldots$ is defined by\n$$a_{n+1}=\\frac{k(a_n+2)}{a_n}\\qquad n\\in\\mathbb{N}$$\nwhere $k$ is a constant.\nGiven that\n• the sequence is a periodic sequence of order 3\n• $a_1=2$\n(a) show that\n$$k^2+k-2=0$$\n(b) For this sequence explain why $k\\neq1$",
     "mark_scheme": [
       "B1 (AO 2.3): States that when $k=1$, all terms are the same and concludes that the sequence does not have a period of order 3. Notes: States that when $k=1$, all terms are the same and concludes that the sequence does not have a period of order 3. Do not accept “the terms just repeat” or “it would mean all the terms of the sequence are 2” There must be some reference to the fact that it does not have order 3. Accept it has order 1. It is acceptable to state $a_2=a_1=2$ and state that the sequence does not have order 3"
     ],
@@ -9182,7 +9182,7 @@
     "topic": "Sequences and series",
     "spec_ref": "4.3, 4.2",
     "marks": 3,
-    "question_latex": "A sequence of numbers $a_1,a_2,a_3,\\ldots$ is defined by\n$$a_{n+1}=\\frac{k(a_n+2)}{a_n}\\qquad n\\in\\mathbb{N}$$\nwhere $k$ is a constant.\nGiven that\n• the sequence is a periodic sequence of order 3\n• $a_1=2$\nFind the value of\n$$\\sum_{r=1}^{80}a_r$$",
+    "question_latex": "A sequence of numbers $a_1,a_2,a_3,\\ldots$ is defined by\n$$a_{n+1}=\\frac{k(a_n+2)}{a_n}\\qquad n\\in\\mathbb{N}$$\nwhere $k$ is a constant.\nGiven that\n• the sequence is a periodic sequence of order 3\n• $a_1=2$\n(a) show that\n$$k^2+k-2=0$$\n(b) For this sequence explain why $k\\neq1$\n(c) Find the value of\n$$\\sum_{r=1}^{80}a_r$$",
     "mark_scheme": [
       "B1 (AO 2.2a): Deduces the repeating terms are $a_{1/4}=2,a_{2/5}=-4,a_{3/6}=-1$,. Notes: Deduces the repeating terms are $a_{1/4}=2,a_{2/5}=-4,a_{3/6}=-1$,",
       "M1 (AO 3.1a): $\\sum_{n=1}^{80}a_k=26\\times(2+-4+-1)+2+-4$. Notes: Uses a clear strategy to find the sum to 80 terms. This will usually be found using multiples of the first three terms. For example you may see $\\sum_{r=1}^{80}a_r=\\left(\\sum_{r=1}^{78}a_r\\right)+a_{79}+a_{80}=26\\times(2+-4+-1)+2+-4$ or $\\sum_{r=1}^{80}a_r=\\left(\\sum_{r=1}^{81}a_r\\right)-a_{81}=27\\times(2+-4+-1)-(-1)$ For candidates who find in terms of $k$ award for $27\\times2+27\\times(2k)+26\\times(k+1)$ or $80k+80$ If candidates proceed and substitute $k=-2$ into $80k+80$ to get $-80$ then all 3 marks are scored.",
@@ -10168,7 +10168,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2",
     "marks": 2,
-    "question_latex": "A circle has equation\n$$x^2+y^2-10x+16y=80$$\nGiven that $P$ is the point on the circle that is furthest away from the origin $O$,\nfind the exact length $OP$",
+    "question_latex": "A circle has equation\n$$x^2+y^2-10x+16y=80$$\n(a) Find\n(i) the coordinates of the centre of the circle,\n(ii) the radius of the circle.\nGiven that $P$ is the point on the circle that is furthest away from the origin $O$,\n(b) find the exact length $OP$",
     "mark_scheme": [
       "M1 (AO 3.1a): Attempts $\\sqrt{\\text{“}5\\text{”}^2+\\text{“}8\\text{”}^2}+\\text{“}13\\text{”}$. Notes: Attempts $\\sqrt{\\text{“}5\\text{”}^2+\\text{“}8\\text{”}^2}+\\text{“}13\\text{”}$ for their centre $(5,-8)$ and their radius 13. Award when this is given as a decimal, e.g. 22.4 for correct centre and radius. Look for $\\sqrt{a^2+b^2}+r$ where centre is $(\\pm a,\\pm b)$ and radius is $r$ [The mark scheme shows a sketch of the circle with centre $(5,-8)$ and the line through $O$ and the centre meeting the circle at $P$.]",
       "A1ft (AO 1.1b): $13+\\sqrt{89}$ but ft on their centre and radius. Notes: $13+\\sqrt{89}$ Follow through on their $(5,-8)$ and their 13 leading to an exact answer. ISW for example if they write $13+\\sqrt{89}=22.4$",
@@ -10881,7 +10881,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.3",
     "marks": 2,
-    "question_latex": "The curve $C$ has equation\n$$y=3x^4-8x^3-3$$\nVerify that $C$ has a stationary point when $x=2$",
+    "question_latex": "The curve $C$ has equation\n$$y=3x^4-8x^3-3$$\n(a) Find (i) $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$\n(ii) $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$\n(b) Verify that $C$ has a stationary point when $x=2$",
     "mark_scheme": [
       "M1 (AO 1.1b): Substitutes $x=2$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=12\\times2^3-24\\times2^2$. Notes: Substitutes $x=2$ into their $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$",
       "A1 (AO 2.1): Shows $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=0$ and states “hence there is a stationary point”. Notes: Shows $\\frac{\\mathrm{d}y}{\\mathrm{d}x}=0$ and states “hence there is a stationary point” All aspects of the proof must be correct"
@@ -10901,7 +10901,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.3",
     "marks": 2,
-    "question_latex": "The curve $C$ has equation\n$$y=3x^4-8x^3-3$$\n(b) Verify that $C$ has a stationary point when $x=2$\n(c) Determine the nature of this stationary point, giving a reason for your answer.",
+    "question_latex": "The curve $C$ has equation\n$$y=3x^4-8x^3-3$$\n(a) Find (i) $\\frac{\\mathrm{d}y}{\\mathrm{d}x}$\n(ii) $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$\n(b) Verify that $C$ has a stationary point when $x=2$\n(c) Determine the nature of this stationary point, giving a reason for your answer.",
     "mark_scheme": [
       "M1 (AO 1.1b): Substitutes $x=2$ into their $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}=36\\times2^2-48\\times2$. Notes: Substitutes $x=2$ into their $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$ Alternatively calculates the gradient of $C$ either side of $x=2$",
       "A1ft (AO 2.2a): $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}=48>0$ and states “hence the stationary point is a minimum”. Notes: For a correct calculation, a valid reason and a correct conclusion. Follow through on an incorrect $\\frac{\\mathrm{d}^2y}{\\mathrm{d}x^2}$"
@@ -10982,7 +10982,7 @@
     "topic": "Coordinate geometry in the (x,y) plane",
     "spec_ref": "3.2, 2.5",
     "marks": 2,
-    "question_latex": "A circle $C$ has equation\n$$x^2+y^2-4x+10y=k$$\nwhere $k$ is a constant.\nState the range of possible values for $k$.",
+    "question_latex": "A circle $C$ has equation\n$$x^2+y^2-4x+10y=k$$\nwhere $k$ is a constant.\n(a) Find the coordinates of the centre of $C$.\n(b) State the range of possible values for $k$.",
     "mark_scheme": [
       "M1 (AO 2.2a): Sets $k+2^2+5^2>0$. Notes: Deduces that the right hand side of their $(x\\pm\\ldots)^2+(y\\pm\\ldots)^2=\\ldots$ is $>0$ or $\\geqslant0$",
       "A1ft (AO 1.1b): $\\Rightarrow k>-29$. Notes: $k>-29$ Also allow $k\\geqslant-29$ Follow through on their rhs of $(x\\pm\\ldots)^2+(y\\pm\\ldots)^2=\\ldots$"
@@ -12346,7 +12346,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.8",
     "marks": 3,
-    "question_latex": "$$\\mathrm{g}(x)=\\frac{2x+5}{x-3}\\qquad x\\geqslant5$$\nFind $\\mathrm{g}^{-1}(x)$, stating its domain.",
+    "question_latex": "$$\\mathrm{g}(x)=\\frac{2x+5}{x-3}\\qquad x\\geqslant5$$\n(b) State the range of g.\n(c) Find $\\mathrm{g}^{-1}(x)$, stating its domain.",
     "mark_scheme": [
       "M1 (AO 1.1b): $y=\\frac{2x+5}{x-3}\\Rightarrow yx-3y=2x+5\\Rightarrow yx-2x=3y+5$. Notes: Correct method of cross multiplication followed by an attempt to collect terms in $x$ or terms in a swapped $y$",
       "M1 (AO 2.1): $x(y-2)=3y+5\\Rightarrow x=\\frac{3y+5}{y-2}$ $\\left\\{\\text{or }y=\\frac{3x+5}{x-2}\\right\\}$. Notes: A complete method (i.e. as above and also factorising and dividing) to find the inverse",
@@ -12869,7 +12869,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.3, 7.4",
     "marks": 3,
-    "question_latex": "$$\\frac{1+11x-6x^2}{(x-3)(1-2x)}\\equiv A+\\frac{B}{(x-3)}+\\frac{C}{(1-2x)}$$\n$$\\mathrm{f}(x)=\\frac{1+11x-6x^2}{(x-3)(1-2x)}\\qquad x>3$$\nProve that $\\mathrm{f}(x)$ is a decreasing function.",
+    "question_latex": "$$\\frac{1+11x-6x^2}{(x-3)(1-2x)}\\equiv A+\\frac{B}{(x-3)}+\\frac{C}{(1-2x)}$$\n(a) Find the values of the constants $A$, $B$ and $C$.\n$$\\mathrm{f}(x)=\\frac{1+11x-6x^2}{(x-3)(1-2x)}\\qquad x>3$$\n(b) Prove that $\\mathrm{f}(x)$ is a decreasing function.",
     "mark_scheme": [
       "M1 (AO 2.1): $\\mathrm{f}(x)=3+\\frac{4}{(x-3)}-\\frac{2}{(1-2x)}$ $\\{=3+4(x-3)^{-1}-2(1-2x)^{-1}\\}$; $x>3$ $\\mathrm{f}'(x)=-4(x-3)^{-2}-4(1-2x)^{-2}$ $\\left\\{=-\\frac{4}{(x-3)^2}-\\frac{4}{(1-2x)^2}\\right\\}$. Notes: Differentiates to give $\\{\\mathrm{f}'(x)=\\}\\pm\\lambda(x-3)^{-2}\\pm\\mu(1-2x)^{-2}$; $\\lambda,\\mu\\neq0$",
       "A1ft (AO 1.1b): $\\mathrm{f}'(x)=-4(x-3)^{-2}-4(1-2x)^{-2}$. Notes: $\\mathrm{f}'(x)=-4(x-3)^{-2}-4(1-2x)^{-2}$, which can be simplified or un-simplified Note: Allow A1ft for $\\mathrm{f}'(x)=-(\\text{their }B)(x-3)^{-2}+(2)(\\text{their }C)(1-2x)^{-2}$; $(\\text{their }B),(\\text{their }C)\\neq0$",
@@ -13808,7 +13808,7 @@
     "topic": "Differentiation",
     "spec_ref": "7.3",
     "marks": 2,
-    "question_latex": "[Figure 9: the tank: a vertical circular cylinder of height $h$ m with a hemisphere on top; the radius of the top circle and of the base circle is marked $r$ m, and the hidden back halves of both circles are dashed.]\n[A sphere of radius $r$ has volume $\\frac{4}{3}\\pi r^3$ and surface area $4\\pi r^2$]\nA manufacturer produces a storage tank.\nThe tank is modelled in the shape of a hollow circular cylinder closed at one end with a hemispherical shell at the other end as shown in Figure 9.\nThe walls of the tank are assumed to have negligible thickness.\nThe cylinder has radius $r$ metres and height $h$ metres and the hemisphere has radius $r$ metres.\nThe volume of the tank is $6\\text{ m}^3$.\n(a) Show that, according to the model, the surface area of the tank, in $\\text{m}^2$, is given by\n$$\\frac{12}{r}+\\frac{5}{3}\\pi r^2$$\nThe manufacturer needs to minimise the surface area of the tank.\n(c) Calculate the minimum surface area of the tank, giving your answer to the nearest integer.",
+    "question_latex": "[Figure 9: the tank: a vertical circular cylinder of height $h$ m with a hemisphere on top; the radius of the top circle and of the base circle is marked $r$ m, and the hidden back halves of both circles are dashed.]\n[A sphere of radius $r$ has volume $\\frac{4}{3}\\pi r^3$ and surface area $4\\pi r^2$]\nA manufacturer produces a storage tank.\nThe tank is modelled in the shape of a hollow circular cylinder closed at one end with a hemispherical shell at the other end as shown in Figure 9.\nThe walls of the tank are assumed to have negligible thickness.\nThe cylinder has radius $r$ metres and height $h$ metres and the hemisphere has radius $r$ metres.\nThe volume of the tank is $6\\text{ m}^3$.\n(a) Show that, according to the model, the surface area of the tank, in $\\text{m}^2$, is given by\n$$\\frac{12}{r}+\\frac{5}{3}\\pi r^2$$\nThe manufacturer needs to minimise the surface area of the tank.\n(b) Use calculus to find the radius of the tank for which the surface area is a minimum.\n(c) Calculate the minimum surface area of the tank, giving your answer to the nearest integer.",
     "mark_scheme": [
       "M1 (AO 3.4): $A_{\\min}=\\frac{12}{(1.046\\ldots)}+\\frac{5}{3}\\pi(1.046\\ldots)^2$. Notes: Substitutes their $r=1.046\\ldots$, found from solving $\\frac{\\mathrm{d}A}{\\mathrm{d}r}=0$ in part (b), into the model with equation $A=\\frac{12}{r}+\\frac{5}{3}\\pi r^2$ Note: Give M0 for substituting their $r$ which has been found from solving $\\frac{\\mathrm{d}^2A}{\\mathrm{d}r^2}=0$ or from using $\\frac{\\mathrm{d}^2A}{\\mathrm{d}r^2}$ into the model with equation $A=\\frac{12}{r}+\\frac{5}{3}\\pi r^2$",
       "A1ft (AO 1.1b): $\\{A_{\\min}=17.20\\ldots\\Rightarrow\\}$ $A=17\\ (\\text{m}^2)$ or $A=\\text{awrt }17\\ (\\text{m}^2)$. Notes: $\\{A=\\}17$ or $\\{A=\\}$ awrt 17 (ignoring units) Note: You can only follow through on values of $r$ for $0.6\\leqslant\\text{their }r\\leqslant1.3$ (and where their $r$ has been found from solving $\\frac{\\mathrm{d}A}{\\mathrm{d}r}=0$ in part (b)) [table of $r$; $A$; $A$ (nearest integer): 0.6; 21.88495…; awrt 22 | 0.7; 19.70849…; awrt 20 | 0.8; 18.35103…; awrt 18 | 0.9; 17.57448…; awrt 18 | 1.0; 17.23598…; awrt 17 | 1.1; 17.24463…; awrt 17 | 1.2; 17.53982…; awrt 18 | 1.3; 18.07958…; awrt 18 | 1.05; 17.20124…; awrt 17 | 1.04644…; 17.20105…; awrt 17] Note: Give M1 A1 for $A=17\\ (\\text{m}^2)$ or $A=\\text{awrt }17\\ (\\text{m}^2)$ from no working"
@@ -14240,7 +14240,7 @@
     "topic": "Exponentials and logarithms",
     "spec_ref": "6.7",
     "marks": 2,
-    "question_latex": "A quantity of ethanol was heated until it reached boiling point.\nThe temperature of the ethanol, $\\theta^\\circ$C, at time $t$ seconds after heating began, is modelled by the equation\n$$\\theta=A-B\\mathrm{e}^{-0.07t}$$\nwhere $A$ and $B$ are positive constants.\nGiven that\n• the initial temperature of the ethanol was $18^\\circ$C\n• after 10 seconds the temperature of the ethanol was $44^\\circ$C\nEthanol has a boiling point of approximately $78^\\circ$C\nUse this information to evaluate the model.",
+    "question_latex": "A quantity of ethanol was heated until it reached boiling point.\nThe temperature of the ethanol, $\\theta^\\circ$C, at time $t$ seconds after heating began, is modelled by the equation\n$$\\theta=A-B\\mathrm{e}^{-0.07t}$$\nwhere $A$ and $B$ are positive constants.\nGiven that\n• the initial temperature of the ethanol was $18^\\circ$C\n• after 10 seconds the temperature of the ethanol was $44^\\circ$C\n(a) find a complete equation for the model, giving the values of $A$ and $B$ to 3 significant figures.\nEthanol has a boiling point of approximately $78^\\circ$C\n(b) Use this information to evaluate the model.",
     "mark_scheme": [
       "B1ft (AO 3.4): The maximum temperature is $\\text{“}69.6\\text{”}(^\\circ\\text{C})$ (according to the model) (The model has an) upper limit of $\\text{“}69.6\\text{”}(^\\circ\\text{C})$ (The model suggests that) the boiling point is $\\text{“}69.6\\text{”}(^\\circ\\text{C})$. Notes: Identifies $A$ as the boiling point/maximum temperature in the model. Follow through their $A$.",
       "B1ft (AO 3.5a): Model is not appropriate as $69.6(^\\circ\\text{C})$ is much lower than $78(^\\circ\\text{C})$. Notes: Makes a valid conclusion (valid/not valid, good/not good etc.) that refers to the 78 and includes a reference to a significant/large difference $\\textbf{Minimum for both marks:}$ The model is not appropriate as $\\text{“}69.6\\text{”}(^\\circ\\text{C})$ is much lower than $78(^\\circ\\text{C})$ $\\textbf{Note that these marks are not available if their equation is solvable. Note also that B0B1 is not possible.}$",
@@ -14353,7 +14353,7 @@
     "topic": "Algebra and functions",
     "spec_ref": "2.7, 2.5",
     "marks": 3,
-    "question_latex": "[Figure 2: a V-shaped graph with its vertex $P$ below the $x$-axis, to the left of the $y$-axis; the left branch crosses the negative $x$-axis and rises to the top left; the right branch crosses the negative $x$-axis, then the positive $y$-axis, and rises to the top right.]\nFigure 2 shows a sketch of the graph with equation\n$$y=2\\left|x+4\\right|-5$$\nThe vertex of the graph is at the point $P$, shown in Figure 2.\nA line $l$ has equation $y=ax$, where $a$ is a constant.\nGiven that $l$ intersects $y=2\\left|x+4\\right|-5$ at least once,\nfind the range of possible values of $a$, writing your answer in set notation.",
+    "question_latex": "[Figure 2: a V-shaped graph with its vertex $P$ below the $x$-axis, to the left of the $y$-axis; the left branch crosses the negative $x$-axis and rises to the top left; the right branch crosses the negative $x$-axis, then the positive $y$-axis, and rises to the top right.]\nFigure 2 shows a sketch of the graph with equation\n$$y=2\\left|x+4\\right|-5$$\nThe vertex of the graph is at the point $P$, shown in Figure 2.\n(a) Find the coordinates of $P$.\nA line $l$ has equation $y=ax$, where $a$ is a constant.\nGiven that $l$ intersects $y=2\\left|x+4\\right|-5$ at least once,\n(c) find the range of possible values of $a$, writing your answer in set notation.",
     "mark_scheme": [
       "B1 (AO 2.2a): $a>2$. Notes: Deduces that $a>2$",
       "M1 (AO 3.1a): $y=ax\\Rightarrow-5=-4a\\Rightarrow a=\\frac{5}{4}$. Notes: Attempts to find a value for $a$ using their $P(-4, -5)$ Alternatively attempts to solve $ax=2(x+4)-5$ and $ax=2(x+4)-5$ to obtain a value for $a$.",

@@ -178,6 +178,42 @@ LATEX = {
     "14": L("Prove, using algebra, that", "$$n^2+5n$$", r"is even for all $n\in\mathbb{N}$"),
 }
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "03b": L(
+        r"Relative to a fixed origin $O$,",
+        r"• point $P$ has position vector $9\mathbf{i}-8\mathbf{j}$",
+        r"• point $Q$ has position vector $3\mathbf{i}-5\mathbf{j}$",
+        r"(a) Find $\overrightarrow{PQ}$",
+        r"Given that $R$ is the point such that $\overrightarrow{QR}=9\mathbf{i}+18\mathbf{j}$",
+        r"(b) show that angle $PQR=90^\circ$",
+    ),
+    "03c": L(
+        r"Relative to a fixed origin $O$,",
+        r"• point $P$ has position vector $9\mathbf{i}-8\mathbf{j}$",
+        r"• point $Q$ has position vector $3\mathbf{i}-5\mathbf{j}$",
+        r"(a) Find $\overrightarrow{PQ}$",
+        r"Given that $R$ is the point such that $\overrightarrow{QR}=9\mathbf{i}+18\mathbf{j}$",
+        r"(b) show that angle $PQR=90^\circ$",
+        r"Given also that $S$ is the point such that $\overrightarrow{PS}=3\overrightarrow{QR}$",
+        r"(c) find the exact area of $PQRS$",
+    ),
+    "11b": L(
+        r"The prices of two precious metals are being monitored.",
+        r"The price per gram of metal $A$, £$V_A$, is modelled by the equation",
+        r"$$V_A=100+20\mathrm{e}^{0.04t}$$",
+        r"where $t$ is the number of months after monitoring began.",
+        r"The price per gram of metal $B$, £$V_B$, is modelled by the equation",
+        r"$$V_B=p\mathrm{e}^{-0.02t}$$",
+        r"where $p$ is a positive constant and $t$ is the number of months after monitoring began.",
+        r"Given that $V_B=2V_A$ when $t=0$",
+        r"(a) find the value of $p$",
+        r"When $t=T$, the rate of $\textbf{increase}$ in the price per gram of metal $A$ was equal to the rate of $\textbf{decrease}$ in the price per gram of metal $B$",
+        r"(b) Find the value of $T$, giving your answer to one decimal place.",
+        r"(Solutions based entirely on calculator technology are not acceptable.)",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", INT, "8.2, 2.1", 4, LATEX["01"],

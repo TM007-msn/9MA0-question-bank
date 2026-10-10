@@ -186,6 +186,32 @@ LATEX = {
 ALT10 = "ALT: 10alt"
 GR12 = "ALT: Alternative to (b) using a graphical approach"
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "01b": L(
+        r"The curve $C$ has equation",
+        r"$$y=3x^4-8x^3-3$$",
+        r"(a) Find (i) $\frac{\mathrm{d}y}{\mathrm{d}x}$",
+        r"(ii) $\frac{\mathrm{d}^2y}{\mathrm{d}x^2}$",
+        r"(b) Verify that $C$ has a stationary point when $x=2$",
+    ),
+    "01c": L(
+        r"The curve $C$ has equation",
+        r"$$y=3x^4-8x^3-3$$",
+        r"(a) Find (i) $\frac{\mathrm{d}y}{\mathrm{d}x}$",
+        r"(ii) $\frac{\mathrm{d}^2y}{\mathrm{d}x^2}$",
+        r"(b) Verify that $C$ has a stationary point when $x=2$",
+        r"(c) Determine the nature of this stationary point, giving a reason for your answer.",
+    ),
+    "03b": L(
+        r"A circle $C$ has equation",
+        r"$$x^2+y^2-4x+10y=k$$",
+        r"where $k$ is a constant.",
+        r"(a) Find the coordinates of the centre of $C$.",
+        r"(b) State the range of possible values for $k$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01a", "1(a)", DIFF, "7.2", 3, LATEX["01a"],

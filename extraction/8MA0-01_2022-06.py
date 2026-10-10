@@ -164,6 +164,57 @@ LATEX = {
     "14ii": L("Prove that for all positive integers $n$,", "$$n^3+3n^2+2n$$", "is divisible by 6"),
 }
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "02d": L(
+        r"$$\mathrm{f}(x)=2x^3+5x^2+2x+15$$",
+        r"(a) Use the factor theorem to show that $(x+3)$ is a factor of $\mathrm{f}(x)$.",
+        r"(d) Write down the real root of the equation $\mathrm{f}(x-5)=0$",
+    ),
+    "03c": L(
+        r"The triangle $PQR$ is such that $\overrightarrow{PQ}=3\mathbf{i}+5\mathbf{j}$ and $\overrightarrow{PR}=13\mathbf{i}-15\mathbf{j}$",
+        r"(a) Find $\overrightarrow{QR}$",
+        r"The point $S$ lies on the line segment $QR$ so that $QS:SR=3:2$",
+        r"(c) Find $\overrightarrow{PS}$",
+    ),
+    "06b": L(
+        r"(a) Find the first 4 terms, in ascending powers of $x$, of the binomial expansion of",
+        r"$$\left(3-\frac{2x}{9}\right)^8$$",
+        r"giving each term in simplest form.",
+        r"$$\mathrm{f}(x)=\left(\frac{x-1}{2x}\right)\left(3-\frac{2x}{9}\right)^8$$",
+        r"(b) Find the coefficient of $x^2$ in the series expansion of $\mathrm{f}(x)$, giving your answer as a simplified fraction.",
+    ),
+    "07b": L(
+        r"(a) Factorise completely $9x-x^3$",
+        r"The curve $C$ has equation",
+        r"$$y=9x-x^3$$",
+        r"(b) Sketch $C$ showing the coordinates of the points at which the curve cuts the $x$-axis.",
+    ),
+    "08b": L(
+        r"In this question you must show all stages of your working.",
+        r"Solutions relying entirely on calculator technology are not acceptable.",
+        r"The air pressure, $P$ kg/cm$^2$, inside a car tyre, $t$ minutes from the instant when the tyre developed a puncture is given by the equation",
+        r"$$P=k+1.4\mathrm{e}^{-0.5t}\qquad t\in\mathbb{R}\qquad t\geqslant0$$",
+        r"where $k$ is a constant.",
+        r"Given that the initial air pressure inside the tyre was 2.2 kg/cm$^2$",
+        r"(a) state the value of $k$.",
+        r"From the instant when the tyre developed the puncture,",
+        r"(b) find the time taken for the air pressure to fall to 1 kg/cm$^2$",
+        r"Give your answer in minutes to one decimal place.",
+    ),
+    "11b": L(
+        r"[Figure 3: the circle $C$ in the first quadrant, clear of both axes, and the line $l$ sloping down from the second quadrant, crossing the negative $y$-axis, into the fourth quadrant.]",
+        r"Figure 3 shows the circle $C$ with equation",
+        r"$$x^2+y^2-10x-8y+32=0$$",
+        r"and the line $l$ with equation",
+        r"$$2y+x+6=0$$",
+        r"(a) Find",
+        r"(i) the coordinates of the centre of $C$,",
+        r"(ii) the radius of $C$.",
+        r"(b) Find the shortest distance between $C$ and $l$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", INT, "8.2, 2.1", 4,

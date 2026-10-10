@@ -203,6 +203,7 @@ LATEX = {
     "13b": L(*Q13, "(a) " + Q13A[0], Q13A[1], Q13M,
              "(b) Use calculus to find the radius of the tank for which the surface area is a minimum."),
     "13c": L(*Q13, "(a) " + Q13A[0], Q13A[1], Q13M,
+             "(b) Use calculus to find the radius of the tank for which the surface area is a minimum.",
              "(c) Calculate the minimum surface area of the tank, giving your answer to the nearest integer."),
     "14a": L(*Q14A),
     "14b": L(*Q14, "Find, according to the model, the range in heights of trees in this species."),

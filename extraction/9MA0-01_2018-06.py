@@ -157,6 +157,34 @@ DH = r"\mathrm{d}H"
 BY = r"\left(1+\frac{5}{2}x-\frac{5}{8}x^2\right)"
 Q11ALT = "ALT: Other equally valid alternative for 11(a)"
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "02b": L(
+        r"A curve $C$ has equation",
+        r"$$y=x^2-2x-24\sqrt{x},\qquad x>0$$",
+        r"(a) Find (i) $\frac{\mathrm{d}y}{\mathrm{d}x}$",
+        r"(ii) $\frac{\mathrm{d}^2y}{\mathrm{d}x^2}$",
+        r"(b) Verify that $C$ has a stationary point when $x=4$",
+    ),
+    "02c": L(
+        r"A curve $C$ has equation",
+        r"$$y=x^2-2x-24\sqrt{x},\qquad x>0$$",
+        r"(a) Find (i) $\frac{\mathrm{d}y}{\mathrm{d}x}$",
+        r"(ii) $\frac{\mathrm{d}^2y}{\mathrm{d}x^2}$",
+        r"(b) Verify that $C$ has a stationary point when $x=4$",
+        r"(c) Determine the nature of this stationary point, giving a reason for your answer.",
+    ),
+    "06c": L(
+        r"[Figure 3: the circle $C$ with centre $A$ in the first quadrant; the straight line $l$ with positive gradient, crossing the $y$-axis just above $O$ and touching $C$ at the point $P$ on the upper left of the circle; marked “Not to scale”.]",
+        r"The circle $C$ has centre $A$ with coordinates $(7, 5)$.",
+        r"The line $l$, with equation $y=2x+1$, is the tangent to $C$ at the point $P$, as shown in Figure 3.",
+        r"(a) Show that an equation of the line $PA$ is $2y+x=17$",
+        r"(b) Find an equation for $C$.",
+        r"The line with equation $y=2x+k,\quad k\neq1$ is also a tangent to $C$.",
+        r"(c) Find the value of the constant $k$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01", "1", TRIG, "5.2", 3, LATEX["01"],

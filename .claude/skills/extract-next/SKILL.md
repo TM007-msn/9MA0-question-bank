@@ -44,20 +44,27 @@ Run `python extraction/PAPER_SERIES.py`. It writes `out/drafts/PAPER_SERIES.json
 ## 4. Check the maths independently
 Recompute every final answer in the mark scheme (sympy, `fractions`, `statistics.NormalDist`). Kinematics uses only the five SUVAT equations. Don't assume statistical tables. Any disagreement goes in the summary under "odd". Don't change the mark scheme to match your answer.
 
-## 5. Save through the guard
+## 5. Standalone check (before saving)
+Go through every part after the first in each multi-part question and ask whether it can be answered from its own `question_latex`.
+- **Show an earlier part** if this part needs a value, expression or equation that only that earlier part produces (e.g. the model's constants found in (a), the coordinates of $P$ found in (a), the radius found in (b), the expansion found in (a)), or if it says "Hence". Read the mark scheme's main method to see what the part actually uses.
+- A "their (a)" follow-through note on its own isn't enough. Nor is an earlier part that is only one possible route, or a marking note such as "may be seen in (a)".
+- Show the whole chain: if the earlier part itself needs another part, show that one too. Use the layout rules in CLAUDE.md (labels as printed, connective lead-ins with the part they introduce, info lines in paper order).
+- Fix the builder, re-run it, and list in the summary any part where the call was borderline.
+
+## 6. Save through the guard
 `python scripts/add_entries.py out/drafts/PAPER_SERIES.json`
 - It checks the schema, the figure rule, spec refs, `source_file`, difficulty evidence, the reserved list, the marks check and per-question mark totals, and refuses duplicate ids.
 - If it refuses, fix the draft and run again. **Never** edit the guards, schemas or validate.py to make a draft pass.
 
-## 6. Validate, test, review sheet
+## 7. Validate, test, review sheet
 - `python scripts/validate.py`. Every file must be ok.
 - `python -m unittest discover tests`. All must pass.
 - `python scripts/build_review.py PAPER SERIES`. This writes `out/review/PAPER_SERIES_review.html`.
 
-## 7. Commit
+## 8. Commit
 Commit `extraction/PAPER_SERIES.py`, `bank/questions.json`, `bank/progress.json`, and any `qp_totals_manual.json` or `check_marks.py` change. The message is "Extract PAPER SERIES (in review)" plus the counts, ending with the attribution line from the session instructions. Write the message to a file and use `git commit -F <file>`.
 
-## 8. Summary, then STOP
+## 9. Summary, then STOP
 Start with `python scripts/paper_summary.py PAPER SERIES` and report:
 - **Entries added:** count and marks.
 - **ALT lines:** count.

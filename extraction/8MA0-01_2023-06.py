@@ -163,6 +163,36 @@ LATEX = {
              "Prove, using algebra, that Statement 2 is true."),
 }
 
+# Earlier parts shown where a part needs their result (standalone sweep, 2026-10-10).
+LATEX.update({
+    "06b": L(
+        r"The circle $C$ has equation",
+        r"$$x^2+y^2-6x+10y+k=0$$",
+        r"where $k$ is a constant.",
+        r"(a) Find the coordinates of the centre of $C$.",
+        r"Given that $C$ does not cut or touch the $x$-axis,",
+        r"(b) find the range of possible values for $k$.",
+    ),
+    "13b": L(
+        r"Relative to a fixed origin $O$",
+        r"• point $A$ has position vector $10\mathbf{i}-3\mathbf{j}$",
+        r"• point $B$ has position vector $-8\mathbf{i}+9\mathbf{j}$",
+        r"• point $C$ has position vector $-2\mathbf{i}+p\mathbf{j}$ where $p$ is a constant",
+        r"(a) Find $\overrightarrow{AB}$",
+        r"(b) Find $\left|\overrightarrow{AB}\right|$ giving your answer as a fully simplified surd.",
+    ),
+    "13c": L(
+        r"Relative to a fixed origin $O$",
+        r"• point $A$ has position vector $10\mathbf{i}-3\mathbf{j}$",
+        r"• point $B$ has position vector $-8\mathbf{i}+9\mathbf{j}$",
+        r"• point $C$ has position vector $-2\mathbf{i}+p\mathbf{j}$ where $p$ is a constant",
+        r"(a) Find $\overrightarrow{AB}$",
+        r"Given that points $A$, $B$ and $C$ lie on a straight line,",
+        r"(c) (i) find the value of $p$,",
+        r"(ii) state the ratio of the area of triangle $AOC$ to the area of triangle $AOB$.",
+    ),
+})
+
 DRAFT = [
     # ---------------- Q1 ----------------
     e("01a", "1(a)", DIFF, "7.2", 2, LATEX["01a"],

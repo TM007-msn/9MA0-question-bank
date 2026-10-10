@@ -68,6 +68,18 @@
           "changed": [
             "8MA0-01_2018-06_Q06c: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2018-06_Q03b: question_latex",
+            "8MA0-01_2018-06_Q07b: question_latex",
+            "8MA0-01_2018-06_Q11b: question_latex",
+            "8MA0-01_2018-06_Q11c: question_latex"
+          ]
         }
       ]
     },
@@ -260,6 +272,17 @@
             "8MA0-01_2019-06_Q09b: question_latex",
             "8MA0-01_2019-06_Q09c: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2019-06_Q01b: question_latex",
+            "8MA0-01_2019-06_Q10b: question_latex",
+            "8MA0-01_2019-06_Q11d: question_latex"
+          ]
         }
       ]
     },
@@ -364,6 +387,18 @@
           "changed": [
             "8MA0-01_2020-10_Q08b: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2020-10_Q05b: question_latex",
+            "8MA0-01_2020-10_Q06b: question_latex",
+            "8MA0-01_2020-10_Q09b: question_latex",
+            "8MA0-01_2020-10_Q10c: question_latex"
+          ]
         }
       ]
     },
@@ -457,6 +492,19 @@
           "changed": [
             "8MA0-01_2021-10_Q04b: question_latex"
           ]
+        },
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2021-10_Q07b: question_latex",
+            "8MA0-01_2021-10_Q14b: question_latex",
+            "8MA0-01_2021-10_Q14c: question_latex",
+            "8MA0-01_2021-10_Q15b: question_latex",
+            "8MA0-01_2021-10_Q15c: question_latex"
+          ]
         }
       ]
     },
@@ -467,7 +515,23 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-07."
+      "note": "Approved 2026-10-07.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2022-06_Q02d: question_latex",
+            "8MA0-01_2022-06_Q03c: question_latex",
+            "8MA0-01_2022-06_Q06b: question_latex",
+            "8MA0-01_2022-06_Q07b: question_latex",
+            "8MA0-01_2022-06_Q08b: question_latex",
+            "8MA0-01_2022-06_Q11b: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",
@@ -476,7 +540,20 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-07."
+      "note": "Approved 2026-10-07.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2023-06_Q06b: question_latex",
+            "8MA0-01_2023-06_Q13b: question_latex",
+            "8MA0-01_2023-06_Q13c: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",
@@ -485,7 +562,20 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-09."
+      "note": "Approved 2026-10-09.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_2024-06_Q03b: question_latex",
+            "8MA0-01_2024-06_Q03c: question_latex",
+            "8MA0-01_2024-06_Q11b: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-01",
@@ -503,7 +593,20 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-09."
+      "note": "Approved 2026-10-09.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-01_SPEC_Q02b: question_latex",
+            "8MA0-01_SPEC_Q05c: question_latex",
+            "8MA0-01_SPEC_Q12b: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
@@ -512,7 +615,20 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-01_2018-06_Q02b: question_latex",
+            "9MA0-01_2018-06_Q02c: question_latex",
+            "9MA0-01_2018-06_Q06c: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
@@ -521,7 +637,20 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-01_2019-06_Q05b: question_latex",
+            "9MA0-01_2019-06_Q05c: question_latex",
+            "9MA0-01_2019-06_Q14c: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
@@ -530,7 +659,19 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-01_2020-10_Q13b: question_latex",
+            "9MA0-01_2020-10_Q13c: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
@@ -561,7 +702,18 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-01_2022-06_Q03b: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
@@ -570,7 +722,20 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone sweep: show the earlier parts whose results these parts need",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-01_SAM_Q01b: question_latex",
+            "9MA0-01_SAM_Q01c: question_latex",
+            "9MA0-01_SAM_Q03b: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-01",
@@ -588,7 +753,19 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone rule: Q01c now shows part (b), whose range gives its domain; Q11b now shows part (a), whose A, B, C it uses (review of 9MA0-02 2020-10)",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-02_2018-06_Q01c: question_latex",
+            "9MA0-02_2018-06_Q11b: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-02",
@@ -597,7 +774,18 @@
       "section": null,
       "status": "done",
       "marks_check": "ok",
-      "note": "Approved 2026-10-10."
+      "note": "Approved 2026-10-10.",
+      "history": [
+        {
+          "date": "2026-10-10",
+          "reason": "Standalone rule: Q13c now shows part (b), whose radius it uses (review of 9MA0-02 2020-10)",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "9MA0-02_2019-06_Q13c: question_latex"
+          ]
+        }
+      ]
     },
     {
       "paper": "9MA0-02",
