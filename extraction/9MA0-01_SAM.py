@@ -322,8 +322,8 @@ DRAFT = [
        r"is only one root. This can be achieved by • Sketching graphs of $y=\ln(2x-5)$ and $y=30-2x^2$ on the same axes • "
        r"Showing that $\mathrm{f}(x)=\ln(2x-5)+2x^2-30$ has no turning points • Sketching a graph of "
        r"$\mathrm{f}(x)=\ln(2x-5)+2x^2-30$",
-       r"A1 (AO 2.4): States that $y=\ln(2x-5)$ meets $y=30-2x^2$ in just one place, therefore $y=\ln(2x-5)=30-2x$ has just "
-       r"one root $\Rightarrow\mathrm{f}(x)=0$ has just one root. Notes: Scored for correct conclusion"],
+       r"A1 (AO 2.4): States that $y=\ln(2x-5)$ meets $y=30-2x^2$ in just one place, therefore $y=\ln(2x-5)=30-2x$ [sic: the question and "
+       r"the main scheme's M1 line have $30-2x^2$] has just one root $\Rightarrow\mathrm{f}(x)=0$ has just one root. Notes: Scored for correct conclusion"],
       False, 12),
 
     # ---------------- Q9 ----------------
