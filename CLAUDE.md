@@ -12,6 +12,7 @@ past papers, sample assessment materials, mark schemes and examiner reports.
 - `schemas/`: JSON Schemas for bank entries, plus `topics.json` (canonical topics and spec refs, built by `scripts/build_topics.py`; don't edit by hand).
 - `out/to-remarkable/`, `out/from-remarkable/`: worksheets going to the reMarkable, and marked work coming back.
 - `out/review/`: review sheets from `scripts/build_review.py PAPER SERIES`.
+- Worksheets: `scripts/build_pdf.py SETFILE NAME` (SETFILE is a JSON list of ids) builds `NAME_questions.pdf` and `NAME_markscheme.pdf` in `out/to-remarkable/` with Tectonic, from `templates/*.tex`. `--check-all` compiles every bank entry and lists failures; run it after changing LaTeX in `bank/` or the templates. `scripts/quick_set.py [--marks 50]` picks a set from approved papers using `bank/covered_topics.json` (refs by qualification and strand) and builds it.
 - `log/attempts.csv`: one row per attempt: `date,question_id,topic,marks_awarded,marks_total,error_type`.
 - `extraction/`: one draft-builder script per extracted paper (from `_template.py`).
 - `scripts/`: Python tools. `naming.py` holds the naming regexes, `paths.py` the shared paths.
@@ -104,6 +105,7 @@ python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
 npm install                 # KaTeX for validate.py's render check (needs Node.js)
+                            # Tectonic on PATH for build_pdf.py (tectonic-typesetting.github.io)
 python scripts/validate.py
 python -m unittest discover tests
 ```

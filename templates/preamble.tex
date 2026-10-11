@@ -1,0 +1,120 @@
+% Shared preamble for build_pdf.py (questions and mark scheme).
+% Compiled with Tectonic (XeTeX), so the bank's Unicode text goes in as is.
+\documentclass[11pt,a4paper]{article}
+\usepackage[a4paper,top=18mm,bottom=20mm,left=24mm,right=18mm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{fontspec}     % after amsmath; Latin Modern by default
+\usepackage{cancel}       % \cancel in mark schemes
+\usepackage{pifont}       % \ding for the cross mark
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{newunicodechar}
+\usepackage[normalem]{ulem} % \uline: underlined text that can still break
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\pagestyle{plain}
+\tracinglostchars=2        % log every character the font has no glyph for
+\emergencystretch=3em      % long maths in mark schemes: stretch spaces rather than overrun
+\raggedright               % no wide gaps between words when a line must break early
+
+% Maths wider than the line. A display, or inline maths too wide to fit on a
+% line of its own, is scaled down to the line width. Narrower inline maths
+% is left alone, so TeX can still break it after = or +.
+\newsavebox{\fitbox}
+\newcommand{\fitdisplay}[1]{%
+  \sbox{\fitbox}{$\displaystyle #1$}%
+  \ifdim\wd\fitbox>\linewidth
+    \[\resizebox{\linewidth}{!}{\usebox{\fitbox}}\]%
+  \else
+    \[#1\]%
+  \fi}
+% Inline maths is scaled a little narrower than the line, leaving room for
+% punctuation after it (e.g. "... = 0 *.").
+\newcommand{\fitinline}[1]{%
+  \sbox{\fitbox}{$#1$}%
+  \ifdim\wd\fitbox>\linewidth
+    \resizebox{\dimexpr\linewidth-2em\relax}{!}{\usebox{\fitbox}}%
+  \else
+    $#1$%
+  \fi}
+
+% The bank is written for KaTeX, which accepts these Unicode characters in
+% text and maths. Latin Modern has no glyph for some of them, so map each one
+% to a command that works in both modes.
+\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{✗}{\ding{55}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≤}{\ensuremath{\leqslant}}
+\newunicodechar{≥}{\ensuremath{\geqslant}}
+\newunicodechar{⩽}{\ensuremath{\leqslant}}
+\newunicodechar{⩾}{\ensuremath{\geqslant}}
+\newunicodechar{ℝ}{\ensuremath{\mathbb{R}}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{÷}{\ensuremath{\div}}
+\newunicodechar{′}{\ensuremath{'}}
+\newunicodechar{•}{\textbullet}
+
+% Question id in small print, so marked work can be matched to bank ids.
+\newcommand{\qid}[1]{{\color{gray}\footnotesize\ttfamily #1}}
+
+% Marks in brackets at the right (\qmarks, since \marks is an e-TeX primitive) of the last line, or on a line of their own
+% if the last line is full (the TeXbook's right-flush trick).
+\newcommand{\qmarks}[1]{{\unskip\nobreak\hfil\penalty50\hskip1.5em\hbox{}\nobreak\hfill
+  \textbf{(#1)}\parfillskip=0pt\finalhyphendemerits=0\par}}
+
+% \bankquestion{number}{id}{marks}{working space}{body}
+% The body is typeset into a box first to measure it, so the question and its
+% working space start on a new page when they would not fit on this one.
+% When both together are taller than a page (a big diagram, say), the space
+% is cut to what fits beside the question on one page, but never below
+% \qminspace; below that it keeps its full size and runs on to the next page.
+% \unvbox then puts the body back as ordinary lines, so a question taller
+% than a page can still break across pages.
+\newlength{\qneed}
+\newlength{\qspace}
+\newlength{\qminspace}
+\setlength{\qminspace}{6cm}
+\newcommand{\bankquestion}[5]{%
+  \setbox0=\vbox{%
+    \noindent\llap{\textbf{\large #1}\hspace{0.8em}}\qid{#2}\par
+    #5\qmarks{#3}}%
+  \setlength{\qspace}{#4}%
+  \ifdim\dimexpr\ht0+\dp0+\qspace\relax>\textheight
+    \setlength{\qspace}{\dimexpr\textheight-\ht0-\dp0-3\baselineskip\relax}%
+    \ifdim\qspace<\qminspace\setlength{\qspace}{#4}\fi
+  \fi
+  \setlength{\qneed}{\dimexpr\ht0+\dp0+\qspace\relax}%
+  \ifdim\qneed>\textheight\setlength{\qneed}{\dimexpr\ht0+\dp0\relax}\fi
+  \ifdim\qneed<\textheight\Needspace*{\qneed}\fi
+  \unvbox0
+  % A break is allowed here, so space that must run on to the next page
+  % doesn't drag the question's last line with it.
+  \penalty0
+  \vspace*{\qspace}%
+  {\color{lightgray}\hrule}\bigskip}
+
+% \bankfigurepage{image file}{note}: the source page for a diagram question.
+\newcommand{\bankfigurepage}[2]{%
+  \begin{center}
+    \fbox{\includegraphics[width=0.95\linewidth,height=0.6\textheight,keepaspectratio]{#1}}
+  \end{center}
+  \textit{#2}}
+
+% Mark scheme: \msquestion{number}{id}{marks}, then \mspoint{code}{text}.
+\newcommand{\msquestion}[3]{%
+  \par\Needspace*{5\baselineskip}\bigskip
+  \noindent\textbf{\large #1}\quad\qid{#2}\hfill\textbf{(#3)}\par
+  {\color{lightgray}\hrule}\smallskip}
+% Both indent through a list rather than \hangindent, so \linewidth (which
+% \fitinline scales to) is the real width of the indented lines.
+\newenvironment{msindent}[1]{%
+  \list{}{\leftmargin=2em\itemindent=#1\labelwidth=0pt\labelsep=0pt
+    \topsep=0pt\partopsep=0pt\parsep=\parskip\itemsep=0pt}\item\relax}{\endlist}
+\newcommand{\mspoint}[2]{\begin{msindent}{-2em}\textbf{#1}\ #2\end{msindent}}
+\newcommand{\msnotes}[1]{\begin{msindent}{0pt}{\small\color{darkgray}#1}\end{msindent}}
+\newcommand{\msalt}{\par\smallskip\noindent\textit{Alternative method(s)}\par}
