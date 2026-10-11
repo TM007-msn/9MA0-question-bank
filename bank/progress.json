@@ -819,16 +819,16 @@
       "series": "SAM",
       "source_file": "9MA0-02_SAM_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-11."
     },
     {
       "paper": "9MA0-02",
       "series": "SPEC",
       "source_file": "9MA0-02_SPEC_QP.pdf",
       "section": null,
-      "status": "queued",
+      "status": "in_review",
       "marks_check": "ok",
       "note": null
     },
