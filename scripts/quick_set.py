@@ -16,88 +16,33 @@ in random order, adding parts while the total stays within the mark total.
 The set is listed in paper order, written to out/sets/NAME.json and built by
 build_pdf.py into out/to-remarkable/.
 
-bank/covered_topics.json lists the spec refs covered so far, by
-qualification (their numbering differs) and strand (in each spec the
-statistics and mechanics topics reuse the pure numbers: statistics 2.1 is
-not pure 2.1). A bare topic number covers all of that topic's refs. Strands
-with nothing covered can be left out:
-    {"9MA0": {"pure": ["1", "2", "7.1", "7.2"], "statistics": ["1"]},
-     "8MA0": {"pure": ["2", "7.1"]}}
+bank/covered_topics.json is described in covered.py; cover_topic.py edits it.
 """
 
 import argparse
-import csv
 import json
 import random
-import re
 import sys
 from datetime import date, timedelta
 from pathlib import Path
 
 import build_pdf
+from covered import COVERED, load_covered, load_topics, real_id, strand_of
+from log_attempt import ATTEMPTS, read_attempts
 from paths import ROOT, ensure_out_dir
 
 QUESTIONS = ROOT / "bank" / "questions.json"
 PROGRESS = ROOT / "bank" / "progress.json"
-COVERED = ROOT / "bank" / "covered_topics.json"
-ATTEMPTS = ROOT / "log" / "attempts.csv"
-TOPICS = ROOT / "schemas" / "topics.json"
 
 RECENT_DAYS = 21
 # Difficulty groups in the order they are drawn from.
 PREFERENCE = [{"medium", "hard"}, {"easy"}, {None}]
 
 
-def load_topics():
-    return json.loads(TOPICS.read_text(encoding="utf-8"))["topics"]
-
-
-def spec_refs(topics, qual, strand):
-    """{topic number: [refs]} for one qualification's strand."""
-    return {str(t[qual]["topic_number"]): list(t[qual]["refs"])
-            for t in topics if t["strand"] == strand and t.get(qual)}
-
-
-def load_covered(path, topics):
-    """{(qualification, strand): set of covered refs}, with topic numbers expanded."""
-    if not path.exists():
-        raise SystemExit(
-            f"{path} not found. Create it with the spec refs covered so far, e.g.\n"
-            '    {"9MA0": {"pure": ["1", "2", "7.1", "7.2"], "statistics": ["1"]},\n'
-            '     "8MA0": {"pure": ["2", "7.1"]}}\n'
-            "A bare topic number covers all of that topic's refs.")
-    covered = {}
-    for qual, strands in json.loads(path.read_text(encoding="utf-8")).items():
-        if qual not in ("9MA0", "8MA0") or not isinstance(strands, dict):
-            raise SystemExit(f"{path.name}: expected {{\"9MA0\"|\"8MA0\": {{strand: [refs]}}}}, got {qual!r}")
-        for strand, items in strands.items():
-            by_topic = spec_refs(topics, qual, strand)
-            if not by_topic:
-                raise SystemExit(f"{path.name}: {qual} has no strand {strand!r} (use pure, statistics, mechanics)")
-            known = {ref for refs in by_topic.values() for ref in refs}
-            refs = covered.setdefault((qual, strand), set())
-            for item in items:
-                if item in by_topic:
-                    refs.update(by_topic[item])
-                elif item in known:
-                    refs.add(item)
-                else:
-                    raise SystemExit(f"{path.name}: {item!r} is not a {qual} {strand} topic number or spec ref")
-    return covered
-
-
 def recently_attempted(today, path=ATTEMPTS, days=RECENT_DAYS):
     """Ids of real questions attempted within `days` days before today."""
-    if not path.exists():
-        return set()
     since = today - timedelta(days=days)
-    recent = set()
-    with path.open(encoding="utf-8", newline="") as f:
-        for row in csv.DictReader(f):
-            if date.fromisoformat(row["date"]) >= since:
-                # A generated variant's id is its real question's id plus -A/-B/-C.
-                recent.add(re.sub(r"-[ABC]$", "", row["question_id"].strip()))
-    return recent
+    return {real_id(row["question_id"]) for row in read_attempts(path) if row["date"] >= since}
 
 
 def approved_papers(path=PROGRESS):
@@ -107,11 +52,11 @@ def approved_papers(path=PROGRESS):
 
 def eligible(entries, covered, recent, approved, topics):
     """Entries that may go in the set."""
-    strand_of = {t["name"]: t["strand"] for t in topics}
+    strands = strand_of(topics)
     chosen = []
     for entry in entries:
         # All of an entry's refs are from its topic's strand (validate.py checks this).
-        refs_covered = covered.get((entry["paper"][:4], strand_of[entry["topic"]]), set())
+        refs_covered = covered.get((entry["paper"][:4], strands[entry["topic"]]), set())
         refs = [r.strip() for r in entry["spec_ref"].split(",")]
         if ((entry["paper"], entry["series"]) in approved
                 and all(r in refs_covered for r in refs)

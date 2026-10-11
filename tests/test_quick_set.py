@@ -15,7 +15,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
-from quick_set import eligible, load_covered, load_topics, pick, recently_attempted  # noqa: E402
+from covered import load_covered, load_topics  # noqa: E402
+from quick_set import eligible, pick, recently_attempted  # noqa: E402
 
 TOPICS = load_topics()
 
