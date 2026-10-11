@@ -17815,7 +17815,7 @@
       "A1 (AO 1.1b): CR: $\\{X\\geqslant9\\}$. Notes: $[30\\geqslant]X\\geqslant9$ o.e. e.g. $X>8$ Allow ‘9 or more’ or ‘CR $\\geqslant9$’"
     ],
     "examiner_notes": "Still over a quarter of candidates made no progress at all on Q2, Q3 and Q5. Only the most able candidates on the paper made significant progress through this question on hypothesis testing. Despite the question stating the test should be one-tailed in part (c) some candidates found a two-tail critical region or went for the left hand tail rather than the right hand one. Where the upper tail was found the critical region was usually correct although some gave a critical value rather than a region or wrote it as a probability i.e. $\\mathrm{P}(X\\geqslant9)$. Some candidates rewrote Julia’s hypothesis test correctly at this point, not appreciating the difference between this and a critical region approach. [sic: the question paper names her Julie] Just over 5% of candidates scored full marks on the final question on this paper.",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "difficulty_evidence": "Where the upper tail was found the critical region was usually correct although some gave a critical value rather than a region or wrote it as a probability i.e. $\\mathrm{P}(X\\geqslant9)$.",
     "has_diagram": false,
     "source_page": 12,
@@ -17834,7 +17834,7 @@
       "B1ft (AO 1.1b): awrt 0.0278. Notes: awrt 0.0278 (allow awrt 2.78%) or correct ft their one-tailed upper CR from $\\mathrm{B}(30, 0.15)$ to 3s.f."
     ],
     "examiner_notes": "Still over a quarter of candidates made no progress at all on Q2, Q3 and Q5. Only the most able candidates on the paper made significant progress through this question on hypothesis testing. Part (d) was usually correctly done by those who were successful in part (c). On some occasions answers were given only to two significant figures. Just over 5% of candidates scored full marks on the final question on this paper.",
-    "difficulty": "medium",
+    "difficulty": "easy",
     "difficulty_evidence": "Part (d) was usually correctly done by those who were successful in part (c).",
     "has_diagram": false,
     "source_page": 12,

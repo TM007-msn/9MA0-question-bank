@@ -837,9 +837,21 @@
       "series": "2019-06",
       "source_file": "8MA0-21_2019-06_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-11.",
+      "history": [
+        {
+          "date": "2026-10-11",
+          "reason": "Review: Q05c and Q05d re-rated medium -> easy; their part sentences say candidates usually got them right, and 'usually' is now an easy quantity word in the CLAUDE.md rubric",
+          "added": [],
+          "removed": [],
+          "changed": [
+            "8MA0-21_2019-06_Q05c: difficulty",
+            "8MA0-21_2019-06_Q05d: difficulty"
+          ]
+        }
+      ]
     },
     {
       "paper": "8MA0-21",
