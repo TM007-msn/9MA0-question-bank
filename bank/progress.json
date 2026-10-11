@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-10",
+  "updated": "2026-10-11",
   "queue": [
     {
       "paper": "8MA0-01",
@@ -792,16 +792,16 @@
       "series": "2020-10",
       "source_file": "9MA0-02_2020-10_QP.pdf",
       "section": null,
-      "status": "in_review",
+      "status": "done",
       "marks_check": "ok",
-      "note": null
+      "note": "Approved 2026-10-11."
     },
     {
       "paper": "9MA0-02",
       "series": "2021-10",
       "source_file": "9MA0-02_2021-10_QP.pdf",
       "section": null,
-      "status": "queued",
+      "status": "in_review",
       "marks_check": "ok",
       "note": null
     },
