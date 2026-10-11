@@ -50,6 +50,17 @@
           "reason": "No question total is printed, only the part total (10); Q13 has no parts and its marks are M1 A1 M1 A1 M1 M1 dM1 A1 M1 A1 = 10, matching the question paper's 'Total for Question 13 is 10 marks'."
         }
       }
+    },
+    "9MA0-02_SPEC_MS.pdf": {
+      "date": "2026-10-11",
+      "omitted_rows": [
+        {
+          "question": "2(a)",
+          "page": 2,
+          "row": "(a)(ii) B1: See scheme — in the Question 2 Notes, between the (a) notes (M1, M1, A1*) and the (b)(i) note",
+          "reason": "Stray notes row: 2(a) has no part (ii) and no B1 in the scheme table (its marks are M1 M1 A1* (3)), and (b)(i) and (b)(ii) each have their own B1 note. Left out of Q02a's and Q02b's mark_scheme; it changes no total."
+        }
+      ]
     }
   }
 }
