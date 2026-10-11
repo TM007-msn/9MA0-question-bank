@@ -88,6 +88,14 @@
     \setlength{\qspace}{\dimexpr\textheight-\ht0-\dp0-3\baselineskip\relax}%
     \ifdim\qspace<\qminspace\setlength{\qspace}{#4}\fi
   \fi
+  % If cutting the space by up to a quarter lets the question stay on this
+  % page (rather than leave the rest of the page blank), cut it to fit.
+  % \pagegoal is \maxdimen on an empty page, which needs no cut.
+  \par
+  \ifdim\pagegoal<\maxdimen
+    \dimen2=\dimexpr\pagegoal-\pagetotal-\ht0-\dp0-2\baselineskip\relax
+    \ifdim\dimen2<\qspace\ifdim\dimen2>0.75\qspace\setlength{\qspace}{\dimen2}\fi\fi
+  \fi
   \setlength{\qneed}{\dimexpr\ht0+\dp0+\qspace\relax}%
   \ifdim\qneed>\textheight\setlength{\qneed}{\dimexpr\ht0+\dp0\relax}\fi
   \ifdim\qneed<\textheight\Needspace*{\qneed}\fi
@@ -101,7 +109,7 @@
 % \bankfigurepage{image file}{note}: the source page for a diagram question.
 \newcommand{\bankfigurepage}[2]{%
   \begin{center}
-    \fbox{\includegraphics[width=0.95\linewidth,height=0.6\textheight,keepaspectratio]{#1}}
+    \fbox{\includegraphics[width=0.95\linewidth,height=0.55\textheight,keepaspectratio]{#1}}
   \end{center}
   \textit{#2}}
 
