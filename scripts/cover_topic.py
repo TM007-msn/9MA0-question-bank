@@ -7,9 +7,9 @@ Usage (from the project root, with the venv active):
     python scripts/cover_topic.py --list 9MA0 mechanics  # every ref with its statement
 
 The statement shown is the full Content text from the specification PDF in
-source/reference/. Statements with maths come out of the PDF garbled, so for
-those the hand-written LaTeX label from schemas/spec_labels.json is shown
-first, and the PDF text after it, marked as garbled. Without the PDF only
+source/reference/. Some statements come out of the PDF garbled (maths) or cut
+short, so for those the hand-written label from schemas/spec_labels.json is shown
+first, and the PDF text after it. Without the PDF only
 the opening words from schemas/topics.json are available, and the output
 says so.
 
@@ -49,7 +49,7 @@ def statement(qual, strand, ref, topic, pdf_text, hand_labels):
     full = pdf_text.get((strand, ref), "")
     if hand:
         return [("Statement (hand-written LaTeX, schemas/spec_labels.json)", hand),
-                ("PDF text (maths garbled)", full)]
+                ("PDF text (garbled or cut short)", full)]
     return [("Statement", full)]
 
 

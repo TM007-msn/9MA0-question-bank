@@ -42,9 +42,10 @@ A bare topic number covers the whole topic (`python scripts/cover_topic.py
 9MA0 pure 7`). `python scripts/cover_topic.py --list 9MA0 mechanics` shows
 every ref in a strand with `[x]` against the covered ones.
 
-**2. Build a set.** `python scripts/quick_set.py --marks 20` picks parts
-whose refs are all covered, medium and hard first, skipping anything
-attempted in the last 21 days, and writes the question sheet and mark
+**2. Build a set.** `python scripts/quick_set.py --marks 20` puts in any
+re-tests that are overdue or due today (see step 4) first, then fills up
+with parts whose refs are all covered, medium and hard first, skipping
+anything attempted in the last 21 days. It writes the question sheet and mark
 scheme PDFs to `out/to-remarkable/`. Each question carries its bank id in
 small print, for logging.
 

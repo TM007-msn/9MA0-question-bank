@@ -31,10 +31,14 @@
   },
   "8MA0": {
     "pure": {
+      "1.1": "Understand and use the structure of mathematical proof, proceeding from given assumptions through a series of logical steps to a conclusion; use methods of proof, including: Proof by deduction; Proof by exhaustion; Disproof by counter example.",
+      "2.5": "Solve linear and quadratic inequalities in a single variable and interpret such inequalities graphically, including inequalities with brackets and fractions. Express solutions through correct use of ‘and’ and ‘or’, or through set notation. Represent linear and quadratic inequalities such as $y>x+1$ and $y>ax^2+bx+c$ graphically.",
       "2.7": "Understand and use graphs of functions; sketch curves defined by simple equations including polynomials, $y=\\frac{a}{x}$ and $y=\\frac{a}{x^2}$ (including their vertical and horizontal asymptotes) …",
       "2.8": "Understand the effect of simple transformations on the graph of $y=\\mathrm{f}(x)$, including sketching associated graphs: $y=a\\mathrm{f}(x)$, $y=\\mathrm{f}(x)+a$, $y=\\mathrm{f}(x+a)$, $y=\\mathrm{f}(ax)$",
       "3.1": "Understand and use the equation of a straight line, including the forms $y-y_1=m(x-x_1)$ and $ax+by+c=0$; gradient conditions for two straight lines to be parallel or perpendicular …",
+      "3.2": "Understand and use the coordinate geometry of the circle including using the equation of a circle in the form $(x-a)^2+(y-b)^2=r^2$. Completing the square to find the centre and radius of a circle; use of the following properties: • the angle in a semicircle is a right angle • the perpendicular from the centre to a chord bisects the chord • the radius of a circle at a given point on its circumference is perpendicular to the tangent to the circle at that point.",
       "4.1": "Understand and use the binomial expansion of $(a+bx)^n$ for positive integer $n$; the notations $n!$ and ${}^nC_r$; link to binomial probabilities.",
+      "5.1": "Understand and use the definitions of sine, cosine and tangent for all arguments; the sine and cosine rules; the area of a triangle in the form $\\frac{1}{2}ab\\sin C$",
       "5.3": "Understand and use $\\tan\\theta=\\frac{\\sin\\theta}{\\cos\\theta}$. Understand and use $\\sin^2\\theta+\\cos^2\\theta=1$",
       "6.1": "Know and use the function $a^x$ and its graph, where $a$ is positive. Know and use the function $\\mathrm{e}^x$ and its graph",
       "6.2": "Know that the gradient of $\\mathrm{e}^{kx}$ is equal to $k\\mathrm{e}^{kx}$ and hence understand why the exponential model is suitable in many applications.",

@@ -5,8 +5,10 @@ Usage (from the project root, with the venv active):
     python scripts/quick_set.py --marks 30 --name algebra-mix
     python scripts/quick_set.py --dry-run        # show the pick, build nothing
 
-A stopgap until the weekly set builder exists. It picks entries from
-bank/questions.json that
+A stopgap until the weekly set builder exists. Re-tests that are due go in
+first: weak_topics.py's 7- and 21-day re-tests that are overdue or due
+today, soonest first, while they fit in the mark total. The rest of the set
+is entries from bank/questions.json that
   - come from a paper marked done (approved) in bank/progress.json,
   - have every spec ref in bank/covered_topics.json, and
   - were not attempted in the last 21 days (log/attempts.csv; an attempt at
@@ -30,6 +32,7 @@ import build_pdf
 from covered import COVERED, load_covered, load_topics, real_id, strand_of
 from log_attempt import ATTEMPTS, read_attempts
 from paths import ROOT, ensure_out_dir
+from weak_topics import retests_due
 
 QUESTIONS = ROOT / "bank" / "questions.json"
 PROGRESS = ROOT / "bank" / "progress.json"
@@ -65,11 +68,27 @@ def eligible(entries, covered, recent, approved, topics):
     return chosen
 
 
-def pick(candidates, total_marks, rng):
-    """Medium/hard first, then easy, then unrated, without going over total_marks."""
+def due_retests(attempts, entries, today):
+    """Real questions with a re-test overdue or due today, soonest first, each once."""
+    by_id = {e["id"]: e for e in entries}
+    chosen = []
+    for retest in retests_due(attempts, today, ahead=0):
+        entry = by_id.get(retest["question_id"])
+        if entry is not None and entry not in chosen:
+            chosen.append(entry)
+    return chosen
+
+
+def pick(candidates, total_marks, rng, retests=()):
+    """Due re-tests first (in the order given), then medium/hard, then easy,
+    then unrated, without going over total_marks."""
     picked, marks = [], 0
+    for entry in retests:
+        if marks + entry["marks"] <= total_marks:
+            picked.append(entry)
+            marks += entry["marks"]
     for group in PREFERENCE:
-        pool = [e for e in candidates if e["difficulty"] in group]
+        pool = [e for e in candidates if e["difficulty"] in group and e not in picked]
         rng.shuffle(pool)
         for entry in pool:
             if marks + entry["marks"] <= total_marks:
@@ -87,22 +106,31 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="show the pick but build nothing")
     parser.add_argument("--covered", type=Path, default=COVERED,
                         help="covered-topics file (default bank/covered_topics.json)")
+    parser.add_argument("--attempts", type=Path, default=ATTEMPTS,
+                        help="attempts file (default log/attempts.csv)")
     args = parser.parse_args()
 
     today = date.today()
     name = args.name or f"quick-{today.isoformat()}"
     entries = json.loads(QUESTIONS.read_text(encoding="utf-8"))
     topics = load_topics()
-    candidates = eligible(entries, load_covered(args.covered, topics), recently_attempted(today),
-                          approved_papers(), topics)
-    picked = pick(candidates, args.marks, random.Random(args.seed))
+    attempts = read_attempts(args.attempts)
+    retests = due_retests(attempts, entries, today)
+    candidates = eligible(entries, load_covered(args.covered, topics),
+                          recently_attempted(today, args.attempts), approved_papers(), topics)
+    picked = pick(candidates, args.marks, random.Random(args.seed), retests)
     if not picked:
         raise SystemExit(f"No eligible questions ({len(candidates)} candidates); check covered_topics.json.")
 
     total = sum(e["marks"] for e in picked)
-    print(f"{len(candidates)} eligible parts; picked {len(picked)} for {total} of {args.marks} marks:")
+    print(f"{len(retests)} re-test(s) due, {len(candidates)} other eligible parts; "
+          f"picked {len(picked)} for {total} of {args.marks} marks:")
     for e in picked:
-        print(f"  {e['id']:<26} {e['marks']:>2}  {str(e['difficulty']):<6}  {e['topic']}")
+        marker = "re-test" if e in retests else ""
+        print(f"  {e['id']:<26} {e['marks']:>2}  {str(e['difficulty']):<6}  {marker:<7}  {e['topic']}")
+    left_out = [e["id"] for e in retests if e not in picked]
+    if left_out:
+        print(f"Re-tests that didn't fit: {', '.join(left_out)}")
     if total < args.marks:
         print(f"Note: only {total} marks could be filled without going over {args.marks}.")
     if args.dry_run:
