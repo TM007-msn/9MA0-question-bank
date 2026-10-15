@@ -126,4 +126,4 @@ One-time setup on Windows:
 
 Pairing needs a real terminal window: a command run with Claude Code's `!` prefix gets no keyboard input, so rmapi just repeats its code prompt.
 
-An unpaired rmapi asks for a code and, with no input, repeats the question forever, so send_remarkable.py checks for the token first and runs rmapi with stdin closed and a timeout. If uploads start failing with an auth error (e.g. after the device is removed under my.remarkable.com), delete `rmapi.conf` and pair again.
+An unpaired rmapi asks for a code and, with no input, repeats the question forever, so send_remarkable.py checks for the token first and runs rmapi with stdin closed and a timeout. If the cloud rejects the saved login, rmapi clears it itself (`rmapi.conf` is left with `devicetoken: ""`) and the upload fails with a pairing reminder: pair again, then send the already-built set with `python scripts/send_remarkable.py NAME`. This happened once on 2026-10-15, twelve minutes after pairing.

@@ -92,6 +92,21 @@ class SendTests(unittest.TestCase):
             send_remarkable.send("demo")
         run.assert_not_called()
 
+    def test_cleared_login_counts_as_unpaired(self):
+        # What rmapi leaves behind when the cloud rejects its login.
+        cleared = self.out / "cleared.conf"
+        cleared.write_text('devicetoken: ""\nusertoken: ""\n', encoding="utf-8")
+        with mock.patch.dict("os.environ", {"RMAPI_CONFIG": str(cleared)}), \
+                mock.patch("subprocess.run") as run, self.assertRaises(SendError):
+            send_remarkable.send("demo")
+        run.assert_not_called()
+
+    def test_repeated_prompt_lines_are_collapsed(self):
+        noise = "".join(f"ERROR: 2026/10/15 20:46:{s:02d} auth.go:76: Code has the wrong length\n"
+                        for s in range(60))
+        message = send_remarkable.short_error(done(1, err=noise))
+        self.assertEqual(message, "ERROR: auth.go:76: Code has the wrong length")
+
     def test_failed_put_is_reported(self):
         replies = {"stat": done(), "put": done(1, err="entry already exists")}
         with mock.patch("subprocess.run", side_effect=lambda cmd, **kw: replies[cmd[1]]), \

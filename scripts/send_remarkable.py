@@ -17,6 +17,7 @@ in CLAUDE.md.
 """
 
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -53,6 +54,34 @@ def config_files():
     return candidates
 
 
+def has_device_token(path):
+    """True if the config file holds a non-empty devicetoken.
+
+    When the cloud rejects the saved login, rmapi rewrites the file with
+    empty tokens (devicetoken: "") rather than deleting it, so the file
+    existing isn't enough.
+    """
+    if not path.is_file():
+        return False
+    for line in path.read_text(encoding="utf-8", errors="replace").splitlines():
+        key, _, value = line.partition(":")
+        if key.strip() == "devicetoken":
+            return value.strip().strip("\"'") != ""
+    return False
+
+
+def short_error(result):
+    """rmapi's message, without the hundreds of repeated code-prompt lines
+    an auth failure produces: the distinct lines, at most five."""
+    lines = []
+    for line in (result.stderr or result.stdout).splitlines():
+        # Drop the timestamp so repeated messages compare equal.
+        line = re.sub(r"^ERROR: \S+ \S+ ", "ERROR: ", line.strip())
+        if line and line not in lines:
+            lines.append(line)
+    return " | ".join(lines[:5])
+
+
 def check_ready():
     """Stop with a clear message if rmapi is missing or not paired.
 
@@ -61,7 +90,7 @@ def check_ready():
     """
     if shutil.which("rmapi") is None:
         raise SendError("rmapi is not on PATH. See \"reMarkable upload\" in CLAUDE.md.")
-    if not any(p.is_file() and p.stat().st_size > 0 for p in config_files()):
+    if not any(has_device_token(p) for p in config_files()):
         raise SendError("rmapi is not paired with your reMarkable account yet. "
                         "Run `rmapi` once in a terminal and enter the one-time code "
                         "(see \"reMarkable upload\" in CLAUDE.md).")
@@ -81,11 +110,20 @@ def rmapi(*args, cwd=None):
                         "If it is asking for a one-time code, pair it again.")
 
 
+def repair_hint():
+    """A pairing reminder if rmapi has just cleared its login."""
+    if any(has_device_token(p) for p in config_files()):
+        return ""
+    return ("\nrmapi's login was rejected and cleared. Pair it again in a separate terminal "
+            "(see \"reMarkable upload\" in CLAUDE.md), then rerun "
+            "`python scripts/send_remarkable.py NAME` to send the set already built.")
+
+
 def ensure_folder():
     if rmapi("stat", FOLDER).returncode != 0:
         made = rmapi("mkdir", FOLDER)
         if made.returncode != 0:
-            raise SendError(f"Couldn't create {FOLDER}: {(made.stderr or made.stdout).strip()}")
+            raise SendError(f"Couldn't create {FOLDER}: {short_error(made)}{repair_hint()}")
 
 
 def send(name):
@@ -103,7 +141,7 @@ def send(name):
     if put.returncode != 0:
         raise SendError(f"Upload failed (an existing \"{pdf.stem}\" in {FOLDER} is never "
                         f"overwritten; rename the set or delete it on the tablet): "
-                        f"{(put.stderr or put.stdout).strip()}")
+                        f"{short_error(put)}{repair_hint()}")
     print(f"Sent {pdf.name} to {FOLDER} on the reMarkable.")
 
 
