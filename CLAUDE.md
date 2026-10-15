@@ -115,7 +115,7 @@ python -m unittest discover tests
 ```
 
 ### reMarkable upload
-`python scripts/quick_set.py --send` builds a set and uploads its questions PDF to the "Maths practice" folder on the tablet; `python scripts/send_remarkable.py NAME [--answers]` sends a set that's already built (`--answers` also sends its mark scheme or answers PDF). `daily.py --send` sends the day's questions and answers. All of them use `scripts/send_remarkable.py`, which:
+`python scripts/quick_set.py --send` builds a set and uploads its questions PDF to the "Maths practice" folder on the tablet; `python scripts/send_remarkable.py NAME [--answers]` sends a set that's already built (`--answers` also sends its mark scheme or answers PDF, and skips the questions PDF if it's already on the tablet). `daily.py --send` sends the day's questions and answers. All of them use `scripts/send_remarkable.py`, which:
 - sends `NAME_questions.pdf` only to "Maths practice", and `NAME_markscheme.pdf` / `NAME_answers.pdf` only to "Maths practice/Answers". **A mark scheme or answers PDF never goes to the main folder**: `upload()` refuses any other destination, and the tests check it. Don't weaken this;
 - creates "Maths practice" and "Maths practice/Answers" if they're missing;
 - never overwrites (no `--force`, which would delete handwriting on the tablet copy): if a document with that name is already there, it stops, so rename the set or delete the old one on the tablet.

@@ -116,6 +116,33 @@ class SendTests(unittest.TestCase):
             send_remarkable.send_answers("demo")
         self.assertEqual(made, [FOLDER, ANSWERS_FOLDER])
 
+    def run_main(self, *args):
+        with mock.patch.object(sys, "argv", ["send_remarkable.py", *args]):
+            return send_remarkable.main()
+
+    def test_answers_flag_skips_questions_already_on_the_tablet(self):
+        # Everything "exists" for stat, so the questions are already there.
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            self.assertEqual(self.run_main("demo", "--answers"), 0)
+        puts = [c.args[0] for c in run.call_args_list if c.args[0][1] == "put"]
+        self.assertEqual([(p[2], p[3]) for p in puts], [("demo_markscheme.pdf", ANSWERS_FOLDER)])
+        self.assertIn(["rmapi", "stat", f"{FOLDER}/demo_questions"], [c.args[0] for c in run.call_args_list])
+
+    def test_answers_flag_sends_questions_not_yet_on_the_tablet(self):
+        def reply(cmd, **kw):
+            missing = cmd[1] == "stat" and cmd[2].endswith("_questions")
+            return done(1 if missing else 0)
+        with mock.patch("subprocess.run", side_effect=reply) as run:
+            self.run_main("demo", "--answers")
+        puts = [(c.args[0][2], c.args[0][3]) for c in run.call_args_list if c.args[0][1] == "put"]
+        self.assertEqual(puts, [("demo_questions.pdf", FOLDER), ("demo_markscheme.pdf", ANSWERS_FOLDER)])
+
+    def test_without_answers_flag_an_existing_question_sheet_still_stops(self):
+        replies = {"stat": done(), "put": done(1, err="entry already exists")}
+        with mock.patch("subprocess.run", side_effect=lambda cmd, **kw: replies[cmd[1]]), \
+                self.assertRaises(SystemExit):
+            self.run_main("demo")
+
     def test_send_answers_needs_a_built_answers_pdf(self):
         with mock.patch("subprocess.run") as run, self.assertRaises(SendError):
             send_remarkable.send_answers("nope")

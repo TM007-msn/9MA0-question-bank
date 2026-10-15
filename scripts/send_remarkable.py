@@ -2,7 +2,8 @@
 
 Usage (from the project root, with the venv active):
     python scripts/send_remarkable.py NAME            # NAME_questions.pdf
-    python scripts/send_remarkable.py NAME --answers  # also its mark scheme / answers
+    python scripts/send_remarkable.py NAME --answers  # also its mark scheme / answers;
+                                                      # skips questions already sent
 
 quick_set.py --send calls send() after building a set; daily.py --send calls
 send() and then send_answers() for the day's drill and exam sheet.
@@ -171,6 +172,12 @@ def upload(pdf, folder):
     print(f"Sent {pdf.name} to {folder} on the reMarkable.")
 
 
+def on_tablet(pdf, folder):
+    """True if a document named like this PDF (its stem) is already in folder."""
+    check_ready()
+    return rmapi("stat", f"{folder}/{pdf.stem}").returncode == 0
+
+
 def send(name):
     """Upload NAME_questions.pdf to the Maths practice folder."""
     upload(questions_pdf(name), FOLDER)
@@ -193,7 +200,13 @@ def main():
         raise SystemExit(__doc__.strip().splitlines()[0]
                          + "\nUsage: python scripts/send_remarkable.py NAME [--answers]")
     try:
-        send(names[0])
+        questions = questions_pdf(names[0])
+        # With --answers, a question sheet already on the tablet is left as
+        # it is (never overwritten) and the answers still go.
+        if answers and questions.is_file() and on_tablet(questions, FOLDER):
+            print(f"{questions.stem} is already in {FOLDER}; not sending it again.")
+        else:
+            send(names[0])
         if answers:
             send_answers(names[0])
     except SendError as error:
