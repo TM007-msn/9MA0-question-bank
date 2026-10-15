@@ -61,8 +61,10 @@ Go through every part after the first in each multi-part question and ask whethe
 - `python -m unittest discover tests`. All must pass.
 - `python scripts/build_review.py PAPER SERIES`. This writes `out/review/PAPER_SERIES_review.html`.
 
-## 8. Commit
+## 8. Commit and push
 Commit `extraction/PAPER_SERIES.py`, `bank/questions.json`, `bank/progress.json`, and any `qp_totals_manual.json` or `check_marks.py` change. The message is "Extract PAPER SERIES (in review)" plus the counts, ending with the attribution line from the session instructions. Write the message to a file and use `git commit -F <file>`.
+
+Then `git push` (CLAUDE.md: push after every commit). If the push fails, don't force it; say so in the summary.
 
 ## 9. Summary, then STOP
 Start with `python scripts/paper_summary.py PAPER SERIES` and report:
@@ -74,5 +76,6 @@ Start with `python scripts/paper_summary.py PAPER SERIES` and report:
 - **Least sure of:** the 3 entries you're least sure of, each with the reason. For example: a hard-to-read scan, a borderline difficulty call, an ambiguous spec ref, or a figure described from a sketch.
 - **Anything odd:** e.g. mark scheme typos, report sentences that don't match the paper, answers you couldn't reproduce, layout fixes made to check_marks.py.
 - The review sheet path.
+- The commit hash and whether the push succeeded.
 
 Then stop. Don't start the next paper. The next run needs `/extract-next approved` once the user has approved this one.

@@ -34,6 +34,7 @@ past papers, sample assessment materials, mark schemes and examiner reports.
   - `.claude/settings.json` denies Read/Edit on it;
   - a PreToolUse hook (`.claude/hooks/guard_mock_papers.py`) blocks any Bash or PowerShell command whose text contains "reserved", in any case. So keep that word out of shell commands, including commit messages (use `git commit -F <file>`).
   - Never weaken or bypass these guards.
+- **Git:** push after every commit (`git push`; `master` tracks `origin`, the private GitHub repo TM007-msn/9MA0-question-bank). Never force-push. Before committing, check nothing under `out/` and nothing under `source/` except `.gitkeep` is staged.
 - **Schemas:** every entry in `questions.json` must follow `schemas/question.schema.json`. Error entries follow `error.schema.json`. `generated.json` follows `generated.schema.json`, and `rejected.json` follows `rejected.schema.json` (generated fields plus `rejection_reason` and `rejected_on`, with `verified: false`). Run `python scripts/validate.py` after changing anything in `bank/`.
 - **Kinematics:** use only the five SUVAT equations.
 - **Statistics:** don't assume access to statistical tables. Use values given in the question or compute them directly.
