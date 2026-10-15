@@ -12,6 +12,7 @@ import sys
 import unittest
 from datetime import date, timedelta
 from pathlib import Path
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -163,6 +164,19 @@ class DailyTests(unittest.TestCase):
         self.assertEqual(daily.exam_pool(date(2026, 11, 14)), "as-pure")
         self.assertEqual(daily.exam_pool(date(2026, 11, 15)), "alevel-pure")
         self.assertEqual(daily.exam_pool(date(2027, 3, 1)), "alevel-pure")
+
+    def test_send_puts_questions_in_main_folder_and_answers_in_subfolder(self):
+        day = date(2026, 10, 20)
+        with mock.patch.object(daily.drill, "build"), \
+                mock.patch.object(daily.quick_set, "build_pool_set") as exam, \
+                mock.patch.object(daily.send_remarkable, "check_ready"), \
+                mock.patch.object(daily.send_remarkable, "send") as send, \
+                mock.patch.object(daily.send_remarkable, "send_answers") as answers, \
+                mock.patch("builtins.print"):
+            self.assertEqual(daily.run(day, True, 50), 0)
+        self.assertTrue(exam.call_args.kwargs["send"])  # exam questions, sent and recorded there
+        send.assert_called_once_with("drill-2026-10-20")
+        self.assertEqual([c.args[0] for c in answers.call_args_list], ["drill-2026-10-20", "exam-2026-10-20"])
 
 
 if __name__ == "__main__":

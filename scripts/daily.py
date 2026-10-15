@@ -2,15 +2,17 @@
 
 Usage (from the project root, with the venv active):
     python scripts/daily.py            # build only
-    python scripts/daily.py --send     # build, then upload both questions PDFs
+    python scripts/daily.py --send     # build, then upload all four PDFs
 
 The two sheets:
   drill-YYYY-MM-DD   ~25-mark algebra fluency drill (drill.py)
   exam-YYYY-MM-DD    exam questions from quick_set.py's --pool: as-pure until
                      2026-11-14, alevel-pure from 2026-11-15 on
 
-Only the questions PDFs are sent: the drill's answers and the exam sheet's
-mark scheme stay in out/to-remarkable/. Everything printed is also appended
+With --send, both questions PDFs go to "Maths practice" on the tablet, and
+the drill's answers and the exam sheet's mark scheme go to "Maths
+practice/Answers" (never the main folder; send_remarkable.py enforces
+this). Everything printed is also appended
 to log/daily.log, with the time of the run. Windows Task Scheduler runs
 `daily.py --send` at 06:30 every day (task "9MA0 daily sheets").
 """
@@ -76,6 +78,13 @@ def run(today, send, exam_marks):
             send_remarkable.send(drill_name)
         except send_remarkable.SendError as error:
             failures.append(f"{drill_name}: {error}")
+        # The drill's answers and the exam's mark scheme go to the Answers
+        # subfolder only (send_remarkable.upload refuses anywhere else).
+        for name in (drill_name, exam_name):
+            try:
+                send_remarkable.send_answers(name)
+            except send_remarkable.SendError as error:
+                failures.append(f"{name} answers: {error}")
     for failure in failures:
         print(f"UPLOAD FAILED {failure}")
     return 1 if failures else 0
@@ -84,7 +93,7 @@ def run(today, send, exam_marks):
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--send", action="store_true",
-                        help="upload both questions PDFs (never the answers or mark scheme)")
+                        help="upload the questions PDFs, and the answers and mark scheme to the Answers subfolder")
     parser.add_argument("--date", type=date.fromisoformat, default=date.today(),
                         help="the day the sheets are for (default today)")
     parser.add_argument("--exam-marks", type=int, default=EXAM_MARKS,

@@ -1,16 +1,21 @@
-"""Upload a set's questions PDF to the reMarkable with rmapi.
+"""Upload a set's PDFs to the reMarkable with rmapi.
 
 Usage (from the project root, with the venv active):
-    python scripts/send_remarkable.py NAME     # sends out/to-remarkable/NAME_questions.pdf
+    python scripts/send_remarkable.py NAME            # NAME_questions.pdf
+    python scripts/send_remarkable.py NAME --answers  # also its mark scheme / answers
 
-quick_set.py --send calls send() after building a set.
+quick_set.py --send calls send() after building a set; daily.py --send calls
+send() and then send_answers() for the day's drill and exam sheet.
 
-Only the questions PDF is ever sent. The mark scheme stays on this computer,
-so it can't be read on the tablet before the work is marked.
+Where each PDF may go (upload() enforces this for every file):
+  NAME_questions.pdf                        -> "Maths practice"
+  NAME_markscheme.pdf and NAME_answers.pdf  -> "Maths practice/Answers" only,
+                                               never the main folder
+so the question sheets in the main folder never sit next to their answers.
 
-The file goes to the "Maths practice" folder, which is created if missing.
-An existing document with the same name is never overwritten: rmapi's
---force would wipe any handwriting on it, so the upload stops instead.
+Folders are created if missing. An existing document with the same name is
+never overwritten: rmapi's --force would wipe any handwriting on it, so the
+upload stops instead.
 
 Needs rmapi (the ddvk fork) on PATH and paired once; see "reMarkable upload"
 in CLAUDE.md.
@@ -26,6 +31,9 @@ from pathlib import Path
 from paths import OUT_DIR
 
 FOLDER = "/Maths practice"
+ANSWERS_FOLDER = FOLDER + "/Answers"
+# File-name endings of the PDFs that hold mark schemes or worked answers.
+ANSWER_SUFFIXES = ("_markscheme.pdf", "_answers.pdf")
 TIMEOUT_SECONDS = 120
 
 
@@ -38,9 +46,21 @@ def questions_pdf(name):
     path = OUT_DIR / "to-remarkable" / f"{name}_questions.pdf"
     # Belt and braces: a set name like "x_markscheme" would still end in
     # _questions.pdf, but refuse anything that mentions the mark scheme.
-    if "markscheme" in path.name.lower():
-        raise SendError(f"Refusing to send {path.name}: mark schemes are never sent.")
+    if is_answers(path):
+        raise SendError(f"Refusing to send {path.name} as a question sheet.")
     return path
+
+
+def is_answers(path):
+    """True for a mark scheme or answers PDF (or anything named like one)."""
+    name = Path(path).name.lower()
+    return name.endswith(ANSWER_SUFFIXES) or "markscheme" in name or "answers" in name
+
+
+def answer_pdfs(name):
+    """The set's mark scheme and/or answers PDFs that exist."""
+    folder = OUT_DIR / "to-remarkable"
+    return [folder / f"{name}{suffix}" for suffix in ANSWER_SUFFIXES if (folder / f"{name}{suffix}").is_file()]
 
 
 def config_files():
@@ -119,37 +139,63 @@ def repair_hint():
             "`python scripts/send_remarkable.py NAME` to send the set already built.")
 
 
-def ensure_folder():
-    if rmapi("stat", FOLDER).returncode != 0:
-        made = rmapi("mkdir", FOLDER)
+def ensure_folder(folder=FOLDER):
+    """Create the folder (and the main folder above Answers) if missing."""
+    if folder != FOLDER:
+        ensure_folder(FOLDER)
+    if rmapi("stat", folder).returncode != 0:
+        made = rmapi("mkdir", folder)
         if made.returncode != 0:
-            raise SendError(f"Couldn't create {FOLDER}: {short_error(made)}{repair_hint()}")
+            raise SendError(f"Couldn't create {folder}: {short_error(made)}{repair_hint()}")
 
 
-def send(name):
-    """Upload NAME_questions.pdf to the Maths practice folder."""
-    pdf = questions_pdf(name)
+def upload(pdf, folder):
+    """Upload one PDF. Mark schemes and answers go only to ANSWERS_FOLDER,
+    question sheets only to FOLDER; anything else is refused."""
+    allowed = ANSWERS_FOLDER if is_answers(pdf) else FOLDER
+    if folder != allowed:
+        raise SendError(f"Refusing to send {pdf.name} to {folder}: it may only go to {allowed}.")
     if not pdf.is_file():
         raise SendError(f"{pdf} doesn't exist. Build the set first.")
     check_ready()
-    ensure_folder()
+    ensure_folder(folder)
     # No --force: replacing a document deletes its annotations.
     # rmapi names the document after the path it's given, and on Windows it
     # keeps the whole C:\...\ path in the name, so pass the bare file name
     # and run from the PDF's folder.
-    put = rmapi("put", pdf.name, FOLDER, cwd=pdf.parent)
+    put = rmapi("put", pdf.name, folder, cwd=pdf.parent)
     if put.returncode != 0:
-        raise SendError(f"Upload failed (an existing \"{pdf.stem}\" in {FOLDER} is never "
+        raise SendError(f"Upload failed (an existing \"{pdf.stem}\" in {folder} is never "
                         f"overwritten; rename the set or delete it on the tablet): "
                         f"{short_error(put)}{repair_hint()}")
-    print(f"Sent {pdf.name} to {FOLDER} on the reMarkable.")
+    print(f"Sent {pdf.name} to {folder} on the reMarkable.")
+
+
+def send(name):
+    """Upload NAME_questions.pdf to the Maths practice folder."""
+    upload(questions_pdf(name), FOLDER)
+
+
+def send_answers(name):
+    """Upload the set's mark scheme and/or answers PDF to Maths practice/Answers."""
+    pdfs = answer_pdfs(name)
+    if not pdfs:
+        raise SendError(f"No mark scheme or answers PDF for {name}. Build the set first.")
+    for pdf in pdfs:
+        upload(pdf, ANSWERS_FOLDER)
 
 
 def main():
-    if len(sys.argv) != 2:
-        raise SystemExit(__doc__.strip().splitlines()[0] + "\nUsage: python scripts/send_remarkable.py NAME")
+    args = sys.argv[1:]
+    answers = "--answers" in args
+    names = [a for a in args if a != "--answers"]
+    if len(names) != 1:
+        raise SystemExit(__doc__.strip().splitlines()[0]
+                         + "\nUsage: python scripts/send_remarkable.py NAME [--answers]")
     try:
-        send(sys.argv[1])
+        send(names[0])
+        if answers:
+            send_answers(names[0])
     except SendError as error:
         raise SystemExit(str(error))
     return 0

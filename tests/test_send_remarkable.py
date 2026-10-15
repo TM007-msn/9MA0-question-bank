@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 import send_remarkable  # noqa: E402
-from send_remarkable import FOLDER, SendError  # noqa: E402
+from send_remarkable import ANSWERS_FOLDER, FOLDER, SendError  # noqa: E402
 
 
 def done(returncode=0, out="", err=""):
@@ -39,7 +39,7 @@ class SendTests(unittest.TestCase):
             patch.start()
             self.addCleanup(patch.stop)
 
-    def test_only_the_questions_pdf_is_uploaded(self):
+    def test_send_uploads_only_the_questions_pdf_to_the_main_folder(self):
         with mock.patch("subprocess.run", return_value=done()) as run:
             send_remarkable.send("demo")
         puts = [c.args[0] for c in run.call_args_list if c.args[0][1] == "put"]
@@ -77,9 +77,49 @@ class SendTests(unittest.TestCase):
             send_remarkable.send("demo")
         self.assertEqual([c.args[0][1] for c in run.call_args_list], ["stat", "put"])
 
-    def test_mark_scheme_name_refused(self):
+    def test_mark_scheme_name_refused_as_a_question_sheet(self):
         with self.assertRaises(SendError):
             send_remarkable.questions_pdf("demo_markscheme")
+        with self.assertRaises(SendError):
+            send_remarkable.questions_pdf("drill_answers")
+
+    def test_answers_go_only_to_the_answers_subfolder(self):
+        (self.out / "to-remarkable" / "demo_answers.pdf").write_bytes(b"%PDF-1.5")
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            send_remarkable.send_answers("demo")
+        puts = [c.args[0] for c in run.call_args_list if c.args[0][1] == "put"]
+        self.assertEqual(sorted(p[2] for p in puts), ["demo_answers.pdf", "demo_markscheme.pdf"])
+        self.assertTrue(all(p[3] == ANSWERS_FOLDER for p in puts))
+        self.assertEqual(ANSWERS_FOLDER, FOLDER + "/Answers")
+
+    def test_mark_scheme_never_goes_to_the_main_folder(self):
+        sets = self.out / "to-remarkable"
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            for name in ("demo_markscheme.pdf", "demo_answers.pdf"):
+                with self.assertRaises(SendError):
+                    send_remarkable.upload(sets / name, FOLDER)
+            # and question sheets don't go in with the answers
+            with self.assertRaises(SendError):
+                send_remarkable.upload(sets / "demo_questions.pdf", ANSWERS_FOLDER)
+        run.assert_not_called()
+
+    def test_answers_folder_and_its_parent_are_created_when_missing(self):
+        made = []
+
+        def reply(cmd, **kw):
+            if cmd[1] == "stat":
+                return done(0 if cmd[2] in made else 1)
+            if cmd[1] == "mkdir":
+                made.append(cmd[2])
+            return done()
+        with mock.patch("subprocess.run", side_effect=reply):
+            send_remarkable.send_answers("demo")
+        self.assertEqual(made, [FOLDER, ANSWERS_FOLDER])
+
+    def test_send_answers_needs_a_built_answers_pdf(self):
+        with mock.patch("subprocess.run") as run, self.assertRaises(SendError):
+            send_remarkable.send_answers("nope")
+        run.assert_not_called()
 
     def test_missing_pdf(self):
         with mock.patch("subprocess.run") as run, self.assertRaises(SendError):
