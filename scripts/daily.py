@@ -61,7 +61,7 @@ def run(today, send, exam_marks):
     pool = exam_pool(today)
 
     print(f"Drill sheet: {drill_name}")
-    drill.build(drill_name, seed=today.toordinal())
+    drill.build(drill_name, seed=today.toordinal(), day=today)
     print(f"\nExam sheet: {exam_name} (pool {pool})")
     # The exam sheet is sent inside build_pool_set, which then records it in
     # the sent history. The drill goes after it, so a failed drill upload
