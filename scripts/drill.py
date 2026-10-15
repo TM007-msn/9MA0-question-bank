@@ -25,9 +25,13 @@ composite and inverse functions, binomial expansion with negative and
 fractional n, rational expressions): two or three A-level questions a day
 mixed in with the AS ones. Their level counts weeks from 2026-11-15.
 
-Each day's templates are drawn at random, harder ones more likely at higher
-levels, until the sheet has 24-27 marks; the sheet then lists them easiest
-first. Numbers are chosen so answers come out clean (integers, small
+Every template available at the current level appears at least once in any
+7 days. The draw reads the previous six days' daily records in out/drills/:
+a template not on any of them (and available all that time) must go on
+today's sheet, and the rest of the sheet is filled with the least recently
+used templates, ties broken at random with harder ones more likely at
+higher levels, until it has 24-27 marks. A day with no sheet counts as a day
+the template didn't appear. The sheet lists its questions easiest first. Numbers are chosen so answers come out clean (integers, small
 fractions, simple surds), and SymPy works out or checks every answer, so an
 answer can't disagree with its question. The seed defaults to the date, so
 rebuilding a day's sheet gives the same questions.
@@ -39,13 +43,13 @@ import re
 import random
 import sys
 from dataclasses import dataclass
-from datetime import date
+from datetime import date, timedelta
 from typing import Callable
 
 import sympy as sp
 
 import build_pdf
-from paths import ensure_out_dir
+from paths import OUT_DIR, ensure_out_dir
 
 x, y, k = sp.symbols("x y k")
 
@@ -53,6 +57,7 @@ START = date(2026, 10, 16)
 ALEVEL_START = date(2026, 11, 15)
 MAX_LEVEL = 6
 MIN_MARKS, MAX_MARKS = 24, 27
+WINDOW = 7  # every available template appears at least once in any WINDOW days
 
 
 def weeks_since(start, day):
@@ -928,36 +933,102 @@ def available(level, alevel):
     return as_level, a_level
 
 
-def make_sheet(seed, day=START):
-    """The day's questions, easiest first."""
+def available_names(day):
+    as_pool, a_pool = available(level_for(day), alevel_level_for(day) is not None)
+    return {t.make.__name__ for t in as_pool + a_pool}
+
+
+def read_history(day, folder=None):
+    """{date: set of template names} from the daily drill records
+    (out/drills/drill-YYYY-MM-DD.json) of the WINDOW - 1 days before `day`.
+
+    Only daily records count: a set built with --name is a test or extra
+    sheet. Records made before templates were recorded add nothing.
+    """
+    folder = folder or OUT_DIR / "drills"
+    history = {}
+    for back in range(1, WINDOW):
+        past = day - timedelta(days=back)
+        path = folder / f"drill-{past.isoformat()}.json"
+        if path.is_file():
+            record = json.loads(path.read_text(encoding="utf-8"))
+            history[past] = {q["template"] for q in record["questions"] if "template" in q}
+    return history
+
+
+def due_names(day, history):
+    """Templates that must go on `day`'s sheet to keep the 7-day guarantee.
+
+    A template is due when it was available on each of the previous six days
+    and is available today, but none of those days' sheets had it. Days
+    without a sheet count as days it didn't appear.
+    """
+    window = [day - timedelta(days=back) for back in range(1, WINDOW)]
+    due = available_names(day)
+    for past in window:
+        due &= available_names(past)
+        due -= history.get(past, set())
+    return due
+
+
+def make_sheet(seed, day=START, history=None):
+    """The day's questions, easiest first.
+
+    `history` is read_history(day): the templates on the previous six days'
+    sheets. Templates that are due (see due_names) go in first, then the
+    least recently used, so every template available at the level appears
+    at least once in every 7 days. Ties are broken at random, harder
+    templates more likely as the level rises.
+    """
     rng = random.Random(seed)
+    history = history or {}
     level, a_level_level = level_for(day), alevel_level_for(day)
     as_pool, a_pool = available(level, a_level_level is not None)
-    chosen, marks = [], 0
+    due = due_names(day, history)
+    last_seen = {}
+    for past, names in history.items():
+        for name in names:
+            last_seen[name] = max(past, last_seen.get(name, date.min))
+
+    def rotation(pool):
+        """Due first, then least recently used; ties in weighted random order
+        (u^(1/w) keys, so a weight w template is w times as likely to lead)."""
+        def key(t):
+            name = t.make.__name__
+            weight = 1 + level * t.rank / TOP_RANK
+            return (name not in due, last_seen.get(name, date.min), -rng.random() ** (1 / weight))
+        return sorted(pool, key=key)
+
+    chosen, marks, missed = [], 0, []
 
     def add(template, lvl):
         nonlocal marks
         item = template.make(rng, lvl)
         if marks + item["marks"] > MAX_MARKS:
+            if template.make.__name__ in due:
+                missed.append(template.make.__name__)
             return
         item["template"] = template.make.__name__
         item["level"] = lvl
         chosen.append((template.rank, item))
         marks += item["marks"]
 
-    # A-level questions first, so the AS ones fill the marks around them.
-    if a_pool:
-        for template in rng.sample(a_pool, 2 if a_level_level < 2 else 3):
+    # A-level questions first (two or three, more if more are due), so the
+    # AS ones fill the marks around them.
+    a_count = 0
+    for template in rotation(a_pool):
+        if template.make.__name__ in due or a_count < (2 if a_level_level < 2 else 3):
             add(template, a_level_level)
-    # Then AS templates drawn at random, harder ones more likely as the level rises.
-    pool = list(as_pool)
-    while pool and marks < MIN_MARKS:
-        weights = [1 + level * t.rank / TOP_RANK for t in pool]
-        template = rng.choices(pool, weights)[0]
-        pool.remove(template)
-        add(template, level)
+            a_count += 1
+    # Then AS templates: every due one, and the rest until the marks are filled.
+    for template in rotation(as_pool):
+        if template.make.__name__ in due or marks < MIN_MARKS:
+            add(template, level)
     if marks < MIN_MARKS:
         raise SystemExit(f"drill: only {marks} marks could be filled at level {level}")
+    if missed:
+        # Only when several days had no sheet: too much is due for one day.
+        print(f"drill: due but no room on {day}: {', '.join(missed)}", file=sys.stderr)
     return [item for _, item in sorted(chosen, key=lambda pair: pair[0])]
 
 
@@ -975,7 +1046,7 @@ def build(name, seed, day=None):
     if not build_pdf.SET_NAME_RE.match(name):
         raise SystemExit(f"set name {name!r}: use only letters, digits, '-', '_' and '.'")
     day = day or date.today()
-    sheet = make_sheet(seed, day)
+    sheet = make_sheet(seed, day, read_history(day))
     build_dir = ensure_out_dir(f"build/{name}")
     out_dir = ensure_out_dir("to-remarkable")
     total = sum(item["marks"] for item in sheet)
