@@ -15,3 +15,6 @@ source/**
 
 # Node packages for the KaTeX render check (npm install recreates them)
 node_modules/
+
+# Output of the scheduled daily.py run
+log/daily.log

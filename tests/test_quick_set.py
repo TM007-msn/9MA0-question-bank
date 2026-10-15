@@ -16,7 +16,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from covered import load_covered, load_topics  # noqa: E402
-from quick_set import due_retests, eligible, pick, recently_attempted  # noqa: E402
+from quick_set import (due_retests, eligible, pick, pick_from_pool, pool_entries,  # noqa: E402
+                       read_history, recently_attempted, record_sent)
 
 TOPICS = load_topics()
 
@@ -123,6 +124,44 @@ class RetestTests(unittest.TestCase):
     def test_retests_that_do_not_fit_are_skipped(self):
         big = entry("9MA0-01_2019-06_Q09", "Proof", "1.1", 20)
         self.assertNotIn(big, pick([], 10, random.Random(0), [big]))
+
+
+class PoolTests(unittest.TestCase):
+    def test_pools_take_done_papers_of_their_qualification_only(self):
+        entries = [entry("8MA0-01_2019-06_Q01", "Proof", "1.1"),
+                   entry("8MA0-01_2020-10_Q01", "Proof", "1.1"),
+                   entry("8MA0-21_2019-06_Q01", "Proof", "1.1"),
+                   entry("9MA0-01_2019-06_Q01", "Proof", "1.1"),
+                   entry("9MA0-02_2019-06_Q01", "Proof", "1.1")]
+        approved = {("8MA0-01", "2019-06"), ("8MA0-21", "2019-06"),
+                    ("9MA0-01", "2019-06"), ("9MA0-02", "2019-06")}
+        self.assertEqual([e["id"] for e in pool_entries(entries, "as-pure", approved)],
+                         ["8MA0-01_2019-06_Q01"])
+        self.assertEqual([e["id"] for e in pool_entries(entries, "alevel-pure", approved)],
+                         ["9MA0-01_2019-06_Q01", "9MA0-02_2019-06_Q01"])
+
+    def test_never_sent_first_and_no_reuse_while_unsent_remain(self):
+        entries = [entry(f"8MA0-01_2019-06_Q0{n}", "Proof", "1.1", marks=4) for n in range(1, 6)]
+        history = {entries[0]["id"]: date(2026, 10, 1), entries[1]["id"]: date(2026, 10, 9)}
+        picked = pick_from_pool(entries, 8, random.Random(0), history)
+        self.assertEqual(len(picked), 2)
+        self.assertTrue(all(e["id"] not in history for e in picked))
+        # The three unsent fill 12 of 16 marks, so the oldest-sent is reused, not the newer one.
+        picked = pick_from_pool(entries, 16, random.Random(0), history)
+        self.assertEqual({e["id"] for e in picked} - {e["id"] for e in entries[2:]}, {entries[0]["id"]})
+
+    def test_sent_question_fills_marks_an_unsent_one_is_too_big_for(self):
+        unsent = entry("8MA0-01_2019-06_Q01", "Proof", "1.1", marks=6)
+        sent = entry("8MA0-01_2019-06_Q02", "Proof", "1.1", marks=2)
+        picked = pick_from_pool([unsent, sent], 5, random.Random(0), {sent["id"]: date(2026, 10, 1)})
+        self.assertEqual(picked, [sent])
+
+    def test_history_round_trip_keeps_latest_date(self):
+        path = Path(tempfile.mkdtemp()) / "sent_history.json"
+        self.addCleanup(path.unlink)
+        record_sent(["a", "b"], date(2026, 10, 1), path)
+        record_sent(["b"], date(2026, 10, 5), path)
+        self.assertEqual(read_history(path), {"a": date(2026, 10, 1), "b": date(2026, 10, 5)})
 
 
 if __name__ == "__main__":

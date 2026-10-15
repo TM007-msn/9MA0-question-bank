@@ -478,10 +478,10 @@ def build(ids, name):
 
     questions = "\n".join(question_block(n, e, build_dir) for n, e in enumerate(entries, 1))
     scheme = "\n".join(mark_scheme_block(n, e) for n, e in enumerate(entries, 1))
-    for template, body, suffix in [("questions.tex", questions, "questions"),
-                                   ("markscheme.tex", scheme, "markscheme")]:
+    for template, heading, body, suffix in [("questions.tex", title, questions, "questions"),
+                                            ("markscheme.tex", f"{title} --- mark scheme", scheme, "markscheme")]:
         tex = build_dir / f"{name}_{suffix}.tex"
-        tex.write_text(fill_template(template, title, cover, body), encoding="utf-8")
+        tex.write_text(fill_template(template, heading, cover, body), encoding="utf-8")
         compile_or_exit(tex, out_dir / f"{name}_{suffix}.pdf")
 
 

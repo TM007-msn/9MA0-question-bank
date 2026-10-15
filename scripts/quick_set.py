@@ -5,6 +5,7 @@ Usage (from the project root, with the venv active):
     python scripts/quick_set.py --marks 30 --name algebra-mix
     python scripts/quick_set.py --dry-run        # show the pick, build nothing
     python scripts/quick_set.py --send           # build, then upload the questions PDF
+    python scripts/quick_set.py --pool as-pure --send   # from a fixed pool (see below)
 
 A stopgap until the weekly set builder exists. Re-tests that are due go in
 first: weak_topics.py's 7- and 21-day re-tests that are overdue or due
@@ -21,6 +22,16 @@ build_pdf.py into out/to-remarkable/. --send then uploads the questions PDF
 (never the mark scheme) to the "Maths practice" folder with send_remarkable.py.
 
 bank/covered_topics.json is described in covered.py; cover_topic.py edits it.
+
+--pool picks from a fixed pool of done papers instead, ignoring
+covered_topics.json, re-tests and attempts.csv:
+  as-pure      every entry from done 8MA0-01 papers
+  alevel-pure  every entry from done 9MA0-01 and 9MA0-02 papers
+Repeats are avoided with the sent history, out/sets/sent_history.json
+({question id: date last sent}), which is updated only after a successful
+--send. Questions never sent come first (medium/hard, then easy, then
+unrated, as above). Once all of those are used up, the least recently sent
+are reused, oldest first. daily.py builds its exam sheet this way.
 """
 
 import argparse
@@ -39,6 +50,14 @@ from weak_topics import retests_due
 
 QUESTIONS = ROOT / "bank" / "questions.json"
 PROGRESS = ROOT / "bank" / "progress.json"
+
+SENT_HISTORY = ROOT / "out" / "sets" / "sent_history.json"
+
+# Which done papers each --pool draws from.
+POOLS = {
+    "as-pure": {"8MA0-01"},
+    "alevel-pure": {"9MA0-01", "9MA0-02"},
+}
 
 RECENT_DAYS = 21
 # Difficulty groups in the order they are drawn from.
@@ -101,6 +120,83 @@ def pick(candidates, total_marks, rng, retests=()):
     return sorted(picked, key=lambda e: e["id"])
 
 
+# ---------------------------------------------------------------- pools
+
+def pool_entries(entries, pool, approved):
+    """Every entry of the pool's papers that come from a done paper."""
+    papers = POOLS[pool]
+    return [e for e in entries if e["paper"] in papers and (e["paper"], e["series"]) in approved]
+
+
+def read_history(path=SENT_HISTORY):
+    """{question id: date last sent}; empty if nothing has been sent yet."""
+    if not path.is_file():
+        return {}
+    return {qid: date.fromisoformat(day) for qid, day in json.loads(path.read_text(encoding="utf-8")).items()}
+
+
+def record_sent(ids, day, path=SENT_HISTORY):
+    history = read_history(path)
+    history.update({qid: day for qid in ids})
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps({qid: d.isoformat() for qid, d in sorted(history.items())}, indent=2) + "\n",
+                    encoding="utf-8")
+
+
+def pick_from_pool(candidates, total_marks, rng, history):
+    """Never-sent entries first, then the least recently sent.
+
+    Entries are grouped by the date they were last sent, never sent being
+    the oldest, and the groups are drawn from oldest first, adding entries
+    while the total stays within total_marks. So a sent question only goes
+    in once every unsent one is in the set or too big for the marks left.
+    Within a group: medium/hard, then easy, then unrated, each shuffled.
+    """
+    by_day = {}
+    for entry in candidates:
+        by_day.setdefault(history.get(entry["id"], date.min), []).append(entry)
+    picked, marks = [], 0
+    for day in sorted(by_day):
+        for preference in PREFERENCE:
+            pool = [e for e in by_day[day] if e["difficulty"] in preference]
+            rng.shuffle(pool)
+            for entry in pool:
+                if marks + entry["marks"] <= total_marks:
+                    picked.append(entry)
+                    marks += entry["marks"]
+    return sorted(picked, key=lambda e: e["id"])
+
+
+def build_pool_set(pool, marks, name, send=False, seed=None, today=None):
+    """Pick from a pool, build the PDFs and, with send, upload and record them.
+
+    Returns the picked entries. Raises send_remarkable.SendError if the upload fails.
+    """
+    today = today or date.today()
+    entries = json.loads(QUESTIONS.read_text(encoding="utf-8"))
+    candidates = pool_entries(entries, pool, approved_papers())
+    history = read_history()
+    picked = pick_from_pool(candidates, marks, random.Random(seed), history)
+    if not picked:
+        raise SystemExit(f"No questions in pool {pool!r}.")
+    total = sum(e["marks"] for e in picked)
+    unsent = sum(1 for e in candidates if e["id"] not in history)
+    print(f"Pool {pool}: {len(candidates)} parts, {unsent} never sent; "
+          f"picked {len(picked)} for {total} of {marks} marks:")
+    for e in picked:
+        last = history.get(e["id"])
+        print(f"  {e['id']:<26} {e['marks']:>2}  {str(e['difficulty']):<6}  "
+              f"{'sent ' + last.isoformat() if last else '':<16}  {e['topic']}")
+    set_file = ensure_out_dir("sets") / f"{name}.json"
+    set_file.write_text(json.dumps([e["id"] for e in picked], indent=2) + "\n", encoding="utf-8")
+    print(set_file)
+    build_pdf.build([e["id"] for e in picked], name)
+    if send:
+        send_remarkable.send(name)
+        record_sent([e["id"] for e in picked], today)
+    return picked
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--marks", type=int, default=50, help="mark total (default 50)")
@@ -109,6 +205,8 @@ def main():
     parser.add_argument("--dry-run", action="store_true", help="show the pick but build nothing")
     parser.add_argument("--send", action="store_true",
                         help="upload the questions PDF (not the mark scheme) to the reMarkable")
+    parser.add_argument("--pool", choices=sorted(POOLS),
+                        help="pick from a fixed pool with the sent history (ignores covered topics)")
     parser.add_argument("--covered", type=Path, default=COVERED,
                         help="covered-topics file (default bank/covered_topics.json)")
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS,
@@ -126,6 +224,14 @@ def main():
 
     today = date.today()
     name = args.name or f"quick-{today.isoformat()}"
+    if args.pool:
+        if args.dry_run:
+            parser.error("--dry-run isn't available with --pool")
+        try:
+            build_pool_set(args.pool, args.marks, name, args.send, args.seed, today)
+        except send_remarkable.SendError as error:
+            raise SystemExit(str(error))
+        return 0
     entries = json.loads(QUESTIONS.read_text(encoding="utf-8"))
     topics = load_topics()
     attempts = read_attempts(args.attempts)
