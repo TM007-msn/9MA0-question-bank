@@ -12,7 +12,7 @@ past papers, sample assessment materials, mark schemes and examiner reports.
 - `schemas/`: JSON Schemas for bank entries, plus `topics.json` (canonical topics and spec refs, built by `scripts/build_topics.py`; don't edit by hand).
 - `out/to-remarkable/`, `out/from-remarkable/`: worksheets going to the reMarkable, and marked work coming back.
 - `out/review/`: review sheets from `scripts/build_review.py PAPER SERIES`.
-- Worksheets: `scripts/build_pdf.py SETFILE NAME` (SETFILE is a JSON list of ids) builds `NAME_questions.pdf` and `NAME_markscheme.pdf` in `out/to-remarkable/` with Tectonic, from `templates/*.tex`. `--check-all` compiles every bank entry and lists failures; run it after changing LaTeX in `bank/` or the templates. `scripts/quick_set.py [--marks 50]` picks a set from approved papers using `bank/covered_topics.json` (refs by qualification and strand) and builds it.
+- Worksheets: `scripts/build_pdf.py SETFILE NAME` (SETFILE is a JSON list of ids) builds `NAME_questions.pdf` and `NAME_markscheme.pdf` in `out/to-remarkable/` with Tectonic, from `templates/*.tex`. `--check-all` compiles every bank entry and lists failures; run it after changing LaTeX in `bank/` or the templates. `scripts/quick_set.py [--marks 50]` picks a set from approved papers using `bank/covered_topics.json` (refs by qualification and strand) and builds it; `--send` also uploads the questions PDF to the tablet (see "reMarkable upload" under Setup).
 - `log/attempts.csv`: one row per attempt: `date,question_id,topic,marks_awarded,marks_total,error_type`. Add rows only through `scripts/log_attempt.py`, which checks them (error types: knowledge, method, slip, misread, time).
 - Practice loop (worked example in README.md): `scripts/cover_topic.py` edits `bank/covered_topics.json`, `scripts/weak_topics.py` ranks covered refs by marks lost and lists re-tests due. `scripts/covered.py` reads the covered-topics file for all of them.
 - `extraction/`: one draft-builder script per extracted paper (from `_template.py`).
@@ -110,3 +110,18 @@ npm install                 # KaTeX for validate.py's render check (needs Node.j
 python scripts/validate.py
 python -m unittest discover tests
 ```
+
+### reMarkable upload
+`python scripts/quick_set.py --send` builds a set and uploads its questions PDF to the "Maths practice" folder on the tablet; `python scripts/send_remarkable.py NAME` sends a set that's already built. Both use `scripts/send_remarkable.py`, which:
+- sends only `NAME_questions.pdf`, **never the mark scheme**;
+- creates "Maths practice" if it's missing;
+- never overwrites (no `--force`, which would delete handwriting on the tablet copy): if a document with that name is already there, it stops, so rename the set or delete the old one on the tablet.
+
+One-time setup on Windows:
+1. Install rmapi from the maintained fork, https://github.com/ddvk/rmapi (juruen/rmapi is archived). Download `rmapi-win64.zip` from the latest release, check its SHA-256 against the digest on the release page, and put `rmapi.exe` in `C:\Users\taylo\.local\bin` (already on PATH). Installed: v0.0.35.
+2. Pair it: open https://my.remarkable.com/device/browser/connect, get the 8-letter one-time code, run `rmapi` in a terminal and enter the code, then type `exit`. The token is saved in `%APPDATA%\rmapi\rmapi.conf`; nothing else needs a login.
+3. Check: `rmapi ls /` lists the tablet's top-level folders. In Git Bash, run `export MSYS_NO_PATHCONV=1` first, or Git Bash turns `/` into `C:/Program Files/Git/` (send_remarkable.py isn't affected).
+
+Pairing needs a real terminal window: a command run with Claude Code's `!` prefix gets no keyboard input, so rmapi just repeats its code prompt.
+
+An unpaired rmapi asks for a code and, with no input, repeats the question forever, so send_remarkable.py checks for the token first and runs rmapi with stdin closed and a timeout. If uploads start failing with an auth error (e.g. after the device is removed under my.remarkable.com), delete `rmapi.conf` and pair again.

@@ -4,6 +4,7 @@ Usage (from the project root, with the venv active):
     python scripts/quick_set.py                  # 50 marks
     python scripts/quick_set.py --marks 30 --name algebra-mix
     python scripts/quick_set.py --dry-run        # show the pick, build nothing
+    python scripts/quick_set.py --send           # build, then upload the questions PDF
 
 A stopgap until the weekly set builder exists. Re-tests that are due go in
 first: weak_topics.py's 7- and 21-day re-tests that are overdue or due
@@ -16,7 +17,8 @@ is entries from bank/questions.json that
 Medium and hard parts are taken first, then easy, then unrated, each group
 in random order, adding parts while the total stays within the mark total.
 The set is listed in paper order, written to out/sets/NAME.json and built by
-build_pdf.py into out/to-remarkable/.
+build_pdf.py into out/to-remarkable/. --send then uploads the questions PDF
+(never the mark scheme) to the "Maths practice" folder with send_remarkable.py.
 
 bank/covered_topics.json is described in covered.py; cover_topic.py edits it.
 """
@@ -29,6 +31,7 @@ from datetime import date, timedelta
 from pathlib import Path
 
 import build_pdf
+import send_remarkable
 from covered import COVERED, load_covered, load_topics, real_id, strand_of
 from log_attempt import ATTEMPTS, read_attempts
 from paths import ROOT, ensure_out_dir
@@ -104,11 +107,22 @@ def main():
     parser.add_argument("--name", help="set name (default quick-YYYY-MM-DD)")
     parser.add_argument("--seed", type=int, help="random seed, to repeat a pick")
     parser.add_argument("--dry-run", action="store_true", help="show the pick but build nothing")
+    parser.add_argument("--send", action="store_true",
+                        help="upload the questions PDF (not the mark scheme) to the reMarkable")
     parser.add_argument("--covered", type=Path, default=COVERED,
                         help="covered-topics file (default bank/covered_topics.json)")
     parser.add_argument("--attempts", type=Path, default=ATTEMPTS,
                         help="attempts file (default log/attempts.csv)")
     args = parser.parse_args()
+    if args.send and args.dry_run:
+        parser.error("--send needs a built set, so it can't be used with --dry-run")
+    if args.send:
+        # Check before picking and building, so a missing or unpaired rmapi
+        # is reported straight away rather than after the PDFs are built.
+        try:
+            send_remarkable.check_ready()
+        except send_remarkable.SendError as error:
+            raise SystemExit(str(error))
 
     today = date.today()
     name = args.name or f"quick-{today.isoformat()}"
@@ -140,6 +154,11 @@ def main():
     set_file.write_text(json.dumps([e["id"] for e in picked], indent=2) + "\n", encoding="utf-8")
     print(set_file)
     build_pdf.build([e["id"] for e in picked], name)
+    if args.send:
+        try:
+            send_remarkable.send(name)
+        except send_remarkable.SendError as error:
+            raise SystemExit(str(error))
     return 0
 
 

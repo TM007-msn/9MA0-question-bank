@@ -1,0 +1,104 @@
+"""Tests for send_remarkable.py. rmapi is never run: subprocess calls are faked.
+
+Run from the project root:
+    python -m unittest discover tests
+"""
+
+import subprocess
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+from unittest import mock
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "scripts"))
+
+import send_remarkable  # noqa: E402
+from send_remarkable import FOLDER, SendError  # noqa: E402
+
+
+def done(returncode=0, out="", err=""):
+    return subprocess.CompletedProcess([], returncode, out, err)
+
+
+class SendTests(unittest.TestCase):
+    def setUp(self):
+        # A fake out/ with one built set, and a fake paired config file.
+        self.out = Path(tempfile.mkdtemp())
+        sets = self.out / "to-remarkable"
+        sets.mkdir()
+        (sets / "demo_questions.pdf").write_bytes(b"%PDF-1.5")
+        (sets / "demo_markscheme.pdf").write_bytes(b"%PDF-1.5")
+        config = self.out / "rmapi.conf"
+        config.write_text("devicetoken: x\n", encoding="utf-8")
+        for patch in (mock.patch.object(send_remarkable, "OUT_DIR", self.out),
+                      mock.patch.dict("os.environ", {"RMAPI_CONFIG": str(config)}),
+                      mock.patch("shutil.which", return_value="rmapi"),
+                      mock.patch("builtins.print")):
+            patch.start()
+            self.addCleanup(patch.stop)
+
+    def test_only_the_questions_pdf_is_uploaded(self):
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            send_remarkable.send("demo")
+        puts = [c.args[0] for c in run.call_args_list if c.args[0][1] == "put"]
+        self.assertEqual(len(puts), 1)
+        # The bare file name, run from its folder: a full Windows path would
+        # end up in the document's name on the tablet.
+        self.assertEqual(puts[0][2], "demo_questions.pdf")
+        put_call = next(c for c in run.call_args_list if c.args[0][1] == "put")
+        self.assertEqual(put_call.kwargs["cwd"], self.out / "to-remarkable")
+        self.assertEqual(puts[0][3], FOLDER)
+        sent = " ".join(" ".join(c.args[0]) for c in run.call_args_list)
+        self.assertNotIn("markscheme", sent)
+
+    def test_never_forces_an_overwrite(self):
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            send_remarkable.send("demo")
+        for call in run.call_args_list:
+            self.assertNotIn("--force", call.args[0])
+
+    def test_stdin_is_closed(self):
+        # An unpaired rmapi would otherwise wait for a one-time code.
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            send_remarkable.send("demo")
+        for call in run.call_args_list:
+            self.assertIs(call.kwargs["stdin"], subprocess.DEVNULL)
+            self.assertIn("timeout", call.kwargs)
+
+    def test_folder_created_only_when_missing(self):
+        replies = {"stat": done(1, err="entry doesn't exist"), "mkdir": done(), "put": done()}
+        with mock.patch("subprocess.run", side_effect=lambda cmd, **kw: replies[cmd[1]]) as run:
+            send_remarkable.send("demo")
+        self.assertEqual([c.args[0][1] for c in run.call_args_list], ["stat", "mkdir", "put"])
+
+        with mock.patch("subprocess.run", return_value=done()) as run:
+            send_remarkable.send("demo")
+        self.assertEqual([c.args[0][1] for c in run.call_args_list], ["stat", "put"])
+
+    def test_mark_scheme_name_refused(self):
+        with self.assertRaises(SendError):
+            send_remarkable.questions_pdf("demo_markscheme")
+
+    def test_missing_pdf(self):
+        with mock.patch("subprocess.run") as run, self.assertRaises(SendError):
+            send_remarkable.send("nope")
+        run.assert_not_called()
+
+    def test_unpaired_stops_before_running_rmapi(self):
+        with mock.patch.dict("os.environ", {"RMAPI_CONFIG": str(self.out / "absent.conf")}), \
+                mock.patch("subprocess.run") as run, self.assertRaises(SendError):
+            send_remarkable.send("demo")
+        run.assert_not_called()
+
+    def test_failed_put_is_reported(self):
+        replies = {"stat": done(), "put": done(1, err="entry already exists")}
+        with mock.patch("subprocess.run", side_effect=lambda cmd, **kw: replies[cmd[1]]), \
+                self.assertRaises(SendError) as caught:
+            send_remarkable.send("demo")
+        self.assertIn("already exists", str(caught.exception))
+
+
+if __name__ == "__main__":
+    unittest.main()

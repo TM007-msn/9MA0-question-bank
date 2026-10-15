@@ -105,7 +105,9 @@ def main():
     parser.add_argument("--covered", type=Path, default=COVERED,
                         help="covered-topics file (default bank/covered_topics.json)")
     args = parser.parse_args()
-    sys.stdout.reconfigure(errors="replace")
+    # UTF-8 even when piped: on Windows a pipe would otherwise get cp1252
+    # (see cover_topic.py).
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     topics = load_topics()
     attempts = read_attempts(args.attempts)

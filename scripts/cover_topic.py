@@ -119,7 +119,10 @@ def main():
     parser.add_argument("--covered", type=Path, default=COVERED,
                         help="covered-topics file (default bank/covered_topics.json)")
     args = parser.parse_args()
-    sys.stdout.reconfigure(errors="replace")
+    # Piped or redirected output on Windows would otherwise use the locale
+    # code page (cp1252), so "Newton’s laws" reaches a UTF-8 reader as a
+    # stray 0x92 byte. The console itself is unaffected.
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
     # Accept "8MA0 pure 2.3" as one quoted argument too.
     words = " ".join(args.words).split()

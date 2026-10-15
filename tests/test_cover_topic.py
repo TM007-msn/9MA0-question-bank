@@ -5,6 +5,7 @@ Run from the project root:
 """
 
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -56,9 +57,13 @@ class CommandTests(unittest.TestCase):
         self.covered = folder / "covered.json"
 
     def run_script(self, *args):
+        # Drop any PYTHONIOENCODING from the caller's shell: with it set, a
+        # script that writes cp1252 to a pipe would still pass here.
+        env = {k: v for k, v in os.environ.items() if k != "PYTHONIOENCODING"}
         return subprocess.run([sys.executable, str(ROOT / "scripts" / "cover_topic.py"), *args,
                                "--covered", str(self.covered)],
-                              capture_output=True, text=True, encoding="utf-8", stdin=subprocess.DEVNULL)
+                              capture_output=True, text=True, encoding="utf-8", stdin=subprocess.DEVNULL,
+                              env=env)
 
     def test_add_with_yes_writes_the_file(self):
         result = self.run_script("8MA0", "pure", "2.3", "--yes")
